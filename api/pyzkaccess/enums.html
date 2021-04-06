@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="pdoc 6.4.2" />
+    <title>pyzkaccess.enums API documentation</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%2244.5%202.5%2015%2015%22%3E%3Cpath%20d%3D%22M49.351%2021.041c-.233-.721-.546-2.408-.772-4.076-.042-.09-.067-.187-.046-.288-.166-1.347-.277-2.625-.241-3.351-1.378-1.008-2.271-2.586-2.271-4.362%200-.976.272-1.935.788-2.774.057-.094.122-.18.184-.268-.033-.167-.052-.339-.052-.516%200-1.477%201.202-2.679%202.679-2.679.791%200%201.496.352%201.987.9a6.3%206.3%200%200%201%201.001.029c.492-.564%201.207-.929%202.012-.929%201.477%200%202.679%201.202%202.679%202.679a2.65%202.65%200%200%201-.269%201.148c.383.747.595%201.572.595%202.41%200%202.311-1.507%204.29-3.635%205.107.037.699.147%202.27.423%203.294l.137.461c.156%202.136-4.612%205.166-5.199%203.215zm.127-4.919a4.78%204.78%200%200%200%20.775-.584c-.172-.115-.505-.254-.88-.378zm.331%202.302l.828-.502c-.202-.143-.576-.328-.984-.49zm.45%202.157l.701-.403c-.214-.115-.536-.249-.891-.376l.19.779zM49.13%204.141c0%20.152.123.276.276.276s.275-.124.275-.276-.123-.276-.276-.276-.275.124-.275.276zm.735-.389a1.15%201.15%200%200%201%20.314.783%201.16%201.16%200%200%201-1.162%201.162c-.457%200-.842-.27-1.032-.653-.026.117-.042.238-.042.362a1.68%201.68%200%200%200%201.679%201.679%201.68%201.68%200%200%200%201.679-1.679c0-.843-.626-1.535-1.436-1.654zm3.076%201.654a1.68%201.68%200%200%200%201.679%201.679%201.68%201.68%200%200%200%201.679-1.679c0-.037-.009-.072-.011-.109-.21.3-.541.508-.935.508a1.16%201.16%200%200%201-1.162-1.162%201.14%201.14%200%200%201%20.474-.912c-.015%200-.03-.005-.045-.005-.926.001-1.679.754-1.679%201.68zm1.861-1.265c0%20.152.123.276.276.276s.275-.124.275-.276-.123-.276-.276-.276-.275.124-.275.276zm1.823%204.823c0-.52-.103-1.035-.288-1.52-.466.394-1.06.64-1.717.64-1.144%200-2.116-.725-2.499-1.738-.383%201.012-1.355%201.738-2.499%201.738-.867%200-1.631-.421-2.121-1.062-.307.605-.478%201.267-.478%201.942%200%202.486%202.153%204.51%204.801%204.51s4.801-2.023%204.801-4.51zm-3.032%209.156l-.146-.492c-.276-1.02-.395-2.457-.444-3.268a6.11%206.11%200%200%201-1.18.115%206.01%206.01%200%200%201-2.536-.562l.006.175c.802.215%201.848.612%202.021%201.25.079.295-.021.601-.274.837l-.598.501c.667.304%201.243.698%201.311%201.179.02.144.022.507-.393.787l-.564.365c1.285.521%201.361.96%201.381%201.126.018.142.011.496-.427.746l-.854.489c.064-1.19%201.985-2.585%202.697-3.248zM49.34%209.925c0-.667%201-.667%201%200%200%20.653.818%201.205%201.787%201.205s1.787-.552%201.787-1.205c0-.667%201-.667%201%200%200%201.216-1.25%202.205-2.787%202.205s-2.787-.989-2.787-2.205zm-.887-7.633c-.093.077-.205.114-.317.114a.5.5%200%200%201-.318-.886L49.183.397a.5.5%200%200%201%20.703.068.5.5%200%200%201-.069.703zm7.661-.065c-.086%200-.173-.022-.253-.068l-1.523-.893c-.575-.337-.069-1.2.506-.863l1.523.892a.5.5%200%200%201%20.179.685c-.094.158-.261.247-.432.247z%22%20fill%3D%22%233bb300%22/%3E%3C/svg%3E"/>
+
+
+<style type="text/css">/*! * Bootstrap Reboot v5.0.0-beta1 (https://getbootstrap.com/) * Copyright 2011-2020 The Bootstrap Authors * Copyright 2011-2020 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}[tabindex="-1"]:focus:not(:focus-visible){outline:0!important}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus{outline:dotted 1px;outline:-webkit-focus-ring-color auto 5px}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
+<style type="text/css">/*! pygments syntax highlighting */pre{line-height:125%;}td.linenos pre{color:#000000; background-color:#f0f0f0; padding-left:5px; padding-right:5px;}span.linenos{color:#000000; background-color:#f0f0f0; padding-left:5px; padding-right:5px;}td.linenos pre.special{color:#000000; background-color:#ffffc0; padding-left:5px; padding-right:5px;}span.linenos.special{color:#000000; background-color:#ffffc0; padding-left:5px; padding-right:5px;}.pdoc .hll{background-color:#ffffcc}.pdoc{background:#f8f8f8;}.pdoc .c{color:#408080; font-style:italic}.pdoc .err{border:1px solid #FF0000}.pdoc .k{color:#008000; font-weight:bold}.pdoc .o{color:#666666}.pdoc .ch{color:#408080; font-style:italic}.pdoc .cm{color:#408080; font-style:italic}.pdoc .cp{color:#BC7A00}.pdoc .cpf{color:#408080; font-style:italic}.pdoc .c1{color:#408080; font-style:italic}.pdoc .cs{color:#408080; font-style:italic}.pdoc .gd{color:#A00000}.pdoc .ge{font-style:italic}.pdoc .gr{color:#FF0000}.pdoc .gh{color:#000080; font-weight:bold}.pdoc .gi{color:#00A000}.pdoc .go{color:#888888}.pdoc .gp{color:#000080; font-weight:bold}.pdoc .gs{font-weight:bold}.pdoc .gu{color:#800080; font-weight:bold}.pdoc .gt{color:#0044DD}.pdoc .kc{color:#008000; font-weight:bold}.pdoc .kd{color:#008000; font-weight:bold}.pdoc .kn{color:#008000; font-weight:bold}.pdoc .kp{color:#008000}.pdoc .kr{color:#008000; font-weight:bold}.pdoc .kt{color:#B00040}.pdoc .m{color:#666666}.pdoc .s{color:#BA2121}.pdoc .na{color:#7D9029}.pdoc .nb{color:#008000}.pdoc .nc{color:#0000FF; font-weight:bold}.pdoc .no{color:#880000}.pdoc .nd{color:#AA22FF}.pdoc .ni{color:#999999; font-weight:bold}.pdoc .ne{color:#D2413A; font-weight:bold}.pdoc .nf{color:#0000FF}.pdoc .nl{color:#A0A000}.pdoc .nn{color:#0000FF; font-weight:bold}.pdoc .nt{color:#008000; font-weight:bold}.pdoc .nv{color:#19177C}.pdoc .ow{color:#AA22FF; font-weight:bold}.pdoc .w{color:#bbbbbb}.pdoc .mb{color:#666666}.pdoc .mf{color:#666666}.pdoc .mh{color:#666666}.pdoc .mi{color:#666666}.pdoc .mo{color:#666666}.pdoc .sa{color:#BA2121}.pdoc .sb{color:#BA2121}.pdoc .sc{color:#BA2121}.pdoc .dl{color:#BA2121}.pdoc .sd{color:#BA2121; font-style:italic}.pdoc .s2{color:#BA2121}.pdoc .se{color:#BB6622; font-weight:bold}.pdoc .sh{color:#BA2121}.pdoc .si{color:#BB6688; font-weight:bold}.pdoc .sx{color:#008000}.pdoc .sr{color:#BB6688}.pdoc .s1{color:#BA2121}.pdoc .ss{color:#19177C}.pdoc .bp{color:#008000}.pdoc .fm{color:#0000FF}.pdoc .vc{color:#19177C}.pdoc .vg{color:#19177C}.pdoc .vi{color:#19177C}.pdoc .vm{color:#19177C}.pdoc .il{color:#666666}</style>
+<style type="text/css">/*! pdoc */:root{--pdoc-background:#fff;}.pdoc{--text:#212529;--muted:#6c757d;--link:#3660a5;--link-hover:#1659c5;--code:#f7f7f7;--active:#fff598;--accent:#eee;--accent2:#c1c1c1;--nav-hover:rgba(255, 255, 255, 0.5);--name:#0066BB;--def:#008800;--annotation:#007020;}body{background-color:var(--pdoc-background);}html, body{width:100%;height:100%;}@media (max-width:769px){#navtoggle{cursor:pointer;position:absolute;width:50px;height:40px;top:1rem;right:1rem;border-color:var(--text);color:var(--text);display:flex;opacity:0.8;}#navtoggle:hover{opacity:1;}#togglestate + div{display:none;}#togglestate:checked + div{display:inherit;}main{padding:2rem 3vw;}.git-button{display:none !important;}}@media (min-width:770px){:root{--sidebar-width:clamp(12.5rem, 28vw, 22rem);}nav{position:fixed;overflow:auto;height:100vh;width:var(--sidebar-width);}main{padding:3rem 2rem 3rem calc(var(--sidebar-width) + 3rem);width:calc(54rem + var(--sidebar-width));max-width:100%;}#navtoggle{display:none;}}#togglestate{display:none;}nav.pdoc{--pad:1.75rem;--indent:1.5rem;background-color:var(--accent);border-right:1px solid var(--accent2);box-shadow:0 0 20px rgba(50, 50, 50, .2) inset;padding:0 0 0 var(--pad);overflow-wrap:anywhere;scrollbar-width:thin; scrollbar-color:var(--accent2) transparent }nav.pdoc::-webkit-scrollbar{width:.4rem; }nav.pdoc::-webkit-scrollbar-thumb{background-color:var(--accent2); }nav.pdoc > div{padding:var(--pad) 0;}nav.pdoc .module-list-button{display:inline-flex;align-items:center;color:var(--text);border-color:var(--muted);margin-bottom:1rem;}nav.pdoc .module-list-button:hover{border-color:var(--text);}nav.pdoc ul{list-style:none;padding-left:0;}nav.pdoc li{display:block;margin:0;padding:.2rem 0 .2rem var(--indent);transition:all 100ms;}nav.pdoc > div > ul > li{padding-left:0;}nav.pdoc li:hover{background-color:var(--nav-hover);}nav.pdoc a, nav.pdoc a:hover{color:var(--text);}nav.pdoc a{display:block;}nav.pdoc > h2:first-of-type{margin-top:1.5rem;}nav.pdoc .class:before{content:"class ";color:var(--muted);}nav.pdoc .function:after{content:"()";color:var(--muted);}html, main{scroll-behavior:smooth;}.pdoc{color:var(--text);box-sizing:border-box;line-height:1.5;background:none;}.pdoc .pdoc-button{display:inline-block;border:solid black 1px;border-radius:2px;font-size:.75rem;padding:calc(0.5em - 1px) 1em;transition:100ms all;}.pdoc .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important;border:0 !important;}.pdoc h1, .pdoc h2, .pdoc h3, .pdoc h4{font-weight:300;margin:.3em 0;padding:.2em 0;}.pdoc a{text-decoration:none;color:var(--link);}.pdoc a:hover{color:var(--link-hover);}.pdoc blockquote{margin-left:2rem;}.pdoc pre{background-color:var(--code);border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto;}.pdoc code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--code);border-radius:6px;}.pdoc a > code{color:inherit;}.pdoc pre > code{display:inline-block;font-size:inherit;background:none;border:none;padding:0;}.pdoc .modulename{margin-top:0;font-weight:bold;}.pdoc .modulename a{color:var(--link);transition:100ms all;}.pdoc .git-button{float:right;border:solid var(--link) 1px;}.pdoc .git-button:hover{background-color:var(--link);color:var(--pdoc-background);}.pdoc details{--shift:-40px;text-align:right;margin-top:var(--shift);margin-bottom:calc(0px - var(--shift));clear:both;filter:opacity(1);}.pdoc details:not([open]){height:0;overflow:visible;}.pdoc details > summary{font-size:.75rem;cursor:pointer;color:var(--muted);border-width:0;padding:0 .7em;display:inline-block;display:inline list-item;user-select:none;}.pdoc details > summary:focus{outline:0;}.pdoc details > div{margin-top:calc(0px - var(--shift) / 2);text-align:left;}.pdoc .docstring{margin-bottom:1.5rem;}.pdoc > section:first-of-type > .docstring{margin-bottom:3rem;}.pdoc .docstring pre{margin-left:1em;margin-right:1em;}.pdoc h1:target,.pdoc h2:target,.pdoc h3:target,.pdoc h4:target,.pdoc h5:target,.pdoc h6:target{background-color:var(--active);box-shadow:-1rem 0 0 0 var(--active);}.pdoc div:target > .attr,.pdoc section:target > .attr,.pdoc dd:target > a{background-color:var(--active);}.pdoc .attr:hover{filter:contrast(0.95);}.pdoc .headerlink{position:absolute;width:0;margin-left:-1.5rem;line-height:1.4rem;font-size:1.5rem;font-weight:normal;transition:all 100ms ease-in-out;opacity:0;}.pdoc .attr > .headerlink{margin-left:-2.5rem;}.pdoc *:hover > .headerlink,.pdoc *:target > .attr > .headerlink{opacity:1;}.pdoc .attr{color:var(--text);margin:1rem 0 .5rem;padding:.4rem 5rem .4rem 1rem;background-color:var(--accent);}.pdoc .classattr{margin-left:2rem;}.pdoc .name{color:var(--name);font-weight:bold;}.pdoc .def{color:var(--def);font-weight:bold;}.pdoc .signature{white-space:pre-wrap;}.pdoc .annotation{color:var(--annotation);}.pdoc .inherited{margin-left:2rem;}.pdoc .inherited dt{font-weight:700;}.pdoc .inherited dt, .pdoc .inherited dd{display:inline;margin-left:0;margin-bottom:.5rem;}.pdoc .inherited dd:not(:last-child):after{content:", ";}.pdoc .inherited .class:before{content:"class ";}.pdoc .inherited .function a:after{content:"()";}.pdoc .attribution{margin-top:2rem;display:block;opacity:0.5;transition:all 200ms;filter:grayscale(100%);}.pdoc .attribution:hover{opacity:1;filter:grayscale(0%);}.pdoc .attribution img{margin-left:5px;height:35px;vertical-align:middle;width:70px;transition:all 200ms;}</style>
+</head>
+<body>        <nav class="pdoc">
+            <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
+            <input id="togglestate" type="checkbox">
+            <div>
+                        <a class="pdoc-button module-list-button" href="../pyzkaccess.html">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+  <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+</svg>                            &nbsp;pyzkaccess</a>
+
+
+
+
+                    <h2>API Documentation</h2>
+                        <ul class="memberlist">
+            <li>
+                    <a class="class" href="#ControlOperation">ControlOperation</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#ControlOperation.output">output</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ControlOperation.cancel_alarm">cancel_alarm</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ControlOperation.restart">restart</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#RelayGroup">RelayGroup</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#RelayGroup.lock">lock</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#RelayGroup.aux">aux</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#SensorType">SensorType</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#SensorType.not_available">not_available</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#SensorType.normal_open">normal_open</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#SensorType.normal_closed">normal_closed</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#VerifyMode">VerifyMode</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#VerifyMode.not_available">not_available</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#VerifyMode.only_finger">only_finger</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#VerifyMode.only_password">only_password</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#VerifyMode.only_card">only_card</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#VerifyMode.card_or_finger">card_or_finger</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#VerifyMode.card_and_finger">card_and_finger</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#VerifyMode.card_and_password">card_and_password</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#VerifyMode.others">others</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#PassageDirection">PassageDirection</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#PassageDirection.entry">entry</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#PassageDirection.exit">exit</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#PassageDirection.none">none</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="variable" href="#EVENT_TYPES">EVENT_TYPES</a>
+            </li>
+            <li>
+                    <a class="variable" href="#PULL_SDK_ERRORS">PULL_SDK_ERRORS</a>
+            </li>
+            <li>
+                    <a class="variable" href="#WSA_ERROR_CODES">WSA_ERROR_CODES</a>
+            </li>
+    </ul>
+
+
+                    <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
+                        built with <span class="visually-hidden">pdoc</span><img
+                            alt="pdoc logo"
+                            src="data:image/svg+xml,%3Csvg%20width%3D%22300%22%20height%3D%22150%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%0A%20%3Cg%3E%0A%20%20%3Ctitle%3ELayer%201%3C/title%3E%0A%20%20%3Ctext%20transform%3D%22matrix%281%2C%200%2C%200%2C%201%2C%200%2C%200%29%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20xml%3Aspace%3D%22preserve%22%20text-anchor%3D%22start%22%20font-family%3D%22serif%22%20font-size%3D%2247%22%20id%3D%22svg_2%22%20y%3D%2291.5%22%20x%3D%2217.20833%22%20opacity%3D%22undefined%22%20stroke-width%3D%220%22%20stroke%3D%22%23000%22%20fill%3D%22%23000000%22%3Epyzkaccess%3C/text%3E%0A%20%3C/g%3E%0A%3C/svg%3E"/>
+                    </a>
+            </div>
+        </nav>
+    <main class="pdoc">
+            <section>
+                    <h1 class="modulename">
+<a href="./../pyzkaccess.html">pyzkaccess</a>.enums    </h1>
+
+                
+                        <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;ControlOperation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RelayGroup&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SensorType&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;VerifyMode&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PassageDirection&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;EVENT_TYPES&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PULL_SDK_ERRORS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WSA_ERROR_CODES&#39;</span>
+<span class="p">]</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">DocDict</span>
+
+
+<span class="k">class</span> <span class="nc">ControlOperation</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Device control operation. See `ControlOperation` SDK func docs&quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cancel_alarm</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">restart</span> <span class="o">=</span> <span class="mi">3</span>
+
+
+<span class="k">class</span> <span class="nc">RelayGroup</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Device relay group.</span>
+<span class="sd">    There are either lock relays (door output) or aux relays</span>
+<span class="sd">    (aux output)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">aux</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">class</span> <span class="nc">SensorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sensor type of door. See DoorXSensorType parameter in SDK docs&quot;&quot;&quot;</span>
+    <span class="n">not_available</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">normal_open</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">normal_closed</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">class</span> <span class="nc">VerifyMode</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Which methods are used to authenticate user.</span>
+<span class="sd">    See `DoorXVerifyType` parameter in SDK docs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">not_available</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">only_finger</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">only_password</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">only_card</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">card_or_finger</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">card_and_finger</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">card_and_password</span> <span class="o">=</span> <span class="mi">11</span>
+    <span class="n">others</span> <span class="o">=</span> <span class="mi">200</span>
+
+
+<span class="k">class</span> <span class="nc">PassageDirection</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Whether a user was entered or exited via door</span>
+<span class="sd">    See event format description in SDK docs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">exit</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">none</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="c1">#: Type of event which is returned by GetRTLog function</span>
+<span class="c1">#: See event format description in SDK docs</span>
+<span class="n">EVENT_TYPES</span> <span class="o">=</span> <span class="n">DocDict</span><span class="p">({</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Normal Punch Open&#39;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Punch during Normal Open Time Zone&#39;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;First Card Normal Open (Punch Card)&#39;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Multi-Card Open (Punching Card)&#39;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Emergency Password Open&#39;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Open during Normal Open Time Zone&#39;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;Linkage Event Triggered&#39;</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;Cancel Alarm&#39;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;Remote Opening&#39;</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;Remote Closing&#39;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;Disable Intraday Normal Open Time Zone&#39;</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;Enable Intraday Normal Open Time Zone&#39;</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;Open Auxiliary Output&#39;</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;Close Auxiliary Output&#39;</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;Press Fingerprint Open&#39;</span><span class="p">,</span>
+    <span class="mi">15</span><span class="p">:</span> <span class="s1">&#39;Multi-Card Open (Press Fingerprint)&#39;</span><span class="p">,</span>
+    <span class="mi">16</span><span class="p">:</span> <span class="s1">&#39;Press Fingerprint during Normal Open Time Zone&#39;</span><span class="p">,</span>
+    <span class="mi">17</span><span class="p">:</span> <span class="s1">&#39;Card plus Fingerprint Open&#39;</span><span class="p">,</span>
+    <span class="mi">18</span><span class="p">:</span> <span class="s1">&#39;First Card Normal Open (Press Fingerprint)&#39;</span><span class="p">,</span>
+    <span class="mi">19</span><span class="p">:</span> <span class="s1">&#39;First Card Normal Open (Card plus Fingerprint)&#39;</span><span class="p">,</span>
+    <span class="mi">20</span><span class="p">:</span> <span class="s1">&#39;Too Short Punch Interval&#39;</span><span class="p">,</span>
+    <span class="mi">21</span><span class="p">:</span> <span class="s1">&#39;Door Inactive Time Zone (Punch Card)&#39;</span><span class="p">,</span>
+    <span class="mi">22</span><span class="p">:</span> <span class="s1">&#39;Illegal Time Zone&#39;</span><span class="p">,</span>
+    <span class="mi">23</span><span class="p">:</span> <span class="s1">&#39;Access Denied&#39;</span><span class="p">,</span>
+    <span class="mi">24</span><span class="p">:</span> <span class="s1">&#39;Anti-Passback&#39;</span><span class="p">,</span>
+    <span class="mi">25</span><span class="p">:</span> <span class="s1">&#39;Interlock&#39;</span><span class="p">,</span>
+    <span class="mi">26</span><span class="p">:</span> <span class="s1">&#39;Multi-Card Authentication (Punching Card)&#39;</span><span class="p">,</span>
+    <span class="mi">27</span><span class="p">:</span> <span class="s1">&#39;Unregistered Card&#39;</span><span class="p">,</span>
+    <span class="mi">28</span><span class="p">:</span> <span class="s1">&#39;Opening Timeout&#39;</span><span class="p">,</span>
+    <span class="mi">29</span><span class="p">:</span> <span class="s1">&#39;Card Expired&#39;</span><span class="p">,</span>
+    <span class="mi">30</span><span class="p">:</span> <span class="s1">&#39;Password Error&#39;</span><span class="p">,</span>
+    <span class="mi">31</span><span class="p">:</span> <span class="s1">&#39;Too Short Fingerprint Pressing Interval&#39;</span><span class="p">,</span>
+    <span class="mi">32</span><span class="p">:</span> <span class="s1">&#39;Multi-Card Authentication (Press Fingerprint)&#39;</span><span class="p">,</span>
+    <span class="mi">33</span><span class="p">:</span> <span class="s1">&#39;Fingerprint Expired&#39;</span><span class="p">,</span>
+    <span class="mi">34</span><span class="p">:</span> <span class="s1">&#39;Unregistered Fingerprint&#39;</span><span class="p">,</span>
+    <span class="mi">35</span><span class="p">:</span> <span class="s1">&#39;Door Inactive Time Zone (Press Fingerprint)&#39;</span><span class="p">,</span>
+    <span class="mi">36</span><span class="p">:</span> <span class="s1">&#39;Door Inactive Time Zone (Exit Button)&#39;</span><span class="p">,</span>
+    <span class="mi">37</span><span class="p">:</span> <span class="s1">&#39;Failed to Close during Normal Open Time Zone&#39;</span><span class="p">,</span>
+    <span class="mi">101</span><span class="p">:</span> <span class="s1">&#39;Duress Password Open&#39;</span><span class="p">,</span>
+    <span class="mi">102</span><span class="p">:</span> <span class="s1">&#39;Opened Accidentally&#39;</span><span class="p">,</span>
+    <span class="mi">103</span><span class="p">:</span> <span class="s1">&#39;Duress Fingerprint Open&#39;</span><span class="p">,</span>
+    <span class="mi">200</span><span class="p">:</span> <span class="s1">&#39;Door Opened Correctly&#39;</span><span class="p">,</span>
+    <span class="mi">201</span><span class="p">:</span> <span class="s1">&#39;Door Closed Correctly&#39;</span><span class="p">,</span>
+    <span class="mi">202</span><span class="p">:</span> <span class="s1">&#39;Exit button Open&#39;</span><span class="p">,</span>
+    <span class="mi">203</span><span class="p">:</span> <span class="s1">&#39;Multi-Card Open (Card plus Fingerprint)&#39;</span><span class="p">,</span>
+    <span class="mi">204</span><span class="p">:</span> <span class="s1">&#39;Normal Open Time Zone Over&#39;</span><span class="p">,</span>
+    <span class="mi">205</span><span class="p">:</span> <span class="s1">&#39;Remote Normal Opening&#39;</span><span class="p">,</span>
+    <span class="mi">220</span><span class="p">:</span> <span class="s1">&#39;Auxiliary Input Disconnected&#39;</span><span class="p">,</span>
+    <span class="mi">221</span><span class="p">:</span> <span class="s1">&#39;Auxiliary Input Shorted&#39;</span><span class="p">,</span>
+    <span class="mi">255</span><span class="p">:</span> <span class="s1">&#39;Actually that obtain door status and alarm status&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+
+
+<span class="c1">#: Errors which SDK functions may return. See errors description in SDK</span>
+<span class="n">PULL_SDK_ERRORS</span> <span class="o">=</span> <span class="n">DocDict</span><span class="p">({</span>
+    <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;The command is not sent successfully&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;The command has no response&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;The buffer is not enough&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;The decompression fails&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;The length of the read data is not correct&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">6</span><span class="p">:</span> <span class="s1">&#39;The length of the decompressed data is not consistent with the expected length&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">7</span><span class="p">:</span> <span class="s1">&#39;The command is repeated&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">8</span><span class="p">:</span> <span class="s1">&#39;The connection is not authorized&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">9</span><span class="p">:</span> <span class="s1">&#39;Data error: The CRC result is failure&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;Data error: PullSDK cannot resolve the data&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">11</span><span class="p">:</span> <span class="s1">&#39;Data parameter error&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">12</span><span class="p">:</span> <span class="s1">&#39;The command is not executed correctly&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">13</span><span class="p">:</span> <span class="s1">&#39;Command error: This command is not available&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">14</span><span class="p">:</span> <span class="s1">&#39;The communication password is not correct&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">15</span><span class="p">:</span> <span class="s1">&#39;Fail to write the file&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">16</span><span class="p">:</span> <span class="s1">&#39;Fail to read the file&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">17</span><span class="p">:</span> <span class="s1">&#39;The file does not exist&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">99</span><span class="p">:</span> <span class="s1">&#39;Unknown error&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">100</span><span class="p">:</span> <span class="s1">&#39;The table structure does not exist&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">101</span><span class="p">:</span> <span class="s1">&#39;In the table structure, the Condition field does not exit&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">102</span><span class="p">:</span> <span class="s1">&#39;The total number of fields is not consistent&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">103</span><span class="p">:</span> <span class="s1">&#39;The sequence of fields is not consistent&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">104</span><span class="p">:</span> <span class="s1">&#39;Real-time event data error&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">105</span><span class="p">:</span> <span class="s1">&#39;Data errors occur during data resolution.&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">106</span><span class="p">:</span> <span class="s1">&#39;Data overflow: The delivered data is more than 4 MB in length&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">107</span><span class="p">:</span> <span class="s1">&#39;Fail to get the table structure&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">108</span><span class="p">:</span> <span class="s1">&#39;Invalid options&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">201</span><span class="p">:</span> <span class="s1">&#39;LoadLibrary failure&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">202</span><span class="p">:</span> <span class="s1">&#39;Fail to invoke the interface&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">203</span><span class="p">:</span> <span class="s1">&#39;Communication initialization fails&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">206</span><span class="p">:</span> <span class="s1">&#39;Start of a serial interface agent program fails and the cause generally relies in &#39;</span>
+          <span class="s1">&#39;inexistence or occupation of the serial interface.&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">301</span><span class="p">:</span> <span class="s1">&#39;Requested TCP/IP version error&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">302</span><span class="p">:</span> <span class="s1">&#39;Incorrect version number&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">303</span><span class="p">:</span> <span class="s1">&#39;Fail to get the protocol type&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">304</span><span class="p">:</span> <span class="s1">&#39;Invalid SOCKET&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">305</span><span class="p">:</span> <span class="s1">&#39;SOCKET error&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">306</span><span class="p">:</span> <span class="s1">&#39;HOST error&#39;</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">307</span><span class="p">:</span> <span class="s1">&#39;Connection attempt failed&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="c1">#: SDK functions can also return WINSOCK errors using `PullLastError`</span>
+<span class="c1">#: function. See SDK docs and MSDN</span>
+<span class="n">WSA_ERROR_CODES</span> <span class="o">=</span> <span class="n">DocDict</span><span class="p">({</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;WSA_INVALID_HANDLE (Specified event object handle is invalid. An application attempts to &quot;</span>
+       <span class="s2">&quot;use an event object, but the specified handle is not valid)&quot;</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;WSA_NOT_ENOUGH_MEMORY (Insufficient memory available. An application used a Windows &quot;</span>
+       <span class="s2">&quot;Sockets function that directly maps to a Windows function. The Windows function is &quot;</span>
+       <span class="s2">&quot;indicating a lack of required memory resources)&quot;</span><span class="p">,</span>
+    <span class="mi">87</span><span class="p">:</span> <span class="s2">&quot;WSA_INVALID_PARAMETER (One or more parameters are invalid. An application used a Windows &quot;</span>
+        <span class="s2">&quot;Sockets function which directly maps to a Windows function. The Windows function is &quot;</span>
+        <span class="s2">&quot;indicating a problem with one or more parameters)&quot;</span><span class="p">,</span>
+    <span class="mi">995</span><span class="p">:</span> <span class="s2">&quot;WSA_OPERATION_ABORTED (Overlapped operation aborted. An overlapped operation was &quot;</span>
+         <span class="s2">&quot;canceled due to the closure of the socket, or the execution of the SIO_FLUSH command &quot;</span>
+         <span class="s2">&quot;in WSAIoctl)&quot;</span><span class="p">,</span>
+    <span class="mi">996</span><span class="p">:</span> <span class="s2">&quot;WSA_IO_INCOMPLETE (Overlapped I/O event object not in signaled state. The application &quot;</span>
+         <span class="s2">&quot;has tried to determine the status of an overlapped operation which is not yet completed. &quot;</span>
+         <span class="s2">&quot;Applications that use WSAGetOverlappedResult (with the fWait flag set to FALSE) in a &quot;</span>
+         <span class="s2">&quot;polling mode to determine when an overlapped operation has completed, get this error &quot;</span>
+         <span class="s2">&quot;code until the operation is complete)&quot;</span><span class="p">,</span>
+    <span class="mi">997</span><span class="p">:</span> <span class="s2">&quot;WSA_IO_PENDING (Overlapped operations will complete later.  The application has &quot;</span>
+         <span class="s2">&quot;initiated an overlapped operation that cannot be completed immediately. A completion &quot;</span>
+         <span class="s2">&quot;indication will be given later when the operation has been completed)&quot;</span><span class="p">,</span>
+    <span class="mi">10004</span><span class="p">:</span> <span class="s2">&quot;WSAEINTR (Interrupted function call. A blocking operation was interrupted by a call &quot;</span>
+           <span class="s2">&quot;to WSACancelBlockingCall)&quot;</span><span class="p">,</span>
+    <span class="mi">10009</span><span class="p">:</span> <span class="s2">&quot;WSAEBADF (File handle is not valid. The file handle supplied is not valid)&quot;</span><span class="p">,</span>
+    <span class="mi">10013</span><span class="p">:</span> <span class="s2">&quot;WSAEACCES (Permission denied. An attempt was made to access a socket in a way &quot;</span>
+           <span class="s2">&quot;forbidden by its access permissions. An example is using a broadcast address for &quot;</span>
+           <span class="s2">&quot;sendto without broadcast permission being set using setsockopt(SO_BROADCAST). &quot;</span>
+           <span class="s2">&quot;Another possible reason for the WSAEACCES error is that when the bind function &quot;</span>
+           <span class="s2">&quot;is called (on Windows NT 4.0 with SP4 and later), another application, service, &quot;</span>
+           <span class="s2">&quot;or kernel mode driver is bound to the same address with exclusive access. Such &quot;</span>
+           <span class="s2">&quot;exclusive access is a new feature of Windows NT 4.0 with SP4 and later, and is &quot;</span>
+           <span class="s2">&quot;implemented by using the SO_EXCLUSIVEADDRUSE option)&quot;</span><span class="p">,</span>
+    <span class="mi">10014</span><span class="p">:</span> <span class="s2">&quot;WSAEFAULT (Bad address. The system detected an invalid pointer address in &quot;</span>
+           <span class="s2">&quot;attempting to use a pointer argument of a call. This error occurs if an application &quot;</span>
+           <span class="s2">&quot;passes an invalid pointer value, or if the length of the buffer is too small. &quot;</span>
+           <span class="s2">&quot;For instance, if the length of an argument, which is a sockaddr structure, is &quot;</span>
+           <span class="s2">&quot;smaller than the sizeof(sockaddr))&quot;</span><span class="p">,</span>
+    <span class="mi">10022</span><span class="p">:</span> <span class="s2">&quot;WSAEINVAL (Invalid argument. Some invalid argument was supplied (for example, &quot;</span>
+           <span class="s2">&quot;specifying an invalid level to the setsockopt function). In some instances, it &quot;</span>
+           <span class="s2">&quot;also refers to the current state of the socket—for instance, calling accept on &quot;</span>
+           <span class="s2">&quot;a socket that is not listening)&quot;</span><span class="p">,</span>
+    <span class="mi">10024</span><span class="p">:</span> <span class="s2">&quot;WSAEMFILE (Too many open files. Too many open sockets. Each implementation may &quot;</span>
+           <span class="s2">&quot;have a maximum number of socket handles available, either globally, per process, &quot;</span>
+           <span class="s2">&quot;or per thread)&quot;</span><span class="p">,</span>
+    <span class="mi">10035</span><span class="p">:</span> <span class="s2">&quot;WSAEWOULDBLOCK (Resource temporarily unavailable. This error is returned from &quot;</span>
+           <span class="s2">&quot;operations on nonblocking sockets that cannot be completed immediately, for &quot;</span>
+           <span class="s2">&quot;example recv when no data is queued to be read from the socket. It is a nonfatal &quot;</span>
+           <span class="s2">&quot;error, and the operation should be retried later. It is normal for WSAEWOULDBLOCK &quot;</span>
+           <span class="s2">&quot;to be reported as the result from calling connect on a nonblocking SOCK_STREAM &quot;</span>
+           <span class="s2">&quot;socket, since some time must elapse for the connection to be established)&quot;</span><span class="p">,</span>
+    <span class="mi">10036</span><span class="p">:</span> <span class="s2">&quot;WSAEINPROGRESS (Operation now in progress. A blocking operation is currently &quot;</span>
+           <span class="s2">&quot;executing. Windows Sockets only allows a single blocking operation—per- task or &quot;</span>
+           <span class="s2">&quot;thread—to be outstanding, and if any other function call is made (whether or &quot;</span>
+           <span class="s2">&quot;not it references that or any other socket) the function fails with the &quot;</span>
+           <span class="s2">&quot;WSAEINPROGRESS error)&quot;</span><span class="p">,</span>
+    <span class="mi">10037</span><span class="p">:</span> <span class="s2">&quot;WSAEALREADY (Operation already in progress. An operation was attempted on a &quot;</span>
+           <span class="s2">&quot;nonblocking socket with an operation already in progress—that is, calling connect &quot;</span>
+           <span class="s2">&quot;a second time on a nonblocking socket that is already connecting, or canceling &quot;</span>
+           <span class="s2">&quot;an asynchronous request (WSAAsyncGetXbyY) that has already been canceled or &quot;</span>
+           <span class="s2">&quot;completed)&quot;</span><span class="p">,</span>
+    <span class="mi">10038</span><span class="p">:</span> <span class="s2">&quot;WSAENOTSOCK (Socket operation on nonsocket. An operation was attempted on &quot;</span>
+           <span class="s2">&quot;something that is not a socket. Either the socket handle parameter did not &quot;</span>
+           <span class="s2">&quot;reference a valid socket, or for select, a member of an fd_set was not valid)&quot;</span><span class="p">,</span>
+    <span class="mi">10039</span><span class="p">:</span> <span class="s2">&quot;WSAEDESTADDRREQ (Destination address required. A required address was omitted &quot;</span>
+           <span class="s2">&quot;from an operation on a socket. For example, this error is returned if sendto &quot;</span>
+           <span class="s2">&quot;is called with the remote address of ADDR_ANY)&quot;</span><span class="p">,</span>
+    <span class="mi">10040</span><span class="p">:</span> <span class="s2">&quot;WSAEMSGSIZE (Message too long. A message sent on a datagram socket was larger &quot;</span>
+           <span class="s2">&quot;than the internal message buffer or some other network limit, or the buffer used &quot;</span>
+           <span class="s2">&quot;to receive a datagram was smaller than the datagram itself)&quot;</span><span class="p">,</span>
+    <span class="mi">10041</span><span class="p">:</span> <span class="s2">&quot;WSAEPROTOTYPE (Protocol wrong type for socket. A protocol was specified in the &quot;</span>
+           <span class="s2">&quot;socket function call that does not support the semantics of the socket type &quot;</span>
+           <span class="s2">&quot;requested. For example, the ARPA Internet UDP protocol cannot be specified with &quot;</span>
+           <span class="s2">&quot;a socket type of SOCK_STREAM)&quot;</span><span class="p">,</span>
+    <span class="mi">10042</span><span class="p">:</span> <span class="s2">&quot;WSAENOPROTOOPT (Bad protocol option. An unknown, invalid or unsupported option &quot;</span>
+           <span class="s2">&quot;or level was specified in a getsockopt or setsockopt call)&quot;</span><span class="p">,</span>
+    <span class="mi">10043</span><span class="p">:</span> <span class="s2">&quot;WSAEPROTONOSUPPORT (Protocol not supported. The requested protocol has not been &quot;</span>
+           <span class="s2">&quot;configured into the system, or no implementation for it exists. For example, a &quot;</span>
+           <span class="s2">&quot;socket call requests a SOCK_DGRAM socket, but specifies a stream protocol)&quot;</span><span class="p">,</span>
+    <span class="mi">10044</span><span class="p">:</span> <span class="s2">&quot;WSAESOCKTNOSUPPORT (Socket type not supported. The support for the specified &quot;</span>
+           <span class="s2">&quot;socket type does not exist in this address family. For example, the optional &quot;</span>
+           <span class="s2">&quot;type SOCK_RAW might be selected in a socket call, and the implementation does &quot;</span>
+           <span class="s2">&quot;not support SOCK_RAW sockets at all)&quot;</span><span class="p">,</span>
+    <span class="mi">10045</span><span class="p">:</span> <span class="s2">&quot;WSAEOPNOTSUPP (Operation not supported. The attempted operation is not supported &quot;</span>
+           <span class="s2">&quot;for the type of object referenced. Usually this occurs when a socket descriptor &quot;</span>
+           <span class="s2">&quot;to a socket that cannot support this operation is trying to accept a connection &quot;</span>
+           <span class="s2">&quot;on a datagram socket)&quot;</span><span class="p">,</span>
+    <span class="mi">10046</span><span class="p">:</span> <span class="s2">&quot;WSAEPFNOSUPPORT (Protocol family not supported. The protocol family has not been &quot;</span>
+           <span class="s2">&quot;configured into the system or no implementation for it exists. This message has &quot;</span>
+           <span class="s2">&quot;a slightly different meaning from WSAEAFNOSUPPORT. However, it is interchangeable &quot;</span>
+           <span class="s2">&quot;in most cases, and all Windows Sockets functions that return one of these messages &quot;</span>
+           <span class="s2">&quot;also specify WSAEAFNOSUPPORT)&quot;</span><span class="p">,</span>
+    <span class="mi">10047</span><span class="p">:</span> <span class="s2">&quot;WSAEAFNOSUPPORT (Address family not supported by protocol family. An address &quot;</span>
+           <span class="s2">&quot;incompatible with the requested protocol was used. All sockets are created with &quot;</span>
+           <span class="s2">&quot;an associated address family (that is, AF_INET for Internet Protocols) and a &quot;</span>
+           <span class="s2">&quot;generic protocol type (that is, SOCK_STREAM). This error is returned if an &quot;</span>
+           <span class="s2">&quot;incorrect protocol is explicitly requested in the socket call, or if an address &quot;</span>
+           <span class="s2">&quot;of the wrong family is used for a socket, for example, in sendto)&quot;</span><span class="p">,</span>
+    <span class="mi">10048</span><span class="p">:</span> <span class="s2">&quot;WSAEADDRINUSE (Address already in use. Typically, only one usage of each socket &quot;</span>
+           <span class="s2">&quot;address (protocol/IP address/port) is permitted. This error occurs if an &quot;</span>
+           <span class="s2">&quot;application attempts to bind a socket to an IP address/port that has already &quot;</span>
+           <span class="s2">&quot;been used for an existing socket, or a socket that was not closed properly, or &quot;</span>
+           <span class="s2">&quot;one that is still in the process of closing. For server applications that need &quot;</span>
+           <span class="s2">&quot;to bind multiple sockets to the same port number, consider using setsockopt &quot;</span>
+           <span class="s2">&quot;(SO_REUSEADDR). Client applications usually need not call bind at all—connect &quot;</span>
+           <span class="s2">&quot;chooses an unused port automatically. When bind is called with a wildcard address &quot;</span>
+           <span class="s2">&quot;(involving ADDR_ANY), a WSAEADDRINUSE error could be delayed until the specific &quot;</span>
+           <span class="s2">&quot;address is committed. This could happen with a call to another function later, &quot;</span>
+           <span class="s2">&quot;including connect, listen, WSAConnect, or WSAJoinLeaf)&quot;</span><span class="p">,</span>
+    <span class="mi">10049</span><span class="p">:</span> <span class="s2">&quot;WSAEADDRNOTAVAIL (Cannot assign requested address. The requested address is not &quot;</span>
+           <span class="s2">&quot;valid in its context. This normally results from an attempt to bind to an address &quot;</span>
+           <span class="s2">&quot;that is not valid for the local computer. This can also result from connect, &quot;</span>
+           <span class="s2">&quot;sendto, WSAConnect, WSAJoinLeaf, or WSASendTo when the remote address or port &quot;</span>
+           <span class="s2">&quot;is not valid for a remote computer (for example, address or port 0))&quot;</span><span class="p">,</span>
+    <span class="mi">10050</span><span class="p">:</span> <span class="s2">&quot;WSAENETDOWN (Network is down. A socket operation encountered a dead network. &quot;</span>
+           <span class="s2">&quot;This could indicate a serious failure of the network system (that is, the &quot;</span>
+           <span class="s2">&quot;protocol stack that the Windows Sockets DLL runs over), the network interface, &quot;</span>
+           <span class="s2">&quot;or the local network itself)&quot;</span><span class="p">,</span>
+    <span class="mi">10051</span><span class="p">:</span> <span class="s2">&quot;WSAENETUNREACH (Network is unreachable. A socket operation was attempted to &quot;</span>
+           <span class="s2">&quot;an unreachable network. This usually means the local software knows no route &quot;</span>
+           <span class="s2">&quot;to reach the remote host)&quot;</span><span class="p">,</span>
+    <span class="mi">10052</span><span class="p">:</span> <span class="s2">&quot;WSAENETRESET (Network dropped connection on reset. The connection has been &quot;</span>
+           <span class="s2">&quot;broken due to keep-alive activity detecting a failure while the operation was &quot;</span>
+           <span class="s2">&quot;in progress. It can also be returned by setsockopt if an attempt is made to set &quot;</span>
+           <span class="s2">&quot;SO_KEEPALIVE on a connection that has already failed)&quot;</span><span class="p">,</span>
+    <span class="mi">10053</span><span class="p">:</span> <span class="s2">&quot;WSAECONNABORTED (Software caused connection abort. An established connection was &quot;</span>
+           <span class="s2">&quot;aborted by the software in your host computer, possibly due to a data transmission &quot;</span>
+           <span class="s2">&quot;time-out or protocol error)&quot;</span><span class="p">,</span>
+    <span class="mi">10054</span><span class="p">:</span> <span class="s2">&quot;WSAECONNRESET (Connection reset by peer. An existing connection was forcibly &quot;</span>
+           <span class="s2">&quot;closed by the remote host. This normally results if the peer application on the &quot;</span>
+           <span class="s2">&quot;remote host is suddenly stopped, the host is rebooted, the host or remote network &quot;</span>
+           <span class="s2">&quot;interface is disabled, or the remote host uses a hard close (see setsockopt for &quot;</span>
+           <span class="s2">&quot;more information on the SO_LINGER option on the remote socket). This error may &quot;</span>
+           <span class="s2">&quot;also result if a connection was broken due to keep-alive activity detecting a &quot;</span>
+           <span class="s2">&quot;failure while one or more operations are in progress. Operations that were in &quot;</span>
+           <span class="s2">&quot;progress fail with WSAENETRESET. Subsequent operations fail with WSAECONNRESET)&quot;</span><span class="p">,</span>
+    <span class="mi">10055</span><span class="p">:</span> <span class="s2">&quot;WSAENOBUFS (No buffer space available. An operation on a socket could not be &quot;</span>
+           <span class="s2">&quot;performed because the system lacked sufficient buffer space or because a queue &quot;</span>
+           <span class="s2">&quot;was full)&quot;</span><span class="p">,</span>
+    <span class="mi">10056</span><span class="p">:</span> <span class="s2">&quot;WSAEISCONN (Socket is already connected. A connect request was made on an &quot;</span>
+           <span class="s2">&quot;already-connected socket. Some implementations also return this error if &quot;</span>
+           <span class="s2">&quot;sendto is called on a connected SOCK_DGRAM socket (for SOCK_STREAM sockets, the &quot;</span>
+           <span class="s2">&quot;to parameter in sendto is ignored) although other implementations treat this as &quot;</span>
+           <span class="s2">&quot;a legal occurrence)&quot;</span><span class="p">,</span>
+    <span class="mi">10057</span><span class="p">:</span> <span class="s2">&quot;WSAENOTCONN (Socket is not connected. A request to send or receive data was &quot;</span>
+           <span class="s2">&quot;disallowed because the socket is not connected and (when sending on a datagram &quot;</span>
+           <span class="s2">&quot;socket using sendto) no address was supplied. Any other type of operation might &quot;</span>
+           <span class="s2">&quot;also return this error—for example, setsockopt setting SO_KEEPALIVE if the &quot;</span>
+           <span class="s2">&quot;connection has been reset)&quot;</span><span class="p">,</span>
+    <span class="mi">10058</span><span class="p">:</span> <span class="s2">&quot;WSAESHUTDOWN (Cannot send after socket shutdown. A request to send or receive &quot;</span>
+           <span class="s2">&quot;data was disallowed because the socket had already been shut down in that &quot;</span>
+           <span class="s2">&quot;direction with a previous shutdown call. By calling shutdown a partial close &quot;</span>
+           <span class="s2">&quot;of a socket is requested, which is a signal that sending or receiving, or both &quot;</span>
+           <span class="s2">&quot;have been discontinued)&quot;</span><span class="p">,</span>
+    <span class="mi">10059</span><span class="p">:</span> <span class="s2">&quot;WSAETOOMANYREFS (Too many references. Too many references to some kernel object)&quot;</span><span class="p">,</span>
+    <span class="mi">10060</span><span class="p">:</span> <span class="s2">&quot;WSAETIMEDOUT (Connection timed out. A connection attempt failed because the &quot;</span>
+           <span class="s2">&quot;connected party did not properly respond after a period of time, or the &quot;</span>
+           <span class="s2">&quot;established connection failed because the connected host has failed to respond)&quot;</span><span class="p">,</span>
+    <span class="mi">10061</span><span class="p">:</span> <span class="s2">&quot;WSAECONNREFUSED (Connection refused. No connection could be made because the &quot;</span>
+           <span class="s2">&quot;target computer actively refused it. This usually results from trying to &quot;</span>
+           <span class="s2">&quot;connect to a service that is inactive on the foreign host—that is, one with &quot;</span>
+           <span class="s2">&quot;no server application running)&quot;</span><span class="p">,</span>
+    <span class="mi">10062</span><span class="p">:</span> <span class="s2">&quot;WSAELOOP (Cannot translate name. Cannot translate a name)&quot;</span><span class="p">,</span>
+    <span class="mi">10063</span><span class="p">:</span> <span class="s2">&quot;WSAENAMETOOLONG (Name too long. A name component or a name was too long)&quot;</span><span class="p">,</span>
+    <span class="mi">10064</span><span class="p">:</span> <span class="s2">&quot;WSAEHOSTDOWN (Host is down. A socket operation failed because the destination &quot;</span>
+           <span class="s2">&quot;host is down. A socket operation encountered a dead host. Networking activity &quot;</span>
+           <span class="s2">&quot;on the local host has not been initiated. These conditions are more likely to be &quot;</span>
+           <span class="s2">&quot;indicated by the error WSAETIMEDOUT)&quot;</span><span class="p">,</span>
+    <span class="mi">10065</span><span class="p">:</span> <span class="s2">&quot;WSAEHOSTUNREACH (No route to host. A socket operation was attempted to an &quot;</span>
+           <span class="s2">&quot;unreachable host. See WSAENETUNREACH)&quot;</span><span class="p">,</span>
+    <span class="mi">10066</span><span class="p">:</span> <span class="s2">&quot;WSAENOTEMPTY (Directory not empty. Cannot remove a directory that is not empty)&quot;</span><span class="p">,</span>
+    <span class="mi">10067</span><span class="p">:</span> <span class="s2">&quot;WSAEPROCLIM (Too many processes. A Windows Sockets implementation may have a &quot;</span>
+           <span class="s2">&quot;limit on the number of applications that can use it simultaneously. WSAStartup &quot;</span>
+           <span class="s2">&quot;may fail with this error if the limit has been reached)&quot;</span><span class="p">,</span>
+    <span class="mi">10068</span><span class="p">:</span> <span class="s2">&quot;WSAEUSERS (User quota exceeded. Ran out of user quota)&quot;</span><span class="p">,</span>
+    <span class="mi">10069</span><span class="p">:</span> <span class="s2">&quot;WSAEDQUOT (Disk quota exceeded. Ran out of disk quota)&quot;</span><span class="p">,</span>
+    <span class="mi">10070</span><span class="p">:</span> <span class="s2">&quot;WSAESTALE (Stale file handle reference. The file handle reference is no longer &quot;</span>
+           <span class="s2">&quot;available)&quot;</span><span class="p">,</span>
+    <span class="mi">10071</span><span class="p">:</span> <span class="s2">&quot;WSAEREMOTE (Item is remote. The item is not available locally)&quot;</span><span class="p">,</span>
+    <span class="mi">10091</span><span class="p">:</span> <span class="s2">&quot;WSASYSNOTREADY (Network subsystem is unavailable. This error is returned by &quot;</span>
+           <span class="s2">&quot;WSAStartup if the Windows Sockets implementation cannot function at this time &quot;</span>
+           <span class="s2">&quot;because the underlying system it uses to provide network services is currently &quot;</span>
+           <span class="s2">&quot;unavailable. Users should check: That the appropriate Windows Sockets DLL file &quot;</span>
+           <span class="s2">&quot;is in the current path. That they are not trying to use more than one Windows &quot;</span>
+           <span class="s2">&quot;Sockets implementation simultaneously. If there is more than one Winsock DLL on &quot;</span>
+           <span class="s2">&quot;your system, be sure the first one in the path is appropriate for the network &quot;</span>
+           <span class="s2">&quot;subsystem currently loaded. The Windows Sockets implementation documentation to &quot;</span>
+           <span class="s2">&quot;be sure all necessary components are currently installed and configured correctly)&quot;</span><span class="p">,</span>
+    <span class="mi">10092</span><span class="p">:</span> <span class="s2">&quot;WSAVERNOTSUPPORTED (Winsock.dll version out of range. The current Windows Sockets &quot;</span>
+           <span class="s2">&quot;implementation does not support the Windows Sockets specification version &quot;</span>
+           <span class="s2">&quot;requested by the application. Check that no old Windows Sockets DLL files are &quot;</span>
+           <span class="s2">&quot;being accessed)&quot;</span><span class="p">,</span>
+    <span class="mi">10093</span><span class="p">:</span> <span class="s2">&quot;WSANOTINITIALISED (Successful WSAStartup not yet performed. Either the application &quot;</span>
+           <span class="s2">&quot;has not called WSAStartup or WSAStartup failed. The application may be accessing &quot;</span>
+           <span class="s2">&quot;a socket that the current active task does not own (that is, trying to share a &quot;</span>
+           <span class="s2">&quot;socket between tasks), or WSACleanup has been called too many times)&quot;</span><span class="p">,</span>
+    <span class="mi">10101</span><span class="p">:</span> <span class="s2">&quot;WSAEDISCON (Graceful shutdown in progress. Returned by WSARecv and WSARecvFrom &quot;</span>
+           <span class="s2">&quot;to indicate that the remote party has initiated a graceful shutdown sequence)&quot;</span><span class="p">,</span>
+    <span class="mi">10102</span><span class="p">:</span> <span class="s2">&quot;WSAENOMORE (No more results. No more results can be returned by the &quot;</span>
+           <span class="s2">&quot;WSALookupServiceNext function)&quot;</span><span class="p">,</span>
+    <span class="mi">10103</span><span class="p">:</span> <span class="s2">&quot;WSAECANCELLED (Call has been canceled. A call to the WSALookupServiceEnd function &quot;</span>
+           <span class="s2">&quot;was made while this call was still processing. The call has been canceled)&quot;</span><span class="p">,</span>
+    <span class="mi">10104</span><span class="p">:</span> <span class="s2">&quot;WSAEINVALIDPROCTABLE (Procedure call table is invalid. The service provider &quot;</span>
+           <span class="s2">&quot;procedure call table is invalid. A service provider returned a bogus procedure &quot;</span>
+           <span class="s2">&quot;table to Ws2_32.dll. This is usually caused by one or more of the function &quot;</span>
+           <span class="s2">&quot;pointers being NULL)&quot;</span><span class="p">,</span>
+    <span class="mi">10105</span><span class="p">:</span> <span class="s2">&quot;WSAEINVALIDPROVIDER (Service provider is invalid. The requested service provider &quot;</span>
+           <span class="s2">&quot;is invalid. This error is returned by the WSCGetProviderInfo and &quot;</span>
+           <span class="s2">&quot;WSCGetProviderInfo32 functions if the protocol entry specified could not be found. &quot;</span>
+           <span class="s2">&quot;This error is also returned if the service provider returned a version number &quot;</span>
+           <span class="s2">&quot;other than 2.0)&quot;</span><span class="p">,</span>
+    <span class="mi">10106</span><span class="p">:</span> <span class="s2">&quot;WSAEPROVIDERFAILEDINIT (Service provider failed to initialize. The requested &quot;</span>
+           <span class="s2">&quot;service provider could not be loaded or initialized. This error is returned if &quot;</span>
+           <span class="s2">&quot;either a service provider&#39;s DLL could not be loaded (LoadLibrary failed) or the &quot;</span>
+           <span class="s2">&quot;provider&#39;s WSPStartup or NSPStartup function failed)&quot;</span><span class="p">,</span>
+    <span class="mi">10107</span><span class="p">:</span> <span class="s2">&quot;WSASYSCALLFAILURE (System call failure. A system call that should never fail has &quot;</span>
+           <span class="s2">&quot;failed. This is a generic error code, returned under various conditions. Returned &quot;</span>
+           <span class="s2">&quot;when a system call that should never fail does fail. For example, if a call to &quot;</span>
+           <span class="s2">&quot;WaitForMultipleEvents fails or one of the registry functions fails trying to &quot;</span>
+           <span class="s2">&quot;manipulate the protocol/namespace catalogs. Returned when a provider does not &quot;</span>
+           <span class="s2">&quot;return SUCCESS and does not provide an extended error code. Can indicate a &quot;</span>
+           <span class="s2">&quot;service provider implementation error)&quot;</span><span class="p">,</span>
+    <span class="mi">10108</span><span class="p">:</span> <span class="s2">&quot;WSASERVICE_NOT_FOUND (Service not found. No such service is known. The service &quot;</span>
+           <span class="s2">&quot;cannot be found in the specified name space)&quot;</span><span class="p">,</span>
+    <span class="mi">10109</span><span class="p">:</span> <span class="s2">&quot;WSATYPE_NOT_FOUND (Class type not found. The specified class was not found)&quot;</span><span class="p">,</span>
+    <span class="mi">10110</span><span class="p">:</span> <span class="s2">&quot;WSA_E_NO_MORE (No more results. No more results can be returned by the &quot;</span>
+           <span class="s2">&quot;WSALookupServiceNext function)&quot;</span><span class="p">,</span>
+    <span class="mi">10111</span><span class="p">:</span> <span class="s2">&quot;WSA_E_CANCELLED (Call was canceled. A call to the WSALookupServiceEnd function &quot;</span>
+           <span class="s2">&quot;was made while this call was still processing. The call has been canceled)&quot;</span><span class="p">,</span>
+    <span class="mi">10112</span><span class="p">:</span> <span class="s2">&quot;WSAEREFUSED (Database query was refused. A database query failed because it &quot;</span>
+           <span class="s2">&quot;was actively refused)&quot;</span><span class="p">,</span>
+    <span class="mi">11001</span><span class="p">:</span> <span class="s2">&quot;WSAHOST_NOT_FOUND (Host not found. No such host is known. The name is not an &quot;</span>
+           <span class="s2">&quot;official host name or alias, or it cannot be found in the database(s) being &quot;</span>
+           <span class="s2">&quot;queried. This error may also be returned for protocol and service queries, and &quot;</span>
+           <span class="s2">&quot;means that the specified name could not be found in the relevant database)&quot;</span><span class="p">,</span>
+    <span class="mi">11002</span><span class="p">:</span> <span class="s2">&quot;WSATRY_AGAIN (Nonauthoritative host not found. This is usually a temporary error &quot;</span>
+           <span class="s2">&quot;during host name resolution and means that the local server did not receive a &quot;</span>
+           <span class="s2">&quot;response from an authoritative server. A retry at some time later may be successful)&quot;</span><span class="p">,</span>
+    <span class="mi">11003</span><span class="p">:</span> <span class="s2">&quot;WSANO_RECOVERY (This is a nonrecoverable error. This indicates that some sort &quot;</span>
+           <span class="s2">&quot;of nonrecoverable error occurred during a database lookup. This may be because &quot;</span>
+           <span class="s2">&quot;the database files (for example, BSD-compatible HOSTS, SERVICES, or PROTOCOLS &quot;</span>
+           <span class="s2">&quot;files) could not be found, or a DNS request was returned by the server with a &quot;</span>
+           <span class="s2">&quot;severe error)&quot;</span><span class="p">,</span>
+    <span class="mi">11004</span><span class="p">:</span> <span class="s2">&quot;WSANO_DATA (Valid name, no data record of requested type. The requested name is &quot;</span>
+           <span class="s2">&quot;valid and was found in the database, but it does not have the correct associated &quot;</span>
+           <span class="s2">&quot;data being resolved for. The usual example for this is a host name-to-address &quot;</span>
+           <span class="s2">&quot;translation attempt (using gethostbyname or WSAAsyncGetHostByName) which uses &quot;</span>
+           <span class="s2">&quot;the DNS (Domain Name Server). An MX record is returned but no A record—indicating &quot;</span>
+           <span class="s2">&quot;the host itself exists, but is not directly reachable)&quot;</span><span class="p">,</span>
+    <span class="mi">11005</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_RECEIVERS (QoS receivers. At least one QoS reserve has arrived)&quot;</span><span class="p">,</span>
+    <span class="mi">11006</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_SENDERS (QoS senders. At least one QoS send path has arrived)&quot;</span><span class="p">,</span>
+    <span class="mi">11007</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_NO_SENDERS (No QoS senders. There are no QoS senders)&quot;</span><span class="p">,</span>
+    <span class="mi">11008</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_NO_RECEIVERS (QoS no receivers. There are no QoS receivers)&quot;</span><span class="p">,</span>
+    <span class="mi">11009</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_REQUEST_CONFIRMED (QoS request confirmed. The QoS reserve request has &quot;</span>
+           <span class="s2">&quot;been confirmed)&quot;</span><span class="p">,</span>
+    <span class="mi">11010</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_ADMISSION_FAILURE (QoS admission error. A QoS error occurred due to lack &quot;</span>
+           <span class="s2">&quot;of resources)&quot;</span><span class="p">,</span>
+    <span class="mi">11011</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_POLICY_FAILURE (QoS policy failure. The QoS request was rejected because &quot;</span>
+           <span class="s2">&quot;the policy system couldn&#39;t allocate the requested resource within the existing &quot;</span>
+           <span class="s2">&quot;policy)&quot;</span><span class="p">,</span>
+    <span class="mi">11012</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_BAD_STYLE (QoS bad style. An unknown or conflicting QoS style was &quot;</span>
+           <span class="s2">&quot;encountered)&quot;</span><span class="p">,</span>
+    <span class="mi">11013</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_BAD_OBJECT (QoS bad object. A problem was encountered with some part &quot;</span>
+           <span class="s2">&quot;of the filterspec or the provider-specific buffer in general)&quot;</span><span class="p">,</span>
+    <span class="mi">11014</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_TRAFFIC_CTRL_ERROR (QoS traffic control error. An error with the &quot;</span>
+           <span class="s2">&quot;underlying traffic control (TC) API as the generic QoS request was converted &quot;</span>
+           <span class="s2">&quot;for local enforcement by the TC API. This could be due to an out of memory &quot;</span>
+           <span class="s2">&quot;error or to an internal QoS provider error)&quot;</span><span class="p">,</span>
+    <span class="mi">11015</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_GENERIC_ERROR (QoS generic error. A general QoS error)&quot;</span><span class="p">,</span>
+    <span class="mi">11016</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_ESERVICETYPE (QoS service type error. An invalid or unrecognized service &quot;</span>
+           <span class="s2">&quot;type was found in the QoS flowspec)&quot;</span><span class="p">,</span>
+    <span class="mi">11017</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EFLOWSPEC (QoS flowspec error. An invalid or inconsistent flowspec was &quot;</span>
+           <span class="s2">&quot;found in the QOS structure)&quot;</span><span class="p">,</span>
+    <span class="mi">11018</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EPROVSPECBUF (Invalid QoS provider buffer. An invalid QoS provider-specific &quot;</span>
+           <span class="s2">&quot;buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11019</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EFILTERSTYLE (Invalid QoS filter style. An invalid QoS filter style was used)&quot;</span><span class="p">,</span>
+    <span class="mi">11020</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EFILTERTYPE (Invalid QoS filter type. An invalid QoS filter type was used)&quot;</span><span class="p">,</span>
+    <span class="mi">11021</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EFILTERCOUNT (Incorrect QoS filter count. An incorrect number of QoS &quot;</span>
+           <span class="s2">&quot;FILTERSPECs were specified in the FLOWDESCRIPTOR)&quot;</span><span class="p">,</span>
+    <span class="mi">11022</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EOBJLENGTH (Invalid QoS object length. An object with an invalid &quot;</span>
+           <span class="s2">&quot;ObjectLength field was specified in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11023</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EFLOWCOUNT (Incorrect QoS flow count. An incorrect number of flow &quot;</span>
+           <span class="s2">&quot;descriptors was specified in the QoS structure)&quot;</span><span class="p">,</span>
+    <span class="mi">11024</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EUNKOWNPSOBJ (Unrecognized QoS object. An unrecognized object was found &quot;</span>
+           <span class="s2">&quot;in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11025</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EPOLICYOBJ (Invalid QoS policy object. An invalid policy object was found &quot;</span>
+           <span class="s2">&quot;in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11026</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EFLOWDESC (Invalid QoS flow descriptor. An invalid QoS flow descriptor was &quot;</span>
+           <span class="s2">&quot;found in the flow descriptor list)&quot;</span><span class="p">,</span>
+    <span class="mi">11027</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EPSFLOWSPEC (Invalid QoS provider-specific flowspec. An invalid or &quot;</span>
+           <span class="s2">&quot;inconsistent flowspec was found in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11028</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_EPSFILTERSPEC (Invalid QoS provider-specific filterspec. An invalid &quot;</span>
+           <span class="s2">&quot;FILTERSPEC was found in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11029</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_ESDMODEOBJ (Invalid QoS shape discard mode object. An invalid shape discard &quot;</span>
+           <span class="s2">&quot;mode object was found in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11030</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_ESHAPERATEOBJ (Invalid QoS shaping rate object. An invalid shaping rate &quot;</span>
+           <span class="s2">&quot;object was found in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+    <span class="mi">11031</span><span class="p">:</span> <span class="s2">&quot;WSA_QOS_RESERVED_PETYPE (Reserved policy QoS element type. A reserved policy &quot;</span>
+           <span class="s2">&quot;element was found in the QoS provider-specific buffer)&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+
+        </details>
+
+            </section>
+                <section id="ControlOperation">
+                                <div class="attr class">
+        <a class="headerlink" href="#ControlOperation">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">ControlOperation</span>(<span class="base">enum.Enum</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ControlOperation</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Device control operation. See `ControlOperation` SDK func docs&quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">cancel_alarm</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">restart</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Device control operation. See <code><a href="#ControlOperation">ControlOperation</a></code> SDK func docs</p>
+</div>
+
+
+                            <div id="ControlOperation.output" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#ControlOperation.output">#&nbsp;&nbsp</a>
+
+        <span class="name">output</span><span class="default_value"> = &lt;<a href="#ControlOperation.output">ControlOperation.output</a>: 1&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="ControlOperation.cancel_alarm" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#ControlOperation.cancel_alarm">#&nbsp;&nbsp</a>
+
+        <span class="name">cancel_alarm</span><span class="default_value"> = &lt;<a href="#ControlOperation.cancel_alarm">ControlOperation.cancel_alarm</a>: 2&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="ControlOperation.restart" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#ControlOperation.restart">#&nbsp;&nbsp</a>
+
+        <span class="name">restart</span><span class="default_value"> = &lt;<a href="#ControlOperation.restart">ControlOperation.restart</a>: 3&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>enum.Enum</dt>
+                                <dd id="ControlOperation.name" class="variable">name</dd>
+                <dd id="ControlOperation.value" class="variable">value</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="RelayGroup">
+                                <div class="attr class">
+        <a class="headerlink" href="#RelayGroup">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">RelayGroup</span>(<span class="base">enum.Enum</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">RelayGroup</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Device relay group.</span>
+<span class="sd">    There are either lock relays (door output) or aux relays</span>
+<span class="sd">    (aux output)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">aux</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Device relay group.
+There are either lock relays (door output) or aux relays
+(aux output)</p>
+</div>
+
+
+                            <div id="RelayGroup.lock" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#RelayGroup.lock">#&nbsp;&nbsp</a>
+
+        <span class="name">lock</span><span class="default_value"> = &lt;<a href="#RelayGroup.lock">RelayGroup.lock</a>: 1&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="RelayGroup.aux" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#RelayGroup.aux">#&nbsp;&nbsp</a>
+
+        <span class="name">aux</span><span class="default_value"> = &lt;<a href="#RelayGroup.aux">RelayGroup.aux</a>: 2&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>enum.Enum</dt>
+                                <dd id="RelayGroup.name" class="variable">name</dd>
+                <dd id="RelayGroup.value" class="variable">value</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="SensorType">
+                                <div class="attr class">
+        <a class="headerlink" href="#SensorType">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">SensorType</span>(<span class="base">enum.Enum</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">SensorType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Sensor type of door. See DoorXSensorType parameter in SDK docs&quot;&quot;&quot;</span>
+    <span class="n">not_available</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">normal_open</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">normal_closed</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Sensor type of door. See DoorXSensorType parameter in SDK docs</p>
+</div>
+
+
+                            <div id="SensorType.not_available" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#SensorType.not_available">#&nbsp;&nbsp</a>
+
+        <span class="name">not_available</span><span class="default_value"> = &lt;<a href="#SensorType.not_available">SensorType.not_available</a>: 0&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="SensorType.normal_open" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#SensorType.normal_open">#&nbsp;&nbsp</a>
+
+        <span class="name">normal_open</span><span class="default_value"> = &lt;<a href="#SensorType.normal_open">SensorType.normal_open</a>: 1&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="SensorType.normal_closed" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#SensorType.normal_closed">#&nbsp;&nbsp</a>
+
+        <span class="name">normal_closed</span><span class="default_value"> = &lt;<a href="#SensorType.normal_closed">SensorType.normal_closed</a>: 2&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>enum.Enum</dt>
+                                <dd id="SensorType.name" class="variable">name</dd>
+                <dd id="SensorType.value" class="variable">value</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="VerifyMode">
+                                <div class="attr class">
+        <a class="headerlink" href="#VerifyMode">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">VerifyMode</span>(<span class="base">enum.Enum</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">VerifyMode</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Which methods are used to authenticate user.</span>
+<span class="sd">    See `DoorXVerifyType` parameter in SDK docs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">not_available</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">only_finger</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">only_password</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">only_card</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">card_or_finger</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">card_and_finger</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">card_and_password</span> <span class="o">=</span> <span class="mi">11</span>
+    <span class="n">others</span> <span class="o">=</span> <span class="mi">200</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Which methods are used to authenticate user.
+See <code>DoorXVerifyType</code> parameter in SDK docs</p>
+</div>
+
+
+                            <div id="VerifyMode.not_available" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.not_available">#&nbsp;&nbsp</a>
+
+        <span class="name">not_available</span><span class="default_value"> = &lt;<a href="#VerifyMode.not_available">VerifyMode.not_available</a>: 0&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="VerifyMode.only_finger" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.only_finger">#&nbsp;&nbsp</a>
+
+        <span class="name">only_finger</span><span class="default_value"> = &lt;<a href="#VerifyMode.only_finger">VerifyMode.only_finger</a>: 1&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="VerifyMode.only_password" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.only_password">#&nbsp;&nbsp</a>
+
+        <span class="name">only_password</span><span class="default_value"> = &lt;<a href="#VerifyMode.only_password">VerifyMode.only_password</a>: 3&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="VerifyMode.only_card" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.only_card">#&nbsp;&nbsp</a>
+
+        <span class="name">only_card</span><span class="default_value"> = &lt;<a href="#VerifyMode.only_card">VerifyMode.only_card</a>: 4&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="VerifyMode.card_or_finger" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.card_or_finger">#&nbsp;&nbsp</a>
+
+        <span class="name">card_or_finger</span><span class="default_value"> = &lt;<a href="#VerifyMode.card_or_finger">VerifyMode.card_or_finger</a>: 6&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="VerifyMode.card_and_finger" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.card_and_finger">#&nbsp;&nbsp</a>
+
+        <span class="name">card_and_finger</span><span class="default_value"> = &lt;<a href="#VerifyMode.card_and_finger">VerifyMode.card_and_finger</a>: 10&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="VerifyMode.card_and_password" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.card_and_password">#&nbsp;&nbsp</a>
+
+        <span class="name">card_and_password</span><span class="default_value"> = &lt;<a href="#VerifyMode.card_and_password">VerifyMode.card_and_password</a>: 11&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="VerifyMode.others" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#VerifyMode.others">#&nbsp;&nbsp</a>
+
+        <span class="name">others</span><span class="default_value"> = &lt;<a href="#VerifyMode.others">VerifyMode.others</a>: 200&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>enum.Enum</dt>
+                                <dd id="VerifyMode.name" class="variable">name</dd>
+                <dd id="VerifyMode.value" class="variable">value</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="PassageDirection">
+                                <div class="attr class">
+        <a class="headerlink" href="#PassageDirection">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">PassageDirection</span>(<span class="base">enum.Enum</span>):
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">PassageDirection</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Whether a user was entered or exited via door</span>
+<span class="sd">    See event format description in SDK docs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">exit</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">none</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Whether a user was entered or exited via door
+See event format description in SDK docs</p>
+</div>
+
+
+                            <div id="PassageDirection.entry" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#PassageDirection.entry">#&nbsp;&nbsp</a>
+
+        <span class="name">entry</span><span class="default_value"> = &lt;<a href="#PassageDirection.entry">PassageDirection.entry</a>: 0&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="PassageDirection.exit" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#PassageDirection.exit">#&nbsp;&nbsp</a>
+
+        <span class="name">exit</span><span class="default_value"> = &lt;<a href="#PassageDirection.exit">PassageDirection.exit</a>: 1&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div id="PassageDirection.none" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#PassageDirection.none">#&nbsp;&nbsp</a>
+
+        <span class="name">none</span><span class="default_value"> = &lt;<a href="#PassageDirection.none">PassageDirection.none</a>: 2&gt;</span>
+    </div>
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>enum.Enum</dt>
+                                <dd id="PassageDirection.name" class="variable">name</dd>
+                <dd id="PassageDirection.value" class="variable">value</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="EVENT_TYPES">
+                                <div class="attr variable"><a class="headerlink" href="#EVENT_TYPES">#&nbsp;&nbsp</a>
+
+        <span class="name">EVENT_TYPES</span><span class="default_value"> = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 101: 101, 102: 102, 103: 103, 200: 200, 201: 201, 202: 202, 203: 203, 204: 204, 205: 205, 220: 220, 221: 221, 255: 255}</span>
+    </div>
+
+    
+
+                </section>
+                <section id="PULL_SDK_ERRORS">
+                                <div class="attr variable"><a class="headerlink" href="#PULL_SDK_ERRORS">#&nbsp;&nbsp</a>
+
+        <span class="name">PULL_SDK_ERRORS</span><span class="default_value"> = {-1: -1, -2: -2, -3: -3, -4: -4, -5: -5, -6: -6, -7: -7, -8: -8, -9: -9, -10: -10, -11: -11, -12: -12, -13: -13, -14: -14, -15: -15, -16: -16, -17: -17, -99: -99, -100: -100, -101: -101, -102: -102, -103: -103, -104: -104, -105: -105, -106: -106, -107: -107, -108: -108, -201: -201, -202: -202, -203: -203, -206: -206, -301: -301, -302: -302, -303: -303, -304: -304, -305: -305, -306: -306, -307: -307}</span>
+    </div>
+
+    
+
+                </section>
+                <section id="WSA_ERROR_CODES">
+                                <div class="attr variable"><a class="headerlink" href="#WSA_ERROR_CODES">#&nbsp;&nbsp</a>
+
+        <span class="name">WSA_ERROR_CODES</span><span class="default_value"> = {6: 6, 8: 8, 87: 87, 995: 995, 996: 996, 997: 997, 10004: 10004, 10009: 10009, 10013: 10013, 10014: 10014, 10022: 10022, 10024: 10024, 10035: 10035, 10036: 10036, 10037: 10037, 10038: 10038, 10039: 10039, 10040: 10040, 10041: 10041, 10042: 10042, 10043: 10043, 10044: 10044, 10045: 10045, 10046: 10046, 10047: 10047, 10048: 10048, 10049: 10049, 10050: 10050, 10051: 10051, 10052: 10052, 10053: 10053, 10054: 10054, 10055: 10055, 10056: 10056, 10057: 10057, 10058: 10058, 10059: 10059, 10060: 10060, 10061: 10061, 10062: 10062, 10063: 10063, 10064: 10064, 10065: 10065, 10066: 10066, 10067: 10067, 10068: 10068, 10069: 10069, 10070: 10070, 10071: 10071, 10091: 10091, 10092: 10092, 10093: 10093, 10101: 10101, 10102: 10102, 10103: 10103, 10104: 10104, 10105: 10105, 10106: 10106, 10107: 10107, 10108: 10108, 10109: 10109, 10110: 10110, 10111: 10111, 10112: 10112, 11001: 11001, 11002: 11002, 11003: 11003, 11004: 11004, 11005: 11005, 11006: 11006, 11007: 11007, 11008: 11008, 11009: 11009, 11010: 11010, 11011: 11011, 11012: 11012, 11013: 11013, 11014: 11014, 11015: 11015, 11016: 11016, 11017: 11017, 11018: 11018, 11019: 11019, 11020: 11020, 11021: 11021, 11022: 11022, 11023: 11023, 11024: 11024, 11025: 11025, 11026: 11026, 11027: 11027, 11028: 11028, 11029: 11029, 11030: 11030, 11031: 11031}</span>
+    </div>
+
+    
+
+                </section>
+    </main>
+</body>
+</html>

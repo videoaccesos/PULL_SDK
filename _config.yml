@@ -1,0 +1,4 @@
+theme: jekyll-theme-minimal
+baseurl: 'pyzkaccess'
+url: 'https://bdragon300.github.io'
+exclude: ['tpl']
