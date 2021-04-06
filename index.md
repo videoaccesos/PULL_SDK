@@ -6,7 +6,7 @@
 
 PyZKAccess is a library for working with ZKTeco ZKAccess C3-100/200/400 access controllers.
 
-API reference is available [here](api)
+**[API reference](api)**
 
 {% include_relative installing.md %}
 {% include_relative summary.md %}
