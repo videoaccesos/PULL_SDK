@@ -7,10 +7,10 @@ Requirements:
 
 ## PULL SDK
 
-Download current version of PULL SDK: 
+Download the current version of PULL SDK: 
 [ZKTeco software downloads](https://www.zkteco.eu/index.php/downloads/software-downloads).
 
-Downloaded archive contains `pl*.dll` DLL files and documentation.
+A downloaded archive contains `pl*.dll` DLL files and documentation.
 
 
 ## *nix

@@ -1,12 +1,12 @@
 # Summary
 
-The ZKTeco PULL SDK is used as machinery. Therefore the code is executed in Windows 
+The ZKTeco PULL SDK is used as machinery. Therefore, the code is executed in Windows 
 environment. *nix are also supported using Wine.
 
 ## Features
 
 * Relays switching
-* Reading events of whole device or separately for certain reader, aux input or even door
+* Reading events of whole device or separately for a certain reader, aux input or even door
 * Getting/setting the device parameters such as datetime, network settings, entry modes, backup 
   time, etc.
 * Getting/setting a door parameters such as smart card modes, intervals, entry modes, etc.
@@ -32,7 +32,3 @@ C3-100 | C3-200 | C3-400
 * Emergency resetting network settings
 
 **NOTE**: the version `pyzkaccess>=0.2` is incompatible with `pyzkaccess==0.1`
-
-## Author
-
-Igor Derkach, <gosha753951@gmail.com>
