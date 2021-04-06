@@ -1,6 +1,4 @@
-# PyZKAccess
-
-**PyZKAccess** is a library for working with ZKTeco ZKAccess C3-100/200/400 access controllers.
+# Summary
 
 The ZKTeco PULL SDK is used as machinery. Therefore the code is executed in Windows 
 environment. *nix are also supported using Wine.
