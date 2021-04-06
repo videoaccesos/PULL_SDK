@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>pyzkaccess.enums API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyzkaccess.enums</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">__all__ = [
+    &#39;ControlOperation&#39;,
+    &#39;RelayGroup&#39;,
+    &#39;SensorType&#39;,
+    &#39;VerifyMode&#39;,
+    &#39;PassageDirection&#39;,
+    &#39;EVENT_TYPES&#39;,
+    &#39;PULL_SDK_ERRORS&#39;,
+    &#39;WSA_ERROR_CODES&#39;
+]
+from enum import Enum
+from .common import DocDict
+
+
+class ControlOperation(Enum):
+    &#34;&#34;&#34;Device control operation. See `ControlOperation` SDK func docs&#34;&#34;&#34;
+    output = 1
+    cancel_alarm = 2
+    restart = 3
+
+
+class RelayGroup(Enum):
+    &#34;&#34;&#34;Device relay group.
+    There are either lock relays (door output) or aux relays
+    (aux output)
+    &#34;&#34;&#34;
+    lock = 1
+    aux = 2
+
+
+class SensorType(Enum):
+    &#34;&#34;&#34;Sensor type of door. See DoorXSensorType parameter in SDK docs&#34;&#34;&#34;
+    not_available = 0
+    normal_open = 1
+    normal_closed = 2
+
+
+class VerifyMode(Enum):
+    &#34;&#34;&#34;Which methods are used to authenticate user.
+    See `DoorXVerifyType` parameter in SDK docs
+    &#34;&#34;&#34;
+    not_available = 0
+    only_finger = 1
+    only_password = 3
+    only_card = 4
+    card_or_finger = 6
+    card_and_finger = 10
+    card_and_password = 11
+    others = 200
+
+
+class PassageDirection(Enum):
+    &#34;&#34;&#34;Whether a user was entered or exited via door
+    See event format description in SDK docs
+    &#34;&#34;&#34;
+    entry = 0
+    exit = 1
+    none = 2
+
+
+#: Type of event which is returned by GetRTLog function
+#: See event format description in SDK docs
+EVENT_TYPES = DocDict({
+    0: &#39;Normal Punch Open&#39;,
+    1: &#39;Punch during Normal Open Time Zone&#39;,
+    2: &#39;First Card Normal Open (Punch Card)&#39;,
+    3: &#39;Multi-Card Open (Punching Card)&#39;,
+    4: &#39;Emergency Password Open&#39;,
+    5: &#39;Open during Normal Open Time Zone&#39;,
+    6: &#39;Linkage Event Triggered&#39;,
+    7: &#39;Cancel Alarm&#39;,
+    8: &#39;Remote Opening&#39;,
+    9: &#39;Remote Closing&#39;,
+    10: &#39;Disable Intraday Normal Open Time Zone&#39;,
+    11: &#39;Enable Intraday Normal Open Time Zone&#39;,
+    12: &#39;Open Auxiliary Output&#39;,
+    13: &#39;Close Auxiliary Output&#39;,
+    14: &#39;Press Fingerprint Open&#39;,
+    15: &#39;Multi-Card Open (Press Fingerprint)&#39;,
+    16: &#39;Press Fingerprint during Normal Open Time Zone&#39;,
+    17: &#39;Card plus Fingerprint Open&#39;,
+    18: &#39;First Card Normal Open (Press Fingerprint)&#39;,
+    19: &#39;First Card Normal Open (Card plus Fingerprint)&#39;,
+    20: &#39;Too Short Punch Interval&#39;,
+    21: &#39;Door Inactive Time Zone (Punch Card)&#39;,
+    22: &#39;Illegal Time Zone&#39;,
+    23: &#39;Access Denied&#39;,
+    24: &#39;Anti-Passback&#39;,
+    25: &#39;Interlock&#39;,
+    26: &#39;Multi-Card Authentication (Punching Card)&#39;,
+    27: &#39;Unregistered Card&#39;,
+    28: &#39;Opening Timeout&#39;,
+    29: &#39;Card Expired&#39;,
+    30: &#39;Password Error&#39;,
+    31: &#39;Too Short Fingerprint Pressing Interval&#39;,
+    32: &#39;Multi-Card Authentication (Press Fingerprint)&#39;,
+    33: &#39;Fingerprint Expired&#39;,
+    34: &#39;Unregistered Fingerprint&#39;,
+    35: &#39;Door Inactive Time Zone (Press Fingerprint)&#39;,
+    36: &#39;Door Inactive Time Zone (Exit Button)&#39;,
+    37: &#39;Failed to Close during Normal Open Time Zone&#39;,
+    101: &#39;Duress Password Open&#39;,
+    102: &#39;Opened Accidentally&#39;,
+    103: &#39;Duress Fingerprint Open&#39;,
+    200: &#39;Door Opened Correctly&#39;,
+    201: &#39;Door Closed Correctly&#39;,
+    202: &#39;Exit button Open&#39;,
+    203: &#39;Multi-Card Open (Card plus Fingerprint)&#39;,
+    204: &#39;Normal Open Time Zone Over&#39;,
+    205: &#39;Remote Normal Opening&#39;,
+    220: &#39;Auxiliary Input Disconnected&#39;,
+    221: &#39;Auxiliary Input Shorted&#39;,
+    255: &#39;Actually that obtain door status and alarm status&#39;,
+})
+
+
+#: Errors which SDK functions may return. See errors description in SDK
+PULL_SDK_ERRORS = DocDict({
+    -1: &#39;The command is not sent successfully&#39;,
+    -2: &#39;The command has no response&#39;,
+    -3: &#39;The buffer is not enough&#39;,
+    -4: &#39;The decompression fails&#39;,
+    -5: &#39;The length of the read data is not correct&#39;,
+    -6: &#39;The length of the decompressed data is not consistent with the expected length&#39;,
+    -7: &#39;The command is repeated&#39;,
+    -8: &#39;The connection is not authorized&#39;,
+    -9: &#39;Data error: The CRC result is failure&#39;,
+    -10: &#39;Data error: PullSDK cannot resolve the data&#39;,
+    -11: &#39;Data parameter error&#39;,
+    -12: &#39;The command is not executed correctly&#39;,
+    -13: &#39;Command error: This command is not available&#39;,
+    -14: &#39;The communication password is not correct&#39;,
+    -15: &#39;Fail to write the file&#39;,
+    -16: &#39;Fail to read the file&#39;,
+    -17: &#39;The file does not exist&#39;,
+    -99: &#39;Unknown error&#39;,
+    -100: &#39;The table structure does not exist&#39;,
+    -101: &#39;In the table structure, the Condition field does not exit&#39;,
+    -102: &#39;The total number of fields is not consistent&#39;,
+    -103: &#39;The sequence of fields is not consistent&#39;,
+    -104: &#39;Real-time event data error&#39;,
+    -105: &#39;Data errors occur during data resolution.&#39;,
+    -106: &#39;Data overflow: The delivered data is more than 4 MB in length&#39;,
+    -107: &#39;Fail to get the table structure&#39;,
+    -108: &#39;Invalid options&#39;,
+    -201: &#39;LoadLibrary failure&#39;,
+    -202: &#39;Fail to invoke the interface&#39;,
+    -203: &#39;Communication initialization fails&#39;,
+    -206: &#39;Start of a serial interface agent program fails and the cause generally relies in &#39;
+          &#39;inexistence or occupation of the serial interface.&#39;,
+    -301: &#39;Requested TCP/IP version error&#39;,
+    -302: &#39;Incorrect version number&#39;,
+    -303: &#39;Fail to get the protocol type&#39;,
+    -304: &#39;Invalid SOCKET&#39;,
+    -305: &#39;SOCKET error&#39;,
+    -306: &#39;HOST error&#39;,
+    -307: &#39;Connection attempt failed&#39;,
+})
+
+#: SDK functions can also return WINSOCK errors using `PullLastError`
+#: function. See SDK docs and MSDN
+WSA_ERROR_CODES = DocDict({
+    6: &#34;WSA_INVALID_HANDLE (Specified event object handle is invalid. An application attempts to &#34;
+       &#34;use an event object, but the specified handle is not valid)&#34;,
+    8: &#34;WSA_NOT_ENOUGH_MEMORY (Insufficient memory available. An application used a Windows &#34;
+       &#34;Sockets function that directly maps to a Windows function. The Windows function is &#34;
+       &#34;indicating a lack of required memory resources)&#34;,
+    87: &#34;WSA_INVALID_PARAMETER (One or more parameters are invalid. An application used a Windows &#34;
+        &#34;Sockets function which directly maps to a Windows function. The Windows function is &#34;
+        &#34;indicating a problem with one or more parameters)&#34;,
+    995: &#34;WSA_OPERATION_ABORTED (Overlapped operation aborted. An overlapped operation was &#34;
+         &#34;canceled due to the closure of the socket, or the execution of the SIO_FLUSH command &#34;
+         &#34;in WSAIoctl)&#34;,
+    996: &#34;WSA_IO_INCOMPLETE (Overlapped I/O event object not in signaled state. The application &#34;
+         &#34;has tried to determine the status of an overlapped operation which is not yet completed. &#34;
+         &#34;Applications that use WSAGetOverlappedResult (with the fWait flag set to FALSE) in a &#34;
+         &#34;polling mode to determine when an overlapped operation has completed, get this error &#34;
+         &#34;code until the operation is complete)&#34;,
+    997: &#34;WSA_IO_PENDING (Overlapped operations will complete later.  The application has &#34;
+         &#34;initiated an overlapped operation that cannot be completed immediately. A completion &#34;
+         &#34;indication will be given later when the operation has been completed)&#34;,
+    10004: &#34;WSAEINTR (Interrupted function call. A blocking operation was interrupted by a call &#34;
+           &#34;to WSACancelBlockingCall)&#34;,
+    10009: &#34;WSAEBADF (File handle is not valid. The file handle supplied is not valid)&#34;,
+    10013: &#34;WSAEACCES (Permission denied. An attempt was made to access a socket in a way &#34;
+           &#34;forbidden by its access permissions. An example is using a broadcast address for &#34;
+           &#34;sendto without broadcast permission being set using setsockopt(SO_BROADCAST). &#34;
+           &#34;Another possible reason for the WSAEACCES error is that when the bind function &#34;
+           &#34;is called (on Windows NT 4.0 with SP4 and later), another application, service, &#34;
+           &#34;or kernel mode driver is bound to the same address with exclusive access. Such &#34;
+           &#34;exclusive access is a new feature of Windows NT 4.0 with SP4 and later, and is &#34;
+           &#34;implemented by using the SO_EXCLUSIVEADDRUSE option)&#34;,
+    10014: &#34;WSAEFAULT (Bad address. The system detected an invalid pointer address in &#34;
+           &#34;attempting to use a pointer argument of a call. This error occurs if an application &#34;
+           &#34;passes an invalid pointer value, or if the length of the buffer is too small. &#34;
+           &#34;For instance, if the length of an argument, which is a sockaddr structure, is &#34;
+           &#34;smaller than the sizeof(sockaddr))&#34;,
+    10022: &#34;WSAEINVAL (Invalid argument. Some invalid argument was supplied (for example, &#34;
+           &#34;specifying an invalid level to the setsockopt function). In some instances, it &#34;
+           &#34;also refers to the current state of the socket—for instance, calling accept on &#34;
+           &#34;a socket that is not listening)&#34;,
+    10024: &#34;WSAEMFILE (Too many open files. Too many open sockets. Each implementation may &#34;
+           &#34;have a maximum number of socket handles available, either globally, per process, &#34;
+           &#34;or per thread)&#34;,
+    10035: &#34;WSAEWOULDBLOCK (Resource temporarily unavailable. This error is returned from &#34;
+           &#34;operations on nonblocking sockets that cannot be completed immediately, for &#34;
+           &#34;example recv when no data is queued to be read from the socket. It is a nonfatal &#34;
+           &#34;error, and the operation should be retried later. It is normal for WSAEWOULDBLOCK &#34;
+           &#34;to be reported as the result from calling connect on a nonblocking SOCK_STREAM &#34;
+           &#34;socket, since some time must elapse for the connection to be established)&#34;,
+    10036: &#34;WSAEINPROGRESS (Operation now in progress. A blocking operation is currently &#34;
+           &#34;executing. Windows Sockets only allows a single blocking operation—per- task or &#34;
+           &#34;thread—to be outstanding, and if any other function call is made (whether or &#34;
+           &#34;not it references that or any other socket) the function fails with the &#34;
+           &#34;WSAEINPROGRESS error)&#34;,
+    10037: &#34;WSAEALREADY (Operation already in progress. An operation was attempted on a &#34;
+           &#34;nonblocking socket with an operation already in progress—that is, calling connect &#34;
+           &#34;a second time on a nonblocking socket that is already connecting, or canceling &#34;
+           &#34;an asynchronous request (WSAAsyncGetXbyY) that has already been canceled or &#34;
+           &#34;completed)&#34;,
+    10038: &#34;WSAENOTSOCK (Socket operation on nonsocket. An operation was attempted on &#34;
+           &#34;something that is not a socket. Either the socket handle parameter did not &#34;
+           &#34;reference a valid socket, or for select, a member of an fd_set was not valid)&#34;,
+    10039: &#34;WSAEDESTADDRREQ (Destination address required. A required address was omitted &#34;
+           &#34;from an operation on a socket. For example, this error is returned if sendto &#34;
+           &#34;is called with the remote address of ADDR_ANY)&#34;,
+    10040: &#34;WSAEMSGSIZE (Message too long. A message sent on a datagram socket was larger &#34;
+           &#34;than the internal message buffer or some other network limit, or the buffer used &#34;
+           &#34;to receive a datagram was smaller than the datagram itself)&#34;,
+    10041: &#34;WSAEPROTOTYPE (Protocol wrong type for socket. A protocol was specified in the &#34;
+           &#34;socket function call that does not support the semantics of the socket type &#34;
+           &#34;requested. For example, the ARPA Internet UDP protocol cannot be specified with &#34;
+           &#34;a socket type of SOCK_STREAM)&#34;,
+    10042: &#34;WSAENOPROTOOPT (Bad protocol option. An unknown, invalid or unsupported option &#34;
+           &#34;or level was specified in a getsockopt or setsockopt call)&#34;,
+    10043: &#34;WSAEPROTONOSUPPORT (Protocol not supported. The requested protocol has not been &#34;
+           &#34;configured into the system, or no implementation for it exists. For example, a &#34;
+           &#34;socket call requests a SOCK_DGRAM socket, but specifies a stream protocol)&#34;,
+    10044: &#34;WSAESOCKTNOSUPPORT (Socket type not supported. The support for the specified &#34;
+           &#34;socket type does not exist in this address family. For example, the optional &#34;
+           &#34;type SOCK_RAW might be selected in a socket call, and the implementation does &#34;
+           &#34;not support SOCK_RAW sockets at all)&#34;,
+    10045: &#34;WSAEOPNOTSUPP (Operation not supported. The attempted operation is not supported &#34;
+           &#34;for the type of object referenced. Usually this occurs when a socket descriptor &#34;
+           &#34;to a socket that cannot support this operation is trying to accept a connection &#34;
+           &#34;on a datagram socket)&#34;,
+    10046: &#34;WSAEPFNOSUPPORT (Protocol family not supported. The protocol family has not been &#34;
+           &#34;configured into the system or no implementation for it exists. This message has &#34;
+           &#34;a slightly different meaning from WSAEAFNOSUPPORT. However, it is interchangeable &#34;
+           &#34;in most cases, and all Windows Sockets functions that return one of these messages &#34;
+           &#34;also specify WSAEAFNOSUPPORT)&#34;,
+    10047: &#34;WSAEAFNOSUPPORT (Address family not supported by protocol family. An address &#34;
+           &#34;incompatible with the requested protocol was used. All sockets are created with &#34;
+           &#34;an associated address family (that is, AF_INET for Internet Protocols) and a &#34;
+           &#34;generic protocol type (that is, SOCK_STREAM). This error is returned if an &#34;
+           &#34;incorrect protocol is explicitly requested in the socket call, or if an address &#34;
+           &#34;of the wrong family is used for a socket, for example, in sendto)&#34;,
+    10048: &#34;WSAEADDRINUSE (Address already in use. Typically, only one usage of each socket &#34;
+           &#34;address (protocol/IP address/port) is permitted. This error occurs if an &#34;
+           &#34;application attempts to bind a socket to an IP address/port that has already &#34;
+           &#34;been used for an existing socket, or a socket that was not closed properly, or &#34;
+           &#34;one that is still in the process of closing. For server applications that need &#34;
+           &#34;to bind multiple sockets to the same port number, consider using setsockopt &#34;
+           &#34;(SO_REUSEADDR). Client applications usually need not call bind at all—connect &#34;
+           &#34;chooses an unused port automatically. When bind is called with a wildcard address &#34;
+           &#34;(involving ADDR_ANY), a WSAEADDRINUSE error could be delayed until the specific &#34;
+           &#34;address is committed. This could happen with a call to another function later, &#34;
+           &#34;including connect, listen, WSAConnect, or WSAJoinLeaf)&#34;,
+    10049: &#34;WSAEADDRNOTAVAIL (Cannot assign requested address. The requested address is not &#34;
+           &#34;valid in its context. This normally results from an attempt to bind to an address &#34;
+           &#34;that is not valid for the local computer. This can also result from connect, &#34;
+           &#34;sendto, WSAConnect, WSAJoinLeaf, or WSASendTo when the remote address or port &#34;
+           &#34;is not valid for a remote computer (for example, address or port 0))&#34;,
+    10050: &#34;WSAENETDOWN (Network is down. A socket operation encountered a dead network. &#34;
+           &#34;This could indicate a serious failure of the network system (that is, the &#34;
+           &#34;protocol stack that the Windows Sockets DLL runs over), the network interface, &#34;
+           &#34;or the local network itself)&#34;,
+    10051: &#34;WSAENETUNREACH (Network is unreachable. A socket operation was attempted to &#34;
+           &#34;an unreachable network. This usually means the local software knows no route &#34;
+           &#34;to reach the remote host)&#34;,
+    10052: &#34;WSAENETRESET (Network dropped connection on reset. The connection has been &#34;
+           &#34;broken due to keep-alive activity detecting a failure while the operation was &#34;
+           &#34;in progress. It can also be returned by setsockopt if an attempt is made to set &#34;
+           &#34;SO_KEEPALIVE on a connection that has already failed)&#34;,
+    10053: &#34;WSAECONNABORTED (Software caused connection abort. An established connection was &#34;
+           &#34;aborted by the software in your host computer, possibly due to a data transmission &#34;
+           &#34;time-out or protocol error)&#34;,
+    10054: &#34;WSAECONNRESET (Connection reset by peer. An existing connection was forcibly &#34;
+           &#34;closed by the remote host. This normally results if the peer application on the &#34;
+           &#34;remote host is suddenly stopped, the host is rebooted, the host or remote network &#34;
+           &#34;interface is disabled, or the remote host uses a hard close (see setsockopt for &#34;
+           &#34;more information on the SO_LINGER option on the remote socket). This error may &#34;
+           &#34;also result if a connection was broken due to keep-alive activity detecting a &#34;
+           &#34;failure while one or more operations are in progress. Operations that were in &#34;
+           &#34;progress fail with WSAENETRESET. Subsequent operations fail with WSAECONNRESET)&#34;,
+    10055: &#34;WSAENOBUFS (No buffer space available. An operation on a socket could not be &#34;
+           &#34;performed because the system lacked sufficient buffer space or because a queue &#34;
+           &#34;was full)&#34;,
+    10056: &#34;WSAEISCONN (Socket is already connected. A connect request was made on an &#34;
+           &#34;already-connected socket. Some implementations also return this error if &#34;
+           &#34;sendto is called on a connected SOCK_DGRAM socket (for SOCK_STREAM sockets, the &#34;
+           &#34;to parameter in sendto is ignored) although other implementations treat this as &#34;
+           &#34;a legal occurrence)&#34;,
+    10057: &#34;WSAENOTCONN (Socket is not connected. A request to send or receive data was &#34;
+           &#34;disallowed because the socket is not connected and (when sending on a datagram &#34;
+           &#34;socket using sendto) no address was supplied. Any other type of operation might &#34;
+           &#34;also return this error—for example, setsockopt setting SO_KEEPALIVE if the &#34;
+           &#34;connection has been reset)&#34;,
+    10058: &#34;WSAESHUTDOWN (Cannot send after socket shutdown. A request to send or receive &#34;
+           &#34;data was disallowed because the socket had already been shut down in that &#34;
+           &#34;direction with a previous shutdown call. By calling shutdown a partial close &#34;
+           &#34;of a socket is requested, which is a signal that sending or receiving, or both &#34;
+           &#34;have been discontinued)&#34;,
+    10059: &#34;WSAETOOMANYREFS (Too many references. Too many references to some kernel object)&#34;,
+    10060: &#34;WSAETIMEDOUT (Connection timed out. A connection attempt failed because the &#34;
+           &#34;connected party did not properly respond after a period of time, or the &#34;
+           &#34;established connection failed because the connected host has failed to respond)&#34;,
+    10061: &#34;WSAECONNREFUSED (Connection refused. No connection could be made because the &#34;
+           &#34;target computer actively refused it. This usually results from trying to &#34;
+           &#34;connect to a service that is inactive on the foreign host—that is, one with &#34;
+           &#34;no server application running)&#34;,
+    10062: &#34;WSAELOOP (Cannot translate name. Cannot translate a name)&#34;,
+    10063: &#34;WSAENAMETOOLONG (Name too long. A name component or a name was too long)&#34;,
+    10064: &#34;WSAEHOSTDOWN (Host is down. A socket operation failed because the destination &#34;
+           &#34;host is down. A socket operation encountered a dead host. Networking activity &#34;
+           &#34;on the local host has not been initiated. These conditions are more likely to be &#34;
+           &#34;indicated by the error WSAETIMEDOUT)&#34;,
+    10065: &#34;WSAEHOSTUNREACH (No route to host. A socket operation was attempted to an &#34;
+           &#34;unreachable host. See WSAENETUNREACH)&#34;,
+    10066: &#34;WSAENOTEMPTY (Directory not empty. Cannot remove a directory that is not empty)&#34;,
+    10067: &#34;WSAEPROCLIM (Too many processes. A Windows Sockets implementation may have a &#34;
+           &#34;limit on the number of applications that can use it simultaneously. WSAStartup &#34;
+           &#34;may fail with this error if the limit has been reached)&#34;,
+    10068: &#34;WSAEUSERS (User quota exceeded. Ran out of user quota)&#34;,
+    10069: &#34;WSAEDQUOT (Disk quota exceeded. Ran out of disk quota)&#34;,
+    10070: &#34;WSAESTALE (Stale file handle reference. The file handle reference is no longer &#34;
+           &#34;available)&#34;,
+    10071: &#34;WSAEREMOTE (Item is remote. The item is not available locally)&#34;,
+    10091: &#34;WSASYSNOTREADY (Network subsystem is unavailable. This error is returned by &#34;
+           &#34;WSAStartup if the Windows Sockets implementation cannot function at this time &#34;
+           &#34;because the underlying system it uses to provide network services is currently &#34;
+           &#34;unavailable. Users should check: That the appropriate Windows Sockets DLL file &#34;
+           &#34;is in the current path. That they are not trying to use more than one Windows &#34;
+           &#34;Sockets implementation simultaneously. If there is more than one Winsock DLL on &#34;
+           &#34;your system, be sure the first one in the path is appropriate for the network &#34;
+           &#34;subsystem currently loaded. The Windows Sockets implementation documentation to &#34;
+           &#34;be sure all necessary components are currently installed and configured correctly)&#34;,
+    10092: &#34;WSAVERNOTSUPPORTED (Winsock.dll version out of range. The current Windows Sockets &#34;
+           &#34;implementation does not support the Windows Sockets specification version &#34;
+           &#34;requested by the application. Check that no old Windows Sockets DLL files are &#34;
+           &#34;being accessed)&#34;,
+    10093: &#34;WSANOTINITIALISED (Successful WSAStartup not yet performed. Either the application &#34;
+           &#34;has not called WSAStartup or WSAStartup failed. The application may be accessing &#34;
+           &#34;a socket that the current active task does not own (that is, trying to share a &#34;
+           &#34;socket between tasks), or WSACleanup has been called too many times)&#34;,
+    10101: &#34;WSAEDISCON (Graceful shutdown in progress. Returned by WSARecv and WSARecvFrom &#34;
+           &#34;to indicate that the remote party has initiated a graceful shutdown sequence)&#34;,
+    10102: &#34;WSAENOMORE (No more results. No more results can be returned by the &#34;
+           &#34;WSALookupServiceNext function)&#34;,
+    10103: &#34;WSAECANCELLED (Call has been canceled. A call to the WSALookupServiceEnd function &#34;
+           &#34;was made while this call was still processing. The call has been canceled)&#34;,
+    10104: &#34;WSAEINVALIDPROCTABLE (Procedure call table is invalid. The service provider &#34;
+           &#34;procedure call table is invalid. A service provider returned a bogus procedure &#34;
+           &#34;table to Ws2_32.dll. This is usually caused by one or more of the function &#34;
+           &#34;pointers being NULL)&#34;,
+    10105: &#34;WSAEINVALIDPROVIDER (Service provider is invalid. The requested service provider &#34;
+           &#34;is invalid. This error is returned by the WSCGetProviderInfo and &#34;
+           &#34;WSCGetProviderInfo32 functions if the protocol entry specified could not be found. &#34;
+           &#34;This error is also returned if the service provider returned a version number &#34;
+           &#34;other than 2.0)&#34;,
+    10106: &#34;WSAEPROVIDERFAILEDINIT (Service provider failed to initialize. The requested &#34;
+           &#34;service provider could not be loaded or initialized. This error is returned if &#34;
+           &#34;either a service provider&#39;s DLL could not be loaded (LoadLibrary failed) or the &#34;
+           &#34;provider&#39;s WSPStartup or NSPStartup function failed)&#34;,
+    10107: &#34;WSASYSCALLFAILURE (System call failure. A system call that should never fail has &#34;
+           &#34;failed. This is a generic error code, returned under various conditions. Returned &#34;
+           &#34;when a system call that should never fail does fail. For example, if a call to &#34;
+           &#34;WaitForMultipleEvents fails or one of the registry functions fails trying to &#34;
+           &#34;manipulate the protocol/namespace catalogs. Returned when a provider does not &#34;
+           &#34;return SUCCESS and does not provide an extended error code. Can indicate a &#34;
+           &#34;service provider implementation error)&#34;,
+    10108: &#34;WSASERVICE_NOT_FOUND (Service not found. No such service is known. The service &#34;
+           &#34;cannot be found in the specified name space)&#34;,
+    10109: &#34;WSATYPE_NOT_FOUND (Class type not found. The specified class was not found)&#34;,
+    10110: &#34;WSA_E_NO_MORE (No more results. No more results can be returned by the &#34;
+           &#34;WSALookupServiceNext function)&#34;,
+    10111: &#34;WSA_E_CANCELLED (Call was canceled. A call to the WSALookupServiceEnd function &#34;
+           &#34;was made while this call was still processing. The call has been canceled)&#34;,
+    10112: &#34;WSAEREFUSED (Database query was refused. A database query failed because it &#34;
+           &#34;was actively refused)&#34;,
+    11001: &#34;WSAHOST_NOT_FOUND (Host not found. No such host is known. The name is not an &#34;
+           &#34;official host name or alias, or it cannot be found in the database(s) being &#34;
+           &#34;queried. This error may also be returned for protocol and service queries, and &#34;
+           &#34;means that the specified name could not be found in the relevant database)&#34;,
+    11002: &#34;WSATRY_AGAIN (Nonauthoritative host not found. This is usually a temporary error &#34;
+           &#34;during host name resolution and means that the local server did not receive a &#34;
+           &#34;response from an authoritative server. A retry at some time later may be successful)&#34;,
+    11003: &#34;WSANO_RECOVERY (This is a nonrecoverable error. This indicates that some sort &#34;
+           &#34;of nonrecoverable error occurred during a database lookup. This may be because &#34;
+           &#34;the database files (for example, BSD-compatible HOSTS, SERVICES, or PROTOCOLS &#34;
+           &#34;files) could not be found, or a DNS request was returned by the server with a &#34;
+           &#34;severe error)&#34;,
+    11004: &#34;WSANO_DATA (Valid name, no data record of requested type. The requested name is &#34;
+           &#34;valid and was found in the database, but it does not have the correct associated &#34;
+           &#34;data being resolved for. The usual example for this is a host name-to-address &#34;
+           &#34;translation attempt (using gethostbyname or WSAAsyncGetHostByName) which uses &#34;
+           &#34;the DNS (Domain Name Server). An MX record is returned but no A record—indicating &#34;
+           &#34;the host itself exists, but is not directly reachable)&#34;,
+    11005: &#34;WSA_QOS_RECEIVERS (QoS receivers. At least one QoS reserve has arrived)&#34;,
+    11006: &#34;WSA_QOS_SENDERS (QoS senders. At least one QoS send path has arrived)&#34;,
+    11007: &#34;WSA_QOS_NO_SENDERS (No QoS senders. There are no QoS senders)&#34;,
+    11008: &#34;WSA_QOS_NO_RECEIVERS (QoS no receivers. There are no QoS receivers)&#34;,
+    11009: &#34;WSA_QOS_REQUEST_CONFIRMED (QoS request confirmed. The QoS reserve request has &#34;
+           &#34;been confirmed)&#34;,
+    11010: &#34;WSA_QOS_ADMISSION_FAILURE (QoS admission error. A QoS error occurred due to lack &#34;
+           &#34;of resources)&#34;,
+    11011: &#34;WSA_QOS_POLICY_FAILURE (QoS policy failure. The QoS request was rejected because &#34;
+           &#34;the policy system couldn&#39;t allocate the requested resource within the existing &#34;
+           &#34;policy)&#34;,
+    11012: &#34;WSA_QOS_BAD_STYLE (QoS bad style. An unknown or conflicting QoS style was &#34;
+           &#34;encountered)&#34;,
+    11013: &#34;WSA_QOS_BAD_OBJECT (QoS bad object. A problem was encountered with some part &#34;
+           &#34;of the filterspec or the provider-specific buffer in general)&#34;,
+    11014: &#34;WSA_QOS_TRAFFIC_CTRL_ERROR (QoS traffic control error. An error with the &#34;
+           &#34;underlying traffic control (TC) API as the generic QoS request was converted &#34;
+           &#34;for local enforcement by the TC API. This could be due to an out of memory &#34;
+           &#34;error or to an internal QoS provider error)&#34;,
+    11015: &#34;WSA_QOS_GENERIC_ERROR (QoS generic error. A general QoS error)&#34;,
+    11016: &#34;WSA_QOS_ESERVICETYPE (QoS service type error. An invalid or unrecognized service &#34;
+           &#34;type was found in the QoS flowspec)&#34;,
+    11017: &#34;WSA_QOS_EFLOWSPEC (QoS flowspec error. An invalid or inconsistent flowspec was &#34;
+           &#34;found in the QOS structure)&#34;,
+    11018: &#34;WSA_QOS_EPROVSPECBUF (Invalid QoS provider buffer. An invalid QoS provider-specific &#34;
+           &#34;buffer)&#34;,
+    11019: &#34;WSA_QOS_EFILTERSTYLE (Invalid QoS filter style. An invalid QoS filter style was used)&#34;,
+    11020: &#34;WSA_QOS_EFILTERTYPE (Invalid QoS filter type. An invalid QoS filter type was used)&#34;,
+    11021: &#34;WSA_QOS_EFILTERCOUNT (Incorrect QoS filter count. An incorrect number of QoS &#34;
+           &#34;FILTERSPECs were specified in the FLOWDESCRIPTOR)&#34;,
+    11022: &#34;WSA_QOS_EOBJLENGTH (Invalid QoS object length. An object with an invalid &#34;
+           &#34;ObjectLength field was specified in the QoS provider-specific buffer)&#34;,
+    11023: &#34;WSA_QOS_EFLOWCOUNT (Incorrect QoS flow count. An incorrect number of flow &#34;
+           &#34;descriptors was specified in the QoS structure)&#34;,
+    11024: &#34;WSA_QOS_EUNKOWNPSOBJ (Unrecognized QoS object. An unrecognized object was found &#34;
+           &#34;in the QoS provider-specific buffer)&#34;,
+    11025: &#34;WSA_QOS_EPOLICYOBJ (Invalid QoS policy object. An invalid policy object was found &#34;
+           &#34;in the QoS provider-specific buffer)&#34;,
+    11026: &#34;WSA_QOS_EFLOWDESC (Invalid QoS flow descriptor. An invalid QoS flow descriptor was &#34;
+           &#34;found in the flow descriptor list)&#34;,
+    11027: &#34;WSA_QOS_EPSFLOWSPEC (Invalid QoS provider-specific flowspec. An invalid or &#34;
+           &#34;inconsistent flowspec was found in the QoS provider-specific buffer)&#34;,
+    11028: &#34;WSA_QOS_EPSFILTERSPEC (Invalid QoS provider-specific filterspec. An invalid &#34;
+           &#34;FILTERSPEC was found in the QoS provider-specific buffer)&#34;,
+    11029: &#34;WSA_QOS_ESDMODEOBJ (Invalid QoS shape discard mode object. An invalid shape discard &#34;
+           &#34;mode object was found in the QoS provider-specific buffer)&#34;,
+    11030: &#34;WSA_QOS_ESHAPERATEOBJ (Invalid QoS shaping rate object. An invalid shaping rate &#34;
+           &#34;object was found in the QoS provider-specific buffer)&#34;,
+    11031: &#34;WSA_QOS_RESERVED_PETYPE (Reserved policy QoS element type. A reserved policy &#34;
+           &#34;element was found in the QoS provider-specific buffer)&#34;,
+})</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyzkaccess.enums.ControlOperation"><code class="flex name class">
+<span>class <span class="ident">ControlOperation</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Device control operation. See <code><a title="pyzkaccess.enums.ControlOperation" href="#pyzkaccess.enums.ControlOperation">ControlOperation</a></code> SDK func docs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ControlOperation(Enum):
+    &#34;&#34;&#34;Device control operation. See `ControlOperation` SDK func docs&#34;&#34;&#34;
+    output = 1
+    cancel_alarm = 2
+    restart = 3</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.ControlOperation.cancel_alarm"><code class="name">var <span class="ident">cancel_alarm</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.ControlOperation.output"><code class="name">var <span class="ident">output</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.ControlOperation.restart"><code class="name">var <span class="ident">restart</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.enums.PassageDirection"><code class="flex name class">
+<span>class <span class="ident">PassageDirection</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Whether a user was entered or exited via door
+See event format description in SDK docs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PassageDirection(Enum):
+    &#34;&#34;&#34;Whether a user was entered or exited via door
+    See event format description in SDK docs
+    &#34;&#34;&#34;
+    entry = 0
+    exit = 1
+    none = 2</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.PassageDirection.entry"><code class="name">var <span class="ident">entry</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.PassageDirection.exit"><code class="name">var <span class="ident">exit</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.PassageDirection.none"><code class="name">var <span class="ident">none</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.enums.RelayGroup"><code class="flex name class">
+<span>class <span class="ident">RelayGroup</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Device relay group.
+There are either lock relays (door output) or aux relays
+(aux output)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RelayGroup(Enum):
+    &#34;&#34;&#34;Device relay group.
+    There are either lock relays (door output) or aux relays
+    (aux output)
+    &#34;&#34;&#34;
+    lock = 1
+    aux = 2</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.RelayGroup.aux"><code class="name">var <span class="ident">aux</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.RelayGroup.lock"><code class="name">var <span class="ident">lock</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.enums.SensorType"><code class="flex name class">
+<span>class <span class="ident">SensorType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sensor type of door. See DoorXSensorType parameter in SDK docs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SensorType(Enum):
+    &#34;&#34;&#34;Sensor type of door. See DoorXSensorType parameter in SDK docs&#34;&#34;&#34;
+    not_available = 0
+    normal_open = 1
+    normal_closed = 2</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.SensorType.normal_closed"><code class="name">var <span class="ident">normal_closed</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.SensorType.normal_open"><code class="name">var <span class="ident">normal_open</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.SensorType.not_available"><code class="name">var <span class="ident">not_available</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode"><code class="flex name class">
+<span>class <span class="ident">VerifyMode</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Which methods are used to authenticate user.
+See <code>DoorXVerifyType</code> parameter in SDK docs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VerifyMode(Enum):
+    &#34;&#34;&#34;Which methods are used to authenticate user.
+    See `DoorXVerifyType` parameter in SDK docs
+    &#34;&#34;&#34;
+    not_available = 0
+    only_finger = 1
+    only_password = 3
+    only_card = 4
+    card_or_finger = 6
+    card_and_finger = 10
+    card_and_password = 11
+    others = 200</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.VerifyMode.card_and_finger"><code class="name">var <span class="ident">card_and_finger</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode.card_and_password"><code class="name">var <span class="ident">card_and_password</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode.card_or_finger"><code class="name">var <span class="ident">card_or_finger</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode.not_available"><code class="name">var <span class="ident">not_available</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode.only_card"><code class="name">var <span class="ident">only_card</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode.only_finger"><code class="name">var <span class="ident">only_finger</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode.only_password"><code class="name">var <span class="ident">only_password</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.VerifyMode.others"><code class="name">var <span class="ident">others</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyzkaccess" href="index.html">pyzkaccess</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyzkaccess.enums.ControlOperation" href="#pyzkaccess.enums.ControlOperation">ControlOperation</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.ControlOperation.cancel_alarm" href="#pyzkaccess.enums.ControlOperation.cancel_alarm">cancel_alarm</a></code></li>
+<li><code><a title="pyzkaccess.enums.ControlOperation.output" href="#pyzkaccess.enums.ControlOperation.output">output</a></code></li>
+<li><code><a title="pyzkaccess.enums.ControlOperation.restart" href="#pyzkaccess.enums.ControlOperation.restart">restart</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.enums.PassageDirection" href="#pyzkaccess.enums.PassageDirection">PassageDirection</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.PassageDirection.entry" href="#pyzkaccess.enums.PassageDirection.entry">entry</a></code></li>
+<li><code><a title="pyzkaccess.enums.PassageDirection.exit" href="#pyzkaccess.enums.PassageDirection.exit">exit</a></code></li>
+<li><code><a title="pyzkaccess.enums.PassageDirection.none" href="#pyzkaccess.enums.PassageDirection.none">none</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.enums.RelayGroup" href="#pyzkaccess.enums.RelayGroup">RelayGroup</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.RelayGroup.aux" href="#pyzkaccess.enums.RelayGroup.aux">aux</a></code></li>
+<li><code><a title="pyzkaccess.enums.RelayGroup.lock" href="#pyzkaccess.enums.RelayGroup.lock">lock</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.enums.SensorType" href="#pyzkaccess.enums.SensorType">SensorType</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.SensorType.normal_closed" href="#pyzkaccess.enums.SensorType.normal_closed">normal_closed</a></code></li>
+<li><code><a title="pyzkaccess.enums.SensorType.normal_open" href="#pyzkaccess.enums.SensorType.normal_open">normal_open</a></code></li>
+<li><code><a title="pyzkaccess.enums.SensorType.not_available" href="#pyzkaccess.enums.SensorType.not_available">not_available</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.enums.VerifyMode" href="#pyzkaccess.enums.VerifyMode">VerifyMode</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.enums.VerifyMode.card_and_finger" href="#pyzkaccess.enums.VerifyMode.card_and_finger">card_and_finger</a></code></li>
+<li><code><a title="pyzkaccess.enums.VerifyMode.card_and_password" href="#pyzkaccess.enums.VerifyMode.card_and_password">card_and_password</a></code></li>
+<li><code><a title="pyzkaccess.enums.VerifyMode.card_or_finger" href="#pyzkaccess.enums.VerifyMode.card_or_finger">card_or_finger</a></code></li>
+<li><code><a title="pyzkaccess.enums.VerifyMode.not_available" href="#pyzkaccess.enums.VerifyMode.not_available">not_available</a></code></li>
+<li><code><a title="pyzkaccess.enums.VerifyMode.only_card" href="#pyzkaccess.enums.VerifyMode.only_card">only_card</a></code></li>
+<li><code><a title="pyzkaccess.enums.VerifyMode.only_finger" href="#pyzkaccess.enums.VerifyMode.only_finger">only_finger</a></code></li>
+<li><code><a title="pyzkaccess.enums.VerifyMode.only_password" href="#pyzkaccess.enums.VerifyMode.only_password">only_password</a></code></li>
+<li><code><a title="pyzkaccess.enums.VerifyMode.others" href="#pyzkaccess.enums.VerifyMode.others">others</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1880 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>pyzkaccess.param API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyzkaccess.param</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">__all__ = [
+    &#39;DaylightSavingMomentMode1&#39;,
+    &#39;DaylightSavingMomentMode2&#39;,
+    &#39;BaseParameters&#39;,
+    &#39;DeviceParameters&#39;,
+    &#39;DoorParameters&#39;
+]
+import re
+from datetime import datetime
+from enum import Enum
+
+from .device import ZKModel
+from .enums import SensorType, VerifyMode
+from .sdk import ZKSDK
+
+
+def _make_daylight_prop(query_name_spring, query_name_fall, minimum, maximum):
+    def read(self):
+        query = query_name_spring if self.is_daylight else query_name_fall
+        res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+        res = int(res[query])
+        if not(minimum &lt;= res &lt;= maximum):
+            raise ValueError(&#39;Value {} is not in range {}..{}&#39;.format(res, minimum, maximum))
+
+        return res
+
+    def write(self, value):
+        query = query_name_spring if self.is_daylight else query_name_fall
+        if not isinstance(value, int):
+            raise TypeError(&#39;Bad value type, should be int&#39;)
+        if not(minimum &lt;= value &lt;= maximum):
+            raise ValueError(&#39;Value {} is not in range {}..{}&#39;.format(value, minimum, maximum))
+
+        self._sdk.set_device_param(parameters={query: str(value)})
+
+    return property(fget=read, fset=write, fdel=None, doc=None)
+
+
+class DaylightSavingMomentMode1:
+    &#34;&#34;&#34;Daylight saving parameters used in mode1 setting (all parameters
+    in one request). See `DLSTMode`, `DaylightSavingTime`,
+    `StandardTime` parameters in SDK docs
+    &#34;&#34;&#34;
+    def __init__(self, month, day, hour, minute):
+        self.month = int(month)
+        self.day = int(day)
+        self.hour = int(hour)
+        self.minute = int(minute)
+
+        if not(1 &lt;= self.month &lt;= 12):
+            raise ValueError(&#39;Month must have value in range 1..12&#39;)
+        if not(1 &lt;= self.day &lt;= 7):
+            raise ValueError(&#39;Day of week must have value in range 1..7&#39;)
+        if not(0 &lt;= self.hour &lt;= 23):
+            raise ValueError(&#39;Hour must have value in range 0..23&#39;)
+        if not(0 &lt;= self.minute &lt;= 59):
+            raise ValueError(&#39;Minute must have value in range 0..59&#39;)
+
+    def __str__(self):
+        return &#39;-&#39;.join(str(x) for x in (self.month, self.day, self.hour, self.minute))
+
+    def __repr__(self):
+        pieces = &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;minute&#39;
+        return &#39;{}({})&#39;.format(self.__class__.__name__,
+                               &#39;, &#39;.join(&#39;{}={}&#39;.format(x, getattr(self, x)) for x in pieces))
+
+
+class DaylightSavingMomentMode2:
+    &#34;&#34;&#34;Daylight saving parameters used in mode2 setting (each parameter
+    in a separate request). See `DLSTMode`, `WeekOfMonth*` parameters
+    in SDK docs
+    &#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, is_daylight: bool, buffer_size: int):
+        self.is_daylight = is_daylight
+        self.buffer_size = buffer_size
+        self._sdk = sdk
+
+    month = _make_daylight_prop(&#39;WeekOfMonth1&#39;, &#39;WeekOfMonth6&#39;, 1, 12)
+    week_of_month = _make_daylight_prop(&#39;WeekOfMonth2&#39;, &#39;WeekOfMonth7&#39;, 1, 6)
+    day_of_week = _make_daylight_prop(&#39;WeekOfMonth3&#39;, &#39;WeekOfMonth8&#39;, 1, 7)
+    hour = _make_daylight_prop(&#39;WeekOfMonth4&#39;, &#39;WeekOfMonth9&#39;, 0, 23)
+    minute = _make_daylight_prop(&#39;WeekOfMonth5&#39;, &#39;WeekOfMonth10&#39;, 0, 59)
+
+    def __str__(self):
+        pieces = &#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;
+        return &#39;{}({})&#39;.format(self.__class__.__name__,
+                               &#39;, &#39;.join(&#39;{}={}&#39;.format(x, getattr(self, x)) for x in pieces))
+
+    def __repr__(self):
+        return self.__str__()
+
+
+def _make_prop(query_tpl: str,
+               data_type,
+               prop_type,
+               readable=True,
+               writable=True,
+               doc=None,
+               restriction_f=None):
+    assert readable or writable
+
+    def read(self) -&gt; prop_type:
+        query = query_tpl.format(self=self)
+        res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+        res = res[query]
+        res = data_type(res)
+        if data_type != prop_type:
+            res = prop_type(res)
+
+        if not(restriction_f is None or restriction_f(res)):
+            raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                             &#39;see property docstring and SDK documentation&#39;.format(res))
+
+        return res
+
+    def write(self, value: prop_type):
+        # Check incoming value type. If prop_type is specified then
+        # check against it, otherwise check against data_type
+        if not isinstance(value, prop_type):
+            raise TypeError(&#39;Bad value type, should be {}&#39;.format(prop_type))
+
+        # Pass original value to restriction function
+        if not(restriction_f is None or restriction_f(value)):
+            raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                             &#39;see property docstring and SDK documentation&#39;.format(value))
+
+        if issubclass(prop_type, Enum):
+            value = value.value
+        value = data_type(value)
+
+        query = query_tpl.format(self=self)
+        self._sdk.set_device_param(parameters={query: str(value)})
+
+    doc_readable_msg = &#39;-&#39;.join(x for x in [
+        &#39;read&#39; if readable else &#39;&#39;,
+        &#39;write&#39; if writable else &#39;&#39;,
+        &#39;only&#39; if readable != writable else &#39;&#39;
+    ] if x)
+    return property(
+        fget=read if readable else None,
+        fset=write if writable else None,
+        fdel=None,
+        doc=&#39;{} ({})&#39;.format(doc, doc_readable_msg)
+    )
+
+
+class BaseParameters:
+    #: Size in bytes of c-string buffer which is used to accept
+    #: text data from PULL SDK functions
+    buffer_size = 4096
+
+    def __init__(self, sdk: ZKSDK, device_model: type(ZKModel)):
+        self.device_model = device_model
+        self._sdk = sdk
+
+
+def _check_ip(addr: str):
+    return re.match(r&#39;^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$&#39;, addr) \
+           and all(0 &lt;= int(x) &lt;= 255 for x in addr.split(&#39;.&#39;))
+
+
+class DeviceParameters(BaseParameters):
+    &#34;&#34;&#34;Parameters related to the whole device&#34;&#34;&#34;
+    serial_number = _make_prop(
+        &#39;~SerialNumber&#39;, str, str, True, False, &#39;Serial number of device&#39;
+    )
+    lock_count = _make_prop(&#39;LockCount&#39;, int, int, True, False, &#39;Doors count&#39;)
+    reader_count = _make_prop(&#39;ReaderCount&#39;, int, int, True, False, &#39;Readers count&#39;)
+    aux_in_count = _make_prop(&#39;AuxInCount&#39;, int, int, True, False, &#39;Auxiliary inputs count&#39;)
+    aux_out_count = _make_prop(&#39;AuxOutCount&#39;, int, int, True, False, &#39;Auxiliary output count&#39;)
+    communication_password = _make_prop(
+        &#39;ComPwd&#39;, str, str, True, True,
+        &#39;Password to connect to a device. Maximum is 15 symbols&#39;,
+        lambda x: len(x) &lt;= 15
+    )
+    ip_address = _make_prop(&#39;IPAddress&#39;, str, str, True, True, &#39;Device IPv4 address&#39;, _check_ip)
+    netmask = _make_prop(&#39;NetMask&#39;, str, str, True, True, &#39;Subnet mask&#39;, _check_ip)
+    gateway_ip_address = _make_prop(
+        &#39;GATEIPAddress&#39;, str, str, True, True,  &#39;Gateway IPv4 address&#39;, _check_ip
+    )
+    rs232_baud_rate = _make_prop(
+        &#39;RS232BaudRate&#39;, int, int, True, True, &#39;RS232 baud rate&#39;, lambda x: x &gt; 0
+    )
+    watchdog_enabled = _make_prop(&#39;WatchDog&#39;, int, bool, True, True, &#39;MCU watchdog enabled&#39;)
+    door4_to_door2 = _make_prop(&#39;Door4ToDoor2&#39;, int, bool, True, True, &#39;4 doors turn 2 doors&#39;)
+    backup_hour = _make_prop(
+        &#39;BackupTime&#39;, int, int, True, True,
+        &#39;The time (hour) of backup SD card. Number 1..24&#39;,
+        lambda x: 1 &lt;= x &lt;= 24
+    )
+    reboot = _make_prop(
+        &#39;Reboot&#39;, int, bool, False, True,
+        &#39;Reboot a device, accepts only True value&#39;,
+        lambda x: x is True
+    )
+    reader_direction = _make_prop(&#39;InBIOTowWay&#39;, str, str, True, True, &#39;One-way/Two-way reader&#39;)
+    fingerprint_version = _make_prop(
+        &#39;~ZKFPVersion&#39;, int, int, True, False,
+        &#39;Device fingerprint identification version. Available values: 9, 10&#39;,
+        lambda x: x in (9, 10)
+    )
+    display_daylight_saving = _make_prop(
+        &#39;~DSTF&#39;, int, bool, True, True, &#39;Display parameters of daylight saving time&#39;
+    )
+    enable_daylight_saving = _make_prop(
+        &#39;DaylightSavingTimeOn&#39;, int, bool, True, True, &#39;Enable time daylight saving&#39;
+    )
+    daylight_saving_mode = _make_prop(
+        &#39;DLSTMode&#39;, int, int, True, True,
+        &#39;Daylight saving mode, available values 0 (mode 1), 1 (mode 2)&#39;,
+        lambda x: x in (0, 1)
+    )
+
+    @property
+    def anti_passback_rule(self) -&gt; int:
+        &#34;&#34;&#34;Passback rule for doors. Possible values depend on device
+        model. Passback is when the second door can be opened only
+        after the first door has opened, not otherwise. Or a door
+        can be opened only by its readers from one side.
+        &#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;AntiPassback&#39;,), buffer_size=self.buffer_size)
+        res = int(res[&#39;AntiPassback&#39;])
+        if res not in self.device_model.anti_passback_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                res, self.device_model.name, self.device_model.anti_passback_rules.keys()
+            ))
+
+        return self.device_model.anti_passback_rules[res]
+
+    @anti_passback_rule.setter
+    def anti_passback_rule(self, value: int):
+        if value not in self.device_model.anti_passback_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                value, self.device_model.name, tuple(self.device_model.anti_passback_rules.keys())
+            ))
+        self._sdk.set_device_param(parameters={&#39;AntiPassback&#39;: str(value)})
+
+    @property
+    def interlock(self) -&gt; int:
+        &#34;&#34;&#34;Interlock rule for doors. Possible values depend on device
+        model. Interlock is when the second door can be opened only
+        after the first door was opened and closed, and vice versa&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;InterLock&#39;,), buffer_size=self.buffer_size)
+        if not res:
+            return self.device_model.interlock_rules[0]
+
+        res = int(res[&#39;InterLock&#39;])
+        if res not in self.device_model.interlock_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                res, self.device_model.name, self.device_model.interlock_rules.keys()
+            ))
+        return self.device_model.interlock_rules[res]
+
+    @interlock.setter
+    def interlock(self, value: int):
+        if value not in self.device_model.anti_passback_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                value, self.device_model.name, self.device_model.anti_passback_rules.keys()
+            ))
+        self._sdk.set_device_param(parameters={&#39;InterLock&#39;: str(value)})
+
+    @property
+    def spring_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
+        &#34;&#34;&#34;Spring forward daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;DaylightSavingTime&#39;,),
+                                         buffer_size=self.buffer_size)
+        res = [int(x) for x in res[&#39;DaylightSavingTime&#39;].split(&#39;-&#39;)]  # FIXME: extract bytes?
+        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+
+    @spring_daylight_time_mode1.setter
+    def spring_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
+        self._sdk.set_device_param(parameters={&#39;DaylightSavingTime&#39;: str(value)})
+
+    @property
+    def fall_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
+        &#34;&#34;&#34;Fall back daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;StandardTime&#39;,), buffer_size=self.buffer_size)
+        res = [int(x) for x in res[&#39;StandardTime&#39;].split(&#39;-&#39;)]
+        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+
+    @fall_daylight_time_mode1.setter
+    def fall_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
+        self._sdk.set_device_param(parameters={&#39;StandardTime&#39;: str(value)})
+
+    @property
+    def spring_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
+        &#34;&#34;&#34;Spring forward daylight saving time (mode 2) (read-write)&#34;&#34;&#34;
+        return DaylightSavingMomentMode2(self._sdk, True, self.buffer_size)
+
+    @spring_daylight_time_mode2.setter
+    def spring_daylight_time_mode2(self, value: DaylightSavingMomentMode2):
+        t = DaylightSavingMomentMode2(self._sdk, True, self.buffer_size)
+        for attr in (&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;):
+            setattr(t, attr, getattr(value, attr))
+
+    @property
+    def fall_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
+        &#34;&#34;&#34;Fall back daylight saving time (mode 2) (read-write)&#34;&#34;&#34;
+        return DaylightSavingMomentMode2(self._sdk, False, self.buffer_size)
+
+    @fall_daylight_time_mode2.setter
+    def fall_daylight_time_mode2(self, value: DaylightSavingMomentMode2):
+        t = DaylightSavingMomentMode2(self._sdk, False, self.buffer_size)
+        for attr in (&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;):
+            setattr(t, attr, getattr(value, attr))
+
+    def _set_datetime(self, value: datetime):
+        # Amazing DIY ctime calculating from ZKTeco guys.
+        # Simply put this is a count of seconds starting from
+        # 2000-01-01T00:00:00 without considering leap years/seconds
+        # or different length of months (always 31 day)
+        # See PULL SDK docs
+        if value.year &lt; 2000:
+            raise ValueError(&#39;Minimum year is 2000&#39;)
+
+        value = sum((
+            sum((
+                (value.year - 2000) * 12 * 31,
+                (value.month - 1) * 31,
+                (value.day - 1)
+            )) * 24 * 60 * 60,
+            value.hour * 60 * 60,
+            value.minute * 60,
+            value.second
+        ))
+
+        self._sdk.set_device_param(parameters={&#39;DateTime&#39;: str(value)})
+
+    def _get_datetime(self):
+        res = self._sdk.get_device_param(parameters=(&#39;DateTime&#39;,), buffer_size=self.buffer_size)
+        res = int(res[&#39;DateTime&#39;])
+
+        dt = datetime(
+            year=res // 32140800 + 2000,
+            month=(res // 2678400) % 12 + 1,
+            day=(res // 86400) % 31 + 1,
+            hour=(res // 3600) % 24,
+            minute=(res // 60) % 60,
+            second=res % 60
+        )
+        return dt
+
+    datetime = property(_get_datetime, _set_datetime, None, &#39;Current datetime (read-write)&#39;)
+
+
+class DoorParameters(BaseParameters):
+    &#34;&#34;&#34;Parameters related to a concrete door&#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, device_model: type(ZKModel), door_number: int):
+        super().__init__(sdk, device_model)
+        self.door_number = door_number
+
+    duress_password = _make_prop(
+        &#39;Door{self.door_number}ForcePassWord&#39;, str, str, True, True,
+        &#39;Duress password for door. Maximum length is 8 digits&#39;,
+        lambda x: x == &#39;&#39; or x.isdigit() and len(x) &lt;= 8
+    )
+    emergency_password = _make_prop(
+        &#39;Door{self.door_number}SupperPassWord&#39;, str, str, True, True,
+        &#39;Emergency password for door. Maximum length is 8 digits&#39;,
+        lambda x: x == &#39;&#39; or x.isdigit() and len(x) &lt;= 8
+    )
+    lock_on_close = _make_prop(
+        &#39;Door{self.door_number}CloseAndLock&#39;, int, bool, True, True, &#39;Lock on door closing&#39;
+    )
+    sensor_type = _make_prop(
+        &#39;Door{self.door_number}SensorType&#39;, int, SensorType, True, True, &#39;Lock on door closing&#39;
+    )
+    lock_driver_time = _make_prop(
+        &#39;Door{self.door_number}Drivertime&#39;, int, int, True, True,
+        &#39;Lock driver time length. 0 - Normal closed, 1-254 - Door opening duration, &#39;
+        &#39;255 - Normal open&#39;,
+        lambda x: 0 &lt;= x &lt;= 255
+    )
+    magnet_alarm_duration = _make_prop(
+        &#39;Door{self.door_number}Detectortime&#39;, int, int, True, True,
+        &#39;Timeout alarm duration of door magnet&#39;,
+        lambda x: 0 &lt;= x &lt;= 255
+    )
+    verify_mode = _make_prop(
+        &#39;Door{self.door_number}VerifyType&#39;, int, VerifyMode, True, True, &#39;VerifyMode&#39;
+    )
+    multi_card_open = _make_prop(
+        &#39;Door{self.door_number}MultiCardOpenDoor&#39;, int, bool, True, True,
+        &#39;Open a door by several cards&#39;
+    )
+    first_card_open = _make_prop(
+        &#39;Door{self.door_number}FirstCardOpenDoor&#39;, int, bool, True, True,
+        &#39;Open a door by first card&#39;
+    )
+    active_time_tz = _make_prop(
+        &#39;Door{self.door_number}ValidTZ&#39;, int, int, True, True,
+        &#39;Active time segment for a door (0 - door is inactive)&#39;
+    )
+    open_time_tz = _make_prop(
+        &#39;Door{self.door_number}KeepOpenTimeZone&#39;, int, int, True, True,
+        &#39;Normal-open time segment of door (0 - not set)&#39;
+    )
+    punch_interval = _make_prop(
+        &#39;Door{self.door_number}Intertime&#39;, int, int, True, True,
+        &#39;Punch interval in seconds (0 - no interval)&#39;
+    )
+    cancel_open_day = _make_prop(
+        &#39;Door{self.door_number}CancelKeepOpenDay&#39;, int, int, True, True,
+        &#39;The date of Cancel Normal Open&#39;
+    )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyzkaccess.param.BaseParameters"><code class="flex name class">
+<span>class <span class="ident">BaseParameters</span></span>
+<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, device_model: type)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseParameters:
+    #: Size in bytes of c-string buffer which is used to accept
+    #: text data from PULL SDK functions
+    buffer_size = 4096
+
+    def __init__(self, sdk: ZKSDK, device_model: type(ZKModel)):
+        self.device_model = device_model
+        self._sdk = sdk</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.param.DeviceParameters" href="#pyzkaccess.param.DeviceParameters">DeviceParameters</a></li>
+<li><a title="pyzkaccess.param.DoorParameters" href="#pyzkaccess.param.DoorParameters">DoorParameters</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.param.BaseParameters.buffer_size"><code class="name">var <span class="ident">buffer_size</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode1"><code class="flex name class">
+<span>class <span class="ident">DaylightSavingMomentMode1</span></span>
+<span>(</span><span>month, day, hour, minute)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Daylight saving parameters used in mode1 setting (all parameters
+in one request). See <code>DLSTMode</code>, <code>DaylightSavingTime</code>,
+<code>StandardTime</code> parameters in SDK docs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DaylightSavingMomentMode1:
+    &#34;&#34;&#34;Daylight saving parameters used in mode1 setting (all parameters
+    in one request). See `DLSTMode`, `DaylightSavingTime`,
+    `StandardTime` parameters in SDK docs
+    &#34;&#34;&#34;
+    def __init__(self, month, day, hour, minute):
+        self.month = int(month)
+        self.day = int(day)
+        self.hour = int(hour)
+        self.minute = int(minute)
+
+        if not(1 &lt;= self.month &lt;= 12):
+            raise ValueError(&#39;Month must have value in range 1..12&#39;)
+        if not(1 &lt;= self.day &lt;= 7):
+            raise ValueError(&#39;Day of week must have value in range 1..7&#39;)
+        if not(0 &lt;= self.hour &lt;= 23):
+            raise ValueError(&#39;Hour must have value in range 0..23&#39;)
+        if not(0 &lt;= self.minute &lt;= 59):
+            raise ValueError(&#39;Minute must have value in range 0..59&#39;)
+
+    def __str__(self):
+        return &#39;-&#39;.join(str(x) for x in (self.month, self.day, self.hour, self.minute))
+
+    def __repr__(self):
+        pieces = &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;minute&#39;
+        return &#39;{}({})&#39;.format(self.__class__.__name__,
+                               &#39;, &#39;.join(&#39;{}={}&#39;.format(x, getattr(self, x)) for x in pieces))</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2"><code class="flex name class">
+<span>class <span class="ident">DaylightSavingMomentMode2</span></span>
+<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, is_daylight: bool, buffer_size: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Daylight saving parameters used in mode2 setting (each parameter
+in a separate request). See <code>DLSTMode</code>, <code>WeekOfMonth*</code> parameters
+in SDK docs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DaylightSavingMomentMode2:
+    &#34;&#34;&#34;Daylight saving parameters used in mode2 setting (each parameter
+    in a separate request). See `DLSTMode`, `WeekOfMonth*` parameters
+    in SDK docs
+    &#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, is_daylight: bool, buffer_size: int):
+        self.is_daylight = is_daylight
+        self.buffer_size = buffer_size
+        self._sdk = sdk
+
+    month = _make_daylight_prop(&#39;WeekOfMonth1&#39;, &#39;WeekOfMonth6&#39;, 1, 12)
+    week_of_month = _make_daylight_prop(&#39;WeekOfMonth2&#39;, &#39;WeekOfMonth7&#39;, 1, 6)
+    day_of_week = _make_daylight_prop(&#39;WeekOfMonth3&#39;, &#39;WeekOfMonth8&#39;, 1, 7)
+    hour = _make_daylight_prop(&#39;WeekOfMonth4&#39;, &#39;WeekOfMonth9&#39;, 0, 23)
+    minute = _make_daylight_prop(&#39;WeekOfMonth5&#39;, &#39;WeekOfMonth10&#39;, 0, 59)
+
+    def __str__(self):
+        pieces = &#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;
+        return &#39;{}({})&#39;.format(self.__class__.__name__,
+                               &#39;, &#39;.join(&#39;{}={}&#39;.format(x, getattr(self, x)) for x in pieces))
+
+    def __repr__(self):
+        return self.__str__()</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.day_of_week"><code class="name">var <span class="ident">day_of_week</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self):
+    query = query_name_spring if self.is_daylight else query_name_fall
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = int(res[query])
+    if not(minimum &lt;= res &lt;= maximum):
+        raise ValueError(&#39;Value {} is not in range {}..{}&#39;.format(res, minimum, maximum))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.hour"><code class="name">var <span class="ident">hour</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self):
+    query = query_name_spring if self.is_daylight else query_name_fall
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = int(res[query])
+    if not(minimum &lt;= res &lt;= maximum):
+        raise ValueError(&#39;Value {} is not in range {}..{}&#39;.format(res, minimum, maximum))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.minute"><code class="name">var <span class="ident">minute</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self):
+    query = query_name_spring if self.is_daylight else query_name_fall
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = int(res[query])
+    if not(minimum &lt;= res &lt;= maximum):
+        raise ValueError(&#39;Value {} is not in range {}..{}&#39;.format(res, minimum, maximum))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.month"><code class="name">var <span class="ident">month</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self):
+    query = query_name_spring if self.is_daylight else query_name_fall
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = int(res[query])
+    if not(minimum &lt;= res &lt;= maximum):
+        raise ValueError(&#39;Value {} is not in range {}..{}&#39;.format(res, minimum, maximum))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.week_of_month"><code class="name">var <span class="ident">week_of_month</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self):
+    query = query_name_spring if self.is_daylight else query_name_fall
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = int(res[query])
+    if not(minimum &lt;= res &lt;= maximum):
+        raise ValueError(&#39;Value {} is not in range {}..{}&#39;.format(res, minimum, maximum))
+
+    return res</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters"><code class="flex name class">
+<span>class <span class="ident">DeviceParameters</span></span>
+<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, device_model: type)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parameters related to the whole device</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DeviceParameters(BaseParameters):
+    &#34;&#34;&#34;Parameters related to the whole device&#34;&#34;&#34;
+    serial_number = _make_prop(
+        &#39;~SerialNumber&#39;, str, str, True, False, &#39;Serial number of device&#39;
+    )
+    lock_count = _make_prop(&#39;LockCount&#39;, int, int, True, False, &#39;Doors count&#39;)
+    reader_count = _make_prop(&#39;ReaderCount&#39;, int, int, True, False, &#39;Readers count&#39;)
+    aux_in_count = _make_prop(&#39;AuxInCount&#39;, int, int, True, False, &#39;Auxiliary inputs count&#39;)
+    aux_out_count = _make_prop(&#39;AuxOutCount&#39;, int, int, True, False, &#39;Auxiliary output count&#39;)
+    communication_password = _make_prop(
+        &#39;ComPwd&#39;, str, str, True, True,
+        &#39;Password to connect to a device. Maximum is 15 symbols&#39;,
+        lambda x: len(x) &lt;= 15
+    )
+    ip_address = _make_prop(&#39;IPAddress&#39;, str, str, True, True, &#39;Device IPv4 address&#39;, _check_ip)
+    netmask = _make_prop(&#39;NetMask&#39;, str, str, True, True, &#39;Subnet mask&#39;, _check_ip)
+    gateway_ip_address = _make_prop(
+        &#39;GATEIPAddress&#39;, str, str, True, True,  &#39;Gateway IPv4 address&#39;, _check_ip
+    )
+    rs232_baud_rate = _make_prop(
+        &#39;RS232BaudRate&#39;, int, int, True, True, &#39;RS232 baud rate&#39;, lambda x: x &gt; 0
+    )
+    watchdog_enabled = _make_prop(&#39;WatchDog&#39;, int, bool, True, True, &#39;MCU watchdog enabled&#39;)
+    door4_to_door2 = _make_prop(&#39;Door4ToDoor2&#39;, int, bool, True, True, &#39;4 doors turn 2 doors&#39;)
+    backup_hour = _make_prop(
+        &#39;BackupTime&#39;, int, int, True, True,
+        &#39;The time (hour) of backup SD card. Number 1..24&#39;,
+        lambda x: 1 &lt;= x &lt;= 24
+    )
+    reboot = _make_prop(
+        &#39;Reboot&#39;, int, bool, False, True,
+        &#39;Reboot a device, accepts only True value&#39;,
+        lambda x: x is True
+    )
+    reader_direction = _make_prop(&#39;InBIOTowWay&#39;, str, str, True, True, &#39;One-way/Two-way reader&#39;)
+    fingerprint_version = _make_prop(
+        &#39;~ZKFPVersion&#39;, int, int, True, False,
+        &#39;Device fingerprint identification version. Available values: 9, 10&#39;,
+        lambda x: x in (9, 10)
+    )
+    display_daylight_saving = _make_prop(
+        &#39;~DSTF&#39;, int, bool, True, True, &#39;Display parameters of daylight saving time&#39;
+    )
+    enable_daylight_saving = _make_prop(
+        &#39;DaylightSavingTimeOn&#39;, int, bool, True, True, &#39;Enable time daylight saving&#39;
+    )
+    daylight_saving_mode = _make_prop(
+        &#39;DLSTMode&#39;, int, int, True, True,
+        &#39;Daylight saving mode, available values 0 (mode 1), 1 (mode 2)&#39;,
+        lambda x: x in (0, 1)
+    )
+
+    @property
+    def anti_passback_rule(self) -&gt; int:
+        &#34;&#34;&#34;Passback rule for doors. Possible values depend on device
+        model. Passback is when the second door can be opened only
+        after the first door has opened, not otherwise. Or a door
+        can be opened only by its readers from one side.
+        &#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;AntiPassback&#39;,), buffer_size=self.buffer_size)
+        res = int(res[&#39;AntiPassback&#39;])
+        if res not in self.device_model.anti_passback_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                res, self.device_model.name, self.device_model.anti_passback_rules.keys()
+            ))
+
+        return self.device_model.anti_passback_rules[res]
+
+    @anti_passback_rule.setter
+    def anti_passback_rule(self, value: int):
+        if value not in self.device_model.anti_passback_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                value, self.device_model.name, tuple(self.device_model.anti_passback_rules.keys())
+            ))
+        self._sdk.set_device_param(parameters={&#39;AntiPassback&#39;: str(value)})
+
+    @property
+    def interlock(self) -&gt; int:
+        &#34;&#34;&#34;Interlock rule for doors. Possible values depend on device
+        model. Interlock is when the second door can be opened only
+        after the first door was opened and closed, and vice versa&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;InterLock&#39;,), buffer_size=self.buffer_size)
+        if not res:
+            return self.device_model.interlock_rules[0]
+
+        res = int(res[&#39;InterLock&#39;])
+        if res not in self.device_model.interlock_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                res, self.device_model.name, self.device_model.interlock_rules.keys()
+            ))
+        return self.device_model.interlock_rules[res]
+
+    @interlock.setter
+    def interlock(self, value: int):
+        if value not in self.device_model.anti_passback_rules:
+            raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+                value, self.device_model.name, self.device_model.anti_passback_rules.keys()
+            ))
+        self._sdk.set_device_param(parameters={&#39;InterLock&#39;: str(value)})
+
+    @property
+    def spring_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
+        &#34;&#34;&#34;Spring forward daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;DaylightSavingTime&#39;,),
+                                         buffer_size=self.buffer_size)
+        res = [int(x) for x in res[&#39;DaylightSavingTime&#39;].split(&#39;-&#39;)]  # FIXME: extract bytes?
+        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+
+    @spring_daylight_time_mode1.setter
+    def spring_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
+        self._sdk.set_device_param(parameters={&#39;DaylightSavingTime&#39;: str(value)})
+
+    @property
+    def fall_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
+        &#34;&#34;&#34;Fall back daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;StandardTime&#39;,), buffer_size=self.buffer_size)
+        res = [int(x) for x in res[&#39;StandardTime&#39;].split(&#39;-&#39;)]
+        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+
+    @fall_daylight_time_mode1.setter
+    def fall_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
+        self._sdk.set_device_param(parameters={&#39;StandardTime&#39;: str(value)})
+
+    @property
+    def spring_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
+        &#34;&#34;&#34;Spring forward daylight saving time (mode 2) (read-write)&#34;&#34;&#34;
+        return DaylightSavingMomentMode2(self._sdk, True, self.buffer_size)
+
+    @spring_daylight_time_mode2.setter
+    def spring_daylight_time_mode2(self, value: DaylightSavingMomentMode2):
+        t = DaylightSavingMomentMode2(self._sdk, True, self.buffer_size)
+        for attr in (&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;):
+            setattr(t, attr, getattr(value, attr))
+
+    @property
+    def fall_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
+        &#34;&#34;&#34;Fall back daylight saving time (mode 2) (read-write)&#34;&#34;&#34;
+        return DaylightSavingMomentMode2(self._sdk, False, self.buffer_size)
+
+    @fall_daylight_time_mode2.setter
+    def fall_daylight_time_mode2(self, value: DaylightSavingMomentMode2):
+        t = DaylightSavingMomentMode2(self._sdk, False, self.buffer_size)
+        for attr in (&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;):
+            setattr(t, attr, getattr(value, attr))
+
+    def _set_datetime(self, value: datetime):
+        # Amazing DIY ctime calculating from ZKTeco guys.
+        # Simply put this is a count of seconds starting from
+        # 2000-01-01T00:00:00 without considering leap years/seconds
+        # or different length of months (always 31 day)
+        # See PULL SDK docs
+        if value.year &lt; 2000:
+            raise ValueError(&#39;Minimum year is 2000&#39;)
+
+        value = sum((
+            sum((
+                (value.year - 2000) * 12 * 31,
+                (value.month - 1) * 31,
+                (value.day - 1)
+            )) * 24 * 60 * 60,
+            value.hour * 60 * 60,
+            value.minute * 60,
+            value.second
+        ))
+
+        self._sdk.set_device_param(parameters={&#39;DateTime&#39;: str(value)})
+
+    def _get_datetime(self):
+        res = self._sdk.get_device_param(parameters=(&#39;DateTime&#39;,), buffer_size=self.buffer_size)
+        res = int(res[&#39;DateTime&#39;])
+
+        dt = datetime(
+            year=res // 32140800 + 2000,
+            month=(res // 2678400) % 12 + 1,
+            day=(res // 86400) % 31 + 1,
+            hour=(res // 3600) % 24,
+            minute=(res // 60) % 60,
+            second=res % 60
+        )
+        return dt
+
+    datetime = property(_get_datetime, _set_datetime, None, &#39;Current datetime (read-write)&#39;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.param.BaseParameters" href="#pyzkaccess.param.BaseParameters">BaseParameters</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.param.DeviceParameters.anti_passback_rule"><code class="name">var <span class="ident">anti_passback_rule</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Passback rule for doors. Possible values depend on device
+model. Passback is when the second door can be opened only
+after the first door has opened, not otherwise. Or a door
+can be opened only by its readers from one side.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def anti_passback_rule(self) -&gt; int:
+    &#34;&#34;&#34;Passback rule for doors. Possible values depend on device
+    model. Passback is when the second door can be opened only
+    after the first door has opened, not otherwise. Or a door
+    can be opened only by its readers from one side.
+    &#34;&#34;&#34;
+    res = self._sdk.get_device_param(parameters=(&#39;AntiPassback&#39;,), buffer_size=self.buffer_size)
+    res = int(res[&#39;AntiPassback&#39;])
+    if res not in self.device_model.anti_passback_rules:
+        raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+            res, self.device_model.name, self.device_model.anti_passback_rules.keys()
+        ))
+
+    return self.device_model.anti_passback_rules[res]</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.aux_in_count"><code class="name">var <span class="ident">aux_in_count</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Auxiliary inputs count (read-only)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.aux_out_count"><code class="name">var <span class="ident">aux_out_count</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Auxiliary output count (read-only)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.backup_hour"><code class="name">var <span class="ident">backup_hour</span> : int</code></dt>
+<dd>
+<div class="desc"><p>The time (hour) of backup SD card. Number 1..24 (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.communication_password"><code class="name">var <span class="ident">communication_password</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Password to connect to a device. Maximum is 15 symbols (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.datetime"><code class="name">var <span class="ident">datetime</span></code></dt>
+<dd>
+<div class="desc"><p>Current datetime (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def _get_datetime(self):
+    res = self._sdk.get_device_param(parameters=(&#39;DateTime&#39;,), buffer_size=self.buffer_size)
+    res = int(res[&#39;DateTime&#39;])
+
+    dt = datetime(
+        year=res // 32140800 + 2000,
+        month=(res // 2678400) % 12 + 1,
+        day=(res // 86400) % 31 + 1,
+        hour=(res // 3600) % 24,
+        minute=(res // 60) % 60,
+        second=res % 60
+    )
+    return dt</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.daylight_saving_mode"><code class="name">var <span class="ident">daylight_saving_mode</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Daylight saving mode, available values 0 (mode 1), 1 (mode 2) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.display_daylight_saving"><code class="name">var <span class="ident">display_daylight_saving</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Display parameters of daylight saving time (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.door4_to_door2"><code class="name">var <span class="ident">door4_to_door2</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>4 doors turn 2 doors (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.enable_daylight_saving"><code class="name">var <span class="ident">enable_daylight_saving</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Enable time daylight saving (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.fall_daylight_time_mode1"><code class="name">var <span class="ident">fall_daylight_time_mode1</span> : <a title="pyzkaccess.param.DaylightSavingMomentMode1" href="#pyzkaccess.param.DaylightSavingMomentMode1">DaylightSavingMomentMode1</a></code></dt>
+<dd>
+<div class="desc"><p>Fall back daylight saving time (mode 1) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fall_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
+    &#34;&#34;&#34;Fall back daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
+    res = self._sdk.get_device_param(parameters=(&#39;StandardTime&#39;,), buffer_size=self.buffer_size)
+    res = [int(x) for x in res[&#39;StandardTime&#39;].split(&#39;-&#39;)]
+    return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.fall_daylight_time_mode2"><code class="name">var <span class="ident">fall_daylight_time_mode2</span> : <a title="pyzkaccess.param.DaylightSavingMomentMode2" href="#pyzkaccess.param.DaylightSavingMomentMode2">DaylightSavingMomentMode2</a></code></dt>
+<dd>
+<div class="desc"><p>Fall back daylight saving time (mode 2) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fall_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
+    &#34;&#34;&#34;Fall back daylight saving time (mode 2) (read-write)&#34;&#34;&#34;
+    return DaylightSavingMomentMode2(self._sdk, False, self.buffer_size)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.fingerprint_version"><code class="name">var <span class="ident">fingerprint_version</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Device fingerprint identification version. Available values: 9, 10 (read-only)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.gateway_ip_address"><code class="name">var <span class="ident">gateway_ip_address</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Gateway IPv4 address (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.interlock"><code class="name">var <span class="ident">interlock</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Interlock rule for doors. Possible values depend on device
+model. Interlock is when the second door can be opened only
+after the first door was opened and closed, and vice versa</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def interlock(self) -&gt; int:
+    &#34;&#34;&#34;Interlock rule for doors. Possible values depend on device
+    model. Interlock is when the second door can be opened only
+    after the first door was opened and closed, and vice versa&#34;&#34;&#34;
+    res = self._sdk.get_device_param(parameters=(&#39;InterLock&#39;,), buffer_size=self.buffer_size)
+    if not res:
+        return self.device_model.interlock_rules[0]
+
+    res = int(res[&#39;InterLock&#39;])
+    if res not in self.device_model.interlock_rules:
+        raise ValueError(&#39;Value {} not in possible values for {}: {}&#39;.format(
+            res, self.device_model.name, self.device_model.interlock_rules.keys()
+        ))
+    return self.device_model.interlock_rules[res]</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.ip_address"><code class="name">var <span class="ident">ip_address</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Device IPv4 address (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.lock_count"><code class="name">var <span class="ident">lock_count</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Doors count (read-only)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.netmask"><code class="name">var <span class="ident">netmask</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Subnet mask (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.reader_count"><code class="name">var <span class="ident">reader_count</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Readers count (read-only)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.reader_direction"><code class="name">var <span class="ident">reader_direction</span> : str</code></dt>
+<dd>
+<div class="desc"><p>One-way/Two-way reader (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.reboot"><code class="name">var <span class="ident">reboot</span></code></dt>
+<dd>
+<div class="desc"><p>Reboot a device, accepts only True value (write-only)</p></div>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.rs232_baud_rate"><code class="name">var <span class="ident">rs232_baud_rate</span> : int</code></dt>
+<dd>
+<div class="desc"><p>RS232 baud rate (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.serial_number"><code class="name">var <span class="ident">serial_number</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Serial number of device (read-only)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.spring_daylight_time_mode1"><code class="name">var <span class="ident">spring_daylight_time_mode1</span> : <a title="pyzkaccess.param.DaylightSavingMomentMode1" href="#pyzkaccess.param.DaylightSavingMomentMode1">DaylightSavingMomentMode1</a></code></dt>
+<dd>
+<div class="desc"><p>Spring forward daylight saving time (mode 1) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def spring_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
+    &#34;&#34;&#34;Spring forward daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
+    res = self._sdk.get_device_param(parameters=(&#39;DaylightSavingTime&#39;,),
+                                     buffer_size=self.buffer_size)
+    res = [int(x) for x in res[&#39;DaylightSavingTime&#39;].split(&#39;-&#39;)]  # FIXME: extract bytes?
+    return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.spring_daylight_time_mode2"><code class="name">var <span class="ident">spring_daylight_time_mode2</span> : <a title="pyzkaccess.param.DaylightSavingMomentMode2" href="#pyzkaccess.param.DaylightSavingMomentMode2">DaylightSavingMomentMode2</a></code></dt>
+<dd>
+<div class="desc"><p>Spring forward daylight saving time (mode 2) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def spring_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
+    &#34;&#34;&#34;Spring forward daylight saving time (mode 2) (read-write)&#34;&#34;&#34;
+    return DaylightSavingMomentMode2(self._sdk, True, self.buffer_size)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DeviceParameters.watchdog_enabled"><code class="name">var <span class="ident">watchdog_enabled</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>MCU watchdog enabled (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters"><code class="flex name class">
+<span>class <span class="ident">DoorParameters</span></span>
+<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, device_model: type, door_number: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parameters related to a concrete door</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DoorParameters(BaseParameters):
+    &#34;&#34;&#34;Parameters related to a concrete door&#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, device_model: type(ZKModel), door_number: int):
+        super().__init__(sdk, device_model)
+        self.door_number = door_number
+
+    duress_password = _make_prop(
+        &#39;Door{self.door_number}ForcePassWord&#39;, str, str, True, True,
+        &#39;Duress password for door. Maximum length is 8 digits&#39;,
+        lambda x: x == &#39;&#39; or x.isdigit() and len(x) &lt;= 8
+    )
+    emergency_password = _make_prop(
+        &#39;Door{self.door_number}SupperPassWord&#39;, str, str, True, True,
+        &#39;Emergency password for door. Maximum length is 8 digits&#39;,
+        lambda x: x == &#39;&#39; or x.isdigit() and len(x) &lt;= 8
+    )
+    lock_on_close = _make_prop(
+        &#39;Door{self.door_number}CloseAndLock&#39;, int, bool, True, True, &#39;Lock on door closing&#39;
+    )
+    sensor_type = _make_prop(
+        &#39;Door{self.door_number}SensorType&#39;, int, SensorType, True, True, &#39;Lock on door closing&#39;
+    )
+    lock_driver_time = _make_prop(
+        &#39;Door{self.door_number}Drivertime&#39;, int, int, True, True,
+        &#39;Lock driver time length. 0 - Normal closed, 1-254 - Door opening duration, &#39;
+        &#39;255 - Normal open&#39;,
+        lambda x: 0 &lt;= x &lt;= 255
+    )
+    magnet_alarm_duration = _make_prop(
+        &#39;Door{self.door_number}Detectortime&#39;, int, int, True, True,
+        &#39;Timeout alarm duration of door magnet&#39;,
+        lambda x: 0 &lt;= x &lt;= 255
+    )
+    verify_mode = _make_prop(
+        &#39;Door{self.door_number}VerifyType&#39;, int, VerifyMode, True, True, &#39;VerifyMode&#39;
+    )
+    multi_card_open = _make_prop(
+        &#39;Door{self.door_number}MultiCardOpenDoor&#39;, int, bool, True, True,
+        &#39;Open a door by several cards&#39;
+    )
+    first_card_open = _make_prop(
+        &#39;Door{self.door_number}FirstCardOpenDoor&#39;, int, bool, True, True,
+        &#39;Open a door by first card&#39;
+    )
+    active_time_tz = _make_prop(
+        &#39;Door{self.door_number}ValidTZ&#39;, int, int, True, True,
+        &#39;Active time segment for a door (0 - door is inactive)&#39;
+    )
+    open_time_tz = _make_prop(
+        &#39;Door{self.door_number}KeepOpenTimeZone&#39;, int, int, True, True,
+        &#39;Normal-open time segment of door (0 - not set)&#39;
+    )
+    punch_interval = _make_prop(
+        &#39;Door{self.door_number}Intertime&#39;, int, int, True, True,
+        &#39;Punch interval in seconds (0 - no interval)&#39;
+    )
+    cancel_open_day = _make_prop(
+        &#39;Door{self.door_number}CancelKeepOpenDay&#39;, int, int, True, True,
+        &#39;The date of Cancel Normal Open&#39;
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.param.BaseParameters" href="#pyzkaccess.param.BaseParameters">BaseParameters</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.param.DoorParameters.active_time_tz"><code class="name">var <span class="ident">active_time_tz</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Active time segment for a door (0 - door is inactive) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.cancel_open_day"><code class="name">var <span class="ident">cancel_open_day</span> : int</code></dt>
+<dd>
+<div class="desc"><p>The date of Cancel Normal Open (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.duress_password"><code class="name">var <span class="ident">duress_password</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Duress password for door. Maximum length is 8 digits (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.emergency_password"><code class="name">var <span class="ident">emergency_password</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Emergency password for door. Maximum length is 8 digits (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.first_card_open"><code class="name">var <span class="ident">first_card_open</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Open a door by first card (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.lock_driver_time"><code class="name">var <span class="ident">lock_driver_time</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Lock driver time length. 0 - Normal closed, 1-254 - Door opening duration, 255 - Normal open (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.lock_on_close"><code class="name">var <span class="ident">lock_on_close</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Lock on door closing (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.magnet_alarm_duration"><code class="name">var <span class="ident">magnet_alarm_duration</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Timeout alarm duration of door magnet (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.multi_card_open"><code class="name">var <span class="ident">multi_card_open</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Open a door by several cards (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.open_time_tz"><code class="name">var <span class="ident">open_time_tz</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Normal-open time segment of door (0 - not set) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.punch_interval"><code class="name">var <span class="ident">punch_interval</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Punch interval in seconds (0 - no interval) (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.sensor_type"><code class="name">var <span class="ident">sensor_type</span> : <a title="pyzkaccess.enums.SensorType" href="enums.html#pyzkaccess.enums.SensorType">SensorType</a></code></dt>
+<dd>
+<div class="desc"><p>Lock on door closing (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.param.DoorParameters.verify_mode"><code class="name">var <span class="ident">verify_mode</span> : <a title="pyzkaccess.enums.VerifyMode" href="enums.html#pyzkaccess.enums.VerifyMode">VerifyMode</a></code></dt>
+<dd>
+<div class="desc"><p>VerifyMode (read-write)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; prop_type:
+    query = query_tpl.format(self=self)
+    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
+    res = res[query]
+    res = data_type(res)
+    if data_type != prop_type:
+        res = prop_type(res)
+
+    if not(restriction_f is None or restriction_f(res)):
+        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
+                         &#39;see property docstring and SDK documentation&#39;.format(res))
+
+    return res</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyzkaccess" href="index.html">pyzkaccess</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyzkaccess.param.BaseParameters" href="#pyzkaccess.param.BaseParameters">BaseParameters</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.param.BaseParameters.buffer_size" href="#pyzkaccess.param.BaseParameters.buffer_size">buffer_size</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.param.DaylightSavingMomentMode1" href="#pyzkaccess.param.DaylightSavingMomentMode1">DaylightSavingMomentMode1</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.param.DaylightSavingMomentMode2" href="#pyzkaccess.param.DaylightSavingMomentMode2">DaylightSavingMomentMode2</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.param.DaylightSavingMomentMode2.day_of_week" href="#pyzkaccess.param.DaylightSavingMomentMode2.day_of_week">day_of_week</a></code></li>
+<li><code><a title="pyzkaccess.param.DaylightSavingMomentMode2.hour" href="#pyzkaccess.param.DaylightSavingMomentMode2.hour">hour</a></code></li>
+<li><code><a title="pyzkaccess.param.DaylightSavingMomentMode2.minute" href="#pyzkaccess.param.DaylightSavingMomentMode2.minute">minute</a></code></li>
+<li><code><a title="pyzkaccess.param.DaylightSavingMomentMode2.month" href="#pyzkaccess.param.DaylightSavingMomentMode2.month">month</a></code></li>
+<li><code><a title="pyzkaccess.param.DaylightSavingMomentMode2.week_of_month" href="#pyzkaccess.param.DaylightSavingMomentMode2.week_of_month">week_of_month</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.param.DeviceParameters" href="#pyzkaccess.param.DeviceParameters">DeviceParameters</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.param.DeviceParameters.anti_passback_rule" href="#pyzkaccess.param.DeviceParameters.anti_passback_rule">anti_passback_rule</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.aux_in_count" href="#pyzkaccess.param.DeviceParameters.aux_in_count">aux_in_count</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.aux_out_count" href="#pyzkaccess.param.DeviceParameters.aux_out_count">aux_out_count</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.backup_hour" href="#pyzkaccess.param.DeviceParameters.backup_hour">backup_hour</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.communication_password" href="#pyzkaccess.param.DeviceParameters.communication_password">communication_password</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.datetime" href="#pyzkaccess.param.DeviceParameters.datetime">datetime</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.daylight_saving_mode" href="#pyzkaccess.param.DeviceParameters.daylight_saving_mode">daylight_saving_mode</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.display_daylight_saving" href="#pyzkaccess.param.DeviceParameters.display_daylight_saving">display_daylight_saving</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.door4_to_door2" href="#pyzkaccess.param.DeviceParameters.door4_to_door2">door4_to_door2</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.enable_daylight_saving" href="#pyzkaccess.param.DeviceParameters.enable_daylight_saving">enable_daylight_saving</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.fall_daylight_time_mode1" href="#pyzkaccess.param.DeviceParameters.fall_daylight_time_mode1">fall_daylight_time_mode1</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.fall_daylight_time_mode2" href="#pyzkaccess.param.DeviceParameters.fall_daylight_time_mode2">fall_daylight_time_mode2</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.fingerprint_version" href="#pyzkaccess.param.DeviceParameters.fingerprint_version">fingerprint_version</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.gateway_ip_address" href="#pyzkaccess.param.DeviceParameters.gateway_ip_address">gateway_ip_address</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.interlock" href="#pyzkaccess.param.DeviceParameters.interlock">interlock</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.ip_address" href="#pyzkaccess.param.DeviceParameters.ip_address">ip_address</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.lock_count" href="#pyzkaccess.param.DeviceParameters.lock_count">lock_count</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.netmask" href="#pyzkaccess.param.DeviceParameters.netmask">netmask</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.reader_count" href="#pyzkaccess.param.DeviceParameters.reader_count">reader_count</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.reader_direction" href="#pyzkaccess.param.DeviceParameters.reader_direction">reader_direction</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.reboot" href="#pyzkaccess.param.DeviceParameters.reboot">reboot</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.rs232_baud_rate" href="#pyzkaccess.param.DeviceParameters.rs232_baud_rate">rs232_baud_rate</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.serial_number" href="#pyzkaccess.param.DeviceParameters.serial_number">serial_number</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.spring_daylight_time_mode1" href="#pyzkaccess.param.DeviceParameters.spring_daylight_time_mode1">spring_daylight_time_mode1</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.spring_daylight_time_mode2" href="#pyzkaccess.param.DeviceParameters.spring_daylight_time_mode2">spring_daylight_time_mode2</a></code></li>
+<li><code><a title="pyzkaccess.param.DeviceParameters.watchdog_enabled" href="#pyzkaccess.param.DeviceParameters.watchdog_enabled">watchdog_enabled</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.param.DoorParameters" href="#pyzkaccess.param.DoorParameters">DoorParameters</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.param.DoorParameters.active_time_tz" href="#pyzkaccess.param.DoorParameters.active_time_tz">active_time_tz</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.cancel_open_day" href="#pyzkaccess.param.DoorParameters.cancel_open_day">cancel_open_day</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.duress_password" href="#pyzkaccess.param.DoorParameters.duress_password">duress_password</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.emergency_password" href="#pyzkaccess.param.DoorParameters.emergency_password">emergency_password</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.first_card_open" href="#pyzkaccess.param.DoorParameters.first_card_open">first_card_open</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.lock_driver_time" href="#pyzkaccess.param.DoorParameters.lock_driver_time">lock_driver_time</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.lock_on_close" href="#pyzkaccess.param.DoorParameters.lock_on_close">lock_on_close</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.magnet_alarm_duration" href="#pyzkaccess.param.DoorParameters.magnet_alarm_duration">magnet_alarm_duration</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.multi_card_open" href="#pyzkaccess.param.DoorParameters.multi_card_open">multi_card_open</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.open_time_tz" href="#pyzkaccess.param.DoorParameters.open_time_tz">open_time_tz</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.punch_interval" href="#pyzkaccess.param.DoorParameters.punch_interval">punch_interval</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.sensor_type" href="#pyzkaccess.param.DoorParameters.sensor_type">sensor_type</a></code></li>
+<li><code><a title="pyzkaccess.param.DoorParameters.verify_mode" href="#pyzkaccess.param.DoorParameters.verify_mode">verify_mode</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

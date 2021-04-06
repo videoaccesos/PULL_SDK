@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
-<title>pyzkaccess API documentation</title>
+<title>pyzkaccess.aux_input API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,91 +19,170 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>pyzkaccess</code></h1>
+<h1 class="title">Module <code>pyzkaccess.aux_input</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from .aux_input import *
-from .common import *
-from .device import *
-from .door import *
-from .enums import *
-from .event import *
-from .exceptions import *
-from .param import *
-from .pyzkaccess import *
-from .reader import *
-from .relay import *
-from .sdk import *</code></pre>
+<pre><code class="python">__all__ = [
+    &#39;AuxInput&#39;,
+    &#39;AuxInputList&#39;
+]
+from abc import ABCMeta, abstractmethod
+from typing import Iterable
+
+from .common import UserTuple
+from .event import EventLog
+from .sdk import ZKSDK
+
+
+class AuxInputInterface(metaclass=ABCMeta):
+    event_types = (220, 221)
+
+    @property
+    def events(self) -&gt; EventLog:
+        &#34;&#34;&#34;Event log of current aux input&#34;&#34;&#34;
+        return self._specific_event_log()
+
+    @abstractmethod
+    def _specific_event_log(self) -&gt; EventLog:
+        pass
+
+
+class AuxInput(AuxInputInterface):
+    &#34;&#34;&#34;Concrete auxiliary input&#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, event_log: EventLog, number: int):
+        self.number = number
+        self._sdk = sdk
+        self._event_log = event_log
+
+    def _specific_event_log(self) -&gt; EventLog:
+        return self._event_log.only(door=[self.number], event_type=self.event_types)
+
+    def __eq__(self, other):
+        if isinstance(other, AuxInput):
+            return self.number == other.number and self._sdk is other._sdk
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return &#34;AuxInput[{}]&#34;.format(self.number)
+
+    def __repr__(self):
+        return self.__str__()
+
+
+class AuxInputList(AuxInputInterface, UserTuple):
+    &#34;&#34;&#34;Collection of aux input objects which is used to perform group
+    operations over multiple aux inputs
+    &#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, event_log: EventLog, aux_inputs: Iterable[AuxInput] = ()):
+        super().__init__(aux_inputs)
+        self._sdk = sdk
+        self._event_log = event_log
+
+    def __getitem__(self, item):
+        aux_inputs = self.data[item]
+        if isinstance(item, slice):
+            return self.__class__(self._sdk, self._event_log, aux_inputs=aux_inputs)
+        else:
+            return aux_inputs
+
+    def _specific_event_log(self) -&gt; EventLog:
+        doors = set(x.number for x in self)
+        return self._event_log.only(door=doors, event_type=self.event_types)</code></pre>
 </details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt><code class="name"><a title="pyzkaccess.aux_input" href="aux_input.html">pyzkaccess.aux_input</a></code></dt>
+<dt id="pyzkaccess.aux_input.AuxInput"><code class="flex name class">
+<span>class <span class="ident">AuxInput</span></span>
+<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, event_log: <a title="pyzkaccess.event.EventLog" href="event.html#pyzkaccess.event.EventLog">EventLog</a>, number: int)</span>
+</code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Concrete auxiliary input</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AuxInput(AuxInputInterface):
+    &#34;&#34;&#34;Concrete auxiliary input&#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, event_log: EventLog, number: int):
+        self.number = number
+        self._sdk = sdk
+        self._event_log = event_log
+
+    def _specific_event_log(self) -&gt; EventLog:
+        return self._event_log.only(door=[self.number], event_type=self.event_types)
+
+    def __eq__(self, other):
+        if isinstance(other, AuxInput):
+            return self.number == other.number and self._sdk is other._sdk
+        return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return &#34;AuxInput[{}]&#34;.format(self.number)
+
+    def __repr__(self):
+        return self.__str__()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pyzkaccess.aux_input.AuxInputInterface</li>
+</ul>
 </dd>
-<dt><code class="name"><a title="pyzkaccess.common" href="common.html">pyzkaccess.common</a></code></dt>
+<dt id="pyzkaccess.aux_input.AuxInputList"><code class="flex name class">
+<span>class <span class="ident">AuxInputList</span></span>
+<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, event_log: <a title="pyzkaccess.event.EventLog" href="event.html#pyzkaccess.event.EventLog">EventLog</a>, aux_inputs: Iterable[<a title="pyzkaccess.aux_input.AuxInput" href="#pyzkaccess.aux_input.AuxInput">AuxInput</a>] = ())</span>
+</code></dt>
 <dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.ctypes" href="ctypes.html">pyzkaccess.ctypes</a></code></dt>
-<dd>
-<div class="desc"><p>This module is intended to safety import Windows-specific features
-from <code><a title="pyzkaccess.ctypes" href="ctypes.html">pyzkaccess.ctypes</a></code> stdlib module on non-windows platform &ndash; they are
-replaced by mock …</p></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.device" href="device.html">pyzkaccess.device</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.door" href="door.html">pyzkaccess.door</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.enums" href="enums.html">pyzkaccess.enums</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.event" href="event.html">pyzkaccess.event</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.exceptions" href="exceptions.html">pyzkaccess.exceptions</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.param" href="param.html">pyzkaccess.param</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.pyzkaccess" href="pyzkaccess.html">pyzkaccess.pyzkaccess</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.reader" href="reader.html">pyzkaccess.reader</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.relay" href="relay.html">pyzkaccess.relay</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="pyzkaccess.sdk" href="sdk.html">pyzkaccess.sdk</a></code></dt>
-<dd>
-<div class="desc"></div>
+<div class="desc"><p>Collection of aux input objects which is used to perform group
+operations over multiple aux inputs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AuxInputList(AuxInputInterface, UserTuple):
+    &#34;&#34;&#34;Collection of aux input objects which is used to perform group
+    operations over multiple aux inputs
+    &#34;&#34;&#34;
+    def __init__(self, sdk: ZKSDK, event_log: EventLog, aux_inputs: Iterable[AuxInput] = ()):
+        super().__init__(aux_inputs)
+        self._sdk = sdk
+        self._event_log = event_log
+
+    def __getitem__(self, item):
+        aux_inputs = self.data[item]
+        if isinstance(item, slice):
+            return self.__class__(self._sdk, self._event_log, aux_inputs=aux_inputs)
+        else:
+            return aux_inputs
+
+    def _specific_event_log(self) -&gt; EventLog:
+        doors = set(x.number for x in self)
+        return self._event_log.only(door=doors, event_type=self.event_types)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pyzkaccess.aux_input.AuxInputInterface</li>
+<li><a title="pyzkaccess.common.UserTuple" href="common.html#pyzkaccess.common.UserTuple">UserTuple</a></li>
+</ul>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
 </section>
 </article>
 <nav id="sidebar">
@@ -158,21 +237,19 @@ setTimeout(() => input.focus(), 100);
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="pyzkaccess.aux_input" href="aux_input.html">pyzkaccess.aux_input</a></code></li>
-<li><code><a title="pyzkaccess.common" href="common.html">pyzkaccess.common</a></code></li>
-<li><code><a title="pyzkaccess.ctypes" href="ctypes.html">pyzkaccess.ctypes</a></code></li>
-<li><code><a title="pyzkaccess.device" href="device.html">pyzkaccess.device</a></code></li>
-<li><code><a title="pyzkaccess.door" href="door.html">pyzkaccess.door</a></code></li>
-<li><code><a title="pyzkaccess.enums" href="enums.html">pyzkaccess.enums</a></code></li>
-<li><code><a title="pyzkaccess.event" href="event.html">pyzkaccess.event</a></code></li>
-<li><code><a title="pyzkaccess.exceptions" href="exceptions.html">pyzkaccess.exceptions</a></code></li>
-<li><code><a title="pyzkaccess.param" href="param.html">pyzkaccess.param</a></code></li>
-<li><code><a title="pyzkaccess.pyzkaccess" href="pyzkaccess.html">pyzkaccess.pyzkaccess</a></code></li>
-<li><code><a title="pyzkaccess.reader" href="reader.html">pyzkaccess.reader</a></code></li>
-<li><code><a title="pyzkaccess.relay" href="relay.html">pyzkaccess.relay</a></code></li>
-<li><code><a title="pyzkaccess.sdk" href="sdk.html">pyzkaccess.sdk</a></code></li>
+<li><code><a title="pyzkaccess" href="index.html">pyzkaccess</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyzkaccess.aux_input.AuxInput" href="#pyzkaccess.aux_input.AuxInput">AuxInput</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.aux_input.AuxInputList" href="#pyzkaccess.aux_input.AuxInputList">AuxInputList</a></code></h4>
+</li>
 </ul>
 </li>
 </ul>
