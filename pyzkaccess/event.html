@@ -37,14 +37,13 @@ from copy import deepcopy
 from datetime import datetime
 from typing import Optional, List, Iterable, Union, Sequence
 
-from .common import DocValue
+from .common import DocValue, ZKDatetimeUtils
 from .enums import VerifyMode, PassageDirection, EVENT_TYPES
 from .sdk import ZKSDK
 
 
 class Event:
-    &#34;&#34;&#34;
-    One realtime event occured on the device
+    &#34;&#34;&#34;One realtime event occured on the device
     Since the device returns event as string we need to parse it to the
     structured view. This class does this.
     &#34;&#34;&#34;
@@ -58,13 +57,15 @@ class Event:
         &#39;verify_mode&#39;
     )
 
-    def __init__(self, s):
+    def __init__(self, s: str):
         &#34;&#34;&#34;
-        :param s: Event string to be parsed.
+        Args:
+            s (str): Event string to be parsed.
+
         &#34;&#34;&#34;
         parsed = self.parse(s)
 
-        self.time = datetime.strptime(parsed[0], &#39;%Y-%m-%d %H:%M:%S&#39;)  # type: datetime
+        self.time = ZKDatetimeUtils.time_string_to_datetime(parsed[0])  # type: datetime
         self.pin = parsed[1]   # type: str
         self.card = parsed[2]  # type: str
         self.door = int(parsed[3])  # type: int
@@ -82,10 +83,14 @@ class Event:
 
     @staticmethod
     def parse(event_line: str) -&gt; Sequence[str]:
-        &#34;&#34;&#34;
-        Parse raw event string
-        :param event_line: event string
-        :return: parsed string parts of event string
+        &#34;&#34;&#34;Parse raw event string
+
+        Args:
+            event_line (str): event string to parse
+
+        Returns:
+            Sequence[str]: parsed string parts of event string
+
         &#34;&#34;&#34;
         event_line = event_line.replace(&#39;\r\n&#39;, &#39;&#39;)
 
@@ -141,7 +146,11 @@ class EventLog:
     def refresh(self) -&gt; int:
         &#34;&#34;&#34;Make a request to a device for new records and append to the
         end if any.
-        :return: count of records which was added
+
+        Args:
+
+        Returns:
+            int: count of records which was added
         &#34;&#34;&#34;
         # ZKAccess always returns single event with code 255
         # on every log query if no other events occured. So, skip it
@@ -155,40 +164,53 @@ class EventLog:
         return count
 
     def after_time(self, after_time: datetime) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Return events which was occured after given time
-        :param after_time: datetime object to filter (included)
-        :return:
+        &#34;&#34;&#34;Return events which was occured after given time
+
+        Args:
+            after_time (datetime): datetime object to filter (included)
+
+        Returns:
+            Iterable[Event]: events
         &#34;&#34;&#34;
         return filter(lambda x: x.time &gt;= after_time, self._filtered_events(self.data))
 
     def before_time(self, before_time: datetime) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Return events which was occured before given time
-        :param before_time: datetime object to filter (excluded)
-        :return:
+        &#34;&#34;&#34;Return events which was occured before given time
+
+        Args:
+            before_time (datetime): datetime object to filter (excluded)
+
+        Returns:
+            Iterable[Event]: events
         &#34;&#34;&#34;
         return filter(lambda x: x.time &lt; before_time, self._filtered_events(self.data))
 
     def between_time(self, from_time: datetime, to_time: datetime) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Return events which was occured between two given time moments
-        :param from_time: datetime object to filter (included)
-        :param to_time: datetime object to filter (excluded)
-        :return:
+        &#34;&#34;&#34;Return events which was occured between two given time moments
+
+        Args:
+            from_time (datetime): datetime object to filter (included)
+            to_time (datetime): datetime object to filter (excluded)
+
+        Returns:
+            Iterable[Event]: events
         &#34;&#34;&#34;
         return filter(lambda x: from_time &lt;= x.time &lt; to_time, self._filtered_events(self.data))
 
     def poll(self, timeout: float = 60, polling_interval: float = 1) -&gt; List[Event]:
-        &#34;&#34;&#34;
-        Wait for new events by making periodically requests to a device.
+        &#34;&#34;&#34;Wait for new events by making periodically requests to a device.
         If events was appeared then return them. If no event was
         appeared until timeout was expired then return empty iterable.
-        :param timeout: timeout in seconds. Default: 60 seconds
-        :param polling_interval: interval to make a requests in seconds.
-         Default: every 1 second
-        :return: iterable with new events if any or empty iterable if
-         timeout has expired
+
+        Args:
+            timeout (float, default=60): timeout in seconds
+            polling_interval (float, default=1): interval to make a requests
+                in seconds
+
+        Returns:
+            Iterable[Event]: events iterable with new events if any
+                or empty iterable if timeout has expired
+
         &#34;&#34;&#34;
         deadline = datetime.now().timestamp() + timeout
         while datetime.now().timestamp() &lt; deadline:
@@ -202,8 +224,7 @@ class EventLog:
         return []
 
     def only(self, **filters) -&gt; &#39;EventLog&#39;:
-        &#34;&#34;&#34;
-        Return new EventLog instance with given filters applied.
+        &#34;&#34;&#34;Return new EventLog instance with given filters applied.
         Kwargs names must be the same as Event slots.
 
         Event log returned by this method will contain entries in
@@ -215,16 +236,24 @@ class EventLog:
         on previous call will be ORed, i.e. their values will be
         concatenated.
 
-        In other words:
+        In other words::
 
-        ```log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;])` =&gt; filtering(entry.a == 2 AND entry.b in (&#39;x&#39;, &#39;y&#39;))```
+            # filtering(entry.a == 2 AND entry.b in (&#39;x&#39;, &#39;y&#39;))
+            log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;])
+            # filtering(entry.a in (2, 3) AND entry.b in (&#39;x&#39;, &#39;y&#39;, 5) and entry.c == 1)
+            log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;]).only(a=3, b=5, c=1)
 
-        ```log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;]).only(a=3, b=5, c=1) =&gt;
-            filtering(entry.a in (2, 3) AND entry.b in (&#39;x&#39;, &#39;y&#39;, 5) and entry.c == 1)```
+        Example::
 
-        Ex: `new_log = log.only(door=1, event_type=221)`
-        :param filters:
-        :return: new fitlered EventLog instance
+            new_log = log.only(door=1, event_type=221)
+
+        Args:
+            **filters (Union[str, Sequence[str]]): filter values or list
+                of them
+
+        Returns:
+            EventLog: new fitlered EventLog instance
+
         &#34;&#34;&#34;
         only_filters = self._merge_filters(self.only_filters, filters)
         obj = self.__class__(self._sdk,
@@ -240,13 +269,17 @@ class EventLog:
 
     @staticmethod
     def _merge_filters(initial: dict, fltr: dict) -&gt; dict:
-        &#34;&#34;&#34;
-        Merge two filter dicts, fltr updates initial. Key-values  which
+        &#34;&#34;&#34;Merge two filter dicts, fltr updates initial. Key-values  which
         does not exist in initial will be copied. Value of existent
         keys are combined (values always are lists).
-        :param initial: updating initial filter dict
-        :param fltr: filter dict which updates initial
-        :return: merged filter dict
+
+        Args:
+          initial (dict): updating initial filter dict
+          fltr (dict): filter dict which updates initial
+
+        Returns:
+          dict: merged filter dict
+
         &#34;&#34;&#34;
         seq_types = (tuple, list, set, frozenset)
         res = deepcopy(initial)
@@ -262,11 +295,15 @@ class EventLog:
         return res
 
     def _filtered_events(self, data: Iterable[Event]) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Apply current filters to given events and return only events
+        &#34;&#34;&#34;Apply current filters to given events and return only events
         which meet them
-        :param data: unfiltered events
-        :return: filtered events
+
+        Args:
+          data (Iterable[Event]): unfiltered events
+
+        Returns:
+          Iterable[Event]: filtered events
+
         &#34;&#34;&#34;
         if not self.only_filters:
             yield from data
@@ -306,10 +343,8 @@ class EventLog:
         return iter(self._filtered_events(self.data))
 
     def __str__(self):
-        items_str = &#39;, &#39;.join(str(x) for x in self[:3])
-        if len(self) &gt; 6:
-            items_str += &#39;, ..., &#39; + &#39;, &#39;.join(str(x) for x in self[3:])
-        return &#39;EventLog[{}]({})&#39;.format(len(self), items_str)
+        items_str = &#39;, \n&#39;.join(str(x) for x in self)
+        return &#39;EventLog[{}](\n{}\n)&#39;.format(len(self), items_str)
 
     def __repr__(self):
         return self.__str__()</code></pre>
@@ -326,20 +361,23 @@ class EventLog:
 <dl>
 <dt id="pyzkaccess.event.Event"><code class="flex name class">
 <span>class <span class="ident">Event</span></span>
-<span>(</span><span>s)</span>
+<span>(</span><span>s: str)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>One realtime event occured on the device
 Since the device returns event as string we need to parse it to the
 structured view. This class does this.</p>
-<p>:param s: Event string to be parsed.</p></div>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>s</code></strong> :&ensp;<code>str</code></dt>
+<dd>Event string to be parsed.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Event:
-    &#34;&#34;&#34;
-    One realtime event occured on the device
+    &#34;&#34;&#34;One realtime event occured on the device
     Since the device returns event as string we need to parse it to the
     structured view. This class does this.
     &#34;&#34;&#34;
@@ -353,13 +391,15 @@ structured view. This class does this.</p>
         &#39;verify_mode&#39;
     )
 
-    def __init__(self, s):
+    def __init__(self, s: str):
         &#34;&#34;&#34;
-        :param s: Event string to be parsed.
+        Args:
+            s (str): Event string to be parsed.
+
         &#34;&#34;&#34;
         parsed = self.parse(s)
 
-        self.time = datetime.strptime(parsed[0], &#39;%Y-%m-%d %H:%M:%S&#39;)  # type: datetime
+        self.time = ZKDatetimeUtils.time_string_to_datetime(parsed[0])  # type: datetime
         self.pin = parsed[1]   # type: str
         self.card = parsed[2]  # type: str
         self.door = int(parsed[3])  # type: int
@@ -377,10 +417,14 @@ structured view. This class does this.</p>
 
     @staticmethod
     def parse(event_line: str) -&gt; Sequence[str]:
-        &#34;&#34;&#34;
-        Parse raw event string
-        :param event_line: event string
-        :return: parsed string parts of event string
+        &#34;&#34;&#34;Parse raw event string
+
+        Args:
+            event_line (str): event string to parse
+
+        Returns:
+            Sequence[str]: parsed string parts of event string
+
         &#34;&#34;&#34;
         event_line = event_line.replace(&#39;\r\n&#39;, &#39;&#39;)
 
@@ -412,19 +456,31 @@ structured view. This class does this.</p>
 <span>def <span class="ident">parse</span></span>(<span>event_line: str) ‑> Sequence[str]</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Parse raw event string
-:param event_line: event string
-:return: parsed string parts of event string</p></div>
+<div class="desc"><p>Parse raw event string</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>event_line</code></strong> :&ensp;<code>str</code></dt>
+<dd>event string to parse</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Sequence[str]</code></dt>
+<dd>parsed string parts of event string</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@staticmethod
 def parse(event_line: str) -&gt; Sequence[str]:
-    &#34;&#34;&#34;
-    Parse raw event string
-    :param event_line: event string
-    :return: parsed string parts of event string
+    &#34;&#34;&#34;Parse raw event string
+
+    Args:
+        event_line (str): event string to parse
+
+    Returns:
+        Sequence[str]: parsed string parts of event string
+
     &#34;&#34;&#34;
     event_line = event_line.replace(&#39;\r\n&#39;, &#39;&#39;)
 
@@ -486,7 +542,7 @@ def description(self) -&gt; str:
 </dd>
 <dt id="pyzkaccess.event.EventLog"><code class="flex name class">
 <span>class <span class="ident">EventLog</span></span>
-<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, buffer_size: int, maxlen: Union[int, NoneType] = None, only_filters: Union[dict, NoneType] = None)</span>
+<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, buffer_size: int, maxlen: Optional[int] = None, only_filters: Optional[dict] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Log of realtime events</p>
@@ -532,7 +588,11 @@ index and filtering could be slow.</p></div>
     def refresh(self) -&gt; int:
         &#34;&#34;&#34;Make a request to a device for new records and append to the
         end if any.
-        :return: count of records which was added
+
+        Args:
+
+        Returns:
+            int: count of records which was added
         &#34;&#34;&#34;
         # ZKAccess always returns single event with code 255
         # on every log query if no other events occured. So, skip it
@@ -546,40 +606,53 @@ index and filtering could be slow.</p></div>
         return count
 
     def after_time(self, after_time: datetime) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Return events which was occured after given time
-        :param after_time: datetime object to filter (included)
-        :return:
+        &#34;&#34;&#34;Return events which was occured after given time
+
+        Args:
+            after_time (datetime): datetime object to filter (included)
+
+        Returns:
+            Iterable[Event]: events
         &#34;&#34;&#34;
         return filter(lambda x: x.time &gt;= after_time, self._filtered_events(self.data))
 
     def before_time(self, before_time: datetime) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Return events which was occured before given time
-        :param before_time: datetime object to filter (excluded)
-        :return:
+        &#34;&#34;&#34;Return events which was occured before given time
+
+        Args:
+            before_time (datetime): datetime object to filter (excluded)
+
+        Returns:
+            Iterable[Event]: events
         &#34;&#34;&#34;
         return filter(lambda x: x.time &lt; before_time, self._filtered_events(self.data))
 
     def between_time(self, from_time: datetime, to_time: datetime) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Return events which was occured between two given time moments
-        :param from_time: datetime object to filter (included)
-        :param to_time: datetime object to filter (excluded)
-        :return:
+        &#34;&#34;&#34;Return events which was occured between two given time moments
+
+        Args:
+            from_time (datetime): datetime object to filter (included)
+            to_time (datetime): datetime object to filter (excluded)
+
+        Returns:
+            Iterable[Event]: events
         &#34;&#34;&#34;
         return filter(lambda x: from_time &lt;= x.time &lt; to_time, self._filtered_events(self.data))
 
     def poll(self, timeout: float = 60, polling_interval: float = 1) -&gt; List[Event]:
-        &#34;&#34;&#34;
-        Wait for new events by making periodically requests to a device.
+        &#34;&#34;&#34;Wait for new events by making periodically requests to a device.
         If events was appeared then return them. If no event was
         appeared until timeout was expired then return empty iterable.
-        :param timeout: timeout in seconds. Default: 60 seconds
-        :param polling_interval: interval to make a requests in seconds.
-         Default: every 1 second
-        :return: iterable with new events if any or empty iterable if
-         timeout has expired
+
+        Args:
+            timeout (float, default=60): timeout in seconds
+            polling_interval (float, default=1): interval to make a requests
+                in seconds
+
+        Returns:
+            Iterable[Event]: events iterable with new events if any
+                or empty iterable if timeout has expired
+
         &#34;&#34;&#34;
         deadline = datetime.now().timestamp() + timeout
         while datetime.now().timestamp() &lt; deadline:
@@ -593,8 +666,7 @@ index and filtering could be slow.</p></div>
         return []
 
     def only(self, **filters) -&gt; &#39;EventLog&#39;:
-        &#34;&#34;&#34;
-        Return new EventLog instance with given filters applied.
+        &#34;&#34;&#34;Return new EventLog instance with given filters applied.
         Kwargs names must be the same as Event slots.
 
         Event log returned by this method will contain entries in
@@ -606,16 +678,24 @@ index and filtering could be slow.</p></div>
         on previous call will be ORed, i.e. their values will be
         concatenated.
 
-        In other words:
+        In other words::
 
-        ```log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;])` =&gt; filtering(entry.a == 2 AND entry.b in (&#39;x&#39;, &#39;y&#39;))```
+            # filtering(entry.a == 2 AND entry.b in (&#39;x&#39;, &#39;y&#39;))
+            log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;])
+            # filtering(entry.a in (2, 3) AND entry.b in (&#39;x&#39;, &#39;y&#39;, 5) and entry.c == 1)
+            log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;]).only(a=3, b=5, c=1)
 
-        ```log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;]).only(a=3, b=5, c=1) =&gt;
-            filtering(entry.a in (2, 3) AND entry.b in (&#39;x&#39;, &#39;y&#39;, 5) and entry.c == 1)```
+        Example::
 
-        Ex: `new_log = log.only(door=1, event_type=221)`
-        :param filters:
-        :return: new fitlered EventLog instance
+            new_log = log.only(door=1, event_type=221)
+
+        Args:
+            **filters (Union[str, Sequence[str]]): filter values or list
+                of them
+
+        Returns:
+            EventLog: new fitlered EventLog instance
+
         &#34;&#34;&#34;
         only_filters = self._merge_filters(self.only_filters, filters)
         obj = self.__class__(self._sdk,
@@ -631,13 +711,17 @@ index and filtering could be slow.</p></div>
 
     @staticmethod
     def _merge_filters(initial: dict, fltr: dict) -&gt; dict:
-        &#34;&#34;&#34;
-        Merge two filter dicts, fltr updates initial. Key-values  which
+        &#34;&#34;&#34;Merge two filter dicts, fltr updates initial. Key-values  which
         does not exist in initial will be copied. Value of existent
         keys are combined (values always are lists).
-        :param initial: updating initial filter dict
-        :param fltr: filter dict which updates initial
-        :return: merged filter dict
+
+        Args:
+          initial (dict): updating initial filter dict
+          fltr (dict): filter dict which updates initial
+
+        Returns:
+          dict: merged filter dict
+
         &#34;&#34;&#34;
         seq_types = (tuple, list, set, frozenset)
         res = deepcopy(initial)
@@ -653,11 +737,15 @@ index and filtering could be slow.</p></div>
         return res
 
     def _filtered_events(self, data: Iterable[Event]) -&gt; Iterable[Event]:
-        &#34;&#34;&#34;
-        Apply current filters to given events and return only events
+        &#34;&#34;&#34;Apply current filters to given events and return only events
         which meet them
-        :param data: unfiltered events
-        :return: filtered events
+
+        Args:
+          data (Iterable[Event]): unfiltered events
+
+        Returns:
+          Iterable[Event]: filtered events
+
         &#34;&#34;&#34;
         if not self.only_filters:
             yield from data
@@ -697,10 +785,8 @@ index and filtering could be slow.</p></div>
         return iter(self._filtered_events(self.data))
 
     def __str__(self):
-        items_str = &#39;, &#39;.join(str(x) for x in self[:3])
-        if len(self) &gt; 6:
-            items_str += &#39;, ..., &#39; + &#39;, &#39;.join(str(x) for x in self[3:])
-        return &#39;EventLog[{}]({})&#39;.format(len(self), items_str)
+        items_str = &#39;, \n&#39;.join(str(x) for x in self)
+        return &#39;EventLog[{}](\n{}\n)&#39;.format(len(self), items_str)
 
     def __repr__(self):
         return self.__str__()</code></pre>
@@ -711,18 +797,29 @@ index and filtering could be slow.</p></div>
 <span>def <span class="ident">after_time</span></span>(<span>self, after_time: datetime.datetime) ‑> Iterable[<a title="pyzkaccess.event.Event" href="#pyzkaccess.event.Event">Event</a>]</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Return events which was occured after given time
-:param after_time: datetime object to filter (included)
-:return:</p></div>
+<div class="desc"><p>Return events which was occured after given time</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>after_time</code></strong> :&ensp;<code>datetime</code></dt>
+<dd>datetime object to filter (included)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Iterable[<a title="pyzkaccess.event.Event" href="#pyzkaccess.event.Event">Event</a>]</code></dt>
+<dd>events</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def after_time(self, after_time: datetime) -&gt; Iterable[Event]:
-    &#34;&#34;&#34;
-    Return events which was occured after given time
-    :param after_time: datetime object to filter (included)
-    :return:
+    &#34;&#34;&#34;Return events which was occured after given time
+
+    Args:
+        after_time (datetime): datetime object to filter (included)
+
+    Returns:
+        Iterable[Event]: events
     &#34;&#34;&#34;
     return filter(lambda x: x.time &gt;= after_time, self._filtered_events(self.data))</code></pre>
 </details>
@@ -731,18 +828,29 @@ index and filtering could be slow.</p></div>
 <span>def <span class="ident">before_time</span></span>(<span>self, before_time: datetime.datetime) ‑> Iterable[<a title="pyzkaccess.event.Event" href="#pyzkaccess.event.Event">Event</a>]</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Return events which was occured before given time
-:param before_time: datetime object to filter (excluded)
-:return:</p></div>
+<div class="desc"><p>Return events which was occured before given time</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>before_time</code></strong> :&ensp;<code>datetime</code></dt>
+<dd>datetime object to filter (excluded)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Iterable[<a title="pyzkaccess.event.Event" href="#pyzkaccess.event.Event">Event</a>]</code></dt>
+<dd>events</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def before_time(self, before_time: datetime) -&gt; Iterable[Event]:
-    &#34;&#34;&#34;
-    Return events which was occured before given time
-    :param before_time: datetime object to filter (excluded)
-    :return:
+    &#34;&#34;&#34;Return events which was occured before given time
+
+    Args:
+        before_time (datetime): datetime object to filter (excluded)
+
+    Returns:
+        Iterable[Event]: events
     &#34;&#34;&#34;
     return filter(lambda x: x.time &lt; before_time, self._filtered_events(self.data))</code></pre>
 </details>
@@ -751,20 +859,32 @@ index and filtering could be slow.</p></div>
 <span>def <span class="ident">between_time</span></span>(<span>self, from_time: datetime.datetime, to_time: datetime.datetime) ‑> Iterable[<a title="pyzkaccess.event.Event" href="#pyzkaccess.event.Event">Event</a>]</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Return events which was occured between two given time moments
-:param from_time: datetime object to filter (included)
-:param to_time: datetime object to filter (excluded)
-:return:</p></div>
+<div class="desc"><p>Return events which was occured between two given time moments</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>from_time</code></strong> :&ensp;<code>datetime</code></dt>
+<dd>datetime object to filter (included)</dd>
+<dt><strong><code>to_time</code></strong> :&ensp;<code>datetime</code></dt>
+<dd>datetime object to filter (excluded)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Iterable[<a title="pyzkaccess.event.Event" href="#pyzkaccess.event.Event">Event</a>]</code></dt>
+<dd>events</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def between_time(self, from_time: datetime, to_time: datetime) -&gt; Iterable[Event]:
-    &#34;&#34;&#34;
-    Return events which was occured between two given time moments
-    :param from_time: datetime object to filter (included)
-    :param to_time: datetime object to filter (excluded)
-    :return:
+    &#34;&#34;&#34;Return events which was occured between two given time moments
+
+    Args:
+        from_time (datetime): datetime object to filter (included)
+        to_time (datetime): datetime object to filter (excluded)
+
+    Returns:
+        Iterable[Event]: events
     &#34;&#34;&#34;
     return filter(lambda x: from_time &lt;= x.time &lt; to_time, self._filtered_events(self.data))</code></pre>
 </details>
@@ -796,20 +916,32 @@ which attribute value is contained in appropriate filter
 repeatable call of only, given filters which was also set
 on previous call will be ORed, i.e. their values will be
 concatenated.</p>
-<p>In other words:</p>
-<p><code>log.only(a=2, b=['x', 'y'])` =&gt; filtering(entry.a == 2 AND entry.b in ('x', 'y'))</code></p>
-<p><code>log.only(a=2, b=['x', 'y']).only(a=3, b=5, c=1) =&gt;
-filtering(entry.a in (2, 3) AND entry.b in ('x', 'y', 5) and entry.c == 1)</code></p>
-<p>Ex: <code>new_log = log.only(door=1, event_type=221)</code>
-:param filters:
-:return: new fitlered EventLog instance</p></div>
+<p>In other words::</p>
+<pre><code># filtering(entry.a == 2 AND entry.b in ('x', 'y'))
+log.only(a=2, b=['x', 'y'])
+# filtering(entry.a in (2, 3) AND entry.b in ('x', 'y', 5) and entry.c == 1)
+log.only(a=2, b=['x', 'y']).only(a=3, b=5, c=1)
+</code></pre>
+<p>Example::</p>
+<pre><code>new_log = log.only(door=1, event_type=221)
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**filters</code></strong> :&ensp;<code>Union[str, Sequence[str]]</code></dt>
+<dd>filter values or list
+of them</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="pyzkaccess.event.EventLog" href="#pyzkaccess.event.EventLog">EventLog</a></code></dt>
+<dd>new fitlered EventLog instance</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def only(self, **filters) -&gt; &#39;EventLog&#39;:
-    &#34;&#34;&#34;
-    Return new EventLog instance with given filters applied.
+    &#34;&#34;&#34;Return new EventLog instance with given filters applied.
     Kwargs names must be the same as Event slots.
 
     Event log returned by this method will contain entries in
@@ -821,16 +953,24 @@ filtering(entry.a in (2, 3) AND entry.b in ('x', 'y', 5) and entry.c == 1)</code
     on previous call will be ORed, i.e. their values will be
     concatenated.
 
-    In other words:
+    In other words::
 
-    ```log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;])` =&gt; filtering(entry.a == 2 AND entry.b in (&#39;x&#39;, &#39;y&#39;))```
+        # filtering(entry.a == 2 AND entry.b in (&#39;x&#39;, &#39;y&#39;))
+        log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;])
+        # filtering(entry.a in (2, 3) AND entry.b in (&#39;x&#39;, &#39;y&#39;, 5) and entry.c == 1)
+        log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;]).only(a=3, b=5, c=1)
 
-    ```log.only(a=2, b=[&#39;x&#39;, &#39;y&#39;]).only(a=3, b=5, c=1) =&gt;
-        filtering(entry.a in (2, 3) AND entry.b in (&#39;x&#39;, &#39;y&#39;, 5) and entry.c == 1)```
+    Example::
 
-    Ex: `new_log = log.only(door=1, event_type=221)`
-    :param filters:
-    :return: new fitlered EventLog instance
+        new_log = log.only(door=1, event_type=221)
+
+    Args:
+        **filters (Union[str, Sequence[str]]): filter values or list
+            of them
+
+    Returns:
+        EventLog: new fitlered EventLog instance
+
     &#34;&#34;&#34;
     only_filters = self._merge_filters(self.only_filters, filters)
     obj = self.__class__(self._sdk,
@@ -847,26 +987,39 @@ filtering(entry.a in (2, 3) AND entry.b in ('x', 'y', 5) and entry.c == 1)</code
 <dd>
 <div class="desc"><p>Wait for new events by making periodically requests to a device.
 If events was appeared then return them. If no event was
-appeared until timeout was expired then return empty iterable.
-:param timeout: timeout in seconds. Default: 60 seconds
-:param polling_interval: interval to make a requests in seconds.
-Default: every 1 second
-:return: iterable with new events if any or empty iterable if
-timeout has expired</p></div>
+appeared until timeout was expired then return empty iterable.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong> :&ensp;<code>float</code>, default=<code>60</code></dt>
+<dd>timeout in seconds</dd>
+<dt><strong><code>polling_interval</code></strong> :&ensp;<code>float</code>, default=<code>1</code></dt>
+<dd>interval to make a requests
+in seconds</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Iterable[<a title="pyzkaccess.event.Event" href="#pyzkaccess.event.Event">Event</a>]</code></dt>
+<dd>events iterable with new events if any
+or empty iterable if timeout has expired</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def poll(self, timeout: float = 60, polling_interval: float = 1) -&gt; List[Event]:
-    &#34;&#34;&#34;
-    Wait for new events by making periodically requests to a device.
+    &#34;&#34;&#34;Wait for new events by making periodically requests to a device.
     If events was appeared then return them. If no event was
     appeared until timeout was expired then return empty iterable.
-    :param timeout: timeout in seconds. Default: 60 seconds
-    :param polling_interval: interval to make a requests in seconds.
-     Default: every 1 second
-    :return: iterable with new events if any or empty iterable if
-     timeout has expired
+
+    Args:
+        timeout (float, default=60): timeout in seconds
+        polling_interval (float, default=1): interval to make a requests
+            in seconds
+
+    Returns:
+        Iterable[Event]: events iterable with new events if any
+            or empty iterable if timeout has expired
+
     &#34;&#34;&#34;
     deadline = datetime.now().timestamp() + timeout
     while datetime.now().timestamp() &lt; deadline:
@@ -885,8 +1038,13 @@ timeout has expired</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Make a request to a device for new records and append to the
-end if any.
-:return: count of records which was added</p></div>
+end if any.</p>
+<p>Args:</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>count of records which was added</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -894,7 +1052,11 @@ end if any.
 <pre><code class="python">def refresh(self) -&gt; int:
     &#34;&#34;&#34;Make a request to a device for new records and append to the
     end if any.
-    :return: count of records which was added
+
+    Args:
+
+    Returns:
+        int: count of records which was added
     &#34;&#34;&#34;
     # ZKAccess always returns single event with code 255
     # on every log query if no other events occured. So, skip it

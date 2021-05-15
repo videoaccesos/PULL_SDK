@@ -32,11 +32,17 @@
     &#39;SensorType&#39;,
     &#39;VerifyMode&#39;,
     &#39;PassageDirection&#39;,
+    &#39;HolidayLoop&#39;,
+    &#39;InOutFunRelayGroup&#39;,
+    &#39;ChangeIPProtocol&#39;,
+    &#39;INOUTFUN_INPUT&#39;,
+    &#39;INOUTFUN_OUTPUT&#39;,
     &#39;EVENT_TYPES&#39;,
     &#39;PULL_SDK_ERRORS&#39;,
-    &#39;WSA_ERROR_CODES&#39;
+    &#39;WSA_ERROR_CODES&#39;,
 ]
 from enum import Enum
+
 from .common import DocDict
 
 
@@ -49,6 +55,7 @@ class ControlOperation(Enum):
 
 class RelayGroup(Enum):
     &#34;&#34;&#34;Device relay group.
+
     There are either lock relays (door output) or aux relays
     (aux output)
     &#34;&#34;&#34;
@@ -64,8 +71,8 @@ class SensorType(Enum):
 
 
 class VerifyMode(Enum):
-    &#34;&#34;&#34;Which methods are used to authenticate user.
-    See `DoorXVerifyType` parameter in SDK docs
+    &#34;&#34;&#34;Methods are used to authenticate a user. See `DoorXVerifyType`
+    parameter in SDK docs
     &#34;&#34;&#34;
     not_available = 0
     only_finger = 1
@@ -78,16 +85,55 @@ class VerifyMode(Enum):
 
 
 class PassageDirection(Enum):
-    &#34;&#34;&#34;Whether a user was entered or exited via door
-    See event format description in SDK docs
+    &#34;&#34;&#34;Whether a user was entered or exited via door. See event format
+    description in SDK docs
     &#34;&#34;&#34;
     entry = 0
     exit = 1
     none = 2
 
 
-#: Type of event which is returned by GetRTLog function
-#: See event format description in SDK docs
+class HolidayLoop(Enum):
+    &#34;&#34;&#34;Holiday type -- annual or not&#34;&#34;&#34;
+    unknown = 0
+    annual = 1
+    not_annual = 2
+
+
+class InOutFunRelayGroup(Enum):
+    &#34;&#34;&#34;Device relay group which was triggered -- lock relays
+    (door output) or aux relays (aux output)
+    &#34;&#34;&#34;
+    lock = 0
+    aux = 1
+
+
+class ChangeIPProtocol(Enum):
+    &#34;&#34;&#34;Protocol to work with during emergency resetting ip address on a device&#34;&#34;&#34;
+    udp = &#39;UDP&#39;
+    ethernet = &#39;Ethernet&#39;
+
+
+INOUTFUN_INPUT = DocDict({
+    0: &#39;Any input&#39;,
+    1: &#39;Input 1&#39;,
+    2: &#39;Input 2&#39;,
+    3: &#39;Input 3&#39;,
+    4: &#39;Input 4&#39;,
+})
+&#34;&#34;&#34;Input number which triggered the log event&#34;&#34;&#34;
+
+
+INOUTFUN_OUTPUT = DocDict({
+    0: &#39;Any output&#39;,
+    1: &#39;Output 1&#39;,
+    2: &#39;Output 2&#39;,
+    3: &#39;Output 3&#39;,
+    4: &#39;Output 4&#39;,
+})
+&#34;&#34;&#34;Output number which was became active in log event&#34;&#34;&#34;
+
+
 EVENT_TYPES = DocDict({
     0: &#39;Normal Punch Open&#39;,
     1: &#39;Punch during Normal Open Time Zone&#39;,
@@ -136,13 +182,16 @@ EVENT_TYPES = DocDict({
     203: &#39;Multi-Card Open (Card plus Fingerprint)&#39;,
     204: &#39;Normal Open Time Zone Over&#39;,
     205: &#39;Remote Normal Opening&#39;,
+    206: &#39;Device start&#39;,
     220: &#39;Auxiliary Input Disconnected&#39;,
     221: &#39;Auxiliary Input Shorted&#39;,
     255: &#39;Actually that obtain door status and alarm status&#39;,
 })
+&#34;&#34;&#34;Type of event which is returned by GetRTLog function.
+See event format description in SDK docs
+&#34;&#34;&#34;
 
 
-#: Errors which SDK functions may return. See errors description in SDK
 PULL_SDK_ERRORS = DocDict({
     -1: &#39;The command is not sent successfully&#39;,
     -2: &#39;The command has no response&#39;,
@@ -184,9 +233,9 @@ PULL_SDK_ERRORS = DocDict({
     -306: &#39;HOST error&#39;,
     -307: &#39;Connection attempt failed&#39;,
 })
+&#34;&#34;&#34;Errors which SDK functions may return. See errors description in SDK&#34;&#34;&#34;
 
-#: SDK functions can also return WINSOCK errors using `PullLastError`
-#: function. See SDK docs and MSDN
+
 WSA_ERROR_CODES = DocDict({
     6: &#34;WSA_INVALID_HANDLE (Specified event object handle is invalid. An application attempts to &#34;
        &#34;use an event object, but the specified handle is not valid)&#34;,
@@ -484,18 +533,77 @@ WSA_ERROR_CODES = DocDict({
            &#34;object was found in the QoS provider-specific buffer)&#34;,
     11031: &#34;WSA_QOS_RESERVED_PETYPE (Reserved policy QoS element type. A reserved policy &#34;
            &#34;element was found in the QoS provider-specific buffer)&#34;,
-})</code></pre>
+})
+&#34;&#34;&#34;SDK functions can also return WINSOCK errors using `PullLastError`
+function. See SDK docs and MSDN
+&#34;&#34;&#34;</code></pre>
 </details>
 </section>
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="pyzkaccess.enums.EVENT_TYPES"><code class="name">var <span class="ident">EVENT_TYPES</span></code></dt>
+<dd>
+<div class="desc"><p>Type of event which is returned by GetRTLog function.
+See event format description in SDK docs</p></div>
+</dd>
+<dt id="pyzkaccess.enums.INOUTFUN_INPUT"><code class="name">var <span class="ident">INOUTFUN_INPUT</span></code></dt>
+<dd>
+<div class="desc"><p>Input number which triggered the log event</p></div>
+</dd>
+<dt id="pyzkaccess.enums.INOUTFUN_OUTPUT"><code class="name">var <span class="ident">INOUTFUN_OUTPUT</span></code></dt>
+<dd>
+<div class="desc"><p>Output number which was became active in log event</p></div>
+</dd>
+<dt id="pyzkaccess.enums.PULL_SDK_ERRORS"><code class="name">var <span class="ident">PULL_SDK_ERRORS</span></code></dt>
+<dd>
+<div class="desc"><p>Errors which SDK functions may return. See errors description in SDK</p></div>
+</dd>
+<dt id="pyzkaccess.enums.WSA_ERROR_CODES"><code class="name">var <span class="ident">WSA_ERROR_CODES</span></code></dt>
+<dd>
+<div class="desc"><p>SDK functions can also return WINSOCK errors using <code>PullLastError</code>
+function. See SDK docs and MSDN</p></div>
+</dd>
+</dl>
 </section>
 <section>
 </section>
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
+<dt id="pyzkaccess.enums.ChangeIPProtocol"><code class="flex name class">
+<span>class <span class="ident">ChangeIPProtocol</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Protocol to work with during emergency resetting ip address on a device</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ChangeIPProtocol(Enum):
+    &#34;&#34;&#34;Protocol to work with during emergency resetting ip address on a device&#34;&#34;&#34;
+    udp = &#39;UDP&#39;
+    ethernet = &#39;Ethernet&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.ChangeIPProtocol.ethernet"><code class="name">var <span class="ident">ethernet</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.ChangeIPProtocol.udp"><code class="name">var <span class="ident">udp</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
 <dt id="pyzkaccess.enums.ControlOperation"><code class="flex name class">
 <span>class <span class="ident">ControlOperation</span></span>
 <span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
@@ -532,20 +640,90 @@ WSA_ERROR_CODES = DocDict({
 </dd>
 </dl>
 </dd>
+<dt id="pyzkaccess.enums.HolidayLoop"><code class="flex name class">
+<span>class <span class="ident">HolidayLoop</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Holiday type &ndash; annual or not</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HolidayLoop(Enum):
+    &#34;&#34;&#34;Holiday type -- annual or not&#34;&#34;&#34;
+    unknown = 0
+    annual = 1
+    not_annual = 2</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.HolidayLoop.annual"><code class="name">var <span class="ident">annual</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.HolidayLoop.not_annual"><code class="name">var <span class="ident">not_annual</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.HolidayLoop.unknown"><code class="name">var <span class="ident">unknown</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.enums.InOutFunRelayGroup"><code class="flex name class">
+<span>class <span class="ident">InOutFunRelayGroup</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Device relay group which was triggered &ndash; lock relays
+(door output) or aux relays (aux output)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InOutFunRelayGroup(Enum):
+    &#34;&#34;&#34;Device relay group which was triggered -- lock relays
+    (door output) or aux relays (aux output)
+    &#34;&#34;&#34;
+    lock = 0
+    aux = 1</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.enums.InOutFunRelayGroup.aux"><code class="name">var <span class="ident">aux</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pyzkaccess.enums.InOutFunRelayGroup.lock"><code class="name">var <span class="ident">lock</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
 <dt id="pyzkaccess.enums.PassageDirection"><code class="flex name class">
 <span>class <span class="ident">PassageDirection</span></span>
 <span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Whether a user was entered or exited via door
-See event format description in SDK docs</p></div>
+<div class="desc"><p>Whether a user was entered or exited via door. See event format
+description in SDK docs</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class PassageDirection(Enum):
-    &#34;&#34;&#34;Whether a user was entered or exited via door
-    See event format description in SDK docs
+    &#34;&#34;&#34;Whether a user was entered or exited via door. See event format
+    description in SDK docs
     &#34;&#34;&#34;
     entry = 0
     exit = 1
@@ -576,8 +754,8 @@ See event format description in SDK docs</p></div>
 <span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Device relay group.
-There are either lock relays (door output) or aux relays
+<div class="desc"><p>Device relay group.</p>
+<p>There are either lock relays (door output) or aux relays
 (aux output)</p></div>
 <details class="source">
 <summary>
@@ -585,6 +763,7 @@ There are either lock relays (door output) or aux relays
 </summary>
 <pre><code class="python">class RelayGroup(Enum):
     &#34;&#34;&#34;Device relay group.
+
     There are either lock relays (door output) or aux relays
     (aux output)
     &#34;&#34;&#34;
@@ -648,15 +827,15 @@ There are either lock relays (door output) or aux relays
 <span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Which methods are used to authenticate user.
-See <code>DoorXVerifyType</code> parameter in SDK docs</p></div>
+<div class="desc"><p>Methods are used to authenticate a user. See <code>DoorXVerifyType</code>
+parameter in SDK docs</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class VerifyMode(Enum):
-    &#34;&#34;&#34;Which methods are used to authenticate user.
-    See `DoorXVerifyType` parameter in SDK docs
+    &#34;&#34;&#34;Methods are used to authenticate a user. See `DoorXVerifyType`
+    parameter in SDK docs
     &#34;&#34;&#34;
     not_available = 0
     only_finger = 1
@@ -767,14 +946,45 @@ setTimeout(() => input.focus(), 100);
 <li><code><a title="pyzkaccess" href="index.html">pyzkaccess</a></code></li>
 </ul>
 </li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.EVENT_TYPES" href="#pyzkaccess.enums.EVENT_TYPES">EVENT_TYPES</a></code></li>
+<li><code><a title="pyzkaccess.enums.INOUTFUN_INPUT" href="#pyzkaccess.enums.INOUTFUN_INPUT">INOUTFUN_INPUT</a></code></li>
+<li><code><a title="pyzkaccess.enums.INOUTFUN_OUTPUT" href="#pyzkaccess.enums.INOUTFUN_OUTPUT">INOUTFUN_OUTPUT</a></code></li>
+<li><code><a title="pyzkaccess.enums.PULL_SDK_ERRORS" href="#pyzkaccess.enums.PULL_SDK_ERRORS">PULL_SDK_ERRORS</a></code></li>
+<li><code><a title="pyzkaccess.enums.WSA_ERROR_CODES" href="#pyzkaccess.enums.WSA_ERROR_CODES">WSA_ERROR_CODES</a></code></li>
+</ul>
+</li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
+<li>
+<h4><code><a title="pyzkaccess.enums.ChangeIPProtocol" href="#pyzkaccess.enums.ChangeIPProtocol">ChangeIPProtocol</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.ChangeIPProtocol.ethernet" href="#pyzkaccess.enums.ChangeIPProtocol.ethernet">ethernet</a></code></li>
+<li><code><a title="pyzkaccess.enums.ChangeIPProtocol.udp" href="#pyzkaccess.enums.ChangeIPProtocol.udp">udp</a></code></li>
+</ul>
+</li>
 <li>
 <h4><code><a title="pyzkaccess.enums.ControlOperation" href="#pyzkaccess.enums.ControlOperation">ControlOperation</a></code></h4>
 <ul class="">
 <li><code><a title="pyzkaccess.enums.ControlOperation.cancel_alarm" href="#pyzkaccess.enums.ControlOperation.cancel_alarm">cancel_alarm</a></code></li>
 <li><code><a title="pyzkaccess.enums.ControlOperation.output" href="#pyzkaccess.enums.ControlOperation.output">output</a></code></li>
 <li><code><a title="pyzkaccess.enums.ControlOperation.restart" href="#pyzkaccess.enums.ControlOperation.restart">restart</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.enums.HolidayLoop" href="#pyzkaccess.enums.HolidayLoop">HolidayLoop</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.HolidayLoop.annual" href="#pyzkaccess.enums.HolidayLoop.annual">annual</a></code></li>
+<li><code><a title="pyzkaccess.enums.HolidayLoop.not_annual" href="#pyzkaccess.enums.HolidayLoop.not_annual">not_annual</a></code></li>
+<li><code><a title="pyzkaccess.enums.HolidayLoop.unknown" href="#pyzkaccess.enums.HolidayLoop.unknown">unknown</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.enums.InOutFunRelayGroup" href="#pyzkaccess.enums.InOutFunRelayGroup">InOutFunRelayGroup</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.enums.InOutFunRelayGroup.aux" href="#pyzkaccess.enums.InOutFunRelayGroup.aux">aux</a></code></li>
+<li><code><a title="pyzkaccess.enums.InOutFunRelayGroup.lock" href="#pyzkaccess.enums.InOutFunRelayGroup.lock">lock</a></code></li>
 </ul>
 </li>
 <li>

@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>pyzkaccess.device_data.queryset API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyzkaccess.device_data.queryset</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">__all__ = [
+    &#39;QuerySet&#39;
+]
+
+import math
+from copy import copy
+from typing import (
+    Type,
+    Union,
+    Optional,
+    Iterator,
+    Generator,
+    Mapping,
+    Any,
+    Sequence,
+    TypeVar,
+    Iterable
+)
+
+from .model import Model, Field
+
+
+class QuerySet:
+    &#34;&#34;&#34;Interface to perform queries to data tables, iterate
+    over results and insert/delete records in tables
+    
+    QuerySet using &#34;fluent interface&#34; in most of its methods. Many
+    ORMs use this approach, so working with tables and records may look
+    familiar.
+
+    Example::
+
+        records = zk.table(&#39;User&#39;).where(card=&#39;123456&#39;).only_fields(&#39;card&#39;, &#39;password&#39;).unread()
+        for record in records:
+            print(record.password)
+
+    For table and fields you can use either objects or their names.
+    For example, the following code has the same meaning as the previous
+    one::
+
+        from zkaccess.tables import User
+        records = zk.table(User).where(card=&#39;123456&#39;).only_fields(User.card, User.password).unread()
+        for record in records:
+            print(record.password)
+
+    Also QuerySet can do upsert/delete operations
+
+    &#34;&#34;&#34;
+    _estimate_record_buffer = 256
+
+    def __init__(self, sdk, table: Type[Model], buffer_size: Optional[int] = None):
+        &#34;&#34;&#34;
+        Args:
+            sdk (ZKSDK): ZKSDK object
+            table (Type[Model]): model class
+            buffer_size (int, optional): size of c-string buffer to
+                keep query results from a device. If omitted, then
+                buffer size will be guessed automatically
+        &#34;&#34;&#34;
+        self._sdk = sdk
+        self._table_cls = table
+        self._cache = None
+        self._results_iter = None
+
+        # Query parameters
+        self._buffer_size = buffer_size
+        self._only_fields = set()
+        self._filters = {}
+        self._only_unread = False
+
+    def only_fields(self, *fields: Union[Field, str]) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Query given fields only from a table. Arguments can be
+        field instances or their names
+
+        Example::
+
+            zk.table(Table1).only_fields(&#39;field1&#39;, Table1.field2)
+
+        Args:
+            *fields (Union[Field, str]): fields to select
+
+        Returns:
+            QuerySet: new `QuerySet` object with conditions
+        &#34;&#34;&#34;
+        qs = self.copy()
+        only_fields = set()
+        fields_mapping = self._table_cls.fields_mapping()
+        for field in fields:
+            if isinstance(field, str):
+                if field not in fields_mapping.keys():
+                    raise ValueError(&#39;No such field {}.{}&#39;.format(self._table_cls.__name__, field))
+                field = getattr(self._table_cls, field)
+
+            elif isinstance(field, Field):
+                reverse_mapping = {v: k for k, v in fields_mapping.items()}
+                field_name = reverse_mapping.get(field.raw_name)
+                if field_name is None or getattr(self._table_cls, field_name, None) is not field:
+                    raise ValueError(&#39;No such field {}.{}&#39;.format(self._table_cls.__name__, field))
+
+            else:
+                raise TypeError(&#39;Field must be either a table field object or a field name&#39;)
+
+            only_fields.add(field)
+
+        qs._only_fields.update(only_fields)
+        return qs
+
+    def where(self, **kwargs) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Return a new QuerySet instance with given fields filters.
+        If current QuerySet already has some filters with the same
+        fields as given, they will be rewritten with new values.
+
+        Only &#34;equal&#34; compare operation is available.
+
+        In example below filters will be
+            `card == &#39;111&#39; AND super_authorize == False`::
+
+            zk.table(&#39;User&#39;).where(card=&#39;123456&#39;).where(card=&#39;111&#39;, super_authorize=False)
+
+        Args:
+            **kwargs (Mapping[str, Any]): field conditions
+
+        Returns:
+            QuerySet: new QuerySet object with conditions
+
+        &#34;&#34;&#34;
+        if not kwargs:
+            raise TypeError(&#39;Empty arguments&#39;)
+
+        qs = self.copy()
+        filters = {}
+        for key, fval in kwargs.items():
+            field = getattr(self._table_cls, key, None)
+            if field is None:
+                raise TypeError(&#39;No such field {}.{}&#39;, self._table_cls.__name__, key)
+            filters[field.raw_name] = field.to_raw_value(fval)
+
+        qs._filters.update(filters)
+
+        return qs
+
+    def unread(self) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Return only unread records instead of all.
+
+        Some tables on device has a pointer which is set to the last
+        record on each query. If no records have been inserted to
+        a table since last read, the &#34;unread&#34; query will return nothing
+
+        Args:
+
+        Returns:
+            QuerySet: new QuerySet object with conditions
+
+        &#34;&#34;&#34;
+        qs = self.copy()
+        qs._only_unread = True
+        return qs
+
+    _ModelArgT = TypeVar(&#39;_ModelArgT&#39;, Model, Mapping[str, Any])
+
+    def upsert(self, records: Union[Iterable[_ModelArgT], _ModelArgT]) -&gt; None:
+        &#34;&#34;&#34;Update/insert given records (or upsert) to a table.
+
+        Every table on a device has primary key. Typically, it is &#34;pin&#34;
+        field.
+
+        Upsert means that when you try to upsert a record with primary
+        key field which does not contain in table, then this record
+        will be inserted. Otherwise it will be updated.
+
+        Examples::
+
+            zk.table(User).upsert({&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;})
+            zk.table(User).upsert([{&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;}, {&#39;pin&#39;: &#39;1&#39;, &#39;card&#39;: &#39;654321&#39;}])
+            zk.table(User).upsert(User(pin=&#39;0&#39;, card=&#39;123456&#39;))
+            zk.table(User).upsert([User(pin=&#39;0&#39;, card=&#39;123456&#39;), User(pin=&#39;1&#39;, card=&#39;654321&#39;)])
+
+        Args:
+            records (Union[Iterable[_ModelArgT], _ModelArgT]): record
+                dict, Model instance or a sequence of those
+
+        Returns:
+            None
+
+        &#34;&#34;&#34;
+        if not isinstance(records, (Iterable, Model, Mapping)):
+            raise TypeError(&#39;Argument must be a iterable, Model or mapping&#39;)
+
+        gen = self._sdk.set_device_data(self._table_cls.table_name)
+        self._bulk_operation(gen, records)
+
+    def delete(self, records: Union[Iterable[_ModelArgT], _ModelArgT]) -&gt; None:
+        &#34;&#34;&#34;Delete given records from a table.
+        
+        Every table on a device has primary key. Typically, it is &#34;pin&#34;
+        field. Deletion of record is performed by a field which is
+        primary key for this table. Other fields seems are ignored.
+
+        Examples::
+
+            zk.table(User).delete({&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;})
+            zk.table(User).delete([{&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;}, {&#39;pin&#39;: &#39;1&#39;, &#39;card&#39;: &#39;654321&#39;}])
+            zk.table(User).delete(User(pin=&#39;0&#39;, card=&#39;123456&#39;))
+            zk.table(User).delete([User(pin=&#39;0&#39;, card=&#39;123456&#39;), User(pin=&#39;1&#39;, card=&#39;654321&#39;)])
+
+        Args:
+            records (Union[Sequence[_ModelArgT], _ModelArgT]): record
+                dict, Model instance or a sequence of those
+
+        Returns:
+            None
+
+        &#34;&#34;&#34;
+        if not isinstance(records, (Iterable, Model, Mapping)):
+            raise TypeError(&#39;Argument must be a iterable, Model or mapping&#39;)
+
+        gen = self._sdk.delete_device_data(self._table_cls.table_name)
+        self._bulk_operation(gen, records)
+
+    def delete_all(self) -&gt; None:
+        &#34;&#34;&#34;Make a query to a table using this QuerySet and delete all
+        matched records.
+
+        Query in example below deletes records with `password=&#39;123&#39;`::
+
+            zk.table(&#39;User&#39;).where(password=&#39;123&#39;).delete_all()
+
+        Args:
+
+        Returns:
+            None
+
+        &#34;&#34;&#34;
+        gen = self._sdk.delete_device_data(self._table_cls.table_name)
+        self._bulk_operation(gen, self)
+
+    def count(self) -&gt; int:
+        &#34;&#34;&#34;Return just a number of records in table without considering
+        filters.
+
+        Unlike len(qs) this method does not fetch data, but makes
+        simple request, like `SELECT COUNT(*)` in SQL.
+
+        Args:
+
+        Returns:
+            int: data table size
+
+        &#34;&#34;&#34;
+        return self._sdk.get_device_data_count(self._table_cls.table_name)
+
+    def _bulk_operation(self,
+                        gen: Generator[None, Optional[Mapping[str, str]], None],
+                        records: Union[Iterable[_ModelArgT], _ModelArgT]):
+        gen.send(None)
+        if isinstance(records, (Mapping, Model)):
+            records = (records, )
+
+        for record in records:
+            if isinstance(record, Model):
+                record = record.raw_data
+            elif isinstance(record, Mapping):
+                record = self._table_cls(**record).raw_data
+            else:
+                raise TypeError(&#39;Records must be either a data table object or a mapping&#39;)
+
+            gen.send(record)
+
+        try:
+            gen.send(None)
+        except StopIteration:
+            pass
+
+    def __iter__(self):
+        if self._cache is None:
+            self._fetch_data()
+        return self._iterator_class(self)
+
+    def __getitem__(self, item):
+        if self._cache is None:
+            self._fetch_data()
+
+        if isinstance(item, slice):
+            return self._iterator_class(self, item)
+
+        try:
+            return next(self._iterator_class(self, item))
+        except StopIteration:
+            raise IndexError(&#34;list index is out of range&#34;) from None
+
+    def __len__(self):
+        &#34;&#34;&#34;Return a size of queryset. In order to get this size, all
+        records will be preliminary fetched
+        &#34;&#34;&#34;
+        # Fill out cache
+        # https://stackoverflow.com/questions/37189968/how-to-have-list-consume-iter-without-calling-len
+        [_ for _ in self]  # noqa
+
+        return len(self._cache)
+
+    def __bool__(self):
+        &#34;&#34;&#34;Return True if this queryset contains any records. If query
+        was not executed, fetch matched records first
+        &#34;&#34;&#34;
+        return self.__len__() &gt; 0
+
+    def _fetch_data(self) -&gt; None:
+        self._cache = []
+        self._results_iter = iter(())
+
+        buffer_size = self._buffer_size
+        if buffer_size is None:
+            records_count = self._sdk.get_device_data_count(self._table_cls.table_name)
+            # Get buffer size based on table records count and
+            # estimated record length and round up to the nearest
+            # power of 2
+            # Ex: 5(count) * 70(estimated len) = 350 =&gt; buffer_size==512
+            if records_count == 0:
+                return
+            estimated_size = self._estimate_record_buffer * records_count
+            buffer_size = 2 ** math.ceil(math.log2(estimated_size))
+
+        fields = []
+        if self._only_fields:
+            fields = list(sorted(f.raw_name for f in self._only_fields))
+
+        self._results_iter = iter(self._sdk.get_device_data(
+            self._table_cls.table_name,
+            fields,
+            self._filters,
+            buffer_size,
+            self._only_unread
+        ))
+
+    def _iter_cache(
+            self, start: int, stop: Optional[int], step: int
+    ) -&gt; Generator[Mapping[str, Any], None, None]:
+        if stop is not None and start &gt;= stop:
+            return
+
+        for i in self._cache[start:stop:step]:
+            yield i
+
+        i = len(self._cache)
+        while stop is None or i &lt; stop:
+            try:
+                item = next(self._results_iter)
+            except StopIteration:
+                return
+            self._cache.append(item)
+            if (start is None or i &gt;= start) and (start + i) % step == 0:
+                yield item
+            i += 1
+
+    def copy(self) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Return a copy of current QuerySet with empty cache&#34;&#34;&#34;
+        res = self.__class__(self._sdk, self._table_cls, self._buffer_size)
+        res._only_fields = copy(self._only_fields)
+        res._filters = copy(self._filters)
+        res._only_unread = self._only_unread
+
+        return res
+
+    class ModelIterator(Iterator):
+        &#34;&#34;&#34;Iterator for iterating over QuerySet results&#34;&#34;&#34;
+        def __init__(self, qs: &#39;QuerySet&#39;, item: Optional[Union[slice, int]] = None):
+            self._qs = qs
+            self._item = item
+            self._start, self._stop, self._step = 0, None, 1
+
+            if isinstance(self._item, int):
+                self._start = self._item
+                self._stop = self._item + 1
+            if isinstance(self._item, slice):
+                self._start = self._item.start or 0
+                self._stop = self._item.stop
+                self._step = 1 if self._item.step is None else self._item.step
+
+            self._item_iter = None
+
+            if self._step == 0:
+                raise ValueError(&#39;slice step cannot be zero&#39;)
+            if self._start and self._start &lt; 0 \
+                    or self._stop and self._stop &lt; 0 \
+                    or self._step and self._step &lt; 0:
+                raise ValueError(&#39;negative indexes or step does not supported&#39;)
+
+        def __next__(self):
+            if self._item_iter is None:
+                self._item_iter = self._qs._iter_cache(self._start, self._stop, self._step)
+
+            return self._qs._table_cls().with_raw_data(
+                next(self._item_iter), dirty=False
+            ).with_sdk(self._qs._sdk)
+
+    _iterator_class = ModelIterator</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyzkaccess.device_data.queryset.QuerySet"><code class="flex name class">
+<span>class <span class="ident">QuerySet</span></span>
+<span>(</span><span>sdk, table: Type[<a title="pyzkaccess.device_data.model.Model" href="model.html#pyzkaccess.device_data.model.Model">Model</a>], buffer_size: Optional[int] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Interface to perform queries to data tables, iterate
+over results and insert/delete records in tables</p>
+<p>QuerySet using "fluent interface" in most of its methods. Many
+ORMs use this approach, so working with tables and records may look
+familiar.</p>
+<p>Example::</p>
+<pre><code>records = zk.table('User').where(card='123456').only_fields('card', 'password').unread()
+for record in records:
+    print(record.password)
+</code></pre>
+<p>For table and fields you can use either objects or their names.
+For example, the following code has the same meaning as the previous
+one::</p>
+<pre><code>from zkaccess.tables import User
+records = zk.table(User).where(card='123456').only_fields(User.card, User.password).unread()
+for record in records:
+    print(record.password)
+</code></pre>
+<p>Also QuerySet can do upsert/delete operations</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>sdk</code></strong> :&ensp;<code>ZKSDK</code></dt>
+<dd>ZKSDK object</dd>
+<dt><strong><code>table</code></strong> :&ensp;<code>Type[Model]</code></dt>
+<dd>model class</dd>
+<dt><strong><code>buffer_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>size of c-string buffer to
+keep query results from a device. If omitted, then
+buffer size will be guessed automatically</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class QuerySet:
+    &#34;&#34;&#34;Interface to perform queries to data tables, iterate
+    over results and insert/delete records in tables
+    
+    QuerySet using &#34;fluent interface&#34; in most of its methods. Many
+    ORMs use this approach, so working with tables and records may look
+    familiar.
+
+    Example::
+
+        records = zk.table(&#39;User&#39;).where(card=&#39;123456&#39;).only_fields(&#39;card&#39;, &#39;password&#39;).unread()
+        for record in records:
+            print(record.password)
+
+    For table and fields you can use either objects or their names.
+    For example, the following code has the same meaning as the previous
+    one::
+
+        from zkaccess.tables import User
+        records = zk.table(User).where(card=&#39;123456&#39;).only_fields(User.card, User.password).unread()
+        for record in records:
+            print(record.password)
+
+    Also QuerySet can do upsert/delete operations
+
+    &#34;&#34;&#34;
+    _estimate_record_buffer = 256
+
+    def __init__(self, sdk, table: Type[Model], buffer_size: Optional[int] = None):
+        &#34;&#34;&#34;
+        Args:
+            sdk (ZKSDK): ZKSDK object
+            table (Type[Model]): model class
+            buffer_size (int, optional): size of c-string buffer to
+                keep query results from a device. If omitted, then
+                buffer size will be guessed automatically
+        &#34;&#34;&#34;
+        self._sdk = sdk
+        self._table_cls = table
+        self._cache = None
+        self._results_iter = None
+
+        # Query parameters
+        self._buffer_size = buffer_size
+        self._only_fields = set()
+        self._filters = {}
+        self._only_unread = False
+
+    def only_fields(self, *fields: Union[Field, str]) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Query given fields only from a table. Arguments can be
+        field instances or their names
+
+        Example::
+
+            zk.table(Table1).only_fields(&#39;field1&#39;, Table1.field2)
+
+        Args:
+            *fields (Union[Field, str]): fields to select
+
+        Returns:
+            QuerySet: new `QuerySet` object with conditions
+        &#34;&#34;&#34;
+        qs = self.copy()
+        only_fields = set()
+        fields_mapping = self._table_cls.fields_mapping()
+        for field in fields:
+            if isinstance(field, str):
+                if field not in fields_mapping.keys():
+                    raise ValueError(&#39;No such field {}.{}&#39;.format(self._table_cls.__name__, field))
+                field = getattr(self._table_cls, field)
+
+            elif isinstance(field, Field):
+                reverse_mapping = {v: k for k, v in fields_mapping.items()}
+                field_name = reverse_mapping.get(field.raw_name)
+                if field_name is None or getattr(self._table_cls, field_name, None) is not field:
+                    raise ValueError(&#39;No such field {}.{}&#39;.format(self._table_cls.__name__, field))
+
+            else:
+                raise TypeError(&#39;Field must be either a table field object or a field name&#39;)
+
+            only_fields.add(field)
+
+        qs._only_fields.update(only_fields)
+        return qs
+
+    def where(self, **kwargs) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Return a new QuerySet instance with given fields filters.
+        If current QuerySet already has some filters with the same
+        fields as given, they will be rewritten with new values.
+
+        Only &#34;equal&#34; compare operation is available.
+
+        In example below filters will be
+            `card == &#39;111&#39; AND super_authorize == False`::
+
+            zk.table(&#39;User&#39;).where(card=&#39;123456&#39;).where(card=&#39;111&#39;, super_authorize=False)
+
+        Args:
+            **kwargs (Mapping[str, Any]): field conditions
+
+        Returns:
+            QuerySet: new QuerySet object with conditions
+
+        &#34;&#34;&#34;
+        if not kwargs:
+            raise TypeError(&#39;Empty arguments&#39;)
+
+        qs = self.copy()
+        filters = {}
+        for key, fval in kwargs.items():
+            field = getattr(self._table_cls, key, None)
+            if field is None:
+                raise TypeError(&#39;No such field {}.{}&#39;, self._table_cls.__name__, key)
+            filters[field.raw_name] = field.to_raw_value(fval)
+
+        qs._filters.update(filters)
+
+        return qs
+
+    def unread(self) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Return only unread records instead of all.
+
+        Some tables on device has a pointer which is set to the last
+        record on each query. If no records have been inserted to
+        a table since last read, the &#34;unread&#34; query will return nothing
+
+        Args:
+
+        Returns:
+            QuerySet: new QuerySet object with conditions
+
+        &#34;&#34;&#34;
+        qs = self.copy()
+        qs._only_unread = True
+        return qs
+
+    _ModelArgT = TypeVar(&#39;_ModelArgT&#39;, Model, Mapping[str, Any])
+
+    def upsert(self, records: Union[Iterable[_ModelArgT], _ModelArgT]) -&gt; None:
+        &#34;&#34;&#34;Update/insert given records (or upsert) to a table.
+
+        Every table on a device has primary key. Typically, it is &#34;pin&#34;
+        field.
+
+        Upsert means that when you try to upsert a record with primary
+        key field which does not contain in table, then this record
+        will be inserted. Otherwise it will be updated.
+
+        Examples::
+
+            zk.table(User).upsert({&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;})
+            zk.table(User).upsert([{&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;}, {&#39;pin&#39;: &#39;1&#39;, &#39;card&#39;: &#39;654321&#39;}])
+            zk.table(User).upsert(User(pin=&#39;0&#39;, card=&#39;123456&#39;))
+            zk.table(User).upsert([User(pin=&#39;0&#39;, card=&#39;123456&#39;), User(pin=&#39;1&#39;, card=&#39;654321&#39;)])
+
+        Args:
+            records (Union[Iterable[_ModelArgT], _ModelArgT]): record
+                dict, Model instance or a sequence of those
+
+        Returns:
+            None
+
+        &#34;&#34;&#34;
+        if not isinstance(records, (Iterable, Model, Mapping)):
+            raise TypeError(&#39;Argument must be a iterable, Model or mapping&#39;)
+
+        gen = self._sdk.set_device_data(self._table_cls.table_name)
+        self._bulk_operation(gen, records)
+
+    def delete(self, records: Union[Iterable[_ModelArgT], _ModelArgT]) -&gt; None:
+        &#34;&#34;&#34;Delete given records from a table.
+        
+        Every table on a device has primary key. Typically, it is &#34;pin&#34;
+        field. Deletion of record is performed by a field which is
+        primary key for this table. Other fields seems are ignored.
+
+        Examples::
+
+            zk.table(User).delete({&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;})
+            zk.table(User).delete([{&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;}, {&#39;pin&#39;: &#39;1&#39;, &#39;card&#39;: &#39;654321&#39;}])
+            zk.table(User).delete(User(pin=&#39;0&#39;, card=&#39;123456&#39;))
+            zk.table(User).delete([User(pin=&#39;0&#39;, card=&#39;123456&#39;), User(pin=&#39;1&#39;, card=&#39;654321&#39;)])
+
+        Args:
+            records (Union[Sequence[_ModelArgT], _ModelArgT]): record
+                dict, Model instance or a sequence of those
+
+        Returns:
+            None
+
+        &#34;&#34;&#34;
+        if not isinstance(records, (Iterable, Model, Mapping)):
+            raise TypeError(&#39;Argument must be a iterable, Model or mapping&#39;)
+
+        gen = self._sdk.delete_device_data(self._table_cls.table_name)
+        self._bulk_operation(gen, records)
+
+    def delete_all(self) -&gt; None:
+        &#34;&#34;&#34;Make a query to a table using this QuerySet and delete all
+        matched records.
+
+        Query in example below deletes records with `password=&#39;123&#39;`::
+
+            zk.table(&#39;User&#39;).where(password=&#39;123&#39;).delete_all()
+
+        Args:
+
+        Returns:
+            None
+
+        &#34;&#34;&#34;
+        gen = self._sdk.delete_device_data(self._table_cls.table_name)
+        self._bulk_operation(gen, self)
+
+    def count(self) -&gt; int:
+        &#34;&#34;&#34;Return just a number of records in table without considering
+        filters.
+
+        Unlike len(qs) this method does not fetch data, but makes
+        simple request, like `SELECT COUNT(*)` in SQL.
+
+        Args:
+
+        Returns:
+            int: data table size
+
+        &#34;&#34;&#34;
+        return self._sdk.get_device_data_count(self._table_cls.table_name)
+
+    def _bulk_operation(self,
+                        gen: Generator[None, Optional[Mapping[str, str]], None],
+                        records: Union[Iterable[_ModelArgT], _ModelArgT]):
+        gen.send(None)
+        if isinstance(records, (Mapping, Model)):
+            records = (records, )
+
+        for record in records:
+            if isinstance(record, Model):
+                record = record.raw_data
+            elif isinstance(record, Mapping):
+                record = self._table_cls(**record).raw_data
+            else:
+                raise TypeError(&#39;Records must be either a data table object or a mapping&#39;)
+
+            gen.send(record)
+
+        try:
+            gen.send(None)
+        except StopIteration:
+            pass
+
+    def __iter__(self):
+        if self._cache is None:
+            self._fetch_data()
+        return self._iterator_class(self)
+
+    def __getitem__(self, item):
+        if self._cache is None:
+            self._fetch_data()
+
+        if isinstance(item, slice):
+            return self._iterator_class(self, item)
+
+        try:
+            return next(self._iterator_class(self, item))
+        except StopIteration:
+            raise IndexError(&#34;list index is out of range&#34;) from None
+
+    def __len__(self):
+        &#34;&#34;&#34;Return a size of queryset. In order to get this size, all
+        records will be preliminary fetched
+        &#34;&#34;&#34;
+        # Fill out cache
+        # https://stackoverflow.com/questions/37189968/how-to-have-list-consume-iter-without-calling-len
+        [_ for _ in self]  # noqa
+
+        return len(self._cache)
+
+    def __bool__(self):
+        &#34;&#34;&#34;Return True if this queryset contains any records. If query
+        was not executed, fetch matched records first
+        &#34;&#34;&#34;
+        return self.__len__() &gt; 0
+
+    def _fetch_data(self) -&gt; None:
+        self._cache = []
+        self._results_iter = iter(())
+
+        buffer_size = self._buffer_size
+        if buffer_size is None:
+            records_count = self._sdk.get_device_data_count(self._table_cls.table_name)
+            # Get buffer size based on table records count and
+            # estimated record length and round up to the nearest
+            # power of 2
+            # Ex: 5(count) * 70(estimated len) = 350 =&gt; buffer_size==512
+            if records_count == 0:
+                return
+            estimated_size = self._estimate_record_buffer * records_count
+            buffer_size = 2 ** math.ceil(math.log2(estimated_size))
+
+        fields = []
+        if self._only_fields:
+            fields = list(sorted(f.raw_name for f in self._only_fields))
+
+        self._results_iter = iter(self._sdk.get_device_data(
+            self._table_cls.table_name,
+            fields,
+            self._filters,
+            buffer_size,
+            self._only_unread
+        ))
+
+    def _iter_cache(
+            self, start: int, stop: Optional[int], step: int
+    ) -&gt; Generator[Mapping[str, Any], None, None]:
+        if stop is not None and start &gt;= stop:
+            return
+
+        for i in self._cache[start:stop:step]:
+            yield i
+
+        i = len(self._cache)
+        while stop is None or i &lt; stop:
+            try:
+                item = next(self._results_iter)
+            except StopIteration:
+                return
+            self._cache.append(item)
+            if (start is None or i &gt;= start) and (start + i) % step == 0:
+                yield item
+            i += 1
+
+    def copy(self) -&gt; &#39;QuerySet&#39;:
+        &#34;&#34;&#34;Return a copy of current QuerySet with empty cache&#34;&#34;&#34;
+        res = self.__class__(self._sdk, self._table_cls, self._buffer_size)
+        res._only_fields = copy(self._only_fields)
+        res._filters = copy(self._filters)
+        res._only_unread = self._only_unread
+
+        return res
+
+    class ModelIterator(Iterator):
+        &#34;&#34;&#34;Iterator for iterating over QuerySet results&#34;&#34;&#34;
+        def __init__(self, qs: &#39;QuerySet&#39;, item: Optional[Union[slice, int]] = None):
+            self._qs = qs
+            self._item = item
+            self._start, self._stop, self._step = 0, None, 1
+
+            if isinstance(self._item, int):
+                self._start = self._item
+                self._stop = self._item + 1
+            if isinstance(self._item, slice):
+                self._start = self._item.start or 0
+                self._stop = self._item.stop
+                self._step = 1 if self._item.step is None else self._item.step
+
+            self._item_iter = None
+
+            if self._step == 0:
+                raise ValueError(&#39;slice step cannot be zero&#39;)
+            if self._start and self._start &lt; 0 \
+                    or self._stop and self._stop &lt; 0 \
+                    or self._step and self._step &lt; 0:
+                raise ValueError(&#39;negative indexes or step does not supported&#39;)
+
+        def __next__(self):
+            if self._item_iter is None:
+                self._item_iter = self._qs._iter_cache(self._start, self._stop, self._step)
+
+            return self._qs._table_cls().with_raw_data(
+                next(self._item_iter), dirty=False
+            ).with_sdk(self._qs._sdk)
+
+    _iterator_class = ModelIterator</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.ModelIterator"><code class="name">var <span class="ident">ModelIterator</span></code></dt>
+<dd>
+<div class="desc"><p>Iterator for iterating over QuerySet results</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.copy"><code class="name flex">
+<span>def <span class="ident">copy</span></span>(<span>self) ‑> <a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a copy of current QuerySet with empty cache</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copy(self) -&gt; &#39;QuerySet&#39;:
+    &#34;&#34;&#34;Return a copy of current QuerySet with empty cache&#34;&#34;&#34;
+    res = self.__class__(self._sdk, self._table_cls, self._buffer_size)
+    res._only_fields = copy(self._only_fields)
+    res._filters = copy(self._filters)
+    res._only_unread = self._only_unread
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.count"><code class="name flex">
+<span>def <span class="ident">count</span></span>(<span>self) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return just a number of records in table without considering
+filters.</p>
+<p>Unlike len(qs) this method does not fetch data, but makes
+simple request, like <code>SELECT COUNT(*)</code> in SQL.</p>
+<p>Args:</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>data table size</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def count(self) -&gt; int:
+    &#34;&#34;&#34;Return just a number of records in table without considering
+    filters.
+
+    Unlike len(qs) this method does not fetch data, but makes
+    simple request, like `SELECT COUNT(*)` in SQL.
+
+    Args:
+
+    Returns:
+        int: data table size
+
+    &#34;&#34;&#34;
+    return self._sdk.get_device_data_count(self._table_cls.table_name)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self, records: Union[Iterable[~_ModelArgT], ~_ModelArgT]) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Delete given records from a table.</p>
+<p>Every table on a device has primary key. Typically, it is "pin"
+field. Deletion of record is performed by a field which is
+primary key for this table. Other fields seems are ignored.</p>
+<p>Examples::</p>
+<pre><code>zk.table(User).delete({'pin': '0', 'card': '123456'})
+zk.table(User).delete([{'pin': '0', 'card': '123456'}, {'pin': '1', 'card': '654321'}])
+zk.table(User).delete(User(pin='0', card='123456'))
+zk.table(User).delete([User(pin='0', card='123456'), User(pin='1', card='654321')])
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>records</code></strong> :&ensp;<code>Union[Sequence[_ModelArgT], _ModelArgT]</code></dt>
+<dd>record
+dict, Model instance or a sequence of those</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self, records: Union[Iterable[_ModelArgT], _ModelArgT]) -&gt; None:
+    &#34;&#34;&#34;Delete given records from a table.
+    
+    Every table on a device has primary key. Typically, it is &#34;pin&#34;
+    field. Deletion of record is performed by a field which is
+    primary key for this table. Other fields seems are ignored.
+
+    Examples::
+
+        zk.table(User).delete({&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;})
+        zk.table(User).delete([{&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;}, {&#39;pin&#39;: &#39;1&#39;, &#39;card&#39;: &#39;654321&#39;}])
+        zk.table(User).delete(User(pin=&#39;0&#39;, card=&#39;123456&#39;))
+        zk.table(User).delete([User(pin=&#39;0&#39;, card=&#39;123456&#39;), User(pin=&#39;1&#39;, card=&#39;654321&#39;)])
+
+    Args:
+        records (Union[Sequence[_ModelArgT], _ModelArgT]): record
+            dict, Model instance or a sequence of those
+
+    Returns:
+        None
+
+    &#34;&#34;&#34;
+    if not isinstance(records, (Iterable, Model, Mapping)):
+        raise TypeError(&#39;Argument must be a iterable, Model or mapping&#39;)
+
+    gen = self._sdk.delete_device_data(self._table_cls.table_name)
+    self._bulk_operation(gen, records)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.delete_all"><code class="name flex">
+<span>def <span class="ident">delete_all</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Make a query to a table using this QuerySet and delete all
+matched records.</p>
+<p>Query in example below deletes records with <code>password='123'</code>::</p>
+<pre><code>zk.table('User').where(password='123').delete_all()
+</code></pre>
+<p>Args:</p>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_all(self) -&gt; None:
+    &#34;&#34;&#34;Make a query to a table using this QuerySet and delete all
+    matched records.
+
+    Query in example below deletes records with `password=&#39;123&#39;`::
+
+        zk.table(&#39;User&#39;).where(password=&#39;123&#39;).delete_all()
+
+    Args:
+
+    Returns:
+        None
+
+    &#34;&#34;&#34;
+    gen = self._sdk.delete_device_data(self._table_cls.table_name)
+    self._bulk_operation(gen, self)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.only_fields"><code class="name flex">
+<span>def <span class="ident">only_fields</span></span>(<span>self, *fields: Union[<a title="pyzkaccess.device_data.model.Field" href="model.html#pyzkaccess.device_data.model.Field">Field</a>, str]) ‑> <a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Query given fields only from a table. Arguments can be
+field instances or their names</p>
+<p>Example::</p>
+<pre><code>zk.table(Table1).only_fields('field1', Table1.field2)
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*fields</code></strong> :&ensp;<code>Union[Field, str]</code></dt>
+<dd>fields to select</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></code></dt>
+<dd>new <code><a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></code> object with conditions</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def only_fields(self, *fields: Union[Field, str]) -&gt; &#39;QuerySet&#39;:
+    &#34;&#34;&#34;Query given fields only from a table. Arguments can be
+    field instances or their names
+
+    Example::
+
+        zk.table(Table1).only_fields(&#39;field1&#39;, Table1.field2)
+
+    Args:
+        *fields (Union[Field, str]): fields to select
+
+    Returns:
+        QuerySet: new `QuerySet` object with conditions
+    &#34;&#34;&#34;
+    qs = self.copy()
+    only_fields = set()
+    fields_mapping = self._table_cls.fields_mapping()
+    for field in fields:
+        if isinstance(field, str):
+            if field not in fields_mapping.keys():
+                raise ValueError(&#39;No such field {}.{}&#39;.format(self._table_cls.__name__, field))
+            field = getattr(self._table_cls, field)
+
+        elif isinstance(field, Field):
+            reverse_mapping = {v: k for k, v in fields_mapping.items()}
+            field_name = reverse_mapping.get(field.raw_name)
+            if field_name is None or getattr(self._table_cls, field_name, None) is not field:
+                raise ValueError(&#39;No such field {}.{}&#39;.format(self._table_cls.__name__, field))
+
+        else:
+            raise TypeError(&#39;Field must be either a table field object or a field name&#39;)
+
+        only_fields.add(field)
+
+    qs._only_fields.update(only_fields)
+    return qs</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.unread"><code class="name flex">
+<span>def <span class="ident">unread</span></span>(<span>self) ‑> <a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return only unread records instead of all.</p>
+<p>Some tables on device has a pointer which is set to the last
+record on each query. If no records have been inserted to
+a table since last read, the "unread" query will return nothing</p>
+<p>Args:</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></code></dt>
+<dd>new QuerySet object with conditions</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unread(self) -&gt; &#39;QuerySet&#39;:
+    &#34;&#34;&#34;Return only unread records instead of all.
+
+    Some tables on device has a pointer which is set to the last
+    record on each query. If no records have been inserted to
+    a table since last read, the &#34;unread&#34; query will return nothing
+
+    Args:
+
+    Returns:
+        QuerySet: new QuerySet object with conditions
+
+    &#34;&#34;&#34;
+    qs = self.copy()
+    qs._only_unread = True
+    return qs</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.upsert"><code class="name flex">
+<span>def <span class="ident">upsert</span></span>(<span>self, records: Union[Iterable[~_ModelArgT], ~_ModelArgT]) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update/insert given records (or upsert) to a table.</p>
+<p>Every table on a device has primary key. Typically, it is "pin"
+field.</p>
+<p>Upsert means that when you try to upsert a record with primary
+key field which does not contain in table, then this record
+will be inserted. Otherwise it will be updated.</p>
+<p>Examples::</p>
+<pre><code>zk.table(User).upsert({'pin': '0', 'card': '123456'})
+zk.table(User).upsert([{'pin': '0', 'card': '123456'}, {'pin': '1', 'card': '654321'}])
+zk.table(User).upsert(User(pin='0', card='123456'))
+zk.table(User).upsert([User(pin='0', card='123456'), User(pin='1', card='654321')])
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>records</code></strong> :&ensp;<code>Union[Iterable[_ModelArgT], _ModelArgT]</code></dt>
+<dd>record
+dict, Model instance or a sequence of those</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def upsert(self, records: Union[Iterable[_ModelArgT], _ModelArgT]) -&gt; None:
+    &#34;&#34;&#34;Update/insert given records (or upsert) to a table.
+
+    Every table on a device has primary key. Typically, it is &#34;pin&#34;
+    field.
+
+    Upsert means that when you try to upsert a record with primary
+    key field which does not contain in table, then this record
+    will be inserted. Otherwise it will be updated.
+
+    Examples::
+
+        zk.table(User).upsert({&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;})
+        zk.table(User).upsert([{&#39;pin&#39;: &#39;0&#39;, &#39;card&#39;: &#39;123456&#39;}, {&#39;pin&#39;: &#39;1&#39;, &#39;card&#39;: &#39;654321&#39;}])
+        zk.table(User).upsert(User(pin=&#39;0&#39;, card=&#39;123456&#39;))
+        zk.table(User).upsert([User(pin=&#39;0&#39;, card=&#39;123456&#39;), User(pin=&#39;1&#39;, card=&#39;654321&#39;)])
+
+    Args:
+        records (Union[Iterable[_ModelArgT], _ModelArgT]): record
+            dict, Model instance or a sequence of those
+
+    Returns:
+        None
+
+    &#34;&#34;&#34;
+    if not isinstance(records, (Iterable, Model, Mapping)):
+        raise TypeError(&#39;Argument must be a iterable, Model or mapping&#39;)
+
+    gen = self._sdk.set_device_data(self._table_cls.table_name)
+    self._bulk_operation(gen, records)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.device_data.queryset.QuerySet.where"><code class="name flex">
+<span>def <span class="ident">where</span></span>(<span>self, **kwargs) ‑> <a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a new QuerySet instance with given fields filters.
+If current QuerySet already has some filters with the same
+fields as given, they will be rewritten with new values.</p>
+<p>Only "equal" compare operation is available.</p>
+<p>In example below filters will be
+<code>card == '111' AND super_authorize == False</code>::</p>
+<pre><code>zk.table('User').where(card='123456').where(card='111', super_authorize=False)
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**kwargs</code></strong> :&ensp;<code>Mapping[str, Any]</code></dt>
+<dd>field conditions</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></code></dt>
+<dd>new QuerySet object with conditions</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def where(self, **kwargs) -&gt; &#39;QuerySet&#39;:
+    &#34;&#34;&#34;Return a new QuerySet instance with given fields filters.
+    If current QuerySet already has some filters with the same
+    fields as given, they will be rewritten with new values.
+
+    Only &#34;equal&#34; compare operation is available.
+
+    In example below filters will be
+        `card == &#39;111&#39; AND super_authorize == False`::
+
+        zk.table(&#39;User&#39;).where(card=&#39;123456&#39;).where(card=&#39;111&#39;, super_authorize=False)
+
+    Args:
+        **kwargs (Mapping[str, Any]): field conditions
+
+    Returns:
+        QuerySet: new QuerySet object with conditions
+
+    &#34;&#34;&#34;
+    if not kwargs:
+        raise TypeError(&#39;Empty arguments&#39;)
+
+    qs = self.copy()
+    filters = {}
+    for key, fval in kwargs.items():
+        field = getattr(self._table_cls, key, None)
+        if field is None:
+            raise TypeError(&#39;No such field {}.{}&#39;, self._table_cls.__name__, key)
+        filters[field.raw_name] = field.to_raw_value(fval)
+
+    qs._filters.update(filters)
+
+    return qs</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyzkaccess.device_data" href="index.html">pyzkaccess.device_data</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyzkaccess.device_data.queryset.QuerySet" href="#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.ModelIterator" href="#pyzkaccess.device_data.queryset.QuerySet.ModelIterator">ModelIterator</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.copy" href="#pyzkaccess.device_data.queryset.QuerySet.copy">copy</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.count" href="#pyzkaccess.device_data.queryset.QuerySet.count">count</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.delete" href="#pyzkaccess.device_data.queryset.QuerySet.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.delete_all" href="#pyzkaccess.device_data.queryset.QuerySet.delete_all">delete_all</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.only_fields" href="#pyzkaccess.device_data.queryset.QuerySet.only_fields">only_fields</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.unread" href="#pyzkaccess.device_data.queryset.QuerySet.unread">unread</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.upsert" href="#pyzkaccess.device_data.queryset.QuerySet.upsert">upsert</a></code></li>
+<li><code><a title="pyzkaccess.device_data.queryset.QuerySet.where" href="#pyzkaccess.device_data.queryset.QuerySet.where">where</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

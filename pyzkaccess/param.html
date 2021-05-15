@@ -36,14 +36,35 @@
 import re
 from datetime import datetime
 from enum import Enum
+from typing import Optional
 
+from .common import ZKDatetimeUtils
 from .device import ZKModel
 from .enums import SensorType, VerifyMode
 from .sdk import ZKSDK
 
 
+class DaylightSavingMomentMode1(datetime):
+    &#34;&#34;&#34;Daylight saving parameters used in mode1 setting (all parameters
+    in one request). See `DLSTMode`, `DaylightSavingTime`,
+    `StandardTime` parameters in SDK docs
+    &#34;&#34;&#34;
+    def __new__(cls, month=None, day=None, hour=0, minute=0):
+        return datetime.__new__(cls, 1970, month, day, hour, minute, 0)
+
+    def __repr__(self):
+        return super().strftime(&#39;%m-%d %H:%M&#39;)
+
+    def to_datetime(self) -&gt; datetime:
+        return datetime(1970, self.month, self.day, self.hour, self.minute)
+
+    @classmethod
+    def from_datetime(cls, dt: datetime):
+        return cls(month=dt.month, day=dt.day, hour=dt.hour, minute=dt.minute)
+
+
 def _make_daylight_prop(query_name_spring, query_name_fall, minimum, maximum):
-    def read(self):
+    def read(self) -&gt; int:
         query = query_name_spring if self.is_daylight else query_name_fall
         res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
         res = int(res[query])
@@ -52,7 +73,7 @@ def _make_daylight_prop(query_name_spring, query_name_fall, minimum, maximum):
 
         return res
 
-    def write(self, value):
+    def write(self, value: int):
         query = query_name_spring if self.is_daylight else query_name_fall
         if not isinstance(value, int):
             raise TypeError(&#39;Bad value type, should be int&#39;)
@@ -64,48 +85,19 @@ def _make_daylight_prop(query_name_spring, query_name_fall, minimum, maximum):
     return property(fget=read, fset=write, fdel=None, doc=None)
 
 
-class DaylightSavingMomentMode1:
-    &#34;&#34;&#34;Daylight saving parameters used in mode1 setting (all parameters
-    in one request). See `DLSTMode`, `DaylightSavingTime`,
-    `StandardTime` parameters in SDK docs
-    &#34;&#34;&#34;
-    def __init__(self, month, day, hour, minute):
-        self.month = int(month)
-        self.day = int(day)
-        self.hour = int(hour)
-        self.minute = int(minute)
-
-        if not(1 &lt;= self.month &lt;= 12):
-            raise ValueError(&#39;Month must have value in range 1..12&#39;)
-        if not(1 &lt;= self.day &lt;= 7):
-            raise ValueError(&#39;Day of week must have value in range 1..7&#39;)
-        if not(0 &lt;= self.hour &lt;= 23):
-            raise ValueError(&#39;Hour must have value in range 0..23&#39;)
-        if not(0 &lt;= self.minute &lt;= 59):
-            raise ValueError(&#39;Minute must have value in range 0..59&#39;)
-
-    def __str__(self):
-        return &#39;-&#39;.join(str(x) for x in (self.month, self.day, self.hour, self.minute))
-
-    def __repr__(self):
-        pieces = &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;minute&#39;
-        return &#39;{}({})&#39;.format(self.__class__.__name__,
-                               &#39;, &#39;.join(&#39;{}={}&#39;.format(x, getattr(self, x)) for x in pieces))
-
-
 class DaylightSavingMomentMode2:
     &#34;&#34;&#34;Daylight saving parameters used in mode2 setting (each parameter
     in a separate request). See `DLSTMode`, `WeekOfMonth*` parameters
     in SDK docs
     &#34;&#34;&#34;
-    def __init__(self, sdk: ZKSDK, is_daylight: bool, buffer_size: int):
+    def __init__(self, sdk: Optional[ZKSDK], is_daylight: bool, buffer_size: int):
         self.is_daylight = is_daylight
         self.buffer_size = buffer_size
         self._sdk = sdk
 
     month = _make_daylight_prop(&#39;WeekOfMonth1&#39;, &#39;WeekOfMonth6&#39;, 1, 12)
     week_of_month = _make_daylight_prop(&#39;WeekOfMonth2&#39;, &#39;WeekOfMonth7&#39;, 1, 6)
-    day_of_week = _make_daylight_prop(&#39;WeekOfMonth3&#39;, &#39;WeekOfMonth8&#39;, 1, 7)
+    day_of_week = _make_daylight_prop(&#39;WeekOfMonth3&#39;, &#39;WeekOfMonth8&#39;, 0, 7)
     hour = _make_daylight_prop(&#39;WeekOfMonth4&#39;, &#39;WeekOfMonth9&#39;, 0, 23)
     minute = _make_daylight_prop(&#39;WeekOfMonth5&#39;, &#39;WeekOfMonth10&#39;, 0, 59)
 
@@ -173,9 +165,9 @@ def _make_prop(query_tpl: str,
 
 
 class BaseParameters:
-    #: Size in bytes of c-string buffer which is used to accept
-    #: text data from PULL SDK functions
     buffer_size = 4096
+    &#34;&#34;&#34;Size in bytes of c-string buffer which is used to accept
+    text data from PULL SDK functions&#34;&#34;&#34;
 
     def __init__(self, sdk: ZKSDK, device_model: type(ZKModel)):
         self.device_model = device_model
@@ -188,7 +180,6 @@ def _check_ip(addr: str):
 
 
 class DeviceParameters(BaseParameters):
-    &#34;&#34;&#34;Parameters related to the whole device&#34;&#34;&#34;
     serial_number = _make_prop(
         &#39;~SerialNumber&#39;, str, str, True, False, &#39;Serial number of device&#39;
     )
@@ -222,11 +213,6 @@ class DeviceParameters(BaseParameters):
         lambda x: x is True
     )
     reader_direction = _make_prop(&#39;InBIOTowWay&#39;, str, str, True, True, &#39;One-way/Two-way reader&#39;)
-    fingerprint_version = _make_prop(
-        &#39;~ZKFPVersion&#39;, int, int, True, False,
-        &#39;Device fingerprint identification version. Available values: 9, 10&#39;,
-        lambda x: x in (9, 10)
-    )
     display_daylight_saving = _make_prop(
         &#39;~DSTF&#39;, int, bool, True, True, &#39;Display parameters of daylight saving time&#39;
     )
@@ -240,11 +226,30 @@ class DeviceParameters(BaseParameters):
     )
 
     @property
+    def fingerprint_version(self) -&gt; int:
+        &#34;&#34;&#34;Device fingerprint identification version. Available values: 9, 10 (read-only)&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;~ZKFPVersion&#39;,), buffer_size=self.buffer_size)
+        res = res[&#39;~ZKFPVersion&#39;]
+        if res == &#39;&#39;:
+            return 0
+        res = int(res)
+        if res not in (9, 10):
+            raise ValueError(&#39;Fingerprint version must be 9 or 10, got: {}&#39;.format(res))
+
+        return res
+
+    @property
     def anti_passback_rule(self) -&gt; int:
         &#34;&#34;&#34;Passback rule for doors. Possible values depend on device
         model. Passback is when the second door can be opened only
         after the first door has opened, not otherwise. Or a door
         can be opened only by its readers from one side.
+
+        See `__doc__` value attribute to get a value meaning, ex::
+
+            rule = zk.parameters.anti_passback_rule
+            print(rule, &#39;means&#39;, rule.__doc__)
+            # Prints &#34;0 means Anti-passback disabled&#34;
         &#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;AntiPassback&#39;,), buffer_size=self.buffer_size)
         res = int(res[&#39;AntiPassback&#39;])
@@ -267,7 +272,14 @@ class DeviceParameters(BaseParameters):
     def interlock(self) -&gt; int:
         &#34;&#34;&#34;Interlock rule for doors. Possible values depend on device
         model. Interlock is when the second door can be opened only
-        after the first door was opened and closed, and vice versa&#34;&#34;&#34;
+        after the first door was opened and closed, and vice versa
+
+        See `__doc__` value attribute to get a value meaning, ex::
+
+            rule = zk.parameters.anti_passback_rule
+            print(rule, &#39;means&#39;, rule.__doc__)
+            # Prints &#34;0 means Anti-passback disabled&#34;
+        &#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;InterLock&#39;,), buffer_size=self.buffer_size)
         if not res:
             return self.device_model.interlock_rules[0]
@@ -292,23 +304,29 @@ class DeviceParameters(BaseParameters):
         &#34;&#34;&#34;Spring forward daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;DaylightSavingTime&#39;,),
                                          buffer_size=self.buffer_size)
-        res = [int(x) for x in res[&#39;DaylightSavingTime&#39;].split(&#39;-&#39;)]  # FIXME: extract bytes?
-        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+        dt = ZKDatetimeUtils.zktimemoment_to_datetime(res[&#39;DaylightSavingTime&#39;])
+        if dt is not None:
+            return DaylightSavingMomentMode1.from_datetime(dt)
 
     @spring_daylight_time_mode1.setter
     def spring_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
-        self._sdk.set_device_param(parameters={&#39;DaylightSavingTime&#39;: str(value)})
+        self._sdk.set_device_param(
+            parameters={&#39;DaylightSavingTime&#39;: ZKDatetimeUtils.datetime_to_zktimemoment(value)}
+        )
 
     @property
     def fall_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
         &#34;&#34;&#34;Fall back daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;StandardTime&#39;,), buffer_size=self.buffer_size)
-        res = [int(x) for x in res[&#39;StandardTime&#39;].split(&#39;-&#39;)]
-        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+        dt = ZKDatetimeUtils.zktimemoment_to_datetime(res[&#39;StandardTime&#39;])
+        if dt is not None:
+            return DaylightSavingMomentMode1.from_datetime(dt)
 
     @fall_daylight_time_mode1.setter
     def fall_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
-        self._sdk.set_device_param(parameters={&#39;StandardTime&#39;: str(value)})
+        self._sdk.set_device_param(
+            parameters={&#39;StandardTime&#39;: ZKDatetimeUtils.datetime_to_zktimemoment(value)}
+        )
 
     @property
     def spring_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
@@ -333,40 +351,14 @@ class DeviceParameters(BaseParameters):
             setattr(t, attr, getattr(value, attr))
 
     def _set_datetime(self, value: datetime):
-        # Amazing DIY ctime calculating from ZKTeco guys.
-        # Simply put this is a count of seconds starting from
-        # 2000-01-01T00:00:00 without considering leap years/seconds
-        # or different length of months (always 31 day)
-        # See PULL SDK docs
-        if value.year &lt; 2000:
-            raise ValueError(&#39;Minimum year is 2000&#39;)
+        self._sdk.set_device_param(
+            parameters={&#39;DateTime&#39;: str(ZKDatetimeUtils.datetime_to_zkctime(value))}
+        )
 
-        value = sum((
-            sum((
-                (value.year - 2000) * 12 * 31,
-                (value.month - 1) * 31,
-                (value.day - 1)
-            )) * 24 * 60 * 60,
-            value.hour * 60 * 60,
-            value.minute * 60,
-            value.second
-        ))
-
-        self._sdk.set_device_param(parameters={&#39;DateTime&#39;: str(value)})
-
-    def _get_datetime(self):
+    def _get_datetime(self) -&gt; datetime:
         res = self._sdk.get_device_param(parameters=(&#39;DateTime&#39;,), buffer_size=self.buffer_size)
         res = int(res[&#39;DateTime&#39;])
-
-        dt = datetime(
-            year=res // 32140800 + 2000,
-            month=(res // 2678400) % 12 + 1,
-            day=(res // 86400) % 31 + 1,
-            hour=(res // 3600) % 24,
-            minute=(res // 60) % 60,
-            second=res % 60
-        )
-        return dt
+        return ZKDatetimeUtils.zkctime_to_datetime(res)
 
     datetime = property(_get_datetime, _set_datetime, None, &#39;Current datetime (read-write)&#39;)
 
@@ -453,9 +445,9 @@ class DoorParameters(BaseParameters):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class BaseParameters:
-    #: Size in bytes of c-string buffer which is used to accept
-    #: text data from PULL SDK functions
     buffer_size = 4096
+    &#34;&#34;&#34;Size in bytes of c-string buffer which is used to accept
+    text data from PULL SDK functions&#34;&#34;&#34;
 
     def __init__(self, sdk: ZKSDK, device_model: type(ZKModel)):
         self.device_model = device_model
@@ -470,13 +462,14 @@ class DoorParameters(BaseParameters):
 <dl>
 <dt id="pyzkaccess.param.BaseParameters.buffer_size"><code class="name">var <span class="ident">buffer_size</span></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Size in bytes of c-string buffer which is used to accept
+text data from PULL SDK functions</p></div>
 </dd>
 </dl>
 </dd>
 <dt id="pyzkaccess.param.DaylightSavingMomentMode1"><code class="flex name class">
 <span>class <span class="ident">DaylightSavingMomentMode1</span></span>
-<span>(</span><span>month, day, hour, minute)</span>
+<span>(</span><span>month=None, day=None, hour=0, minute=0)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Daylight saving parameters used in mode1 setting (all parameters
@@ -486,38 +479,66 @@ in one request). See <code>DLSTMode</code>, <code>DaylightSavingTime</code>,
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class DaylightSavingMomentMode1:
+<pre><code class="python">class DaylightSavingMomentMode1(datetime):
     &#34;&#34;&#34;Daylight saving parameters used in mode1 setting (all parameters
     in one request). See `DLSTMode`, `DaylightSavingTime`,
     `StandardTime` parameters in SDK docs
     &#34;&#34;&#34;
-    def __init__(self, month, day, hour, minute):
-        self.month = int(month)
-        self.day = int(day)
-        self.hour = int(hour)
-        self.minute = int(minute)
-
-        if not(1 &lt;= self.month &lt;= 12):
-            raise ValueError(&#39;Month must have value in range 1..12&#39;)
-        if not(1 &lt;= self.day &lt;= 7):
-            raise ValueError(&#39;Day of week must have value in range 1..7&#39;)
-        if not(0 &lt;= self.hour &lt;= 23):
-            raise ValueError(&#39;Hour must have value in range 0..23&#39;)
-        if not(0 &lt;= self.minute &lt;= 59):
-            raise ValueError(&#39;Minute must have value in range 0..59&#39;)
-
-    def __str__(self):
-        return &#39;-&#39;.join(str(x) for x in (self.month, self.day, self.hour, self.minute))
+    def __new__(cls, month=None, day=None, hour=0, minute=0):
+        return datetime.__new__(cls, 1970, month, day, hour, minute, 0)
 
     def __repr__(self):
-        pieces = &#39;month&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;minute&#39;
-        return &#39;{}({})&#39;.format(self.__class__.__name__,
-                               &#39;, &#39;.join(&#39;{}={}&#39;.format(x, getattr(self, x)) for x in pieces))</code></pre>
+        return super().strftime(&#39;%m-%d %H:%M&#39;)
+
+    def to_datetime(self) -&gt; datetime:
+        return datetime(1970, self.month, self.day, self.hour, self.minute)
+
+    @classmethod
+    def from_datetime(cls, dt: datetime):
+        return cls(month=dt.month, day=dt.day, hour=dt.hour, minute=dt.minute)</code></pre>
 </details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>datetime.datetime</li>
+<li>datetime.date</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode1.from_datetime"><code class="name flex">
+<span>def <span class="ident">from_datetime</span></span>(<span>dt: datetime.datetime)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def from_datetime(cls, dt: datetime):
+    return cls(month=dt.month, day=dt.day, hour=dt.hour, minute=dt.minute)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode1.to_datetime"><code class="name flex">
+<span>def <span class="ident">to_datetime</span></span>(<span>self) ‑> datetime.datetime</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_datetime(self) -&gt; datetime:
+    return datetime(1970, self.month, self.day, self.hour, self.minute)</code></pre>
+</details>
+</dd>
+</dl>
 </dd>
 <dt id="pyzkaccess.param.DaylightSavingMomentMode2"><code class="flex name class">
 <span>class <span class="ident">DaylightSavingMomentMode2</span></span>
-<span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, is_daylight: bool, buffer_size: int)</span>
+<span>(</span><span>sdk: Optional[<a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>], is_daylight: bool, buffer_size: int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Daylight saving parameters used in mode2 setting (each parameter
@@ -532,14 +553,14 @@ in SDK docs</p></div>
     in a separate request). See `DLSTMode`, `WeekOfMonth*` parameters
     in SDK docs
     &#34;&#34;&#34;
-    def __init__(self, sdk: ZKSDK, is_daylight: bool, buffer_size: int):
+    def __init__(self, sdk: Optional[ZKSDK], is_daylight: bool, buffer_size: int):
         self.is_daylight = is_daylight
         self.buffer_size = buffer_size
         self._sdk = sdk
 
     month = _make_daylight_prop(&#39;WeekOfMonth1&#39;, &#39;WeekOfMonth6&#39;, 1, 12)
     week_of_month = _make_daylight_prop(&#39;WeekOfMonth2&#39;, &#39;WeekOfMonth7&#39;, 1, 6)
-    day_of_week = _make_daylight_prop(&#39;WeekOfMonth3&#39;, &#39;WeekOfMonth8&#39;, 1, 7)
+    day_of_week = _make_daylight_prop(&#39;WeekOfMonth3&#39;, &#39;WeekOfMonth8&#39;, 0, 7)
     hour = _make_daylight_prop(&#39;WeekOfMonth4&#39;, &#39;WeekOfMonth9&#39;, 0, 23)
     minute = _make_daylight_prop(&#39;WeekOfMonth5&#39;, &#39;WeekOfMonth10&#39;, 0, 59)
 
@@ -553,14 +574,14 @@ in SDK docs</p></div>
 </details>
 <h3>Instance variables</h3>
 <dl>
-<dt id="pyzkaccess.param.DaylightSavingMomentMode2.day_of_week"><code class="name">var <span class="ident">day_of_week</span></code></dt>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.day_of_week"><code class="name">var <span class="ident">day_of_week</span> : int</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read(self):
+<pre><code class="python">def read(self) -&gt; int:
     query = query_name_spring if self.is_daylight else query_name_fall
     res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
     res = int(res[query])
@@ -570,14 +591,14 @@ in SDK docs</p></div>
     return res</code></pre>
 </details>
 </dd>
-<dt id="pyzkaccess.param.DaylightSavingMomentMode2.hour"><code class="name">var <span class="ident">hour</span></code></dt>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.hour"><code class="name">var <span class="ident">hour</span> : int</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read(self):
+<pre><code class="python">def read(self) -&gt; int:
     query = query_name_spring if self.is_daylight else query_name_fall
     res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
     res = int(res[query])
@@ -587,14 +608,14 @@ in SDK docs</p></div>
     return res</code></pre>
 </details>
 </dd>
-<dt id="pyzkaccess.param.DaylightSavingMomentMode2.minute"><code class="name">var <span class="ident">minute</span></code></dt>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.minute"><code class="name">var <span class="ident">minute</span> : int</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read(self):
+<pre><code class="python">def read(self) -&gt; int:
     query = query_name_spring if self.is_daylight else query_name_fall
     res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
     res = int(res[query])
@@ -604,14 +625,14 @@ in SDK docs</p></div>
     return res</code></pre>
 </details>
 </dd>
-<dt id="pyzkaccess.param.DaylightSavingMomentMode2.month"><code class="name">var <span class="ident">month</span></code></dt>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.month"><code class="name">var <span class="ident">month</span> : int</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read(self):
+<pre><code class="python">def read(self) -&gt; int:
     query = query_name_spring if self.is_daylight else query_name_fall
     res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
     res = int(res[query])
@@ -621,14 +642,14 @@ in SDK docs</p></div>
     return res</code></pre>
 </details>
 </dd>
-<dt id="pyzkaccess.param.DaylightSavingMomentMode2.week_of_month"><code class="name">var <span class="ident">week_of_month</span></code></dt>
+<dt id="pyzkaccess.param.DaylightSavingMomentMode2.week_of_month"><code class="name">var <span class="ident">week_of_month</span> : int</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read(self):
+<pre><code class="python">def read(self) -&gt; int:
     query = query_name_spring if self.is_daylight else query_name_fall
     res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
     res = int(res[query])
@@ -645,13 +666,12 @@ in SDK docs</p></div>
 <span>(</span><span>sdk: <a title="pyzkaccess.sdk.ZKSDK" href="sdk.html#pyzkaccess.sdk.ZKSDK">ZKSDK</a>, device_model: type)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Parameters related to the whole device</p></div>
+<div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class DeviceParameters(BaseParameters):
-    &#34;&#34;&#34;Parameters related to the whole device&#34;&#34;&#34;
     serial_number = _make_prop(
         &#39;~SerialNumber&#39;, str, str, True, False, &#39;Serial number of device&#39;
     )
@@ -685,11 +705,6 @@ in SDK docs</p></div>
         lambda x: x is True
     )
     reader_direction = _make_prop(&#39;InBIOTowWay&#39;, str, str, True, True, &#39;One-way/Two-way reader&#39;)
-    fingerprint_version = _make_prop(
-        &#39;~ZKFPVersion&#39;, int, int, True, False,
-        &#39;Device fingerprint identification version. Available values: 9, 10&#39;,
-        lambda x: x in (9, 10)
-    )
     display_daylight_saving = _make_prop(
         &#39;~DSTF&#39;, int, bool, True, True, &#39;Display parameters of daylight saving time&#39;
     )
@@ -703,11 +718,30 @@ in SDK docs</p></div>
     )
 
     @property
+    def fingerprint_version(self) -&gt; int:
+        &#34;&#34;&#34;Device fingerprint identification version. Available values: 9, 10 (read-only)&#34;&#34;&#34;
+        res = self._sdk.get_device_param(parameters=(&#39;~ZKFPVersion&#39;,), buffer_size=self.buffer_size)
+        res = res[&#39;~ZKFPVersion&#39;]
+        if res == &#39;&#39;:
+            return 0
+        res = int(res)
+        if res not in (9, 10):
+            raise ValueError(&#39;Fingerprint version must be 9 or 10, got: {}&#39;.format(res))
+
+        return res
+
+    @property
     def anti_passback_rule(self) -&gt; int:
         &#34;&#34;&#34;Passback rule for doors. Possible values depend on device
         model. Passback is when the second door can be opened only
         after the first door has opened, not otherwise. Or a door
         can be opened only by its readers from one side.
+
+        See `__doc__` value attribute to get a value meaning, ex::
+
+            rule = zk.parameters.anti_passback_rule
+            print(rule, &#39;means&#39;, rule.__doc__)
+            # Prints &#34;0 means Anti-passback disabled&#34;
         &#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;AntiPassback&#39;,), buffer_size=self.buffer_size)
         res = int(res[&#39;AntiPassback&#39;])
@@ -730,7 +764,14 @@ in SDK docs</p></div>
     def interlock(self) -&gt; int:
         &#34;&#34;&#34;Interlock rule for doors. Possible values depend on device
         model. Interlock is when the second door can be opened only
-        after the first door was opened and closed, and vice versa&#34;&#34;&#34;
+        after the first door was opened and closed, and vice versa
+
+        See `__doc__` value attribute to get a value meaning, ex::
+
+            rule = zk.parameters.anti_passback_rule
+            print(rule, &#39;means&#39;, rule.__doc__)
+            # Prints &#34;0 means Anti-passback disabled&#34;
+        &#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;InterLock&#39;,), buffer_size=self.buffer_size)
         if not res:
             return self.device_model.interlock_rules[0]
@@ -755,23 +796,29 @@ in SDK docs</p></div>
         &#34;&#34;&#34;Spring forward daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;DaylightSavingTime&#39;,),
                                          buffer_size=self.buffer_size)
-        res = [int(x) for x in res[&#39;DaylightSavingTime&#39;].split(&#39;-&#39;)]  # FIXME: extract bytes?
-        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+        dt = ZKDatetimeUtils.zktimemoment_to_datetime(res[&#39;DaylightSavingTime&#39;])
+        if dt is not None:
+            return DaylightSavingMomentMode1.from_datetime(dt)
 
     @spring_daylight_time_mode1.setter
     def spring_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
-        self._sdk.set_device_param(parameters={&#39;DaylightSavingTime&#39;: str(value)})
+        self._sdk.set_device_param(
+            parameters={&#39;DaylightSavingTime&#39;: ZKDatetimeUtils.datetime_to_zktimemoment(value)}
+        )
 
     @property
     def fall_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
         &#34;&#34;&#34;Fall back daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
         res = self._sdk.get_device_param(parameters=(&#39;StandardTime&#39;,), buffer_size=self.buffer_size)
-        res = [int(x) for x in res[&#39;StandardTime&#39;].split(&#39;-&#39;)]
-        return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])
+        dt = ZKDatetimeUtils.zktimemoment_to_datetime(res[&#39;StandardTime&#39;])
+        if dt is not None:
+            return DaylightSavingMomentMode1.from_datetime(dt)
 
     @fall_daylight_time_mode1.setter
     def fall_daylight_time_mode1(self, value: DaylightSavingMomentMode1):
-        self._sdk.set_device_param(parameters={&#39;StandardTime&#39;: str(value)})
+        self._sdk.set_device_param(
+            parameters={&#39;StandardTime&#39;: ZKDatetimeUtils.datetime_to_zktimemoment(value)}
+        )
 
     @property
     def spring_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
@@ -796,40 +843,14 @@ in SDK docs</p></div>
             setattr(t, attr, getattr(value, attr))
 
     def _set_datetime(self, value: datetime):
-        # Amazing DIY ctime calculating from ZKTeco guys.
-        # Simply put this is a count of seconds starting from
-        # 2000-01-01T00:00:00 without considering leap years/seconds
-        # or different length of months (always 31 day)
-        # See PULL SDK docs
-        if value.year &lt; 2000:
-            raise ValueError(&#39;Minimum year is 2000&#39;)
+        self._sdk.set_device_param(
+            parameters={&#39;DateTime&#39;: str(ZKDatetimeUtils.datetime_to_zkctime(value))}
+        )
 
-        value = sum((
-            sum((
-                (value.year - 2000) * 12 * 31,
-                (value.month - 1) * 31,
-                (value.day - 1)
-            )) * 24 * 60 * 60,
-            value.hour * 60 * 60,
-            value.minute * 60,
-            value.second
-        ))
-
-        self._sdk.set_device_param(parameters={&#39;DateTime&#39;: str(value)})
-
-    def _get_datetime(self):
+    def _get_datetime(self) -&gt; datetime:
         res = self._sdk.get_device_param(parameters=(&#39;DateTime&#39;,), buffer_size=self.buffer_size)
         res = int(res[&#39;DateTime&#39;])
-
-        dt = datetime(
-            year=res // 32140800 + 2000,
-            month=(res // 2678400) % 12 + 1,
-            day=(res // 86400) % 31 + 1,
-            hour=(res // 3600) % 24,
-            minute=(res // 60) % 60,
-            second=res % 60
-        )
-        return dt
+        return ZKDatetimeUtils.zkctime_to_datetime(res)
 
     datetime = property(_get_datetime, _set_datetime, None, &#39;Current datetime (read-write)&#39;)</code></pre>
 </details>
@@ -844,7 +865,12 @@ in SDK docs</p></div>
 <div class="desc"><p>Passback rule for doors. Possible values depend on device
 model. Passback is when the second door can be opened only
 after the first door has opened, not otherwise. Or a door
-can be opened only by its readers from one side.</p></div>
+can be opened only by its readers from one side.</p>
+<p>See <code>__doc__</code> value attribute to get a value meaning, ex::</p>
+<pre><code>rule = zk.parameters.anti_passback_rule
+print(rule, 'means', rule.__doc__)
+# Prints "0 means Anti-passback disabled"
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -855,6 +881,12 @@ def anti_passback_rule(self) -&gt; int:
     model. Passback is when the second door can be opened only
     after the first door has opened, not otherwise. Or a door
     can be opened only by its readers from one side.
+
+    See `__doc__` value attribute to get a value meaning, ex::
+
+        rule = zk.parameters.anti_passback_rule
+        print(rule, &#39;means&#39;, rule.__doc__)
+        # Prints &#34;0 means Anti-passback disabled&#34;
     &#34;&#34;&#34;
     res = self._sdk.get_device_param(parameters=(&#39;AntiPassback&#39;,), buffer_size=self.buffer_size)
     res = int(res[&#39;AntiPassback&#39;])
@@ -954,26 +986,17 @@ def anti_passback_rule(self) -&gt; int:
     return res</code></pre>
 </details>
 </dd>
-<dt id="pyzkaccess.param.DeviceParameters.datetime"><code class="name">var <span class="ident">datetime</span></code></dt>
+<dt id="pyzkaccess.param.DeviceParameters.datetime"><code class="name">var <span class="ident">datetime</span> : datetime.datetime</code></dt>
 <dd>
 <div class="desc"><p>Current datetime (read-write)</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def _get_datetime(self):
+<pre><code class="python">def _get_datetime(self) -&gt; datetime:
     res = self._sdk.get_device_param(parameters=(&#39;DateTime&#39;,), buffer_size=self.buffer_size)
     res = int(res[&#39;DateTime&#39;])
-
-    dt = datetime(
-        year=res // 32140800 + 2000,
-        month=(res // 2678400) % 12 + 1,
-        day=(res // 86400) % 31 + 1,
-        hour=(res // 3600) % 24,
-        minute=(res // 60) % 60,
-        second=res % 60
-    )
-    return dt</code></pre>
+    return ZKDatetimeUtils.zkctime_to_datetime(res)</code></pre>
 </details>
 </dd>
 <dt id="pyzkaccess.param.DeviceParameters.daylight_saving_mode"><code class="name">var <span class="ident">daylight_saving_mode</span> : int</code></dt>
@@ -1075,8 +1098,9 @@ def anti_passback_rule(self) -&gt; int:
 def fall_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
     &#34;&#34;&#34;Fall back daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
     res = self._sdk.get_device_param(parameters=(&#39;StandardTime&#39;,), buffer_size=self.buffer_size)
-    res = [int(x) for x in res[&#39;StandardTime&#39;].split(&#39;-&#39;)]
-    return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])</code></pre>
+    dt = ZKDatetimeUtils.zktimemoment_to_datetime(res[&#39;StandardTime&#39;])
+    if dt is not None:
+        return DaylightSavingMomentMode1.from_datetime(dt)</code></pre>
 </details>
 </dd>
 <dt id="pyzkaccess.param.DeviceParameters.fall_daylight_time_mode2"><code class="name">var <span class="ident">fall_daylight_time_mode2</span> : <a title="pyzkaccess.param.DaylightSavingMomentMode2" href="#pyzkaccess.param.DaylightSavingMomentMode2">DaylightSavingMomentMode2</a></code></dt>
@@ -1099,17 +1123,16 @@ def fall_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read(self) -&gt; prop_type:
-    query = query_tpl.format(self=self)
-    res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
-    res = res[query]
-    res = data_type(res)
-    if data_type != prop_type:
-        res = prop_type(res)
-
-    if not(restriction_f is None or restriction_f(res)):
-        raise ValueError(&#39;Value {} does not meet to parameter restrictions, &#39;
-                         &#39;see property docstring and SDK documentation&#39;.format(res))
+<pre><code class="python">@property
+def fingerprint_version(self) -&gt; int:
+    &#34;&#34;&#34;Device fingerprint identification version. Available values: 9, 10 (read-only)&#34;&#34;&#34;
+    res = self._sdk.get_device_param(parameters=(&#39;~ZKFPVersion&#39;,), buffer_size=self.buffer_size)
+    res = res[&#39;~ZKFPVersion&#39;]
+    if res == &#39;&#39;:
+        return 0
+    res = int(res)
+    if res not in (9, 10):
+        raise ValueError(&#39;Fingerprint version must be 9 or 10, got: {}&#39;.format(res))
 
     return res</code></pre>
 </details>
@@ -1140,7 +1163,12 @@ def fall_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
 <dd>
 <div class="desc"><p>Interlock rule for doors. Possible values depend on device
 model. Interlock is when the second door can be opened only
-after the first door was opened and closed, and vice versa</p></div>
+after the first door was opened and closed, and vice versa</p>
+<p>See <code>__doc__</code> value attribute to get a value meaning, ex::</p>
+<pre><code>rule = zk.parameters.anti_passback_rule
+print(rule, 'means', rule.__doc__)
+# Prints "0 means Anti-passback disabled"
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1149,7 +1177,14 @@ after the first door was opened and closed, and vice versa</p></div>
 def interlock(self) -&gt; int:
     &#34;&#34;&#34;Interlock rule for doors. Possible values depend on device
     model. Interlock is when the second door can be opened only
-    after the first door was opened and closed, and vice versa&#34;&#34;&#34;
+    after the first door was opened and closed, and vice versa
+
+    See `__doc__` value attribute to get a value meaning, ex::
+
+        rule = zk.parameters.anti_passback_rule
+        print(rule, &#39;means&#39;, rule.__doc__)
+        # Prints &#34;0 means Anti-passback disabled&#34;
+    &#34;&#34;&#34;
     res = self._sdk.get_device_param(parameters=(&#39;InterLock&#39;,), buffer_size=self.buffer_size)
     if not res:
         return self.device_model.interlock_rules[0]
@@ -1332,8 +1367,9 @@ def spring_daylight_time_mode1(self) -&gt; DaylightSavingMomentMode1:
     &#34;&#34;&#34;Spring forward daylight saving time (mode 1) (read-write)&#34;&#34;&#34;
     res = self._sdk.get_device_param(parameters=(&#39;DaylightSavingTime&#39;,),
                                      buffer_size=self.buffer_size)
-    res = [int(x) for x in res[&#39;DaylightSavingTime&#39;].split(&#39;-&#39;)]  # FIXME: extract bytes?
-    return DaylightSavingMomentMode1(month=res[0], day=res[1], hour=res[2], minute=res[3])</code></pre>
+    dt = ZKDatetimeUtils.zktimemoment_to_datetime(res[&#39;DaylightSavingTime&#39;])
+    if dt is not None:
+        return DaylightSavingMomentMode1.from_datetime(dt)</code></pre>
 </details>
 </dd>
 <dt id="pyzkaccess.param.DeviceParameters.spring_daylight_time_mode2"><code class="name">var <span class="ident">spring_daylight_time_mode2</span> : <a title="pyzkaccess.param.DaylightSavingMomentMode2" href="#pyzkaccess.param.DaylightSavingMomentMode2">DaylightSavingMomentMode2</a></code></dt>
@@ -1372,6 +1408,14 @@ def spring_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
 </details>
 </dd>
 </dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.param.BaseParameters" href="#pyzkaccess.param.BaseParameters">BaseParameters</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.param.BaseParameters.buffer_size" href="#pyzkaccess.param.BaseParameters.buffer_size">buffer_size</a></code></li>
+</ul>
+</li>
+</ul>
 </dd>
 <dt id="pyzkaccess.param.DoorParameters"><code class="flex name class">
 <span>class <span class="ident">DoorParameters</span></span>
@@ -1737,6 +1781,14 @@ def spring_daylight_time_mode2(self) -&gt; DaylightSavingMomentMode2:
 </details>
 </dd>
 </dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.param.BaseParameters" href="#pyzkaccess.param.BaseParameters">BaseParameters</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.param.BaseParameters.buffer_size" href="#pyzkaccess.param.BaseParameters.buffer_size">buffer_size</a></code></li>
+</ul>
+</li>
+</ul>
 </dd>
 </dl>
 </section>
@@ -1808,6 +1860,10 @@ setTimeout(() => input.focus(), 100);
 </li>
 <li>
 <h4><code><a title="pyzkaccess.param.DaylightSavingMomentMode1" href="#pyzkaccess.param.DaylightSavingMomentMode1">DaylightSavingMomentMode1</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.param.DaylightSavingMomentMode1.from_datetime" href="#pyzkaccess.param.DaylightSavingMomentMode1.from_datetime">from_datetime</a></code></li>
+<li><code><a title="pyzkaccess.param.DaylightSavingMomentMode1.to_datetime" href="#pyzkaccess.param.DaylightSavingMomentMode1.to_datetime">to_datetime</a></code></li>
+</ul>
 </li>
 <li>
 <h4><code><a title="pyzkaccess.param.DaylightSavingMomentMode2" href="#pyzkaccess.param.DaylightSavingMomentMode2">DaylightSavingMomentMode2</a></code></h4>

@@ -1,0 +1,2240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>pyzkaccess.tables API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyzkaccess.tables</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">__all__ = [
+    &#39;User&#39;,
+    &#39;UserAuthorize&#39;,
+    &#39;Holiday&#39;,
+    &#39;Timezone&#39;,
+    &#39;Transaction&#39;,
+    &#39;FirstCard&#39;,
+    &#39;MultiCard&#39;,
+    &#39;InOutFun&#39;,
+    &#39;TemplateV10&#39;
+]
+
+from datetime import date, time, datetime
+
+from .common import ZKDatetimeUtils
+from .device_data.model import Model, Field
+from .enums import (
+    HolidayLoop,
+    VerifyMode,
+    EVENT_TYPES,
+    PassageDirection,
+    INOUTFUN_OUTPUT,
+    InOutFunRelayGroup,
+    INOUTFUN_INPUT
+)
+
+
+class User(Model):
+    &#34;&#34;&#34;Card number information table&#34;&#34;&#34;
+    table_name = &#39;user&#39;
+
+    card = Field(&#39;CardNo&#39;)
+    pin = Field(&#39;Pin&#39;)
+    password = Field(&#39;Password&#39;)
+    group = Field(&#39;Group&#39;)
+    start_time = Field(
+        &#39;StartTime&#39;, date, ZKDatetimeUtils.zkdate_to_date, ZKDatetimeUtils.date_to_zkdate
+    )
+    end_time = Field(
+        &#39;EndTime&#39;, date, ZKDatetimeUtils.zkdate_to_date, ZKDatetimeUtils.date_to_zkdate
+    )
+    super_authorize = Field(&#39;SuperAuthorize&#39;, bool, int, int)
+
+
+class UserAuthorize(Model):
+    &#34;&#34;&#34;Access privilege list&#34;&#34;&#34;
+    table_name = &#39;userauthorize&#39;
+
+    pin = Field(&#39;Pin&#39;)
+    timezone_id = Field(&#39;AuthorizeTimezoneId&#39;, int)
+    # tuple with 4 booleans (lock1..lock4)
+    doors = Field(
+        &#39;AuthorizeDoorId&#39;,
+        tuple,
+        lambda x: (bool(i) for i in &#39;{:04b}&#39;.format(int(x))[::-1]),
+        lambda x: int(&#39;&#39;.join(str(int(i)) for i in x[::-1]), 2),
+        lambda x: len(x) == 4
+    )
+
+
+class Holiday(Model):
+    &#34;&#34;&#34;Holiday table&#34;&#34;&#34;
+    table_name = &#39;holiday&#39;
+
+    holiday = Field(&#39;Holiday&#39;)
+    holiday_type = Field(&#39;HolidayType&#39;, int, None, None, lambda x: 1 &lt;= x &lt;= 3)
+    loop = Field(&#39;Loop&#39;, HolidayLoop, int)
+
+
+def _tz_encode(value: tuple):
+    if all(isinstance(x, str) for x in value):
+        value = tuple(datetime.strptime(x, &#39;%Y-%m-%d&#39;) for x in value)
+
+    return ZKDatetimeUtils.times_to_zktimerange(value[0], value[1])
+
+
+_tz_decode = ZKDatetimeUtils.zktimerange_to_times
+
+
+def _tz_validate(value: tuple) -&gt; bool:
+    return len(value) == 2 and all(isinstance(x, (time, datetime)) for x in value)
+
+
+class Timezone(Model):
+    &#34;&#34;&#34;Time zone table&#34;&#34;&#34;
+    table_name = &#39;timezone&#39;
+
+    timezone_id = Field(&#39;TimezoneId&#39;)
+    # Segment 1
+    sun_time1 = Field(&#39;SunTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    mon_time1 = Field(&#39;MonTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    tue_time1 = Field(&#39;TueTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    wed_time1 = Field(&#39;WedTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    thu_time1 = Field(&#39;ThuTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    fri_time1 = Field(&#39;FriTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    sat_time1 = Field(&#39;SatTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol1_time1 = Field(&#39;Hol1Time1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol2_time1 = Field(&#39;Hol2Time1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol3_time1 = Field(&#39;Hol3Time1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    # Segment 2
+    sun_time2 = Field(&#39;SunTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    mon_time2 = Field(&#39;MonTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    tue_time2 = Field(&#39;TueTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    wed_time2 = Field(&#39;WedTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    thu_time2 = Field(&#39;ThuTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    fri_time2 = Field(&#39;FriTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    sat_time2 = Field(&#39;SatTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol1_time2 = Field(&#39;Hol1Time2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol2_time2 = Field(&#39;Hol2Time2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol3_time2 = Field(&#39;Hol3Time2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    # Segment 3
+    sun_time3 = Field(&#39;SunTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    mon_time3 = Field(&#39;MonTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    tue_time3 = Field(&#39;TueTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    wed_time3 = Field(&#39;WedTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    thu_time3 = Field(&#39;ThuTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    fri_time3 = Field(&#39;FriTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    sat_time3 = Field(&#39;SatTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol1_time3 = Field(&#39;Hol1Time3&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol2_time3 = Field(&#39;Hol2Time3&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol3_time3 = Field(&#39;Hol3Time3&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+
+
+class Transaction(Model):
+    &#34;&#34;&#34;Access control record table&#34;&#34;&#34;
+    table_name = &#39;transaction&#39;
+
+    card = Field(&#39;Cardno&#39;)
+    pin = Field(&#39;Pin&#39;)
+    verify_mode = Field(&#39;Verified&#39;, VerifyMode, int, int)
+    door = Field(&#39;DoorID&#39;, int)
+    event_type = Field(
+        &#39;EventType&#39;, int, lambda x: EVENT_TYPES[int(x)], None, lambda x: x in EVENT_TYPES
+    )
+    entry_exit = Field(&#39;InOutState&#39;, PassageDirection, int, int)
+    time = Field(
+        &#39;Time_second&#39;,
+        datetime,
+        ZKDatetimeUtils.zkctime_to_datetime,
+        ZKDatetimeUtils.datetime_to_zkctime
+    )
+
+
+class FirstCard(Model):
+    &#34;&#34;&#34;First-card door opening&#34;&#34;&#34;
+    table_name = &#39;firstcard&#39;
+
+    door = Field(&#39;DoorID&#39;, int)
+    pin = Field(&#39;Pin&#39;)
+    timezone_id = Field(&#39;TimezoneID&#39;, int)
+
+
+class MultiCard(Model):
+    &#34;&#34;&#34;Multi-card door opening&#34;&#34;&#34;
+    table_name = &#39;multimcard&#39;   # Yes, typo in table name
+
+    index = Field(&#39;Index&#39;)
+    door = Field(&#39;DoorId&#39;, int)
+    group1 = Field(&#39;Group1&#39;)
+    group2 = Field(&#39;Group2&#39;)
+    group3 = Field(&#39;Group3&#39;)
+    group4 = Field(&#39;Group4&#39;)
+    group5 = Field(&#39;Group5&#39;)
+
+
+class InOutFun(Model):
+    &#34;&#34;&#34;Linkage control I/O table&#34;&#34;&#34;
+    table_name = &#39;inoutfun&#39;
+
+    index = Field(&#39;Index&#39;)
+    event_type = Field(
+        &#39;EventType&#39;, int, lambda x: EVENT_TYPES[int(x)], None, lambda x: x in EVENT_TYPES
+    )
+    input_index = Field(
+        &#39;InAddr&#39;, int, lambda x: INOUTFUN_INPUT[int(x)], None, lambda x: x in INOUTFUN_INPUT
+    )
+    is_output = Field(&#39;OutType&#39;, InOutFunRelayGroup)
+    output_index = Field(
+        &#39;OutAddr&#39;,
+        int,
+        lambda x: INOUTFUN_OUTPUT[int(x)],
+        None,
+        lambda x: x in INOUTFUN_OUTPUT
+    )
+    time = Field(&#39;OutTime&#39;)  # FIXME: specify data type; can&#39;t test now
+    reserved = Field(&#39;Reserved&#39;)
+
+
+class TemplateV10(Model):
+    &#34;&#34;&#34;templatev10 table. No information&#34;&#34;&#34;
+    table_name = &#39;templatev10&#39;
+
+    size = Field(&#39;Size&#39;)
+    uid = Field(&#39;UID&#39;)
+    pin = Field(&#39;Pin&#39;)
+    finger_id = Field(&#39;FingerID&#39;)
+    valid = Field(&#39;Valid&#39;)
+    template = Field(&#39;Template&#39;)
+    resverd = Field(&#39;Resverd&#39;)
+    end_tag = Field(&#39;EndTag&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyzkaccess.tables.FirstCard"><code class="flex name class">
+<span>class <span class="ident">FirstCard</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>First-card door opening</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FirstCard(Model):
+    &#34;&#34;&#34;First-card door opening&#34;&#34;&#34;
+    table_name = &#39;firstcard&#39;
+
+    door = Field(&#39;DoorID&#39;, int)
+    pin = Field(&#39;Pin&#39;)
+    timezone_id = Field(&#39;TimezoneID&#39;, int)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.FirstCard.door"><code class="name">var <span class="ident">door</span> : int</code></dt>
+<dd>
+<div class="desc"><p>FirstCard.door</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.FirstCard.pin"><code class="name">var <span class="ident">pin</span> : str</code></dt>
+<dd>
+<div class="desc"><p>FirstCard.pin</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.FirstCard.timezone_id"><code class="name">var <span class="ident">timezone_id</span> : int</code></dt>
+<dd>
+<div class="desc"><p>FirstCard.timezone_id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.Holiday"><code class="flex name class">
+<span>class <span class="ident">Holiday</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Holiday table</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Holiday(Model):
+    &#34;&#34;&#34;Holiday table&#34;&#34;&#34;
+    table_name = &#39;holiday&#39;
+
+    holiday = Field(&#39;Holiday&#39;)
+    holiday_type = Field(&#39;HolidayType&#39;, int, None, None, lambda x: 1 &lt;= x &lt;= 3)
+    loop = Field(&#39;Loop&#39;, HolidayLoop, int)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.Holiday.holiday"><code class="name">var <span class="ident">holiday</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Holiday.holiday</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Holiday.holiday_type"><code class="name">var <span class="ident">holiday_type</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Holiday.holiday_type</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Holiday.loop"><code class="name">var <span class="ident">loop</span> : <a title="pyzkaccess.enums.HolidayLoop" href="enums.html#pyzkaccess.enums.HolidayLoop">HolidayLoop</a></code></dt>
+<dd>
+<div class="desc"><p>Holiday.loop</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.InOutFun"><code class="flex name class">
+<span>class <span class="ident">InOutFun</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Linkage control I/O table</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InOutFun(Model):
+    &#34;&#34;&#34;Linkage control I/O table&#34;&#34;&#34;
+    table_name = &#39;inoutfun&#39;
+
+    index = Field(&#39;Index&#39;)
+    event_type = Field(
+        &#39;EventType&#39;, int, lambda x: EVENT_TYPES[int(x)], None, lambda x: x in EVENT_TYPES
+    )
+    input_index = Field(
+        &#39;InAddr&#39;, int, lambda x: INOUTFUN_INPUT[int(x)], None, lambda x: x in INOUTFUN_INPUT
+    )
+    is_output = Field(&#39;OutType&#39;, InOutFunRelayGroup)
+    output_index = Field(
+        &#39;OutAddr&#39;,
+        int,
+        lambda x: INOUTFUN_OUTPUT[int(x)],
+        None,
+        lambda x: x in INOUTFUN_OUTPUT
+    )
+    time = Field(&#39;OutTime&#39;)  # FIXME: specify data type; can&#39;t test now
+    reserved = Field(&#39;Reserved&#39;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.InOutFun.event_type"><code class="name">var <span class="ident">event_type</span> : int</code></dt>
+<dd>
+<div class="desc"><p>InOutFun.event_type</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.InOutFun.index"><code class="name">var <span class="ident">index</span> : str</code></dt>
+<dd>
+<div class="desc"><p>InOutFun.index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.InOutFun.input_index"><code class="name">var <span class="ident">input_index</span> : int</code></dt>
+<dd>
+<div class="desc"><p>InOutFun.input_index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.InOutFun.is_output"><code class="name">var <span class="ident">is_output</span> : <a title="pyzkaccess.enums.InOutFunRelayGroup" href="enums.html#pyzkaccess.enums.InOutFunRelayGroup">InOutFunRelayGroup</a></code></dt>
+<dd>
+<div class="desc"><p>InOutFun.is_output</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.InOutFun.output_index"><code class="name">var <span class="ident">output_index</span> : int</code></dt>
+<dd>
+<div class="desc"><p>InOutFun.output_index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.InOutFun.reserved"><code class="name">var <span class="ident">reserved</span> : str</code></dt>
+<dd>
+<div class="desc"><p>InOutFun.reserved</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.InOutFun.time"><code class="name">var <span class="ident">time</span> : str</code></dt>
+<dd>
+<div class="desc"><p>InOutFun.time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.MultiCard"><code class="flex name class">
+<span>class <span class="ident">MultiCard</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Multi-card door opening</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MultiCard(Model):
+    &#34;&#34;&#34;Multi-card door opening&#34;&#34;&#34;
+    table_name = &#39;multimcard&#39;   # Yes, typo in table name
+
+    index = Field(&#39;Index&#39;)
+    door = Field(&#39;DoorId&#39;, int)
+    group1 = Field(&#39;Group1&#39;)
+    group2 = Field(&#39;Group2&#39;)
+    group3 = Field(&#39;Group3&#39;)
+    group4 = Field(&#39;Group4&#39;)
+    group5 = Field(&#39;Group5&#39;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.MultiCard.door"><code class="name">var <span class="ident">door</span> : int</code></dt>
+<dd>
+<div class="desc"><p>MultiCard.door</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.MultiCard.group1"><code class="name">var <span class="ident">group1</span> : str</code></dt>
+<dd>
+<div class="desc"><p>MultiCard.group1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.MultiCard.group2"><code class="name">var <span class="ident">group2</span> : str</code></dt>
+<dd>
+<div class="desc"><p>MultiCard.group2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.MultiCard.group3"><code class="name">var <span class="ident">group3</span> : str</code></dt>
+<dd>
+<div class="desc"><p>MultiCard.group3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.MultiCard.group4"><code class="name">var <span class="ident">group4</span> : str</code></dt>
+<dd>
+<div class="desc"><p>MultiCard.group4</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.MultiCard.group5"><code class="name">var <span class="ident">group5</span> : str</code></dt>
+<dd>
+<div class="desc"><p>MultiCard.group5</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.MultiCard.index"><code class="name">var <span class="ident">index</span> : str</code></dt>
+<dd>
+<div class="desc"><p>MultiCard.index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10"><code class="flex name class">
+<span>class <span class="ident">TemplateV10</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>templatev10 table. No information</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TemplateV10(Model):
+    &#34;&#34;&#34;templatev10 table. No information&#34;&#34;&#34;
+    table_name = &#39;templatev10&#39;
+
+    size = Field(&#39;Size&#39;)
+    uid = Field(&#39;UID&#39;)
+    pin = Field(&#39;Pin&#39;)
+    finger_id = Field(&#39;FingerID&#39;)
+    valid = Field(&#39;Valid&#39;)
+    template = Field(&#39;Template&#39;)
+    resverd = Field(&#39;Resverd&#39;)
+    end_tag = Field(&#39;EndTag&#39;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.TemplateV10.end_tag"><code class="name">var <span class="ident">end_tag</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.end_tag</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10.finger_id"><code class="name">var <span class="ident">finger_id</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.finger_id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10.pin"><code class="name">var <span class="ident">pin</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.pin</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10.resverd"><code class="name">var <span class="ident">resverd</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.resverd</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10.size"><code class="name">var <span class="ident">size</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.size</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10.template"><code class="name">var <span class="ident">template</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.template</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10.uid"><code class="name">var <span class="ident">uid</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.uid</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.TemplateV10.valid"><code class="name">var <span class="ident">valid</span> : str</code></dt>
+<dd>
+<div class="desc"><p>TemplateV10.valid</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.Timezone"><code class="flex name class">
+<span>class <span class="ident">Timezone</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Time zone table</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Timezone(Model):
+    &#34;&#34;&#34;Time zone table&#34;&#34;&#34;
+    table_name = &#39;timezone&#39;
+
+    timezone_id = Field(&#39;TimezoneId&#39;)
+    # Segment 1
+    sun_time1 = Field(&#39;SunTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    mon_time1 = Field(&#39;MonTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    tue_time1 = Field(&#39;TueTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    wed_time1 = Field(&#39;WedTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    thu_time1 = Field(&#39;ThuTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    fri_time1 = Field(&#39;FriTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    sat_time1 = Field(&#39;SatTime1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol1_time1 = Field(&#39;Hol1Time1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol2_time1 = Field(&#39;Hol2Time1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol3_time1 = Field(&#39;Hol3Time1&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    # Segment 2
+    sun_time2 = Field(&#39;SunTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    mon_time2 = Field(&#39;MonTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    tue_time2 = Field(&#39;TueTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    wed_time2 = Field(&#39;WedTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    thu_time2 = Field(&#39;ThuTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    fri_time2 = Field(&#39;FriTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    sat_time2 = Field(&#39;SatTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol1_time2 = Field(&#39;Hol1Time2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol2_time2 = Field(&#39;Hol2Time2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol3_time2 = Field(&#39;Hol3Time2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    # Segment 3
+    sun_time3 = Field(&#39;SunTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    mon_time3 = Field(&#39;MonTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    tue_time3 = Field(&#39;TueTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    wed_time3 = Field(&#39;WedTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    thu_time3 = Field(&#39;ThuTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    fri_time3 = Field(&#39;FriTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    sat_time3 = Field(&#39;SatTime2&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol1_time3 = Field(&#39;Hol1Time3&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol2_time3 = Field(&#39;Hol2Time3&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)
+    hol3_time3 = Field(&#39;Hol3Time3&#39;, tuple, _tz_decode, _tz_encode, _tz_validate)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.Timezone.fri_time1"><code class="name">var <span class="ident">fri_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.fri_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.fri_time2"><code class="name">var <span class="ident">fri_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.fri_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.fri_time3"><code class="name">var <span class="ident">fri_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.fri_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol1_time1"><code class="name">var <span class="ident">hol1_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol1_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol1_time2"><code class="name">var <span class="ident">hol1_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol1_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol1_time3"><code class="name">var <span class="ident">hol1_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol1_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol2_time1"><code class="name">var <span class="ident">hol2_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol2_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol2_time2"><code class="name">var <span class="ident">hol2_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol2_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol2_time3"><code class="name">var <span class="ident">hol2_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol2_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol3_time1"><code class="name">var <span class="ident">hol3_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol3_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol3_time2"><code class="name">var <span class="ident">hol3_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol3_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.hol3_time3"><code class="name">var <span class="ident">hol3_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.hol3_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.mon_time1"><code class="name">var <span class="ident">mon_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.mon_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.mon_time2"><code class="name">var <span class="ident">mon_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.mon_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.mon_time3"><code class="name">var <span class="ident">mon_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.mon_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.sat_time1"><code class="name">var <span class="ident">sat_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.sat_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.sat_time2"><code class="name">var <span class="ident">sat_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.sat_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.sat_time3"><code class="name">var <span class="ident">sat_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.sat_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.sun_time1"><code class="name">var <span class="ident">sun_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.sun_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.sun_time2"><code class="name">var <span class="ident">sun_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.sun_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.sun_time3"><code class="name">var <span class="ident">sun_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.sun_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.thu_time1"><code class="name">var <span class="ident">thu_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.thu_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.thu_time2"><code class="name">var <span class="ident">thu_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.thu_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.thu_time3"><code class="name">var <span class="ident">thu_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.thu_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.timezone_id"><code class="name">var <span class="ident">timezone_id</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Timezone.timezone_id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.tue_time1"><code class="name">var <span class="ident">tue_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.tue_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.tue_time2"><code class="name">var <span class="ident">tue_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.tue_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.tue_time3"><code class="name">var <span class="ident">tue_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.tue_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.wed_time1"><code class="name">var <span class="ident">wed_time1</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.wed_time1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.wed_time2"><code class="name">var <span class="ident">wed_time2</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.wed_time2</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Timezone.wed_time3"><code class="name">var <span class="ident">wed_time3</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>Timezone.wed_time3</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.Transaction"><code class="flex name class">
+<span>class <span class="ident">Transaction</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Access control record table</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Transaction(Model):
+    &#34;&#34;&#34;Access control record table&#34;&#34;&#34;
+    table_name = &#39;transaction&#39;
+
+    card = Field(&#39;Cardno&#39;)
+    pin = Field(&#39;Pin&#39;)
+    verify_mode = Field(&#39;Verified&#39;, VerifyMode, int, int)
+    door = Field(&#39;DoorID&#39;, int)
+    event_type = Field(
+        &#39;EventType&#39;, int, lambda x: EVENT_TYPES[int(x)], None, lambda x: x in EVENT_TYPES
+    )
+    entry_exit = Field(&#39;InOutState&#39;, PassageDirection, int, int)
+    time = Field(
+        &#39;Time_second&#39;,
+        datetime,
+        ZKDatetimeUtils.zkctime_to_datetime,
+        ZKDatetimeUtils.datetime_to_zkctime
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.Transaction.card"><code class="name">var <span class="ident">card</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Transaction.card</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Transaction.door"><code class="name">var <span class="ident">door</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Transaction.door</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Transaction.entry_exit"><code class="name">var <span class="ident">entry_exit</span> : <a title="pyzkaccess.enums.PassageDirection" href="enums.html#pyzkaccess.enums.PassageDirection">PassageDirection</a></code></dt>
+<dd>
+<div class="desc"><p>Transaction.entry_exit</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Transaction.event_type"><code class="name">var <span class="ident">event_type</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Transaction.event_type</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Transaction.pin"><code class="name">var <span class="ident">pin</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Transaction.pin</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Transaction.time"><code class="name">var <span class="ident">time</span> : datetime.datetime</code></dt>
+<dd>
+<div class="desc"><p>Transaction.time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.Transaction.verify_mode"><code class="name">var <span class="ident">verify_mode</span> : <a title="pyzkaccess.enums.VerifyMode" href="enums.html#pyzkaccess.enums.VerifyMode">VerifyMode</a></code></dt>
+<dd>
+<div class="desc"><p>Transaction.verify_mode</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.User"><code class="flex name class">
+<span>class <span class="ident">User</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Card number information table</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class User(Model):
+    &#34;&#34;&#34;Card number information table&#34;&#34;&#34;
+    table_name = &#39;user&#39;
+
+    card = Field(&#39;CardNo&#39;)
+    pin = Field(&#39;Pin&#39;)
+    password = Field(&#39;Password&#39;)
+    group = Field(&#39;Group&#39;)
+    start_time = Field(
+        &#39;StartTime&#39;, date, ZKDatetimeUtils.zkdate_to_date, ZKDatetimeUtils.date_to_zkdate
+    )
+    end_time = Field(
+        &#39;EndTime&#39;, date, ZKDatetimeUtils.zkdate_to_date, ZKDatetimeUtils.date_to_zkdate
+    )
+    super_authorize = Field(&#39;SuperAuthorize&#39;, bool, int, int)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.User.card"><code class="name">var <span class="ident">card</span> : str</code></dt>
+<dd>
+<div class="desc"><p>User.card</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.User.end_time"><code class="name">var <span class="ident">end_time</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"><p>User.end_time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.User.group"><code class="name">var <span class="ident">group</span> : str</code></dt>
+<dd>
+<div class="desc"><p>User.group</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.User.password"><code class="name">var <span class="ident">password</span> : str</code></dt>
+<dd>
+<div class="desc"><p>User.password</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.User.pin"><code class="name">var <span class="ident">pin</span> : str</code></dt>
+<dd>
+<div class="desc"><p>User.pin</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.User.start_time"><code class="name">var <span class="ident">start_time</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"><p>User.start_time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.User.super_authorize"><code class="name">var <span class="ident">super_authorize</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>User.super_authorize</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pyzkaccess.tables.UserAuthorize"><code class="flex name class">
+<span>class <span class="ident">UserAuthorize</span></span>
+<span>(</span><span>**fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Access privilege list</p>
+<p>Accepts initial fields data in kwargs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UserAuthorize(Model):
+    &#34;&#34;&#34;Access privilege list&#34;&#34;&#34;
+    table_name = &#39;userauthorize&#39;
+
+    pin = Field(&#39;Pin&#39;)
+    timezone_id = Field(&#39;AuthorizeTimezoneId&#39;, int)
+    # tuple with 4 booleans (lock1..lock4)
+    doors = Field(
+        &#39;AuthorizeDoorId&#39;,
+        tuple,
+        lambda x: (bool(i) for i in &#39;{:04b}&#39;.format(int(x))[::-1]),
+        lambda x: int(&#39;&#39;.join(str(int(i)) for i in x[::-1]), 2),
+        lambda x: len(x) == 4
+    )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.tables.UserAuthorize.doors"><code class="name">var <span class="ident">doors</span> : tuple</code></dt>
+<dd>
+<div class="desc"><p>UserAuthorize.doors</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.UserAuthorize.pin"><code class="name">var <span class="ident">pin</span> : str</code></dt>
+<dd>
+<div class="desc"><p>UserAuthorize.pin</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.tables.UserAuthorize.timezone_id"><code class="name">var <span class="ident">timezone_id</span> : int</code></dt>
+<dd>
+<div class="desc"><p>UserAuthorize.timezone_id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    value = instance._raw_data.get(self._raw_name)  # type: Optional[str]
+    if value is not None:
+        value = self.to_field_value(value)
+
+    return value</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pyzkaccess.device_data.model.Model.delete" href="device_data/model.html#pyzkaccess.device_data.model.Model.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.fields_mapping" href="device_data/model.html#pyzkaccess.device_data.model.Model.fields_mapping">fields_mapping</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.raw_data" href="device_data/model.html#pyzkaccess.device_data.model.Model.raw_data">raw_data</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.save" href="device_data/model.html#pyzkaccess.device_data.model.Model.save">save</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.table_name" href="device_data/model.html#pyzkaccess.device_data.model.Model.table_name">table_name</a></code></li>
+<li><code><a title="pyzkaccess.device_data.model.Model.with_zk" href="device_data/model.html#pyzkaccess.device_data.model.Model.with_zk">with_zk</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyzkaccess" href="index.html">pyzkaccess</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyzkaccess.tables.FirstCard" href="#pyzkaccess.tables.FirstCard">FirstCard</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.tables.FirstCard.door" href="#pyzkaccess.tables.FirstCard.door">door</a></code></li>
+<li><code><a title="pyzkaccess.tables.FirstCard.pin" href="#pyzkaccess.tables.FirstCard.pin">pin</a></code></li>
+<li><code><a title="pyzkaccess.tables.FirstCard.timezone_id" href="#pyzkaccess.tables.FirstCard.timezone_id">timezone_id</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.Holiday" href="#pyzkaccess.tables.Holiday">Holiday</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.tables.Holiday.holiday" href="#pyzkaccess.tables.Holiday.holiday">holiday</a></code></li>
+<li><code><a title="pyzkaccess.tables.Holiday.holiday_type" href="#pyzkaccess.tables.Holiday.holiday_type">holiday_type</a></code></li>
+<li><code><a title="pyzkaccess.tables.Holiday.loop" href="#pyzkaccess.tables.Holiday.loop">loop</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.InOutFun" href="#pyzkaccess.tables.InOutFun">InOutFun</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.tables.InOutFun.event_type" href="#pyzkaccess.tables.InOutFun.event_type">event_type</a></code></li>
+<li><code><a title="pyzkaccess.tables.InOutFun.index" href="#pyzkaccess.tables.InOutFun.index">index</a></code></li>
+<li><code><a title="pyzkaccess.tables.InOutFun.input_index" href="#pyzkaccess.tables.InOutFun.input_index">input_index</a></code></li>
+<li><code><a title="pyzkaccess.tables.InOutFun.is_output" href="#pyzkaccess.tables.InOutFun.is_output">is_output</a></code></li>
+<li><code><a title="pyzkaccess.tables.InOutFun.output_index" href="#pyzkaccess.tables.InOutFun.output_index">output_index</a></code></li>
+<li><code><a title="pyzkaccess.tables.InOutFun.reserved" href="#pyzkaccess.tables.InOutFun.reserved">reserved</a></code></li>
+<li><code><a title="pyzkaccess.tables.InOutFun.time" href="#pyzkaccess.tables.InOutFun.time">time</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.MultiCard" href="#pyzkaccess.tables.MultiCard">MultiCard</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.tables.MultiCard.door" href="#pyzkaccess.tables.MultiCard.door">door</a></code></li>
+<li><code><a title="pyzkaccess.tables.MultiCard.group1" href="#pyzkaccess.tables.MultiCard.group1">group1</a></code></li>
+<li><code><a title="pyzkaccess.tables.MultiCard.group2" href="#pyzkaccess.tables.MultiCard.group2">group2</a></code></li>
+<li><code><a title="pyzkaccess.tables.MultiCard.group3" href="#pyzkaccess.tables.MultiCard.group3">group3</a></code></li>
+<li><code><a title="pyzkaccess.tables.MultiCard.group4" href="#pyzkaccess.tables.MultiCard.group4">group4</a></code></li>
+<li><code><a title="pyzkaccess.tables.MultiCard.group5" href="#pyzkaccess.tables.MultiCard.group5">group5</a></code></li>
+<li><code><a title="pyzkaccess.tables.MultiCard.index" href="#pyzkaccess.tables.MultiCard.index">index</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.TemplateV10" href="#pyzkaccess.tables.TemplateV10">TemplateV10</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.tables.TemplateV10.end_tag" href="#pyzkaccess.tables.TemplateV10.end_tag">end_tag</a></code></li>
+<li><code><a title="pyzkaccess.tables.TemplateV10.finger_id" href="#pyzkaccess.tables.TemplateV10.finger_id">finger_id</a></code></li>
+<li><code><a title="pyzkaccess.tables.TemplateV10.pin" href="#pyzkaccess.tables.TemplateV10.pin">pin</a></code></li>
+<li><code><a title="pyzkaccess.tables.TemplateV10.resverd" href="#pyzkaccess.tables.TemplateV10.resverd">resverd</a></code></li>
+<li><code><a title="pyzkaccess.tables.TemplateV10.size" href="#pyzkaccess.tables.TemplateV10.size">size</a></code></li>
+<li><code><a title="pyzkaccess.tables.TemplateV10.template" href="#pyzkaccess.tables.TemplateV10.template">template</a></code></li>
+<li><code><a title="pyzkaccess.tables.TemplateV10.uid" href="#pyzkaccess.tables.TemplateV10.uid">uid</a></code></li>
+<li><code><a title="pyzkaccess.tables.TemplateV10.valid" href="#pyzkaccess.tables.TemplateV10.valid">valid</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.Timezone" href="#pyzkaccess.tables.Timezone">Timezone</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.tables.Timezone.fri_time1" href="#pyzkaccess.tables.Timezone.fri_time1">fri_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.fri_time2" href="#pyzkaccess.tables.Timezone.fri_time2">fri_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.fri_time3" href="#pyzkaccess.tables.Timezone.fri_time3">fri_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol1_time1" href="#pyzkaccess.tables.Timezone.hol1_time1">hol1_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol1_time2" href="#pyzkaccess.tables.Timezone.hol1_time2">hol1_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol1_time3" href="#pyzkaccess.tables.Timezone.hol1_time3">hol1_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol2_time1" href="#pyzkaccess.tables.Timezone.hol2_time1">hol2_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol2_time2" href="#pyzkaccess.tables.Timezone.hol2_time2">hol2_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol2_time3" href="#pyzkaccess.tables.Timezone.hol2_time3">hol2_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol3_time1" href="#pyzkaccess.tables.Timezone.hol3_time1">hol3_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol3_time2" href="#pyzkaccess.tables.Timezone.hol3_time2">hol3_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.hol3_time3" href="#pyzkaccess.tables.Timezone.hol3_time3">hol3_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.mon_time1" href="#pyzkaccess.tables.Timezone.mon_time1">mon_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.mon_time2" href="#pyzkaccess.tables.Timezone.mon_time2">mon_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.mon_time3" href="#pyzkaccess.tables.Timezone.mon_time3">mon_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.sat_time1" href="#pyzkaccess.tables.Timezone.sat_time1">sat_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.sat_time2" href="#pyzkaccess.tables.Timezone.sat_time2">sat_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.sat_time3" href="#pyzkaccess.tables.Timezone.sat_time3">sat_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.sun_time1" href="#pyzkaccess.tables.Timezone.sun_time1">sun_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.sun_time2" href="#pyzkaccess.tables.Timezone.sun_time2">sun_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.sun_time3" href="#pyzkaccess.tables.Timezone.sun_time3">sun_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.thu_time1" href="#pyzkaccess.tables.Timezone.thu_time1">thu_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.thu_time2" href="#pyzkaccess.tables.Timezone.thu_time2">thu_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.thu_time3" href="#pyzkaccess.tables.Timezone.thu_time3">thu_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.timezone_id" href="#pyzkaccess.tables.Timezone.timezone_id">timezone_id</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.tue_time1" href="#pyzkaccess.tables.Timezone.tue_time1">tue_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.tue_time2" href="#pyzkaccess.tables.Timezone.tue_time2">tue_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.tue_time3" href="#pyzkaccess.tables.Timezone.tue_time3">tue_time3</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.wed_time1" href="#pyzkaccess.tables.Timezone.wed_time1">wed_time1</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.wed_time2" href="#pyzkaccess.tables.Timezone.wed_time2">wed_time2</a></code></li>
+<li><code><a title="pyzkaccess.tables.Timezone.wed_time3" href="#pyzkaccess.tables.Timezone.wed_time3">wed_time3</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.Transaction" href="#pyzkaccess.tables.Transaction">Transaction</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.tables.Transaction.card" href="#pyzkaccess.tables.Transaction.card">card</a></code></li>
+<li><code><a title="pyzkaccess.tables.Transaction.door" href="#pyzkaccess.tables.Transaction.door">door</a></code></li>
+<li><code><a title="pyzkaccess.tables.Transaction.entry_exit" href="#pyzkaccess.tables.Transaction.entry_exit">entry_exit</a></code></li>
+<li><code><a title="pyzkaccess.tables.Transaction.event_type" href="#pyzkaccess.tables.Transaction.event_type">event_type</a></code></li>
+<li><code><a title="pyzkaccess.tables.Transaction.pin" href="#pyzkaccess.tables.Transaction.pin">pin</a></code></li>
+<li><code><a title="pyzkaccess.tables.Transaction.time" href="#pyzkaccess.tables.Transaction.time">time</a></code></li>
+<li><code><a title="pyzkaccess.tables.Transaction.verify_mode" href="#pyzkaccess.tables.Transaction.verify_mode">verify_mode</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.User" href="#pyzkaccess.tables.User">User</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.tables.User.card" href="#pyzkaccess.tables.User.card">card</a></code></li>
+<li><code><a title="pyzkaccess.tables.User.end_time" href="#pyzkaccess.tables.User.end_time">end_time</a></code></li>
+<li><code><a title="pyzkaccess.tables.User.group" href="#pyzkaccess.tables.User.group">group</a></code></li>
+<li><code><a title="pyzkaccess.tables.User.password" href="#pyzkaccess.tables.User.password">password</a></code></li>
+<li><code><a title="pyzkaccess.tables.User.pin" href="#pyzkaccess.tables.User.pin">pin</a></code></li>
+<li><code><a title="pyzkaccess.tables.User.start_time" href="#pyzkaccess.tables.User.start_time">start_time</a></code></li>
+<li><code><a title="pyzkaccess.tables.User.super_authorize" href="#pyzkaccess.tables.User.super_authorize">super_authorize</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.tables.UserAuthorize" href="#pyzkaccess.tables.UserAuthorize">UserAuthorize</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.tables.UserAuthorize.doors" href="#pyzkaccess.tables.UserAuthorize.doors">doors</a></code></li>
+<li><code><a title="pyzkaccess.tables.UserAuthorize.pin" href="#pyzkaccess.tables.UserAuthorize.pin">pin</a></code></li>
+<li><code><a title="pyzkaccess.tables.UserAuthorize.timezone_id" href="#pyzkaccess.tables.UserAuthorize.timezone_id">timezone_id</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

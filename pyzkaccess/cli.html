@@ -1,0 +1,4350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>pyzkaccess.cli API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyzkaccess.cli</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import abc
+import csv
+import io
+import os
+import re
+import sys
+from datetime import date, time, datetime
+from enum import Enum
+from typing import Type, Any, Iterable, TextIO, Mapping, Generator, Set, Union, KeysView, Optional
+from unittest.mock import Mock
+
+import fire
+import prettytable
+import wrapt
+from fire.core import FireError
+
+import pyzkaccess.ctypes_
+from pyzkaccess import ZKAccess, ZK100, ZK200, ZK400
+from pyzkaccess.device_data.model import models_registry, Model
+from pyzkaccess.device_data.queryset import QuerySet
+from pyzkaccess.door import Door
+from pyzkaccess.enums import PassageDirection, VerifyMode, ChangeIPProtocol
+from pyzkaccess.param import DaylightSavingMomentMode1, DaylightSavingMomentMode2
+
+device_models = {&#39;ZK100&#39;: ZK100, &#39;ZK200&#39;: ZK200, &#39;ZK400&#39;: ZK400}
+
+opt_io_format = &#39;csv&#39;
+data_in = sys.stdin
+data_out = sys.stdout
+
+
+doors_params_error = object()
+
+
+class BaseFormatter(metaclass=abc.ABCMeta):
+    &#34;&#34;&#34;Base class for particular formatters&#34;&#34;&#34;
+    class WriterInterface(metaclass=abc.ABCMeta):
+        def __init__(self, ostream: TextIO, headers: list):
+            self._ostream = ostream
+            self._headers = headers
+            self._writer = None
+
+        @abc.abstractmethod
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            pass
+
+        @abc.abstractmethod
+        def flush(self) -&gt; None:
+            pass
+
+    def __init__(self, istream: TextIO, ostream: TextIO, headers: Iterable[str]):
+        self._istream = istream
+        self._ostream = ostream
+        self._headers = list(sorted(headers))
+
+    @staticmethod
+    def get_formatter(io_format: str) -&gt; &#39;Type[BaseFormatter]&#39;:
+        if io_format not in io_formats:
+            raise FireError(&#34;{} format(s) are only supported&#34;, sorted(io_formats.keys()))
+        return io_formats[io_format]
+
+    def validate_headers(self, input_headers: Union[set, KeysView]):
+        headers = set(self._headers)
+        extra = input_headers - headers
+        if extra:
+            raise FireError(&#34;Unknown fields in input: {}&#34;.format(extra))
+
+        missed = headers - input_headers
+        if missed:
+            raise FireError(&#34;Missed fields in input: {}&#34;.format(extra))
+
+    @abc.abstractmethod
+    def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+        pass
+
+    @abc.abstractmethod
+    def get_writer(self) -&gt; WriterInterface:
+        pass
+
+
+class CSVFormatter(BaseFormatter):
+    &#34;&#34;&#34;Formatter for comma-separated values format&#34;&#34;&#34;
+    class CSVWriter(BaseFormatter.WriterInterface):
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            record = {k: record.get(k) for k in self._headers}
+
+            if self._writer is None:
+                self._writer = csv.DictWriter(self._ostream, self._headers)
+                self._writer.writeheader()
+
+            self._writer.writerow(record)
+
+        def flush(self) -&gt; None:
+            if self._writer is None:
+                self._writer = csv.DictWriter(self._ostream, self._headers)
+                self._writer.writeheader()
+
+            self._ostream.flush()
+
+    def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+        def _reader():
+            checked = False
+            for item in csv.DictReader(self._istream):
+                if checked is False:
+                    self.validate_headers(item.keys())
+                    checked = True
+
+                item = {k: item[k] for k in self._headers}
+                yield item
+
+        return _reader()
+
+    def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+        return CSVFormatter.CSVWriter(self._ostream, self._headers)
+
+
+class ASCIITableFormatter(BaseFormatter):
+    class ASCIITableWriter(BaseFormatter.WriterInterface):
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            if self._writer is None:
+                self._writer = prettytable.PrettyTable(field_names=self._headers, align=&#39;l&#39;)
+
+            record = [record.get(k) for k in self._headers]
+            self._writer.add_row(record)
+
+        def flush(self) -&gt; None:
+            if self._writer is None:
+                self._writer = prettytable.PrettyTable(field_names=self._headers, align=&#39;l&#39;)
+
+            self._ostream.write(self._writer.get_string())
+            self._ostream.write(&#39;\n&#39;)
+            self._ostream.flush()
+
+    def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+        return ASCIITableFormatter.ASCIITableWriter(self._ostream, self._headers)
+
+    def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+        raise FireError(
+            &#39;You should to specify input data format, e.g. `pyzkaccess --format=csv ...`&#39;
+        )
+
+
+class EventsPollFormatter(CSVFormatter):
+    &#34;&#34;&#34;Formatter special for events.poll iterative function output
+    for &#39;ascii_table&#39; mode
+    &#34;&#34;&#34;
+    class ASCIITableWriter(BaseFormatter.WriterInterface):
+        FIELD_FORMAT = &#39;{:&lt;15}{:&lt;5}{:&lt;15}{:&lt;15}{:&lt;5}{:&lt;25}{:&lt;15}&#39;
+
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            if self._writer is None:
+                self._writer = self.FIELD_FORMAT
+                self._ostream.write(self._writer.format(*self._headers))
+                self._ostream.write(&#39;\n&#39;)
+
+            record = [str(record.get(k) or &#39;&#39;) for k in self._headers]
+            self._ostream.write(self._writer.format(*record))
+            self._ostream.write(&#39;\n&#39;)
+            self._ostream.flush()
+
+        def flush(self) -&gt; None:
+            if self._writer is None:
+                self._writer = self.FIELD_FORMAT
+                self._ostream.write(self._writer.format(*self._headers))
+                self._ostream.write(&#39;\n&#39;)
+
+            self._ostream.flush()
+
+    def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+        return EventsPollFormatter.ASCIITableWriter(self._ostream, self._headers)
+
+
+io_formats = {
+    &#39;csv&#39;: CSVFormatter,
+    &#39;ascii_table&#39;: ASCIITableFormatter
+}
+
+
+class BaseConverter(metaclass=abc.ABCMeta):
+    def __init__(self, formatter: BaseFormatter, *args, **kwargs):
+        self._formatter = formatter
+        self._args = args
+        self._kwargs = kwargs
+
+    @abc.abstractmethod
+    def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+        pass
+
+    @abc.abstractmethod
+    def write_records(self, records: Iterable[Mapping[str, Any]]):
+        pass
+
+
+class TextConverter(BaseConverter):
+    &#34;&#34;&#34;Converter which simply prints and reads text field values without
+    any transformations
+    &#34;&#34;&#34;
+    def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+        for item in self._formatter.get_reader():
+            yield item
+
+    def write_records(self, records: Iterable[Mapping[str, Any]]):
+        writer = self._formatter.get_writer()
+        for item in records:
+            writer.write(item)
+
+        writer.flush()
+
+
+class TypedFieldConverter(BaseConverter):
+    &#34;&#34;&#34;Converter performs text input/output for field values of any
+    non-string types. Convertion does based on given field-type mapping
+    &#34;&#34;&#34;
+    TUPLE_SEPARATOR = &#39;,&#39;
+
+    def __init__(self, formatter: BaseFormatter, field_types: Mapping[str, Type], *args, **kwargs):
+        super().__init__(formatter, *args, **kwargs)
+        self._field_types = field_types
+
+        # The following converters parses string value respresentation from
+        # stdin and converts to a field value
+        # {type: (cast_function, error message)
+        self._input_converters = {
+            str: (str, &#39;string&#39;),
+            bool: (lambda x: {&#39;True&#39;: True, &#39;False&#39;: False}[x.capitalize()],
+                   &#39;boolean, &#34;True&#34; or &#34;False&#34;&#39;),
+            int: (int, &#39;integer&#39;),
+            tuple: (self._parse_tuple, &#39;comma separated values&#39;),
+            date: (lambda x: datetime.strptime(x, &#39;%Y-%m-%d&#39;).date(),
+                   &#39;date string, e.g. &#34;2020-02-01&#34;&#39;),
+            time: (lambda x: datetime.strptime(x, &#39;%H:%M:%S&#39;).time(),
+                   &#39;time string, e.g. &#34;07:40:00&#34;&#39;),
+            datetime: (lambda x: datetime.strptime(x, &#39;%Y-%m-%d %H:%M:%S&#39;),
+                       &#39;datetime string, e.g. &#34;2020-02-01 07:40:00&#34;&#39;),
+            DaylightSavingMomentMode1: (
+                lambda x: DaylightSavingMomentMode1.strptime(x, &#39;%m-%d %H:%M&#39;),
+                &#39;datetime moment, e.g. &#34;02-01 07:40&#34;&#39;
+            ),
+            DaylightSavingMomentMode2: (
+                self._parse_daylight_saving_moment_mode2,
+                &#39;7 comma-separated values, &#39;
+                &#39;[month, week_of_month, day_of_week, hour, minute, is_daylight, buffer_size], &#39;
+                &#39;e.g &#34;2,1,1,7,40,1,4096&#34;&#39;
+            )
+        }
+
+        # The following functions converts field values to their string
+        # representation suitable for stdout output
+        self._output_converters = {
+            str: str,
+            bool: str,
+            int: str,
+            tuple: self._unparse_tuple,
+            date: lambda x: x.strftime(&#39;%Y-%m-%d&#39;),
+            time: lambda x: x.strftime(&#39;%H:%M:%S&#39;),
+            datetime: lambda x: x.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;),
+            DaylightSavingMomentMode1: lambda x: x.strftime(&#39;%m-%d %H:%M&#39;),
+            DaylightSavingMomentMode2: self._unparse_daylight_saving_moment_mode2
+        }
+
+    def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+        for item in self._formatter.get_reader():
+            # Convert a text field value to a typed value
+            yield self.to_record_dict(item)
+
+    def write_records(self, records: Iterable[Mapping[str, Any]]):
+        writer = self._formatter.get_writer()
+        for item in records:
+            # Convert a typed field value to a string value
+            record = self.to_string_dict(item)
+            writer.write(record)
+
+        writer.flush()
+
+    def to_record_dict(self, data: Mapping[str, str]) -&gt; Mapping[str, Any]:
+        return {fname: self._parse_value(fname, fval, self._field_types.get(fname, str))
+                for fname, fval in data.items()}
+
+    def to_string_dict(self, record: Mapping[str, Any]) -&gt; Mapping[str, str]:
+        return {fname: self._unparse_value(fval, self._field_types.get(fname, str))
+                for fname, fval in record.items()}
+
+    def _parse_value(self, field_name: str, value: str, field_datatype) -&gt; Optional[Any]:
+        if value == &#39;&#39;:
+            return None
+
+        error_msg = &#39;&#39;
+        try:
+            if issubclass(field_datatype, Enum):
+                error_msg = &#39;one of values: {}&#39;.format(
+                    &#39;,&#39;.join(x for x in dir(field_datatype) if not x.startswith(&#39;_&#39;))
+                )
+                return field_datatype[value]
+
+            cast, error_msg = self._input_converters[field_datatype]
+            return cast(value)
+        except (ValueError, TypeError, KeyError):
+            raise FireError(
+                &#34;Bad value of {}={} but must be: {}&#34;.format(field_name, value, error_msg)
+            )
+
+    def _unparse_value(self, value: Optional[Any], field_datatype) -&gt; str:
+        if value is None:
+            return &#39;&#39;
+        if issubclass(field_datatype, Enum):
+            return value.name
+
+        return self._output_converters[field_datatype](value)
+
+    def _parse_tuple(self, value: str) -&gt; tuple:
+        return tuple(value.split(self.TUPLE_SEPARATOR))
+
+    def _unparse_tuple(self, value: tuple) -&gt; str:
+        return self.TUPLE_SEPARATOR.join(self._unparse_value(x, type(x)) for x in value)
+
+    def _parse_daylight_saving_moment_mode1(self, value: str) -&gt; DaylightSavingMomentMode1:
+        args = [int(x) for x in self._parse_tuple(value)]
+        if len(args) != 4:
+            raise ValueError(&#39;Daylight saving moment value must contain 4 integers&#39;)
+        return DaylightSavingMomentMode1(*args)
+
+    def _parse_daylight_saving_moment_mode2(self, value: str) -&gt; DaylightSavingMomentMode2:
+        args = [int(x) for x in self._parse_tuple(value)]
+        if len(args) != 7:
+            raise ValueError(&#39;Daylight saving moment value must contain 7 integers&#39;)
+
+        is_daylight = bool(args[5])
+        buffer_size = args[6]
+        res = DaylightSavingMomentMode2(None, is_daylight, buffer_size)
+        for ind, attr in enumerate((&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;)):
+            setattr(res, attr, args[ind])
+
+        return res
+
+    def _unparse_daylight_saving_moment_mode2(self, value: DaylightSavingMomentMode2) -&gt; str:
+        res = [
+            str(getattr(value, attr))
+            for attr in (&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;)
+        ]
+        res.extend((str(int(value.is_daylight)), str(value.buffer_size)))
+        return self.TUPLE_SEPARATOR.join(res)
+
+
+class ModelConverter(TypedFieldConverter):
+    &#34;&#34;&#34;Converter performs text input/output for a Model objects&#34;&#34;&#34;
+    TUPLE_SEPARATOR = &#39;,&#39;
+
+    def __init__(self, formatter: BaseFormatter, model_cls: Type[Model], *args, **kwargs):
+        field_types = {k: getattr(model_cls, k).field_datatype
+                       for k in model_cls.fields_mapping().keys()}
+        super().__init__(formatter, field_types, *args, **kwargs)
+        self._model_cls = model_cls
+        self._model_fields = {k: getattr(self._model_cls, k)
+                              for k in self._model_cls.fields_mapping().keys()}
+
+    def read_records(self) -&gt; Generator[Model, None, None]:
+        for item in self._formatter.get_reader():
+            model_dict = self.to_record_dict(item)
+            yield self._model_cls(**model_dict)
+
+    def write_records(self, records: Iterable[Model]):
+        writer = self._formatter.get_writer()
+        for item in records:
+            record = self.to_string_dict(item.dict)
+            writer.write(record)
+
+        writer.flush()
+
+    def to_record_dict(self, record: Mapping[str, str]) -&gt; Mapping[str, Any]:
+        self._validate_field_names(self._model_fields.keys(), record)
+
+        # Convert dict with text values to a model with typed values
+        return {fname: self._parse_value(fname, fval, self._model_fields[fname].field_datatype)
+                for fname, fval in record.items()}
+
+    def to_string_dict(self, model_dict: Mapping[str, Any]) -&gt; Mapping[str, str]:
+        self._validate_field_names(self._model_fields.keys(), model_dict)
+
+        # Convert a model to text values
+        return {fname: self._unparse_value(fval, self._model_fields[fname].field_datatype)
+                for fname, fval in model_dict.items()}
+
+    def _validate_field_names(self, fields: Union[Set[str], KeysView], item: Mapping[str, Any]):
+        # Check if field names are all exist in the model
+        extra_fields = item.keys() - fields
+        if extra_fields:
+            raise FireError(&#34;Unknown fields of {} found in the input data: {}&#34;.format(
+                self._model_cls.__name__, list(sorted(extra_fields))
+            ))
+
+
+def parse_array_index(opt_indexes: Optional[Union[int, str]]) -&gt; Union[int, slice]:
+    &#34;&#34;&#34;
+    Parse index/range cli parameter and return appropriate int or slice
+
+        &gt;&gt;&gt; assert parse_array_index(None) == slice(None, None, None)
+        &gt;&gt;&gt; assert parse_array_index(1) == int(1)
+        &gt;&gt;&gt; assert parse_array_index(&#39;1-2&#39;) == slice(1, 2, None)
+
+    Args:
+        opt_indexes(Union[int, str], optional): index or range
+
+    Returns:
+        Union[int, slice]: int or slice suitable for sequences indexing
+    &#34;&#34;&#34;
+    if opt_indexes is None:
+        return slice(None, None)
+    if isinstance(opt_indexes, str):
+        if not re.match(r&#39;^\d-\d$&#39;, opt_indexes):
+            raise FireError(&#34;Select range must contain numbers divided by dash, for example 0-3&#34;)
+
+        pieces = opt_indexes.split(&#39;-&#39;)
+        start = int(pieces.pop(0)) if pieces else None
+        stop = int(pieces.pop(0) or 1000) + 1 if pieces else None
+        return slice(start, stop)
+    if isinstance(opt_indexes, int):
+        if opt_indexes &lt; 0:
+            raise FireError(&#34;Select index must be a positive number&#34;)
+
+        return opt_indexes
+
+    raise FireError(&#34;Numbers must be list or int&#34;)
+
+
+class Query:
+    &#34;&#34;&#34;This command object helps to make read/write queries to a
+    particular device data table.
+
+    Some of usage examples:
+
+        Select all records from the User table:
+            $ ... table User
+
+        Select records from the User table with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4
+
+        Get table records count:
+            $ ... table User count
+
+        Upsert records to the User table from stdin:
+            $ cat records.csv | ... table User upsert
+
+        Delete records, which come from stdin, from the User table:
+            $ cat records.csv | ... table User delete
+
+        Delete records from the User table with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4 delete_all
+    &#34;&#34;&#34;
+    def __init__(self, qs: QuerySet, io_converter: ModelConverter):
+        self._qs = qs
+        self._io_converter = io_converter
+
+    def __call__(self):
+        if self._qs is not None:
+            self._io_converter.write_records(self._qs)
+
+    def where(self, **filters) -&gt; &#39;Query&#39;:
+        &#34;&#34;&#34;Add filtering by fields to a query.
+
+        Filtering conditions are set by flags. Several conditions will
+        be AND&#39;ed.
+
+        For example, select Users records with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4
+
+        Args:
+            filters: flags are fields to do filtering by. Such
+                filters are concatenated by AND. For example,
+                `... where --field1=value1 --field2=value2 ...`
+        &#34;&#34;&#34;
+        typed_filters = self._io_converter.to_record_dict(filters)
+        self._qs = self._qs.where(**typed_filters)
+
+        return self
+
+    def unread(self) -&gt; &#39;Query&#39;:
+        &#34;&#34;&#34;Add condition to print unread records only.
+
+         Some tables on device has a pointer which is set to the last
+        record on each query. If no records have been inserted to
+        a table since last read, the &#34;unread&#34; query will return nothing
+
+        For example, select only unread Users records with card=123456
+             $ ... table User where --card=123456 unread
+        &#34;&#34;&#34;
+        self._qs = self._qs.unread()
+        return self
+
+    def upsert(self):
+        &#34;&#34;&#34;Upsert (update or insert) operation.
+
+        If given record already exists in a table, then it will be
+        updated. Otherwise it will be inserted. Consumes input data
+        from stdin/file.
+
+        For example, upsert records to the User table from stdin:
+            $ cat records.csv | ... table User upsert
+        &#34;&#34;&#34;
+
+        self._qs.upsert(self._io_converter.read_records())
+        self._qs = None
+
+    def delete(self):
+        &#34;&#34;&#34;Delete given records from a table.
+
+        If given record does not exist in a table, then it is skipped.
+        Consumes input data from stdin/file.
+
+        For example, delete records, which come from stdin, from the User table:
+            $ cat records.csv | ... table User delete
+        &#34;&#34;&#34;
+        self._qs.delete(self._io_converter.read_records())
+        self._qs = None
+
+    def delete_all(self):
+        &#34;&#34;&#34;Delete records satisfied to a query.
+
+        For example, Delete records from the User table with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4 delete_all
+
+        Or delete all records from the User table:
+            $ ... table User delete_all
+        &#34;&#34;&#34;
+        self._qs.delete_all()
+        self._qs = None
+
+    def count(self):
+        &#34;&#34;&#34;Return records count in a table. Executes quickly since
+        it is implemented by a separate device request.
+
+        For example, get records count in the User table:
+            $ ... table User count
+        &#34;&#34;&#34;
+        res = self._qs.count()
+        self._qs = None
+        return res
+
+
+class Doors:
+    &#34;&#34;&#34;This group gives access to inputs and outputs related
+    to a given door or doors
+    &#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;Select doors to operate
+
+        Args:
+            indexes: Doors to select. You can select a single door by
+                passing an index `select 1`. Or select a range by
+                passing a list as `select 0-2` (doors 0, 1 and 2
+                will be selected). Indexes are started from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    @property
+    def relays(self):
+        return Relays(self._items.relays)
+
+    @property
+    def readers(self):
+        if isinstance(self._items, Door):
+            return Readers(self._items.reader)
+        return Readers(self._items.readers)
+
+    @property
+    def aux_inputs(self):
+        if isinstance(self._items, Door):
+            return AuxInputs(self._items.aux_input)
+        return AuxInputs(self._items.aux_inputs)
+
+    @property
+    def parameters(self):
+        &#34;&#34;&#34;Parameters related to a current door. Valid only if a
+        single door was requested
+        &#34;&#34;&#34;
+        if isinstance(self._items, Door):
+            return Parameters(self._items.parameters)
+        return Parameters(doors_params_error)
+
+    @property
+    def events(self):
+        return Events(self._items.events)
+
+
+class Relays:
+    &#34;&#34;&#34;This group provides actions to do with a given relay or
+    relays
+    &#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;
+        Select relays to operate
+
+        Args:
+            indexes: Relays to select. You can select a single relay by
+                passing an index `select 1`. Or select a range by
+                passing a list as `select 0-2` (relays 0, 1 and 2
+                will be selected). Indexes are started from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    def switch_on(self, *, timeout: int = 5):
+        &#34;&#34;&#34;Switch on a relay for given time.
+
+        Args:
+            timeout: Timeout in seconds in which a relay(s) will be
+            switched on. Default is 5 seconds
+        &#34;&#34;&#34;
+        self._items.switch_on(timeout)
+
+
+class Readers:
+    &#34;&#34;&#34;This group represents a given reader or readers&#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;Select doors to operate
+
+        Args:
+            indexes: Readers to select. You can select a single reader
+                by passing an index `select 1`. Or select a range by
+                passing a list as `select 0-2` (readers 0, 1 and 2
+                will be selected). Indexes are started from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    @property
+    def events(self):
+        return Events(self._items.events)
+
+
+class AuxInputs:
+    &#34;&#34;&#34;This group represents a given aux input or inputs&#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;Select doors to operate
+
+        Args:
+            indexes: Aux input to select. You can select a single
+                aux input by passing an index `select 1`. Or select
+                a range by passing a list as `select 0-2` (aux inputs
+                0, 1 and 2 will be selected). Indexes are started
+                from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    @property
+    def events(self):
+        return Events(self._items.events)
+
+
+class Events:
+    &#34;&#34;&#34;This group is intended for working with event log&#34;&#34;&#34;
+    def __init__(self, event_log):
+        self._event_log = event_log
+        self._event_field_types = {
+            &#39;time&#39;: datetime,
+            &#39;pin&#39;: str,
+            &#39;card&#39;: str,
+            &#39;door&#39;: int,
+            &#39;event_type&#39;: int,
+            &#39;entry_exit&#39;: PassageDirection,
+            &#39;verify_mode&#39;: VerifyMode
+        }
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, self._event_field_types.keys()
+        )
+        # Use ad-hoc formatter because ascii table formatter
+        # can&#39;t print data iteratively as it arrives, and whole contents
+        # prints only when poll function exits by timeout
+        if opt_io_format == &#39;ascii_table&#39;:
+            formatter = EventsPollFormatter(data_in, data_out, self._event_field_types.keys())
+
+        self._io_converter = TypedFieldConverter(formatter, self._event_field_types)
+
+    def __call__(self):
+        self._io_converter.write_records(
+            {s: getattr(ev, s) for s in self._event_field_types.keys()} for ev in self._event_log
+        )
+
+    def poll(self, timeout: int = 60, first_only: bool = False):
+        &#34;&#34;&#34;Wait for an event to be appeared on a device and prints
+        them if any. If no events has been appeared during timeout, then
+        exit by timeout. Filters that has been set are also matter.
+
+
+        Args:
+            timeout: Time in seconds the command waits events
+                to appear and then finishes if no events has been
+                appeared. Default is 60 seconds
+            first_only: If this flag is set then the command will exit
+                after the first event has came
+        &#34;&#34;&#34;
+        def _poll_events():
+            events = self._event_log.poll(timeout)
+            while events:
+                for event in events:
+                    yield {s: getattr(event, s) for s in self._event_field_types.keys()}
+
+                if first_only:
+                    return
+
+                events = self._event_log.poll(timeout)
+
+            sys.stderr.write(&#39;INFO: Finished by timeout\n&#39;)
+
+        self._io_converter.write_records(_poll_events())
+
+    def only(self, **filters):
+        &#34;&#34;&#34;Add filtering by field value to an event log
+
+        For example, select events with card=123456 AND event_type=221:
+            $ ... events only --card=123456 --event_type=221
+
+        Args:
+            filters: flags are fields to do filtering by. Such
+                filters are concatenated by AND. For example,
+                `... only --field1=value1 --field2=value2 ...`
+        &#34;&#34;&#34;
+        typed_filters = self._io_converter.to_record_dict(filters)
+        self._event_log = self._event_log.only(**typed_filters)
+
+        return self
+
+
+class Parameters:
+    &#34;&#34;&#34;This group helps to get and set device and door parameters
+
+    Some of usage examples:
+
+        List all door parameter names:
+            $ ... doors --numbers=1 parameters list
+
+        List all device parameter names:
+            $ ... parameters list
+
+        Get all device parameters with values:
+            $ ... parameters
+
+        Get particular device parameters with values (could be faster than requesting all ones):
+            $ ... parameters --names=datetime,ip_address,serial_number
+
+        Set device parameters:
+            $ ... parameters set --datetime=&#34;2021-05-08 00:04:00&#34; --ip_address=&#34;192.168.128.1&#34;
+
+    Args:
+        names: Comma-separated list of parameter names to request
+            from a device. If omitted, then all parameters will be
+            requested. For example, --names=param1,param2,param3
+
+    &#34;&#34;&#34;
+    def __init__(self, item):
+        self._item = item
+        self._item_cls = item.__class__
+        # Exclude write-only parameters
+        self._readable_params = {attr for attr in dir(self._item_cls)
+                                 if (isinstance(getattr(self._item_cls, attr), property)
+                                 and getattr(self._item_cls, attr).fget is not None)}
+        self._readonly_params = {attr for attr in self._readable_params
+                                 if getattr(self._item_cls, attr).fset is None}
+        # Extract types from getters annotations. Skip if no getter
+        # Assume str if no return annotation has set
+        props = {attr: getattr(self._item_cls, attr) for attr in self._readable_params
+                 if getattr(self._item_cls, attr).fget is not None}
+        self._prop_types = {k: getattr(v.fget, &#39;__annotations__&#39;, {}).get(&#39;return&#39;, str)
+                            for k, v in props.items()}
+
+    def __call__(self, *, names: list = None):
+        if self._item is doors_params_error:
+            raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+        if names is None:
+            names = self._readable_params
+        elif isinstance(names, str):
+            names = (names, )
+        elif not isinstance(names, (list, tuple)):
+            # Workaround of &#34;Could not consume arg&#34; message appearing
+            # instead of exception message problem
+            sys.stderr.write(&#34;ERROR: Names must be a name or list of parameters&#34;)
+            raise FireError(&#34;Names must be a name or list of parameters&#34;)
+
+        names = set(names)
+
+        extra_names = names - set(self._readable_params)
+        if extra_names:
+            # Workaround of &#34;Could not consume arg&#34; message appearing
+            # instead of exception message problem
+            sys.stderr.write(&#39;ERROR: Unknown parameters were given: {}\n&#39;.format(extra_names))
+            raise FireError(&#39;Unknown parameters were given: {}&#39;.format(extra_names))
+
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, names
+        )
+        converter = TypedFieldConverter(formatter, self._prop_types)
+        converter.write_records(
+            [{name: getattr(self._item, name) for name in sorted(names)}]
+        )
+
+    def list(self):
+        &#34;&#34;&#34;List of all valid parameter names&#34;&#34;&#34;
+        if self._item is doors_params_error:
+            raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, [&#39;parameter_name&#39;]
+        )
+        converter = TextConverter(formatter)
+        converter.write_records({&#39;parameter_name&#39;: x} for x in sorted(self._readable_params))
+
+    def set(self, **parameters):
+        &#34;&#34;&#34;Set given parameters
+
+        Args:
+            parameters: Flags are parameters with values to be set.
+                For example, `... parameters set --param1=value1 --param2=value2 ...`
+        &#34;&#34;&#34;
+        if self._item is doors_params_error:
+            raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+        readonly_params = parameters.keys() &amp; self._readonly_params
+        if readonly_params:
+            raise FireError(&#39;The following parameters are read-only: {}&#39;.format(readonly_params))
+
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, parameters.keys()
+        )
+        converter = TypedFieldConverter(formatter, self._prop_types)
+        if parameters:
+            self._set_from_args(parameters, converter)
+        else:
+            self._set_from_input(converter)
+
+    def _set_from_input(self, converter):
+        for record in converter.read_records():
+            for k, v in record.items():
+                setattr(self._item, k, v)
+
+    def _set_from_args(self, args: dict, converter):
+        extra_names = args.keys() - set(self._readable_params)
+        if extra_names:
+            raise FireError(&#39;Unknown parameters were given: {}&#39;.format(extra_names))
+
+        typed_items = converter.to_record_dict(args)
+        for name, val in typed_items.items():
+            setattr(self._item, name, val)
+
+
+class ZKCommand:
+    def __init__(self, zk: ZKAccess):
+        self._zk = zk
+
+    def table(self, name: str) -&gt; Query:
+        &#34;&#34;&#34;
+        Make a query to a device table with given name
+        
+        Args:
+            name: table name. Possible values are:
+                &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+                &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+                &#39;TemplateV10&#39;
+        &#34;&#34;&#34;
+        if name not in models_registry:
+            raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+                name, list(sorted(models_registry.keys()))
+            ))
+        qs = self._zk.table(name)
+        table_cls = qs._table_cls
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, table_cls.fields_mapping().keys()
+        )
+        return Query(qs, ModelConverter(formatter, table_cls))
+
+    def read_raw(self, name: str, *, buffer_size=32768):
+        &#34;&#34;&#34;Return raw data from a given table.
+
+        ZKAccess device keeps table values as strings, many of these
+        fields are encoded (some date fields, for instance). This
+        command returns data as it stores on a device, without
+        applying any type convertions or decoding, like `table`
+        command does.
+
+        This command works on low level. So, it accepts buffer size
+        for storing a result. If you are observed that results
+        are cut, its makes sense to increase buffer size.
+
+        Args:
+            name: table name. Possible values are:
+                &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+                &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+                &#39;TemplateV10&#39;
+            buffer_size: buffer size in bytes to store a result.
+                Default is 32Kb
+        &#34;&#34;&#34;
+        if name not in models_registry:
+            raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+                name, list(sorted(models_registry.keys()))
+            ))
+        table_cls = models_registry[name]
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, table_cls.fields_mapping().values()
+        )
+        converter = TextConverter(formatter)
+        converter.write_records(
+            self._zk.sdk.get_device_data(table_cls.table_name, [], {}, buffer_size, False)
+        )
+
+    def write_raw(self, name: str):
+        &#34;&#34;&#34;Write raw data to a given table.
+
+        ZKAccess device keeps table values as strings, many of these
+        fields are encoded (some date fields, for instance). This
+        command expects input data as it stores on a device, without
+        applying any type convertions or decoding (like `table`
+        command does).
+
+        Args:
+            name: table name. Possible values are:
+                &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+                &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+                &#39;TemplateV10&#39;
+        &#34;&#34;&#34;
+        if name not in models_registry:
+            raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+                name, list(sorted(models_registry.keys()))
+            ))
+        table_cls = models_registry[name]
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, table_cls.fields_mapping().values()
+        )
+        converter = TextConverter(formatter)
+
+        gen = self._zk.sdk.set_device_data(table_cls.table_name)
+        gen.send(None)
+        for record in converter.read_records():
+            gen.send(record)
+
+        try:
+            gen.send(None)
+        except StopIteration:
+            pass
+
+    def upload_file(self, remote_filename: str):
+        &#34;&#34;&#34;Upload data to a file with given name on a device. By
+        default, this command reads data from stdin, use `--file`
+        cli option to set a file
+
+        Args:
+            remote_filename: name of file on a device to write
+        &#34;&#34;&#34;
+        self._zk.upload_file(remote_filename, io.BytesIO(data_in.read().encode()))
+
+    def download_file(self, remote_filename: str):
+        &#34;&#34;&#34;Download a file with given name from a device. By
+        default, this command prints data to stdin, use `--file`
+        cli option to set a file
+
+        Args:
+            remote_filename: name of file on a device to download
+        &#34;&#34;&#34;
+        data_out.write(self._zk.download_file(remote_filename).read().decode())
+
+    def cancel_alarm(self):
+        &#34;&#34;&#34;Move a device from alarm mode to normal mode. Returns nothing&#34;&#34;&#34;
+        self._zk.cancel_alarm()
+
+    @property
+    def doors(self) -&gt; Doors:
+        &#34;&#34;&#34;Select doors to operate. This command gives access to
+        operate with relays, reader and aux input related to selected
+        doors. By default, all doors are selected. Doors count depends
+        on a device model.
+        &#34;&#34;&#34;
+        return Doors(self._zk.doors)
+
+    @property
+    def relays(self):
+        &#34;&#34;&#34;Select relays to operate. By default, all relays are
+        seleted. Relays count depends on a device model.
+        &#34;&#34;&#34;
+        return Relays(self._zk.relays)
+
+    @property
+    def readers(self):
+        &#34;&#34;&#34;Select readers to operate. By default, all readers are
+        seleted. Readers count depends on a device model.
+        &#34;&#34;&#34;
+        return Readers(self._zk.readers)
+
+    @property
+    def aux_inputs(self):
+        &#34;&#34;&#34;Aux inputs to operate. By default, all aux inputs are
+        seleted. Aux inputs count depends on a device model.
+        &#34;&#34;&#34;
+        return AuxInputs(self._zk.aux_inputs)
+
+    @property
+    def events(self):
+        &#34;&#34;&#34;Events on a device.&#34;&#34;&#34;
+        return Events(self._zk.events)
+
+    @property
+    def parameters(self):
+        &#34;&#34;&#34;Device parameters. They does not include door parameters
+        that are available via `doors` command.
+        &#34;&#34;&#34;
+        return Parameters(self._zk.parameters)
+
+    def restart(self):
+        &#34;&#34;&#34;Restart a device.&#34;&#34;&#34;
+        self._zk.restart()
+
+
+class CLI:
+    &#34;&#34;&#34;PyZKAccess command-line interface
+
+    Typical CLI usage:
+        Commands for a connected device:
+            $ pyzkaccess connect &lt;ip&gt; &lt;subcommand|group&gt; [parameters] [&lt;subcommand&gt; [parameters]...]
+
+        Commands not related to a particular device:
+            $ pyzkaccess &lt;command&gt; [parameters]
+
+    Every command, group and subcommand has its own help contents, just
+    type them and append `--help` at the end.
+
+    For example, getting help for `connect` command:
+        $ pyzkaccess connect --help
+
+    Or for `where` subcommand of `table` subcommand:
+        $ pyzkaccess connect 192.168.1.201 table User where --help
+
+    Args:
+        format: format for input/output. Possible values are: ascii_table,
+            csv. Default is ascii_table.
+        file: read and write to/from this file instead of stdin/stdout
+        dllpath: path to PULL SDK dll file. Default is just
+            &#34;plcommpro.dll&#34;
+    &#34;&#34;&#34;
+    def __init__(self):
+        if isinstance(pyzkaccess.ctypes_.WinDLL, Mock):
+            sys.stderr.write(&#34;WARN: PyZKAccess doesn&#39;t work on non-Windows system. &#34;
+                             &#34;Actually you can see CLI help contents only\n&#34;)
+
+        self.__call__()
+
+    def __call__(
+            self, *, format: str = &#39;ascii_table&#39;, file: str = None, dllpath: str = &#39;plcommpro.dll&#39;
+    ):
+        if format not in io_formats:
+            # Workaround of &#34;Could not consume arg&#34; message appearing
+            # instead of exception message problem
+            sys.stderr.write(&#34;ERROR: Unknown format &#39;{}&#39;, available are: {}\n&#34;.format(
+                format, list(sorted(io_formats.keys()))
+            ))
+            raise FireError(&#34;Unknown format &#39;{}&#39;, available are: {}&#34;.format(
+                format, list(sorted(io_formats.keys()))
+            ))
+
+        global opt_io_format
+        opt_io_format = format
+
+        self._file = None
+        if file:
+            d = os.path.dirname(file)
+            if not os.path.isdir(d):
+                # Workaround of &#34;Could not consume arg&#34; message appearing
+                # instead of exception message problem
+                sys.stderr.write(&#34;ERROR: Directory &#39;{}&#39; does not exist\n&#34;.format(d))
+                raise FireError(&#34;Directory {} does not exist&#34;.format(d))
+
+            self._file = open(file, &#39;r+&#39;)
+            self._file.seek(0)
+
+            global data_in
+            global data_out
+            data_in = self._file
+            data_out = WriteFile(self._file)
+
+        self._dllpath = dllpath
+
+        return self
+
+    def connect(self, ip: str, *, model: str = &#39;ZK400&#39;) -&gt; ZKCommand:
+        &#34;&#34;&#34;
+        Connect to a device with given ip.
+
+        Args:
+            ip (str): IP address of a device
+            model (DeviceModels): device model. Possible values are:
+            ZK100, ZK200, ZK400
+        &#34;&#34;&#34;
+        model = device_models.get(model)
+        if model is None:
+            raise FireError(
+                &#34;Unknown device model &#39;{}&#39;, possible values are: ZK100, ZK200, ZK400&#34;.format(model)
+            )
+
+        if not ip:
+            raise FireError(&#39;IP argument is required&#39;)
+
+        connstr = &#39;protocol=TCP,ipaddress={},port=4370,timeout=4000,passwd=&#39;.format(ip)
+
+        zkcmd = ZKCommand(ZKAccess(connstr, device_model=model, dllpath=self._dllpath))
+
+        return zkcmd
+
+    def search_devices(self, *, broadcast_address: str = &#39;255.255.255.255&#39;):
+        &#34;&#34;&#34;
+        Search devices online by scanning an IP local network with given
+        broadcast address
+
+        Args:
+            broadcast_address: Address for broadcast IP packets. Default: 255.255.255.255
+        &#34;&#34;&#34;
+        headers = [&#39;mac&#39;, &#39;ip&#39;, &#39;serial_number&#39;, &#39;model&#39;, &#39;version&#39;]
+        formatter = BaseFormatter.get_formatter(opt_io_format)(data_in, data_out, headers)
+        converter = TextConverter(formatter)
+
+        def _search_devices():
+            devices = ZKAccess.search_devices(broadcast_address, dllpath=self._dllpath)
+            for device in devices:
+                values = [
+                    device.mac, device.ip, device.serial_number, device.model.name, device.version
+                ]
+                yield dict(zip(headers, values))
+
+        converter.write_records(_search_devices())
+
+    def change_ip(
+            self, mac_address: str, new_ip: str, *, broadcast_address: str = &#39;255.255.255.255&#39;
+    ):
+        &#34;&#34;&#34;
+        Classmethod that changes IP address on a device without
+        making a connection to it -- by sending broadcast packets to
+        the given broadcast address. For security reasons, network
+        settings can be changed by this command on devices with
+        no password only.
+
+        Args:
+            mac_address: MAC address of a device
+            new_ip: new IP address to be set on a device
+            broadcast_address: broadcast network address to send
+                broadcast packets to
+        &#34;&#34;&#34;
+        ZKAccess.change_ip(
+            mac_address, new_ip, broadcast_address, ChangeIPProtocol.udp, self._dllpath
+        )
+
+
+class WriteFile(wrapt.ObjectProxy):
+    &#34;&#34;&#34;Wrapper around file-like object which truncates file to a
+    current position on flush
+    &#34;&#34;&#34;
+    def flush(self):
+        self.__wrapped__.truncate()
+        self.__wrapped__.flush()
+
+
+def main():
+    cli = CLI()
+    fire.Fire(cli)
+
+    if cli._file is not None:
+        cli._file.close()
+
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pyzkaccess.cli.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    cli = CLI()
+    fire.Fire(cli)
+
+    if cli._file is not None:
+        cli._file.close()</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.parse_array_index"><code class="name flex">
+<span>def <span class="ident">parse_array_index</span></span>(<span>opt_indexes: Union[int, str, NoneType]) ‑> Union[int, slice]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parse index/range cli parameter and return appropriate int or slice</p>
+<pre><code>&gt;&gt;&gt; assert parse_array_index(None) == slice(None, None, None)
+&gt;&gt;&gt; assert parse_array_index(1) == int(1)
+&gt;&gt;&gt; assert parse_array_index('1-2') == slice(1, 2, None)
+</code></pre>
+<h2 id="args">Args</h2>
+<p>opt_indexes(Union[int, str], optional): index or range</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Union[int, slice]</code></dt>
+<dd>int or slice suitable for sequences indexing</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parse_array_index(opt_indexes: Optional[Union[int, str]]) -&gt; Union[int, slice]:
+    &#34;&#34;&#34;
+    Parse index/range cli parameter and return appropriate int or slice
+
+        &gt;&gt;&gt; assert parse_array_index(None) == slice(None, None, None)
+        &gt;&gt;&gt; assert parse_array_index(1) == int(1)
+        &gt;&gt;&gt; assert parse_array_index(&#39;1-2&#39;) == slice(1, 2, None)
+
+    Args:
+        opt_indexes(Union[int, str], optional): index or range
+
+    Returns:
+        Union[int, slice]: int or slice suitable for sequences indexing
+    &#34;&#34;&#34;
+    if opt_indexes is None:
+        return slice(None, None)
+    if isinstance(opt_indexes, str):
+        if not re.match(r&#39;^\d-\d$&#39;, opt_indexes):
+            raise FireError(&#34;Select range must contain numbers divided by dash, for example 0-3&#34;)
+
+        pieces = opt_indexes.split(&#39;-&#39;)
+        start = int(pieces.pop(0)) if pieces else None
+        stop = int(pieces.pop(0) or 1000) + 1 if pieces else None
+        return slice(start, stop)
+    if isinstance(opt_indexes, int):
+        if opt_indexes &lt; 0:
+            raise FireError(&#34;Select index must be a positive number&#34;)
+
+        return opt_indexes
+
+    raise FireError(&#34;Numbers must be list or int&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyzkaccess.cli.ASCIITableFormatter"><code class="flex name class">
+<span>class <span class="ident">ASCIITableFormatter</span></span>
+<span>(</span><span>istream: <class 'TextIO'>, ostream: <class 'TextIO'>, headers: Iterable[str])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for particular formatters</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ASCIITableFormatter(BaseFormatter):
+    class ASCIITableWriter(BaseFormatter.WriterInterface):
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            if self._writer is None:
+                self._writer = prettytable.PrettyTable(field_names=self._headers, align=&#39;l&#39;)
+
+            record = [record.get(k) for k in self._headers]
+            self._writer.add_row(record)
+
+        def flush(self) -&gt; None:
+            if self._writer is None:
+                self._writer = prettytable.PrettyTable(field_names=self._headers, align=&#39;l&#39;)
+
+            self._ostream.write(self._writer.get_string())
+            self._ostream.write(&#39;\n&#39;)
+            self._ostream.flush()
+
+    def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+        return ASCIITableFormatter.ASCIITableWriter(self._ostream, self._headers)
+
+    def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+        raise FireError(
+            &#39;You should to specify input data format, e.g. `pyzkaccess --format=csv ...`&#39;
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.ASCIITableFormatter.ASCIITableWriter"><code class="name">var <span class="ident">ASCIITableWriter</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.ASCIITableFormatter.get_reader"><code class="name flex">
+<span>def <span class="ident">get_reader</span></span>(<span>self) ‑> Iterable[Mapping[str, str]]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+    raise FireError(
+        &#39;You should to specify input data format, e.g. `pyzkaccess --format=csv ...`&#39;
+    )</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ASCIITableFormatter.get_writer"><code class="name flex">
+<span>def <span class="ident">get_writer</span></span>(<span>self) ‑> <a title="pyzkaccess.cli.BaseFormatter.WriterInterface" href="#pyzkaccess.cli.BaseFormatter.WriterInterface">BaseFormatter.WriterInterface</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+    return ASCIITableFormatter.ASCIITableWriter(self._ostream, self._headers)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.AuxInputs"><code class="flex name class">
+<span>class <span class="ident">AuxInputs</span></span>
+<span>(</span><span>items)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This group represents a given aux input or inputs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AuxInputs:
+    &#34;&#34;&#34;This group represents a given aux input or inputs&#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;Select doors to operate
+
+        Args:
+            indexes: Aux input to select. You can select a single
+                aux input by passing an index `select 1`. Or select
+                a range by passing a list as `select 0-2` (aux inputs
+                0, 1 and 2 will be selected). Indexes are started
+                from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    @property
+    def events(self):
+        return Events(self._items.events)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.AuxInputs.events"><code class="name">var <span class="ident">events</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def events(self):
+    return Events(self._items.events)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.AuxInputs.select"><code class="name flex">
+<span>def <span class="ident">select</span></span>(<span>self, indexes: Union[int, list])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Select doors to operate</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>indexes</code></strong></dt>
+<dd>Aux input to select. You can select a single
+aux input by passing an index <code>select 1</code>. Or select
+a range by passing a list as <code>select 0-2</code> (aux inputs
+0, 1 and 2 will be selected). Indexes are started
+from 0.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def select(self, indexes: Union[int, list]):
+    &#34;&#34;&#34;Select doors to operate
+
+    Args:
+        indexes: Aux input to select. You can select a single
+            aux input by passing an index `select 1`. Or select
+            a range by passing a list as `select 0-2` (aux inputs
+            0, 1 and 2 will be selected). Indexes are started
+            from 0.
+    &#34;&#34;&#34;
+    self._items = self._items[parse_array_index(indexes)]
+    return self</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.BaseConverter"><code class="flex name class">
+<span>class <span class="ident">BaseConverter</span></span>
+<span>(</span><span>formatter: <a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a>, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseConverter(metaclass=abc.ABCMeta):
+    def __init__(self, formatter: BaseFormatter, *args, **kwargs):
+        self._formatter = formatter
+        self._args = args
+        self._kwargs = kwargs
+
+    @abc.abstractmethod
+    def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+        pass
+
+    @abc.abstractmethod
+    def write_records(self, records: Iterable[Mapping[str, Any]]):
+        pass</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.TextConverter" href="#pyzkaccess.cli.TextConverter">TextConverter</a></li>
+<li><a title="pyzkaccess.cli.TypedFieldConverter" href="#pyzkaccess.cli.TypedFieldConverter">TypedFieldConverter</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.BaseConverter.read_records"><code class="name flex">
+<span>def <span class="ident">read_records</span></span>(<span>self) ‑> Generator[Mapping[str, Any], NoneType, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+    pass</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.BaseConverter.write_records"><code class="name flex">
+<span>def <span class="ident">write_records</span></span>(<span>self, records: Iterable[Mapping[str, Any]])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+def write_records(self, records: Iterable[Mapping[str, Any]]):
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.BaseFormatter"><code class="flex name class">
+<span>class <span class="ident">BaseFormatter</span></span>
+<span>(</span><span>istream: <class 'TextIO'>, ostream: <class 'TextIO'>, headers: Iterable[str])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for particular formatters</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseFormatter(metaclass=abc.ABCMeta):
+    &#34;&#34;&#34;Base class for particular formatters&#34;&#34;&#34;
+    class WriterInterface(metaclass=abc.ABCMeta):
+        def __init__(self, ostream: TextIO, headers: list):
+            self._ostream = ostream
+            self._headers = headers
+            self._writer = None
+
+        @abc.abstractmethod
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            pass
+
+        @abc.abstractmethod
+        def flush(self) -&gt; None:
+            pass
+
+    def __init__(self, istream: TextIO, ostream: TextIO, headers: Iterable[str]):
+        self._istream = istream
+        self._ostream = ostream
+        self._headers = list(sorted(headers))
+
+    @staticmethod
+    def get_formatter(io_format: str) -&gt; &#39;Type[BaseFormatter]&#39;:
+        if io_format not in io_formats:
+            raise FireError(&#34;{} format(s) are only supported&#34;, sorted(io_formats.keys()))
+        return io_formats[io_format]
+
+    def validate_headers(self, input_headers: Union[set, KeysView]):
+        headers = set(self._headers)
+        extra = input_headers - headers
+        if extra:
+            raise FireError(&#34;Unknown fields in input: {}&#34;.format(extra))
+
+        missed = headers - input_headers
+        if missed:
+            raise FireError(&#34;Missed fields in input: {}&#34;.format(extra))
+
+    @abc.abstractmethod
+    def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+        pass
+
+    @abc.abstractmethod
+    def get_writer(self) -&gt; WriterInterface:
+        pass</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.ASCIITableFormatter" href="#pyzkaccess.cli.ASCIITableFormatter">ASCIITableFormatter</a></li>
+<li><a title="pyzkaccess.cli.CSVFormatter" href="#pyzkaccess.cli.CSVFormatter">CSVFormatter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.BaseFormatter.WriterInterface"><code class="name">var <span class="ident">WriterInterface</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.BaseFormatter.get_formatter"><code class="name flex">
+<span>def <span class="ident">get_formatter</span></span>(<span>io_format: str) ‑> Type[<a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_formatter(io_format: str) -&gt; &#39;Type[BaseFormatter]&#39;:
+    if io_format not in io_formats:
+        raise FireError(&#34;{} format(s) are only supported&#34;, sorted(io_formats.keys()))
+    return io_formats[io_format]</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.BaseFormatter.get_reader"><code class="name flex">
+<span>def <span class="ident">get_reader</span></span>(<span>self) ‑> Iterable[Mapping[str, str]]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+    pass</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.BaseFormatter.get_writer"><code class="name flex">
+<span>def <span class="ident">get_writer</span></span>(<span>self) ‑> <a title="pyzkaccess.cli.BaseFormatter.WriterInterface" href="#pyzkaccess.cli.BaseFormatter.WriterInterface">BaseFormatter.WriterInterface</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abc.abstractmethod
+def get_writer(self) -&gt; WriterInterface:
+    pass</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.BaseFormatter.validate_headers"><code class="name flex">
+<span>def <span class="ident">validate_headers</span></span>(<span>self, input_headers: Union[set, KeysView])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def validate_headers(self, input_headers: Union[set, KeysView]):
+    headers = set(self._headers)
+    extra = input_headers - headers
+    if extra:
+        raise FireError(&#34;Unknown fields in input: {}&#34;.format(extra))
+
+    missed = headers - input_headers
+    if missed:
+        raise FireError(&#34;Missed fields in input: {}&#34;.format(extra))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.CLI"><code class="flex name class">
+<span>class <span class="ident">CLI</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>PyZKAccess command-line interface</p>
+<p>Typical CLI usage:
+Commands for a connected device:
+$ pyzkaccess connect <ip> <subcommand|group> [parameters] [<subcommand> [parameters]&hellip;]</p>
+<pre><code>Commands not related to a particular device:
+    $ pyzkaccess &lt;command&gt; [parameters]
+</code></pre>
+<p>Every command, group and subcommand has its own help contents, just
+type them and append <code>--help</code> at the end.</p>
+<p>For example, getting help for <code>connect</code> command:
+$ pyzkaccess connect &ndash;help</p>
+<p>Or for <code>where</code> subcommand of <code>table</code> subcommand:
+$ pyzkaccess connect 192.168.1.201 table User where &ndash;help</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>format</code></strong></dt>
+<dd>format for input/output. Possible values are: ascii_table,
+csv. Default is ascii_table.</dd>
+<dt><strong><code>file</code></strong></dt>
+<dd>read and write to/from this file instead of stdin/stdout</dd>
+<dt><strong><code>dllpath</code></strong></dt>
+<dd>path to PULL SDK dll file. Default is just
+"plcommpro.dll"</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CLI:
+    &#34;&#34;&#34;PyZKAccess command-line interface
+
+    Typical CLI usage:
+        Commands for a connected device:
+            $ pyzkaccess connect &lt;ip&gt; &lt;subcommand|group&gt; [parameters] [&lt;subcommand&gt; [parameters]...]
+
+        Commands not related to a particular device:
+            $ pyzkaccess &lt;command&gt; [parameters]
+
+    Every command, group and subcommand has its own help contents, just
+    type them and append `--help` at the end.
+
+    For example, getting help for `connect` command:
+        $ pyzkaccess connect --help
+
+    Or for `where` subcommand of `table` subcommand:
+        $ pyzkaccess connect 192.168.1.201 table User where --help
+
+    Args:
+        format: format for input/output. Possible values are: ascii_table,
+            csv. Default is ascii_table.
+        file: read and write to/from this file instead of stdin/stdout
+        dllpath: path to PULL SDK dll file. Default is just
+            &#34;plcommpro.dll&#34;
+    &#34;&#34;&#34;
+    def __init__(self):
+        if isinstance(pyzkaccess.ctypes_.WinDLL, Mock):
+            sys.stderr.write(&#34;WARN: PyZKAccess doesn&#39;t work on non-Windows system. &#34;
+                             &#34;Actually you can see CLI help contents only\n&#34;)
+
+        self.__call__()
+
+    def __call__(
+            self, *, format: str = &#39;ascii_table&#39;, file: str = None, dllpath: str = &#39;plcommpro.dll&#39;
+    ):
+        if format not in io_formats:
+            # Workaround of &#34;Could not consume arg&#34; message appearing
+            # instead of exception message problem
+            sys.stderr.write(&#34;ERROR: Unknown format &#39;{}&#39;, available are: {}\n&#34;.format(
+                format, list(sorted(io_formats.keys()))
+            ))
+            raise FireError(&#34;Unknown format &#39;{}&#39;, available are: {}&#34;.format(
+                format, list(sorted(io_formats.keys()))
+            ))
+
+        global opt_io_format
+        opt_io_format = format
+
+        self._file = None
+        if file:
+            d = os.path.dirname(file)
+            if not os.path.isdir(d):
+                # Workaround of &#34;Could not consume arg&#34; message appearing
+                # instead of exception message problem
+                sys.stderr.write(&#34;ERROR: Directory &#39;{}&#39; does not exist\n&#34;.format(d))
+                raise FireError(&#34;Directory {} does not exist&#34;.format(d))
+
+            self._file = open(file, &#39;r+&#39;)
+            self._file.seek(0)
+
+            global data_in
+            global data_out
+            data_in = self._file
+            data_out = WriteFile(self._file)
+
+        self._dllpath = dllpath
+
+        return self
+
+    def connect(self, ip: str, *, model: str = &#39;ZK400&#39;) -&gt; ZKCommand:
+        &#34;&#34;&#34;
+        Connect to a device with given ip.
+
+        Args:
+            ip (str): IP address of a device
+            model (DeviceModels): device model. Possible values are:
+            ZK100, ZK200, ZK400
+        &#34;&#34;&#34;
+        model = device_models.get(model)
+        if model is None:
+            raise FireError(
+                &#34;Unknown device model &#39;{}&#39;, possible values are: ZK100, ZK200, ZK400&#34;.format(model)
+            )
+
+        if not ip:
+            raise FireError(&#39;IP argument is required&#39;)
+
+        connstr = &#39;protocol=TCP,ipaddress={},port=4370,timeout=4000,passwd=&#39;.format(ip)
+
+        zkcmd = ZKCommand(ZKAccess(connstr, device_model=model, dllpath=self._dllpath))
+
+        return zkcmd
+
+    def search_devices(self, *, broadcast_address: str = &#39;255.255.255.255&#39;):
+        &#34;&#34;&#34;
+        Search devices online by scanning an IP local network with given
+        broadcast address
+
+        Args:
+            broadcast_address: Address for broadcast IP packets. Default: 255.255.255.255
+        &#34;&#34;&#34;
+        headers = [&#39;mac&#39;, &#39;ip&#39;, &#39;serial_number&#39;, &#39;model&#39;, &#39;version&#39;]
+        formatter = BaseFormatter.get_formatter(opt_io_format)(data_in, data_out, headers)
+        converter = TextConverter(formatter)
+
+        def _search_devices():
+            devices = ZKAccess.search_devices(broadcast_address, dllpath=self._dllpath)
+            for device in devices:
+                values = [
+                    device.mac, device.ip, device.serial_number, device.model.name, device.version
+                ]
+                yield dict(zip(headers, values))
+
+        converter.write_records(_search_devices())
+
+    def change_ip(
+            self, mac_address: str, new_ip: str, *, broadcast_address: str = &#39;255.255.255.255&#39;
+    ):
+        &#34;&#34;&#34;
+        Classmethod that changes IP address on a device without
+        making a connection to it -- by sending broadcast packets to
+        the given broadcast address. For security reasons, network
+        settings can be changed by this command on devices with
+        no password only.
+
+        Args:
+            mac_address: MAC address of a device
+            new_ip: new IP address to be set on a device
+            broadcast_address: broadcast network address to send
+                broadcast packets to
+        &#34;&#34;&#34;
+        ZKAccess.change_ip(
+            mac_address, new_ip, broadcast_address, ChangeIPProtocol.udp, self._dllpath
+        )</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.CLI.change_ip"><code class="name flex">
+<span>def <span class="ident">change_ip</span></span>(<span>self, mac_address: str, new_ip: str, *, broadcast_address: str = '255.255.255.255')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Classmethod that changes IP address on a device without
+making a connection to it &ndash; by sending broadcast packets to
+the given broadcast address. For security reasons, network
+settings can be changed by this command on devices with
+no password only.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mac_address</code></strong></dt>
+<dd>MAC address of a device</dd>
+<dt><strong><code>new_ip</code></strong></dt>
+<dd>new IP address to be set on a device</dd>
+<dt><strong><code>broadcast_address</code></strong></dt>
+<dd>broadcast network address to send
+broadcast packets to</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def change_ip(
+        self, mac_address: str, new_ip: str, *, broadcast_address: str = &#39;255.255.255.255&#39;
+):
+    &#34;&#34;&#34;
+    Classmethod that changes IP address on a device without
+    making a connection to it -- by sending broadcast packets to
+    the given broadcast address. For security reasons, network
+    settings can be changed by this command on devices with
+    no password only.
+
+    Args:
+        mac_address: MAC address of a device
+        new_ip: new IP address to be set on a device
+        broadcast_address: broadcast network address to send
+            broadcast packets to
+    &#34;&#34;&#34;
+    ZKAccess.change_ip(
+        mac_address, new_ip, broadcast_address, ChangeIPProtocol.udp, self._dllpath
+    )</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.CLI.connect"><code class="name flex">
+<span>def <span class="ident">connect</span></span>(<span>self, ip: str, *, model: str = 'ZK400') ‑> <a title="pyzkaccess.cli.ZKCommand" href="#pyzkaccess.cli.ZKCommand">ZKCommand</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connect to a device with given ip.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ip</code></strong> :&ensp;<code>str</code></dt>
+<dd>IP address of a device</dd>
+<dt><strong><code>model</code></strong> :&ensp;<code>DeviceModels</code></dt>
+<dd>device model. Possible values are:</dd>
+</dl>
+<p>ZK100, ZK200, ZK400</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def connect(self, ip: str, *, model: str = &#39;ZK400&#39;) -&gt; ZKCommand:
+    &#34;&#34;&#34;
+    Connect to a device with given ip.
+
+    Args:
+        ip (str): IP address of a device
+        model (DeviceModels): device model. Possible values are:
+        ZK100, ZK200, ZK400
+    &#34;&#34;&#34;
+    model = device_models.get(model)
+    if model is None:
+        raise FireError(
+            &#34;Unknown device model &#39;{}&#39;, possible values are: ZK100, ZK200, ZK400&#34;.format(model)
+        )
+
+    if not ip:
+        raise FireError(&#39;IP argument is required&#39;)
+
+    connstr = &#39;protocol=TCP,ipaddress={},port=4370,timeout=4000,passwd=&#39;.format(ip)
+
+    zkcmd = ZKCommand(ZKAccess(connstr, device_model=model, dllpath=self._dllpath))
+
+    return zkcmd</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.CLI.search_devices"><code class="name flex">
+<span>def <span class="ident">search_devices</span></span>(<span>self, *, broadcast_address: str = '255.255.255.255')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Search devices online by scanning an IP local network with given
+broadcast address</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>broadcast_address</code></strong></dt>
+<dd>Address for broadcast IP packets. Default: 255.255.255.255</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_devices(self, *, broadcast_address: str = &#39;255.255.255.255&#39;):
+    &#34;&#34;&#34;
+    Search devices online by scanning an IP local network with given
+    broadcast address
+
+    Args:
+        broadcast_address: Address for broadcast IP packets. Default: 255.255.255.255
+    &#34;&#34;&#34;
+    headers = [&#39;mac&#39;, &#39;ip&#39;, &#39;serial_number&#39;, &#39;model&#39;, &#39;version&#39;]
+    formatter = BaseFormatter.get_formatter(opt_io_format)(data_in, data_out, headers)
+    converter = TextConverter(formatter)
+
+    def _search_devices():
+        devices = ZKAccess.search_devices(broadcast_address, dllpath=self._dllpath)
+        for device in devices:
+            values = [
+                device.mac, device.ip, device.serial_number, device.model.name, device.version
+            ]
+            yield dict(zip(headers, values))
+
+    converter.write_records(_search_devices())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.CSVFormatter"><code class="flex name class">
+<span>class <span class="ident">CSVFormatter</span></span>
+<span>(</span><span>istream: <class 'TextIO'>, ostream: <class 'TextIO'>, headers: Iterable[str])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Formatter for comma-separated values format</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CSVFormatter(BaseFormatter):
+    &#34;&#34;&#34;Formatter for comma-separated values format&#34;&#34;&#34;
+    class CSVWriter(BaseFormatter.WriterInterface):
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            record = {k: record.get(k) for k in self._headers}
+
+            if self._writer is None:
+                self._writer = csv.DictWriter(self._ostream, self._headers)
+                self._writer.writeheader()
+
+            self._writer.writerow(record)
+
+        def flush(self) -&gt; None:
+            if self._writer is None:
+                self._writer = csv.DictWriter(self._ostream, self._headers)
+                self._writer.writeheader()
+
+            self._ostream.flush()
+
+    def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+        def _reader():
+            checked = False
+            for item in csv.DictReader(self._istream):
+                if checked is False:
+                    self.validate_headers(item.keys())
+                    checked = True
+
+                item = {k: item[k] for k in self._headers}
+                yield item
+
+        return _reader()
+
+    def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+        return CSVFormatter.CSVWriter(self._ostream, self._headers)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.EventsPollFormatter" href="#pyzkaccess.cli.EventsPollFormatter">EventsPollFormatter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.CSVFormatter.CSVWriter"><code class="name">var <span class="ident">CSVWriter</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.CSVFormatter.get_reader"><code class="name flex">
+<span>def <span class="ident">get_reader</span></span>(<span>self) ‑> Iterable[Mapping[str, str]]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_reader(self) -&gt; Iterable[Mapping[str, str]]:
+    def _reader():
+        checked = False
+        for item in csv.DictReader(self._istream):
+            if checked is False:
+                self.validate_headers(item.keys())
+                checked = True
+
+            item = {k: item[k] for k in self._headers}
+            yield item
+
+    return _reader()</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.CSVFormatter.get_writer"><code class="name flex">
+<span>def <span class="ident">get_writer</span></span>(<span>self) ‑> <a title="pyzkaccess.cli.BaseFormatter.WriterInterface" href="#pyzkaccess.cli.BaseFormatter.WriterInterface">BaseFormatter.WriterInterface</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+    return CSVFormatter.CSVWriter(self._ostream, self._headers)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.Doors"><code class="flex name class">
+<span>class <span class="ident">Doors</span></span>
+<span>(</span><span>items)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This group gives access to inputs and outputs related
+to a given door or doors</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Doors:
+    &#34;&#34;&#34;This group gives access to inputs and outputs related
+    to a given door or doors
+    &#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;Select doors to operate
+
+        Args:
+            indexes: Doors to select. You can select a single door by
+                passing an index `select 1`. Or select a range by
+                passing a list as `select 0-2` (doors 0, 1 and 2
+                will be selected). Indexes are started from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    @property
+    def relays(self):
+        return Relays(self._items.relays)
+
+    @property
+    def readers(self):
+        if isinstance(self._items, Door):
+            return Readers(self._items.reader)
+        return Readers(self._items.readers)
+
+    @property
+    def aux_inputs(self):
+        if isinstance(self._items, Door):
+            return AuxInputs(self._items.aux_input)
+        return AuxInputs(self._items.aux_inputs)
+
+    @property
+    def parameters(self):
+        &#34;&#34;&#34;Parameters related to a current door. Valid only if a
+        single door was requested
+        &#34;&#34;&#34;
+        if isinstance(self._items, Door):
+            return Parameters(self._items.parameters)
+        return Parameters(doors_params_error)
+
+    @property
+    def events(self):
+        return Events(self._items.events)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.Doors.aux_inputs"><code class="name">var <span class="ident">aux_inputs</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def aux_inputs(self):
+    if isinstance(self._items, Door):
+        return AuxInputs(self._items.aux_input)
+    return AuxInputs(self._items.aux_inputs)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Doors.events"><code class="name">var <span class="ident">events</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def events(self):
+    return Events(self._items.events)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Doors.parameters"><code class="name">var <span class="ident">parameters</span></code></dt>
+<dd>
+<div class="desc"><p>Parameters related to a current door. Valid only if a
+single door was requested</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameters(self):
+    &#34;&#34;&#34;Parameters related to a current door. Valid only if a
+    single door was requested
+    &#34;&#34;&#34;
+    if isinstance(self._items, Door):
+        return Parameters(self._items.parameters)
+    return Parameters(doors_params_error)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Doors.readers"><code class="name">var <span class="ident">readers</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def readers(self):
+    if isinstance(self._items, Door):
+        return Readers(self._items.reader)
+    return Readers(self._items.readers)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Doors.relays"><code class="name">var <span class="ident">relays</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def relays(self):
+    return Relays(self._items.relays)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.Doors.select"><code class="name flex">
+<span>def <span class="ident">select</span></span>(<span>self, indexes: Union[int, list])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Select doors to operate</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>indexes</code></strong></dt>
+<dd>Doors to select. You can select a single door by
+passing an index <code>select 1</code>. Or select a range by
+passing a list as <code>select 0-2</code> (doors 0, 1 and 2
+will be selected). Indexes are started from 0.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def select(self, indexes: Union[int, list]):
+    &#34;&#34;&#34;Select doors to operate
+
+    Args:
+        indexes: Doors to select. You can select a single door by
+            passing an index `select 1`. Or select a range by
+            passing a list as `select 0-2` (doors 0, 1 and 2
+            will be selected). Indexes are started from 0.
+    &#34;&#34;&#34;
+    self._items = self._items[parse_array_index(indexes)]
+    return self</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.Events"><code class="flex name class">
+<span>class <span class="ident">Events</span></span>
+<span>(</span><span>event_log)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This group is intended for working with event log</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Events:
+    &#34;&#34;&#34;This group is intended for working with event log&#34;&#34;&#34;
+    def __init__(self, event_log):
+        self._event_log = event_log
+        self._event_field_types = {
+            &#39;time&#39;: datetime,
+            &#39;pin&#39;: str,
+            &#39;card&#39;: str,
+            &#39;door&#39;: int,
+            &#39;event_type&#39;: int,
+            &#39;entry_exit&#39;: PassageDirection,
+            &#39;verify_mode&#39;: VerifyMode
+        }
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, self._event_field_types.keys()
+        )
+        # Use ad-hoc formatter because ascii table formatter
+        # can&#39;t print data iteratively as it arrives, and whole contents
+        # prints only when poll function exits by timeout
+        if opt_io_format == &#39;ascii_table&#39;:
+            formatter = EventsPollFormatter(data_in, data_out, self._event_field_types.keys())
+
+        self._io_converter = TypedFieldConverter(formatter, self._event_field_types)
+
+    def __call__(self):
+        self._io_converter.write_records(
+            {s: getattr(ev, s) for s in self._event_field_types.keys()} for ev in self._event_log
+        )
+
+    def poll(self, timeout: int = 60, first_only: bool = False):
+        &#34;&#34;&#34;Wait for an event to be appeared on a device and prints
+        them if any. If no events has been appeared during timeout, then
+        exit by timeout. Filters that has been set are also matter.
+
+
+        Args:
+            timeout: Time in seconds the command waits events
+                to appear and then finishes if no events has been
+                appeared. Default is 60 seconds
+            first_only: If this flag is set then the command will exit
+                after the first event has came
+        &#34;&#34;&#34;
+        def _poll_events():
+            events = self._event_log.poll(timeout)
+            while events:
+                for event in events:
+                    yield {s: getattr(event, s) for s in self._event_field_types.keys()}
+
+                if first_only:
+                    return
+
+                events = self._event_log.poll(timeout)
+
+            sys.stderr.write(&#39;INFO: Finished by timeout\n&#39;)
+
+        self._io_converter.write_records(_poll_events())
+
+    def only(self, **filters):
+        &#34;&#34;&#34;Add filtering by field value to an event log
+
+        For example, select events with card=123456 AND event_type=221:
+            $ ... events only --card=123456 --event_type=221
+
+        Args:
+            filters: flags are fields to do filtering by. Such
+                filters are concatenated by AND. For example,
+                `... only --field1=value1 --field2=value2 ...`
+        &#34;&#34;&#34;
+        typed_filters = self._io_converter.to_record_dict(filters)
+        self._event_log = self._event_log.only(**typed_filters)
+
+        return self</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.Events.only"><code class="name flex">
+<span>def <span class="ident">only</span></span>(<span>self, **filters)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add filtering by field value to an event log</p>
+<p>For example, select events with card=123456 AND event_type=221:
+$ &hellip; events only &ndash;card=123456 &ndash;event_type=221</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filters</code></strong></dt>
+<dd>flags are fields to do filtering by. Such
+filters are concatenated by AND. For example,
+<code>... only --field1=value1 --field2=value2 ...</code></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def only(self, **filters):
+    &#34;&#34;&#34;Add filtering by field value to an event log
+
+    For example, select events with card=123456 AND event_type=221:
+        $ ... events only --card=123456 --event_type=221
+
+    Args:
+        filters: flags are fields to do filtering by. Such
+            filters are concatenated by AND. For example,
+            `... only --field1=value1 --field2=value2 ...`
+    &#34;&#34;&#34;
+    typed_filters = self._io_converter.to_record_dict(filters)
+    self._event_log = self._event_log.only(**typed_filters)
+
+    return self</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Events.poll"><code class="name flex">
+<span>def <span class="ident">poll</span></span>(<span>self, timeout: int = 60, first_only: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wait for an event to be appeared on a device and prints
+them if any. If no events has been appeared during timeout, then
+exit by timeout. Filters that has been set are also matter.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>Time in seconds the command waits events
+to appear and then finishes if no events has been
+appeared. Default is 60 seconds</dd>
+<dt><strong><code>first_only</code></strong></dt>
+<dd>If this flag is set then the command will exit
+after the first event has came</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def poll(self, timeout: int = 60, first_only: bool = False):
+    &#34;&#34;&#34;Wait for an event to be appeared on a device and prints
+    them if any. If no events has been appeared during timeout, then
+    exit by timeout. Filters that has been set are also matter.
+
+
+    Args:
+        timeout: Time in seconds the command waits events
+            to appear and then finishes if no events has been
+            appeared. Default is 60 seconds
+        first_only: If this flag is set then the command will exit
+            after the first event has came
+    &#34;&#34;&#34;
+    def _poll_events():
+        events = self._event_log.poll(timeout)
+        while events:
+            for event in events:
+                yield {s: getattr(event, s) for s in self._event_field_types.keys()}
+
+            if first_only:
+                return
+
+            events = self._event_log.poll(timeout)
+
+        sys.stderr.write(&#39;INFO: Finished by timeout\n&#39;)
+
+    self._io_converter.write_records(_poll_events())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.EventsPollFormatter"><code class="flex name class">
+<span>class <span class="ident">EventsPollFormatter</span></span>
+<span>(</span><span>istream: <class 'TextIO'>, ostream: <class 'TextIO'>, headers: Iterable[str])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Formatter special for events.poll iterative function output
+for 'ascii_table' mode</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EventsPollFormatter(CSVFormatter):
+    &#34;&#34;&#34;Formatter special for events.poll iterative function output
+    for &#39;ascii_table&#39; mode
+    &#34;&#34;&#34;
+    class ASCIITableWriter(BaseFormatter.WriterInterface):
+        FIELD_FORMAT = &#39;{:&lt;15}{:&lt;5}{:&lt;15}{:&lt;15}{:&lt;5}{:&lt;25}{:&lt;15}&#39;
+
+        def write(self, record: Mapping[str, str]) -&gt; None:
+            if self._writer is None:
+                self._writer = self.FIELD_FORMAT
+                self._ostream.write(self._writer.format(*self._headers))
+                self._ostream.write(&#39;\n&#39;)
+
+            record = [str(record.get(k) or &#39;&#39;) for k in self._headers]
+            self._ostream.write(self._writer.format(*record))
+            self._ostream.write(&#39;\n&#39;)
+            self._ostream.flush()
+
+        def flush(self) -&gt; None:
+            if self._writer is None:
+                self._writer = self.FIELD_FORMAT
+                self._ostream.write(self._writer.format(*self._headers))
+                self._ostream.write(&#39;\n&#39;)
+
+            self._ostream.flush()
+
+    def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+        return EventsPollFormatter.ASCIITableWriter(self._ostream, self._headers)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.CSVFormatter" href="#pyzkaccess.cli.CSVFormatter">CSVFormatter</a></li>
+<li><a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.EventsPollFormatter.ASCIITableWriter"><code class="name">var <span class="ident">ASCIITableWriter</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.EventsPollFormatter.get_writer"><code class="name flex">
+<span>def <span class="ident">get_writer</span></span>(<span>self) ‑> <a title="pyzkaccess.cli.BaseFormatter.WriterInterface" href="#pyzkaccess.cli.BaseFormatter.WriterInterface">BaseFormatter.WriterInterface</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_writer(self) -&gt; BaseFormatter.WriterInterface:
+    return EventsPollFormatter.ASCIITableWriter(self._ostream, self._headers)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.ModelConverter"><code class="flex name class">
+<span>class <span class="ident">ModelConverter</span></span>
+<span>(</span><span>formatter: <a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a>, model_cls: Type[<a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a>], *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converter performs text input/output for a Model objects</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ModelConverter(TypedFieldConverter):
+    &#34;&#34;&#34;Converter performs text input/output for a Model objects&#34;&#34;&#34;
+    TUPLE_SEPARATOR = &#39;,&#39;
+
+    def __init__(self, formatter: BaseFormatter, model_cls: Type[Model], *args, **kwargs):
+        field_types = {k: getattr(model_cls, k).field_datatype
+                       for k in model_cls.fields_mapping().keys()}
+        super().__init__(formatter, field_types, *args, **kwargs)
+        self._model_cls = model_cls
+        self._model_fields = {k: getattr(self._model_cls, k)
+                              for k in self._model_cls.fields_mapping().keys()}
+
+    def read_records(self) -&gt; Generator[Model, None, None]:
+        for item in self._formatter.get_reader():
+            model_dict = self.to_record_dict(item)
+            yield self._model_cls(**model_dict)
+
+    def write_records(self, records: Iterable[Model]):
+        writer = self._formatter.get_writer()
+        for item in records:
+            record = self.to_string_dict(item.dict)
+            writer.write(record)
+
+        writer.flush()
+
+    def to_record_dict(self, record: Mapping[str, str]) -&gt; Mapping[str, Any]:
+        self._validate_field_names(self._model_fields.keys(), record)
+
+        # Convert dict with text values to a model with typed values
+        return {fname: self._parse_value(fname, fval, self._model_fields[fname].field_datatype)
+                for fname, fval in record.items()}
+
+    def to_string_dict(self, model_dict: Mapping[str, Any]) -&gt; Mapping[str, str]:
+        self._validate_field_names(self._model_fields.keys(), model_dict)
+
+        # Convert a model to text values
+        return {fname: self._unparse_value(fval, self._model_fields[fname].field_datatype)
+                for fname, fval in model_dict.items()}
+
+    def _validate_field_names(self, fields: Union[Set[str], KeysView], item: Mapping[str, Any]):
+        # Check if field names are all exist in the model
+        extra_fields = item.keys() - fields
+        if extra_fields:
+            raise FireError(&#34;Unknown fields of {} found in the input data: {}&#34;.format(
+                self._model_cls.__name__, list(sorted(extra_fields))
+            ))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.TypedFieldConverter" href="#pyzkaccess.cli.TypedFieldConverter">TypedFieldConverter</a></li>
+<li><a title="pyzkaccess.cli.BaseConverter" href="#pyzkaccess.cli.BaseConverter">BaseConverter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.ModelConverter.TUPLE_SEPARATOR"><code class="name">var <span class="ident">TUPLE_SEPARATOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.ModelConverter.read_records"><code class="name flex">
+<span>def <span class="ident">read_records</span></span>(<span>self) ‑> Generator[<a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a>, NoneType, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_records(self) -&gt; Generator[Model, None, None]:
+    for item in self._formatter.get_reader():
+        model_dict = self.to_record_dict(item)
+        yield self._model_cls(**model_dict)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ModelConverter.to_record_dict"><code class="name flex">
+<span>def <span class="ident">to_record_dict</span></span>(<span>self, record: Mapping[str, str]) ‑> Mapping[str, Any]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_record_dict(self, record: Mapping[str, str]) -&gt; Mapping[str, Any]:
+    self._validate_field_names(self._model_fields.keys(), record)
+
+    # Convert dict with text values to a model with typed values
+    return {fname: self._parse_value(fname, fval, self._model_fields[fname].field_datatype)
+            for fname, fval in record.items()}</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ModelConverter.to_string_dict"><code class="name flex">
+<span>def <span class="ident">to_string_dict</span></span>(<span>self, model_dict: Mapping[str, Any]) ‑> Mapping[str, str]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_string_dict(self, model_dict: Mapping[str, Any]) -&gt; Mapping[str, str]:
+    self._validate_field_names(self._model_fields.keys(), model_dict)
+
+    # Convert a model to text values
+    return {fname: self._unparse_value(fval, self._model_fields[fname].field_datatype)
+            for fname, fval in model_dict.items()}</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ModelConverter.write_records"><code class="name flex">
+<span>def <span class="ident">write_records</span></span>(<span>self, records: Iterable[<a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a>])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_records(self, records: Iterable[Model]):
+    writer = self._formatter.get_writer()
+    for item in records:
+        record = self.to_string_dict(item.dict)
+        writer.write(record)
+
+    writer.flush()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.Parameters"><code class="flex name class">
+<span>class <span class="ident">Parameters</span></span>
+<span>(</span><span>item)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This group helps to get and set device and door parameters</p>
+<p>Some of usage examples:</p>
+<pre><code>List all door parameter names:
+    $ ... doors --numbers=1 parameters list
+
+List all device parameter names:
+    $ ... parameters list
+
+Get all device parameters with values:
+    $ ... parameters
+
+Get particular device parameters with values (could be faster than requesting all ones):
+    $ ... parameters --names=datetime,ip_address,serial_number
+
+Set device parameters:
+    $ ... parameters set --datetime="2021-05-08 00:04:00" --ip_address="192.168.128.1"
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>names</code></strong></dt>
+<dd>Comma-separated list of parameter names to request
+from a device. If omitted, then all parameters will be
+requested. For example, &ndash;names=param1,param2,param3</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Parameters:
+    &#34;&#34;&#34;This group helps to get and set device and door parameters
+
+    Some of usage examples:
+
+        List all door parameter names:
+            $ ... doors --numbers=1 parameters list
+
+        List all device parameter names:
+            $ ... parameters list
+
+        Get all device parameters with values:
+            $ ... parameters
+
+        Get particular device parameters with values (could be faster than requesting all ones):
+            $ ... parameters --names=datetime,ip_address,serial_number
+
+        Set device parameters:
+            $ ... parameters set --datetime=&#34;2021-05-08 00:04:00&#34; --ip_address=&#34;192.168.128.1&#34;
+
+    Args:
+        names: Comma-separated list of parameter names to request
+            from a device. If omitted, then all parameters will be
+            requested. For example, --names=param1,param2,param3
+
+    &#34;&#34;&#34;
+    def __init__(self, item):
+        self._item = item
+        self._item_cls = item.__class__
+        # Exclude write-only parameters
+        self._readable_params = {attr for attr in dir(self._item_cls)
+                                 if (isinstance(getattr(self._item_cls, attr), property)
+                                 and getattr(self._item_cls, attr).fget is not None)}
+        self._readonly_params = {attr for attr in self._readable_params
+                                 if getattr(self._item_cls, attr).fset is None}
+        # Extract types from getters annotations. Skip if no getter
+        # Assume str if no return annotation has set
+        props = {attr: getattr(self._item_cls, attr) for attr in self._readable_params
+                 if getattr(self._item_cls, attr).fget is not None}
+        self._prop_types = {k: getattr(v.fget, &#39;__annotations__&#39;, {}).get(&#39;return&#39;, str)
+                            for k, v in props.items()}
+
+    def __call__(self, *, names: list = None):
+        if self._item is doors_params_error:
+            raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+        if names is None:
+            names = self._readable_params
+        elif isinstance(names, str):
+            names = (names, )
+        elif not isinstance(names, (list, tuple)):
+            # Workaround of &#34;Could not consume arg&#34; message appearing
+            # instead of exception message problem
+            sys.stderr.write(&#34;ERROR: Names must be a name or list of parameters&#34;)
+            raise FireError(&#34;Names must be a name or list of parameters&#34;)
+
+        names = set(names)
+
+        extra_names = names - set(self._readable_params)
+        if extra_names:
+            # Workaround of &#34;Could not consume arg&#34; message appearing
+            # instead of exception message problem
+            sys.stderr.write(&#39;ERROR: Unknown parameters were given: {}\n&#39;.format(extra_names))
+            raise FireError(&#39;Unknown parameters were given: {}&#39;.format(extra_names))
+
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, names
+        )
+        converter = TypedFieldConverter(formatter, self._prop_types)
+        converter.write_records(
+            [{name: getattr(self._item, name) for name in sorted(names)}]
+        )
+
+    def list(self):
+        &#34;&#34;&#34;List of all valid parameter names&#34;&#34;&#34;
+        if self._item is doors_params_error:
+            raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, [&#39;parameter_name&#39;]
+        )
+        converter = TextConverter(formatter)
+        converter.write_records({&#39;parameter_name&#39;: x} for x in sorted(self._readable_params))
+
+    def set(self, **parameters):
+        &#34;&#34;&#34;Set given parameters
+
+        Args:
+            parameters: Flags are parameters with values to be set.
+                For example, `... parameters set --param1=value1 --param2=value2 ...`
+        &#34;&#34;&#34;
+        if self._item is doors_params_error:
+            raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+        readonly_params = parameters.keys() &amp; self._readonly_params
+        if readonly_params:
+            raise FireError(&#39;The following parameters are read-only: {}&#39;.format(readonly_params))
+
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, parameters.keys()
+        )
+        converter = TypedFieldConverter(formatter, self._prop_types)
+        if parameters:
+            self._set_from_args(parameters, converter)
+        else:
+            self._set_from_input(converter)
+
+    def _set_from_input(self, converter):
+        for record in converter.read_records():
+            for k, v in record.items():
+                setattr(self._item, k, v)
+
+    def _set_from_args(self, args: dict, converter):
+        extra_names = args.keys() - set(self._readable_params)
+        if extra_names:
+            raise FireError(&#39;Unknown parameters were given: {}&#39;.format(extra_names))
+
+        typed_items = converter.to_record_dict(args)
+        for name, val in typed_items.items():
+            setattr(self._item, name, val)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.Parameters.list"><code class="name flex">
+<span>def <span class="ident">list</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>List of all valid parameter names</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list(self):
+    &#34;&#34;&#34;List of all valid parameter names&#34;&#34;&#34;
+    if self._item is doors_params_error:
+        raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+    formatter = BaseFormatter.get_formatter(opt_io_format)(
+        data_in, data_out, [&#39;parameter_name&#39;]
+    )
+    converter = TextConverter(formatter)
+    converter.write_records({&#39;parameter_name&#39;: x} for x in sorted(self._readable_params))</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Parameters.set"><code class="name flex">
+<span>def <span class="ident">set</span></span>(<span>self, **parameters)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set given parameters</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>parameters</code></strong></dt>
+<dd>Flags are parameters with values to be set.
+For example, <code>... parameters set --param1=value1 --param2=value2 ...</code></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set(self, **parameters):
+    &#34;&#34;&#34;Set given parameters
+
+    Args:
+        parameters: Flags are parameters with values to be set.
+            For example, `... parameters set --param1=value1 --param2=value2 ...`
+    &#34;&#34;&#34;
+    if self._item is doors_params_error:
+        raise FireError(&#39;Parameters may be used only for single door&#39;)
+
+    readonly_params = parameters.keys() &amp; self._readonly_params
+    if readonly_params:
+        raise FireError(&#39;The following parameters are read-only: {}&#39;.format(readonly_params))
+
+    formatter = BaseFormatter.get_formatter(opt_io_format)(
+        data_in, data_out, parameters.keys()
+    )
+    converter = TypedFieldConverter(formatter, self._prop_types)
+    if parameters:
+        self._set_from_args(parameters, converter)
+    else:
+        self._set_from_input(converter)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.Query"><code class="flex name class">
+<span>class <span class="ident">Query</span></span>
+<span>(</span><span>qs: <a title="pyzkaccess.device_data.queryset.QuerySet" href="device_data/queryset.html#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a>, io_converter: <a title="pyzkaccess.cli.ModelConverter" href="#pyzkaccess.cli.ModelConverter">ModelConverter</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This command object helps to make read/write queries to a
+particular device data table.</p>
+<p>Some of usage examples:</p>
+<pre><code>Select all records from the User table:
+    $ ... table User
+
+Select records from the User table with card=123456 AND group=4:
+    $ ... table User where --card=123456 --group=4
+
+Get table records count:
+    $ ... table User count
+
+Upsert records to the User table from stdin:
+    $ cat records.csv | ... table User upsert
+
+Delete records, which come from stdin, from the User table:
+    $ cat records.csv | ... table User delete
+
+Delete records from the User table with card=123456 AND group=4:
+    $ ... table User where --card=123456 --group=4 delete_all
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Query:
+    &#34;&#34;&#34;This command object helps to make read/write queries to a
+    particular device data table.
+
+    Some of usage examples:
+
+        Select all records from the User table:
+            $ ... table User
+
+        Select records from the User table with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4
+
+        Get table records count:
+            $ ... table User count
+
+        Upsert records to the User table from stdin:
+            $ cat records.csv | ... table User upsert
+
+        Delete records, which come from stdin, from the User table:
+            $ cat records.csv | ... table User delete
+
+        Delete records from the User table with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4 delete_all
+    &#34;&#34;&#34;
+    def __init__(self, qs: QuerySet, io_converter: ModelConverter):
+        self._qs = qs
+        self._io_converter = io_converter
+
+    def __call__(self):
+        if self._qs is not None:
+            self._io_converter.write_records(self._qs)
+
+    def where(self, **filters) -&gt; &#39;Query&#39;:
+        &#34;&#34;&#34;Add filtering by fields to a query.
+
+        Filtering conditions are set by flags. Several conditions will
+        be AND&#39;ed.
+
+        For example, select Users records with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4
+
+        Args:
+            filters: flags are fields to do filtering by. Such
+                filters are concatenated by AND. For example,
+                `... where --field1=value1 --field2=value2 ...`
+        &#34;&#34;&#34;
+        typed_filters = self._io_converter.to_record_dict(filters)
+        self._qs = self._qs.where(**typed_filters)
+
+        return self
+
+    def unread(self) -&gt; &#39;Query&#39;:
+        &#34;&#34;&#34;Add condition to print unread records only.
+
+         Some tables on device has a pointer which is set to the last
+        record on each query. If no records have been inserted to
+        a table since last read, the &#34;unread&#34; query will return nothing
+
+        For example, select only unread Users records with card=123456
+             $ ... table User where --card=123456 unread
+        &#34;&#34;&#34;
+        self._qs = self._qs.unread()
+        return self
+
+    def upsert(self):
+        &#34;&#34;&#34;Upsert (update or insert) operation.
+
+        If given record already exists in a table, then it will be
+        updated. Otherwise it will be inserted. Consumes input data
+        from stdin/file.
+
+        For example, upsert records to the User table from stdin:
+            $ cat records.csv | ... table User upsert
+        &#34;&#34;&#34;
+
+        self._qs.upsert(self._io_converter.read_records())
+        self._qs = None
+
+    def delete(self):
+        &#34;&#34;&#34;Delete given records from a table.
+
+        If given record does not exist in a table, then it is skipped.
+        Consumes input data from stdin/file.
+
+        For example, delete records, which come from stdin, from the User table:
+            $ cat records.csv | ... table User delete
+        &#34;&#34;&#34;
+        self._qs.delete(self._io_converter.read_records())
+        self._qs = None
+
+    def delete_all(self):
+        &#34;&#34;&#34;Delete records satisfied to a query.
+
+        For example, Delete records from the User table with card=123456 AND group=4:
+            $ ... table User where --card=123456 --group=4 delete_all
+
+        Or delete all records from the User table:
+            $ ... table User delete_all
+        &#34;&#34;&#34;
+        self._qs.delete_all()
+        self._qs = None
+
+    def count(self):
+        &#34;&#34;&#34;Return records count in a table. Executes quickly since
+        it is implemented by a separate device request.
+
+        For example, get records count in the User table:
+            $ ... table User count
+        &#34;&#34;&#34;
+        res = self._qs.count()
+        self._qs = None
+        return res</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.Query.count"><code class="name flex">
+<span>def <span class="ident">count</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return records count in a table. Executes quickly since
+it is implemented by a separate device request.</p>
+<p>For example, get records count in the User table:
+$ &hellip; table User count</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def count(self):
+    &#34;&#34;&#34;Return records count in a table. Executes quickly since
+    it is implemented by a separate device request.
+
+    For example, get records count in the User table:
+        $ ... table User count
+    &#34;&#34;&#34;
+    res = self._qs.count()
+    self._qs = None
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Query.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Delete given records from a table.</p>
+<p>If given record does not exist in a table, then it is skipped.
+Consumes input data from stdin/file.</p>
+<p>For example, delete records, which come from stdin, from the User table:
+$ cat records.csv | &hellip; table User delete</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self):
+    &#34;&#34;&#34;Delete given records from a table.
+
+    If given record does not exist in a table, then it is skipped.
+    Consumes input data from stdin/file.
+
+    For example, delete records, which come from stdin, from the User table:
+        $ cat records.csv | ... table User delete
+    &#34;&#34;&#34;
+    self._qs.delete(self._io_converter.read_records())
+    self._qs = None</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Query.delete_all"><code class="name flex">
+<span>def <span class="ident">delete_all</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Delete records satisfied to a query.</p>
+<p>For example, Delete records from the User table with card=123456 AND group=4:
+$ &hellip; table User where &ndash;card=123456 &ndash;group=4 delete_all</p>
+<p>Or delete all records from the User table:
+$ &hellip; table User delete_all</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_all(self):
+    &#34;&#34;&#34;Delete records satisfied to a query.
+
+    For example, Delete records from the User table with card=123456 AND group=4:
+        $ ... table User where --card=123456 --group=4 delete_all
+
+    Or delete all records from the User table:
+        $ ... table User delete_all
+    &#34;&#34;&#34;
+    self._qs.delete_all()
+    self._qs = None</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Query.unread"><code class="name flex">
+<span>def <span class="ident">unread</span></span>(<span>self) ‑> <a title="pyzkaccess.cli.Query" href="#pyzkaccess.cli.Query">Query</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add condition to print unread records only.</p>
+<p>Some tables on device has a pointer which is set to the last
+record on each query. If no records have been inserted to
+a table since last read, the "unread" query will return nothing</p>
+<p>For example, select only unread Users records with card=123456
+$ &hellip; table User where &ndash;card=123456 unread</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unread(self) -&gt; &#39;Query&#39;:
+    &#34;&#34;&#34;Add condition to print unread records only.
+
+     Some tables on device has a pointer which is set to the last
+    record on each query. If no records have been inserted to
+    a table since last read, the &#34;unread&#34; query will return nothing
+
+    For example, select only unread Users records with card=123456
+         $ ... table User where --card=123456 unread
+    &#34;&#34;&#34;
+    self._qs = self._qs.unread()
+    return self</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Query.upsert"><code class="name flex">
+<span>def <span class="ident">upsert</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Upsert (update or insert) operation.</p>
+<p>If given record already exists in a table, then it will be
+updated. Otherwise it will be inserted. Consumes input data
+from stdin/file.</p>
+<p>For example, upsert records to the User table from stdin:
+$ cat records.csv | &hellip; table User upsert</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def upsert(self):
+    &#34;&#34;&#34;Upsert (update or insert) operation.
+
+    If given record already exists in a table, then it will be
+    updated. Otherwise it will be inserted. Consumes input data
+    from stdin/file.
+
+    For example, upsert records to the User table from stdin:
+        $ cat records.csv | ... table User upsert
+    &#34;&#34;&#34;
+
+    self._qs.upsert(self._io_converter.read_records())
+    self._qs = None</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Query.where"><code class="name flex">
+<span>def <span class="ident">where</span></span>(<span>self, **filters) ‑> <a title="pyzkaccess.cli.Query" href="#pyzkaccess.cli.Query">Query</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add filtering by fields to a query.</p>
+<p>Filtering conditions are set by flags. Several conditions will
+be AND'ed.</p>
+<p>For example, select Users records with card=123456 AND group=4:
+$ &hellip; table User where &ndash;card=123456 &ndash;group=4</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filters</code></strong></dt>
+<dd>flags are fields to do filtering by. Such
+filters are concatenated by AND. For example,
+<code>... where --field1=value1 --field2=value2 ...</code></dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def where(self, **filters) -&gt; &#39;Query&#39;:
+    &#34;&#34;&#34;Add filtering by fields to a query.
+
+    Filtering conditions are set by flags. Several conditions will
+    be AND&#39;ed.
+
+    For example, select Users records with card=123456 AND group=4:
+        $ ... table User where --card=123456 --group=4
+
+    Args:
+        filters: flags are fields to do filtering by. Such
+            filters are concatenated by AND. For example,
+            `... where --field1=value1 --field2=value2 ...`
+    &#34;&#34;&#34;
+    typed_filters = self._io_converter.to_record_dict(filters)
+    self._qs = self._qs.where(**typed_filters)
+
+    return self</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.Readers"><code class="flex name class">
+<span>class <span class="ident">Readers</span></span>
+<span>(</span><span>items)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This group represents a given reader or readers</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Readers:
+    &#34;&#34;&#34;This group represents a given reader or readers&#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;Select doors to operate
+
+        Args:
+            indexes: Readers to select. You can select a single reader
+                by passing an index `select 1`. Or select a range by
+                passing a list as `select 0-2` (readers 0, 1 and 2
+                will be selected). Indexes are started from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    @property
+    def events(self):
+        return Events(self._items.events)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.Readers.events"><code class="name">var <span class="ident">events</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def events(self):
+    return Events(self._items.events)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.Readers.select"><code class="name flex">
+<span>def <span class="ident">select</span></span>(<span>self, indexes: Union[int, list])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Select doors to operate</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>indexes</code></strong></dt>
+<dd>Readers to select. You can select a single reader
+by passing an index <code>select 1</code>. Or select a range by
+passing a list as <code>select 0-2</code> (readers 0, 1 and 2
+will be selected). Indexes are started from 0.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def select(self, indexes: Union[int, list]):
+    &#34;&#34;&#34;Select doors to operate
+
+    Args:
+        indexes: Readers to select. You can select a single reader
+            by passing an index `select 1`. Or select a range by
+            passing a list as `select 0-2` (readers 0, 1 and 2
+            will be selected). Indexes are started from 0.
+    &#34;&#34;&#34;
+    self._items = self._items[parse_array_index(indexes)]
+    return self</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.Relays"><code class="flex name class">
+<span>class <span class="ident">Relays</span></span>
+<span>(</span><span>items)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This group provides actions to do with a given relay or
+relays</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Relays:
+    &#34;&#34;&#34;This group provides actions to do with a given relay or
+    relays
+    &#34;&#34;&#34;
+    def __init__(self, items):
+        self._items = items
+
+    def select(self, indexes: Union[int, list]):
+        &#34;&#34;&#34;
+        Select relays to operate
+
+        Args:
+            indexes: Relays to select. You can select a single relay by
+                passing an index `select 1`. Or select a range by
+                passing a list as `select 0-2` (relays 0, 1 and 2
+                will be selected). Indexes are started from 0.
+        &#34;&#34;&#34;
+        self._items = self._items[parse_array_index(indexes)]
+        return self
+
+    def switch_on(self, *, timeout: int = 5):
+        &#34;&#34;&#34;Switch on a relay for given time.
+
+        Args:
+            timeout: Timeout in seconds in which a relay(s) will be
+            switched on. Default is 5 seconds
+        &#34;&#34;&#34;
+        self._items.switch_on(timeout)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.Relays.select"><code class="name flex">
+<span>def <span class="ident">select</span></span>(<span>self, indexes: Union[int, list])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Select relays to operate</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>indexes</code></strong></dt>
+<dd>Relays to select. You can select a single relay by
+passing an index <code>select 1</code>. Or select a range by
+passing a list as <code>select 0-2</code> (relays 0, 1 and 2
+will be selected). Indexes are started from 0.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def select(self, indexes: Union[int, list]):
+    &#34;&#34;&#34;
+    Select relays to operate
+
+    Args:
+        indexes: Relays to select. You can select a single relay by
+            passing an index `select 1`. Or select a range by
+            passing a list as `select 0-2` (relays 0, 1 and 2
+            will be selected). Indexes are started from 0.
+    &#34;&#34;&#34;
+    self._items = self._items[parse_array_index(indexes)]
+    return self</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.Relays.switch_on"><code class="name flex">
+<span>def <span class="ident">switch_on</span></span>(<span>self, *, timeout: int = 5)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Switch on a relay for given time.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong></dt>
+<dd>Timeout in seconds in which a relay(s) will be</dd>
+</dl>
+<p>switched on. Default is 5 seconds</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def switch_on(self, *, timeout: int = 5):
+    &#34;&#34;&#34;Switch on a relay for given time.
+
+    Args:
+        timeout: Timeout in seconds in which a relay(s) will be
+        switched on. Default is 5 seconds
+    &#34;&#34;&#34;
+    self._items.switch_on(timeout)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.TextConverter"><code class="flex name class">
+<span>class <span class="ident">TextConverter</span></span>
+<span>(</span><span>formatter: <a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a>, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converter which simply prints and reads text field values without
+any transformations</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TextConverter(BaseConverter):
+    &#34;&#34;&#34;Converter which simply prints and reads text field values without
+    any transformations
+    &#34;&#34;&#34;
+    def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+        for item in self._formatter.get_reader():
+            yield item
+
+    def write_records(self, records: Iterable[Mapping[str, Any]]):
+        writer = self._formatter.get_writer()
+        for item in records:
+            writer.write(item)
+
+        writer.flush()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.BaseConverter" href="#pyzkaccess.cli.BaseConverter">BaseConverter</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.TextConverter.read_records"><code class="name flex">
+<span>def <span class="ident">read_records</span></span>(<span>self) ‑> Generator[Mapping[str, Any], NoneType, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+    for item in self._formatter.get_reader():
+        yield item</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.TextConverter.write_records"><code class="name flex">
+<span>def <span class="ident">write_records</span></span>(<span>self, records: Iterable[Mapping[str, Any]])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_records(self, records: Iterable[Mapping[str, Any]]):
+    writer = self._formatter.get_writer()
+    for item in records:
+        writer.write(item)
+
+    writer.flush()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.TypedFieldConverter"><code class="flex name class">
+<span>class <span class="ident">TypedFieldConverter</span></span>
+<span>(</span><span>formatter: <a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a>, field_types: Mapping[str, Type], *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converter performs text input/output for field values of any
+non-string types. Convertion does based on given field-type mapping</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TypedFieldConverter(BaseConverter):
+    &#34;&#34;&#34;Converter performs text input/output for field values of any
+    non-string types. Convertion does based on given field-type mapping
+    &#34;&#34;&#34;
+    TUPLE_SEPARATOR = &#39;,&#39;
+
+    def __init__(self, formatter: BaseFormatter, field_types: Mapping[str, Type], *args, **kwargs):
+        super().__init__(formatter, *args, **kwargs)
+        self._field_types = field_types
+
+        # The following converters parses string value respresentation from
+        # stdin and converts to a field value
+        # {type: (cast_function, error message)
+        self._input_converters = {
+            str: (str, &#39;string&#39;),
+            bool: (lambda x: {&#39;True&#39;: True, &#39;False&#39;: False}[x.capitalize()],
+                   &#39;boolean, &#34;True&#34; or &#34;False&#34;&#39;),
+            int: (int, &#39;integer&#39;),
+            tuple: (self._parse_tuple, &#39;comma separated values&#39;),
+            date: (lambda x: datetime.strptime(x, &#39;%Y-%m-%d&#39;).date(),
+                   &#39;date string, e.g. &#34;2020-02-01&#34;&#39;),
+            time: (lambda x: datetime.strptime(x, &#39;%H:%M:%S&#39;).time(),
+                   &#39;time string, e.g. &#34;07:40:00&#34;&#39;),
+            datetime: (lambda x: datetime.strptime(x, &#39;%Y-%m-%d %H:%M:%S&#39;),
+                       &#39;datetime string, e.g. &#34;2020-02-01 07:40:00&#34;&#39;),
+            DaylightSavingMomentMode1: (
+                lambda x: DaylightSavingMomentMode1.strptime(x, &#39;%m-%d %H:%M&#39;),
+                &#39;datetime moment, e.g. &#34;02-01 07:40&#34;&#39;
+            ),
+            DaylightSavingMomentMode2: (
+                self._parse_daylight_saving_moment_mode2,
+                &#39;7 comma-separated values, &#39;
+                &#39;[month, week_of_month, day_of_week, hour, minute, is_daylight, buffer_size], &#39;
+                &#39;e.g &#34;2,1,1,7,40,1,4096&#34;&#39;
+            )
+        }
+
+        # The following functions converts field values to their string
+        # representation suitable for stdout output
+        self._output_converters = {
+            str: str,
+            bool: str,
+            int: str,
+            tuple: self._unparse_tuple,
+            date: lambda x: x.strftime(&#39;%Y-%m-%d&#39;),
+            time: lambda x: x.strftime(&#39;%H:%M:%S&#39;),
+            datetime: lambda x: x.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;),
+            DaylightSavingMomentMode1: lambda x: x.strftime(&#39;%m-%d %H:%M&#39;),
+            DaylightSavingMomentMode2: self._unparse_daylight_saving_moment_mode2
+        }
+
+    def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+        for item in self._formatter.get_reader():
+            # Convert a text field value to a typed value
+            yield self.to_record_dict(item)
+
+    def write_records(self, records: Iterable[Mapping[str, Any]]):
+        writer = self._formatter.get_writer()
+        for item in records:
+            # Convert a typed field value to a string value
+            record = self.to_string_dict(item)
+            writer.write(record)
+
+        writer.flush()
+
+    def to_record_dict(self, data: Mapping[str, str]) -&gt; Mapping[str, Any]:
+        return {fname: self._parse_value(fname, fval, self._field_types.get(fname, str))
+                for fname, fval in data.items()}
+
+    def to_string_dict(self, record: Mapping[str, Any]) -&gt; Mapping[str, str]:
+        return {fname: self._unparse_value(fval, self._field_types.get(fname, str))
+                for fname, fval in record.items()}
+
+    def _parse_value(self, field_name: str, value: str, field_datatype) -&gt; Optional[Any]:
+        if value == &#39;&#39;:
+            return None
+
+        error_msg = &#39;&#39;
+        try:
+            if issubclass(field_datatype, Enum):
+                error_msg = &#39;one of values: {}&#39;.format(
+                    &#39;,&#39;.join(x for x in dir(field_datatype) if not x.startswith(&#39;_&#39;))
+                )
+                return field_datatype[value]
+
+            cast, error_msg = self._input_converters[field_datatype]
+            return cast(value)
+        except (ValueError, TypeError, KeyError):
+            raise FireError(
+                &#34;Bad value of {}={} but must be: {}&#34;.format(field_name, value, error_msg)
+            )
+
+    def _unparse_value(self, value: Optional[Any], field_datatype) -&gt; str:
+        if value is None:
+            return &#39;&#39;
+        if issubclass(field_datatype, Enum):
+            return value.name
+
+        return self._output_converters[field_datatype](value)
+
+    def _parse_tuple(self, value: str) -&gt; tuple:
+        return tuple(value.split(self.TUPLE_SEPARATOR))
+
+    def _unparse_tuple(self, value: tuple) -&gt; str:
+        return self.TUPLE_SEPARATOR.join(self._unparse_value(x, type(x)) for x in value)
+
+    def _parse_daylight_saving_moment_mode1(self, value: str) -&gt; DaylightSavingMomentMode1:
+        args = [int(x) for x in self._parse_tuple(value)]
+        if len(args) != 4:
+            raise ValueError(&#39;Daylight saving moment value must contain 4 integers&#39;)
+        return DaylightSavingMomentMode1(*args)
+
+    def _parse_daylight_saving_moment_mode2(self, value: str) -&gt; DaylightSavingMomentMode2:
+        args = [int(x) for x in self._parse_tuple(value)]
+        if len(args) != 7:
+            raise ValueError(&#39;Daylight saving moment value must contain 7 integers&#39;)
+
+        is_daylight = bool(args[5])
+        buffer_size = args[6]
+        res = DaylightSavingMomentMode2(None, is_daylight, buffer_size)
+        for ind, attr in enumerate((&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;)):
+            setattr(res, attr, args[ind])
+
+        return res
+
+    def _unparse_daylight_saving_moment_mode2(self, value: DaylightSavingMomentMode2) -&gt; str:
+        res = [
+            str(getattr(value, attr))
+            for attr in (&#39;month&#39;, &#39;week_of_month&#39;, &#39;day_of_week&#39;, &#39;hour&#39;, &#39;minute&#39;)
+        ]
+        res.extend((str(int(value.is_daylight)), str(value.buffer_size)))
+        return self.TUPLE_SEPARATOR.join(res)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.BaseConverter" href="#pyzkaccess.cli.BaseConverter">BaseConverter</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyzkaccess.cli.ModelConverter" href="#pyzkaccess.cli.ModelConverter">ModelConverter</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.TypedFieldConverter.TUPLE_SEPARATOR"><code class="name">var <span class="ident">TUPLE_SEPARATOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.TypedFieldConverter.read_records"><code class="name flex">
+<span>def <span class="ident">read_records</span></span>(<span>self) ‑> Generator[Mapping[str, Any], NoneType, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_records(self) -&gt; Generator[Mapping[str, Any], None, None]:
+    for item in self._formatter.get_reader():
+        # Convert a text field value to a typed value
+        yield self.to_record_dict(item)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.TypedFieldConverter.to_record_dict"><code class="name flex">
+<span>def <span class="ident">to_record_dict</span></span>(<span>self, data: Mapping[str, str]) ‑> Mapping[str, Any]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_record_dict(self, data: Mapping[str, str]) -&gt; Mapping[str, Any]:
+    return {fname: self._parse_value(fname, fval, self._field_types.get(fname, str))
+            for fname, fval in data.items()}</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.TypedFieldConverter.to_string_dict"><code class="name flex">
+<span>def <span class="ident">to_string_dict</span></span>(<span>self, record: Mapping[str, Any]) ‑> Mapping[str, str]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_string_dict(self, record: Mapping[str, Any]) -&gt; Mapping[str, str]:
+    return {fname: self._unparse_value(fval, self._field_types.get(fname, str))
+            for fname, fval in record.items()}</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.TypedFieldConverter.write_records"><code class="name flex">
+<span>def <span class="ident">write_records</span></span>(<span>self, records: Iterable[Mapping[str, Any]])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_records(self, records: Iterable[Mapping[str, Any]]):
+    writer = self._formatter.get_writer()
+    for item in records:
+        # Convert a typed field value to a string value
+        record = self.to_string_dict(item)
+        writer.write(record)
+
+    writer.flush()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand"><code class="flex name class">
+<span>class <span class="ident">ZKCommand</span></span>
+<span>(</span><span>zk: <a title="pyzkaccess.main.ZKAccess" href="main.html#pyzkaccess.main.ZKAccess">ZKAccess</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ZKCommand:
+    def __init__(self, zk: ZKAccess):
+        self._zk = zk
+
+    def table(self, name: str) -&gt; Query:
+        &#34;&#34;&#34;
+        Make a query to a device table with given name
+        
+        Args:
+            name: table name. Possible values are:
+                &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+                &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+                &#39;TemplateV10&#39;
+        &#34;&#34;&#34;
+        if name not in models_registry:
+            raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+                name, list(sorted(models_registry.keys()))
+            ))
+        qs = self._zk.table(name)
+        table_cls = qs._table_cls
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, table_cls.fields_mapping().keys()
+        )
+        return Query(qs, ModelConverter(formatter, table_cls))
+
+    def read_raw(self, name: str, *, buffer_size=32768):
+        &#34;&#34;&#34;Return raw data from a given table.
+
+        ZKAccess device keeps table values as strings, many of these
+        fields are encoded (some date fields, for instance). This
+        command returns data as it stores on a device, without
+        applying any type convertions or decoding, like `table`
+        command does.
+
+        This command works on low level. So, it accepts buffer size
+        for storing a result. If you are observed that results
+        are cut, its makes sense to increase buffer size.
+
+        Args:
+            name: table name. Possible values are:
+                &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+                &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+                &#39;TemplateV10&#39;
+            buffer_size: buffer size in bytes to store a result.
+                Default is 32Kb
+        &#34;&#34;&#34;
+        if name not in models_registry:
+            raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+                name, list(sorted(models_registry.keys()))
+            ))
+        table_cls = models_registry[name]
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, table_cls.fields_mapping().values()
+        )
+        converter = TextConverter(formatter)
+        converter.write_records(
+            self._zk.sdk.get_device_data(table_cls.table_name, [], {}, buffer_size, False)
+        )
+
+    def write_raw(self, name: str):
+        &#34;&#34;&#34;Write raw data to a given table.
+
+        ZKAccess device keeps table values as strings, many of these
+        fields are encoded (some date fields, for instance). This
+        command expects input data as it stores on a device, without
+        applying any type convertions or decoding (like `table`
+        command does).
+
+        Args:
+            name: table name. Possible values are:
+                &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+                &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+                &#39;TemplateV10&#39;
+        &#34;&#34;&#34;
+        if name not in models_registry:
+            raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+                name, list(sorted(models_registry.keys()))
+            ))
+        table_cls = models_registry[name]
+        formatter = BaseFormatter.get_formatter(opt_io_format)(
+            data_in, data_out, table_cls.fields_mapping().values()
+        )
+        converter = TextConverter(formatter)
+
+        gen = self._zk.sdk.set_device_data(table_cls.table_name)
+        gen.send(None)
+        for record in converter.read_records():
+            gen.send(record)
+
+        try:
+            gen.send(None)
+        except StopIteration:
+            pass
+
+    def upload_file(self, remote_filename: str):
+        &#34;&#34;&#34;Upload data to a file with given name on a device. By
+        default, this command reads data from stdin, use `--file`
+        cli option to set a file
+
+        Args:
+            remote_filename: name of file on a device to write
+        &#34;&#34;&#34;
+        self._zk.upload_file(remote_filename, io.BytesIO(data_in.read().encode()))
+
+    def download_file(self, remote_filename: str):
+        &#34;&#34;&#34;Download a file with given name from a device. By
+        default, this command prints data to stdin, use `--file`
+        cli option to set a file
+
+        Args:
+            remote_filename: name of file on a device to download
+        &#34;&#34;&#34;
+        data_out.write(self._zk.download_file(remote_filename).read().decode())
+
+    def cancel_alarm(self):
+        &#34;&#34;&#34;Move a device from alarm mode to normal mode. Returns nothing&#34;&#34;&#34;
+        self._zk.cancel_alarm()
+
+    @property
+    def doors(self) -&gt; Doors:
+        &#34;&#34;&#34;Select doors to operate. This command gives access to
+        operate with relays, reader and aux input related to selected
+        doors. By default, all doors are selected. Doors count depends
+        on a device model.
+        &#34;&#34;&#34;
+        return Doors(self._zk.doors)
+
+    @property
+    def relays(self):
+        &#34;&#34;&#34;Select relays to operate. By default, all relays are
+        seleted. Relays count depends on a device model.
+        &#34;&#34;&#34;
+        return Relays(self._zk.relays)
+
+    @property
+    def readers(self):
+        &#34;&#34;&#34;Select readers to operate. By default, all readers are
+        seleted. Readers count depends on a device model.
+        &#34;&#34;&#34;
+        return Readers(self._zk.readers)
+
+    @property
+    def aux_inputs(self):
+        &#34;&#34;&#34;Aux inputs to operate. By default, all aux inputs are
+        seleted. Aux inputs count depends on a device model.
+        &#34;&#34;&#34;
+        return AuxInputs(self._zk.aux_inputs)
+
+    @property
+    def events(self):
+        &#34;&#34;&#34;Events on a device.&#34;&#34;&#34;
+        return Events(self._zk.events)
+
+    @property
+    def parameters(self):
+        &#34;&#34;&#34;Device parameters. They does not include door parameters
+        that are available via `doors` command.
+        &#34;&#34;&#34;
+        return Parameters(self._zk.parameters)
+
+    def restart(self):
+        &#34;&#34;&#34;Restart a device.&#34;&#34;&#34;
+        self._zk.restart()</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.cli.ZKCommand.aux_inputs"><code class="name">var <span class="ident">aux_inputs</span></code></dt>
+<dd>
+<div class="desc"><p>Aux inputs to operate. By default, all aux inputs are
+seleted. Aux inputs count depends on a device model.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def aux_inputs(self):
+    &#34;&#34;&#34;Aux inputs to operate. By default, all aux inputs are
+    seleted. Aux inputs count depends on a device model.
+    &#34;&#34;&#34;
+    return AuxInputs(self._zk.aux_inputs)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.doors"><code class="name">var <span class="ident">doors</span> : <a title="pyzkaccess.cli.Doors" href="#pyzkaccess.cli.Doors">Doors</a></code></dt>
+<dd>
+<div class="desc"><p>Select doors to operate. This command gives access to
+operate with relays, reader and aux input related to selected
+doors. By default, all doors are selected. Doors count depends
+on a device model.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def doors(self) -&gt; Doors:
+    &#34;&#34;&#34;Select doors to operate. This command gives access to
+    operate with relays, reader and aux input related to selected
+    doors. By default, all doors are selected. Doors count depends
+    on a device model.
+    &#34;&#34;&#34;
+    return Doors(self._zk.doors)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.events"><code class="name">var <span class="ident">events</span></code></dt>
+<dd>
+<div class="desc"><p>Events on a device.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def events(self):
+    &#34;&#34;&#34;Events on a device.&#34;&#34;&#34;
+    return Events(self._zk.events)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.parameters"><code class="name">var <span class="ident">parameters</span></code></dt>
+<dd>
+<div class="desc"><p>Device parameters. They does not include door parameters
+that are available via <code>doors</code> command.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameters(self):
+    &#34;&#34;&#34;Device parameters. They does not include door parameters
+    that are available via `doors` command.
+    &#34;&#34;&#34;
+    return Parameters(self._zk.parameters)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.readers"><code class="name">var <span class="ident">readers</span></code></dt>
+<dd>
+<div class="desc"><p>Select readers to operate. By default, all readers are
+seleted. Readers count depends on a device model.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def readers(self):
+    &#34;&#34;&#34;Select readers to operate. By default, all readers are
+    seleted. Readers count depends on a device model.
+    &#34;&#34;&#34;
+    return Readers(self._zk.readers)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.relays"><code class="name">var <span class="ident">relays</span></code></dt>
+<dd>
+<div class="desc"><p>Select relays to operate. By default, all relays are
+seleted. Relays count depends on a device model.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def relays(self):
+    &#34;&#34;&#34;Select relays to operate. By default, all relays are
+    seleted. Relays count depends on a device model.
+    &#34;&#34;&#34;
+    return Relays(self._zk.relays)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.cli.ZKCommand.cancel_alarm"><code class="name flex">
+<span>def <span class="ident">cancel_alarm</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Move a device from alarm mode to normal mode. Returns nothing</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cancel_alarm(self):
+    &#34;&#34;&#34;Move a device from alarm mode to normal mode. Returns nothing&#34;&#34;&#34;
+    self._zk.cancel_alarm()</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.download_file"><code class="name flex">
+<span>def <span class="ident">download_file</span></span>(<span>self, remote_filename: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Download a file with given name from a device. By
+default, this command prints data to stdin, use <code>--file</code>
+cli option to set a file</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>remote_filename</code></strong></dt>
+<dd>name of file on a device to download</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def download_file(self, remote_filename: str):
+    &#34;&#34;&#34;Download a file with given name from a device. By
+    default, this command prints data to stdin, use `--file`
+    cli option to set a file
+
+    Args:
+        remote_filename: name of file on a device to download
+    &#34;&#34;&#34;
+    data_out.write(self._zk.download_file(remote_filename).read().decode())</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.read_raw"><code class="name flex">
+<span>def <span class="ident">read_raw</span></span>(<span>self, name: str, *, buffer_size=32768)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return raw data from a given table.</p>
+<p>ZKAccess device keeps table values as strings, many of these
+fields are encoded (some date fields, for instance). This
+command returns data as it stores on a device, without
+applying any type convertions or decoding, like <code>table</code>
+command does.</p>
+<p>This command works on low level. So, it accepts buffer size
+for storing a result. If you are observed that results
+are cut, its makes sense to increase buffer size.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>table name. Possible values are:
+'User', 'UserAuthorize', 'Holiday', 'Timezone',
+'Transaction', 'FirstCard', 'MultiCard', 'InOutFun',
+'TemplateV10'</dd>
+<dt><strong><code>buffer_size</code></strong></dt>
+<dd>buffer size in bytes to store a result.
+Default is 32Kb</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_raw(self, name: str, *, buffer_size=32768):
+    &#34;&#34;&#34;Return raw data from a given table.
+
+    ZKAccess device keeps table values as strings, many of these
+    fields are encoded (some date fields, for instance). This
+    command returns data as it stores on a device, without
+    applying any type convertions or decoding, like `table`
+    command does.
+
+    This command works on low level. So, it accepts buffer size
+    for storing a result. If you are observed that results
+    are cut, its makes sense to increase buffer size.
+
+    Args:
+        name: table name. Possible values are:
+            &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+            &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+            &#39;TemplateV10&#39;
+        buffer_size: buffer size in bytes to store a result.
+            Default is 32Kb
+    &#34;&#34;&#34;
+    if name not in models_registry:
+        raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+            name, list(sorted(models_registry.keys()))
+        ))
+    table_cls = models_registry[name]
+    formatter = BaseFormatter.get_formatter(opt_io_format)(
+        data_in, data_out, table_cls.fields_mapping().values()
+    )
+    converter = TextConverter(formatter)
+    converter.write_records(
+        self._zk.sdk.get_device_data(table_cls.table_name, [], {}, buffer_size, False)
+    )</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.restart"><code class="name flex">
+<span>def <span class="ident">restart</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Restart a device.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def restart(self):
+    &#34;&#34;&#34;Restart a device.&#34;&#34;&#34;
+    self._zk.restart()</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.table"><code class="name flex">
+<span>def <span class="ident">table</span></span>(<span>self, name: str) ‑> <a title="pyzkaccess.cli.Query" href="#pyzkaccess.cli.Query">Query</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Make a query to a device table with given name</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>table name. Possible values are:
+'User', 'UserAuthorize', 'Holiday', 'Timezone',
+'Transaction', 'FirstCard', 'MultiCard', 'InOutFun',
+'TemplateV10'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def table(self, name: str) -&gt; Query:
+    &#34;&#34;&#34;
+    Make a query to a device table with given name
+    
+    Args:
+        name: table name. Possible values are:
+            &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+            &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+            &#39;TemplateV10&#39;
+    &#34;&#34;&#34;
+    if name not in models_registry:
+        raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+            name, list(sorted(models_registry.keys()))
+        ))
+    qs = self._zk.table(name)
+    table_cls = qs._table_cls
+    formatter = BaseFormatter.get_formatter(opt_io_format)(
+        data_in, data_out, table_cls.fields_mapping().keys()
+    )
+    return Query(qs, ModelConverter(formatter, table_cls))</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.upload_file"><code class="name flex">
+<span>def <span class="ident">upload_file</span></span>(<span>self, remote_filename: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Upload data to a file with given name on a device. By
+default, this command reads data from stdin, use <code>--file</code>
+cli option to set a file</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>remote_filename</code></strong></dt>
+<dd>name of file on a device to write</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def upload_file(self, remote_filename: str):
+    &#34;&#34;&#34;Upload data to a file with given name on a device. By
+    default, this command reads data from stdin, use `--file`
+    cli option to set a file
+
+    Args:
+        remote_filename: name of file on a device to write
+    &#34;&#34;&#34;
+    self._zk.upload_file(remote_filename, io.BytesIO(data_in.read().encode()))</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.cli.ZKCommand.write_raw"><code class="name flex">
+<span>def <span class="ident">write_raw</span></span>(<span>self, name: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write raw data to a given table.</p>
+<p>ZKAccess device keeps table values as strings, many of these
+fields are encoded (some date fields, for instance). This
+command expects input data as it stores on a device, without
+applying any type convertions or decoding (like <code>table</code>
+command does).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>table name. Possible values are:
+'User', 'UserAuthorize', 'Holiday', 'Timezone',
+'Transaction', 'FirstCard', 'MultiCard', 'InOutFun',
+'TemplateV10'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_raw(self, name: str):
+    &#34;&#34;&#34;Write raw data to a given table.
+
+    ZKAccess device keeps table values as strings, many of these
+    fields are encoded (some date fields, for instance). This
+    command expects input data as it stores on a device, without
+    applying any type convertions or decoding (like `table`
+    command does).
+
+    Args:
+        name: table name. Possible values are:
+            &#39;User&#39;, &#39;UserAuthorize&#39;, &#39;Holiday&#39;, &#39;Timezone&#39;,
+            &#39;Transaction&#39;, &#39;FirstCard&#39;, &#39;MultiCard&#39;, &#39;InOutFun&#39;,
+            &#39;TemplateV10&#39;
+    &#34;&#34;&#34;
+    if name not in models_registry:
+        raise FireError(&#34;Unknown table &#39;{}&#39;, possible values are: {}&#34;.format(
+            name, list(sorted(models_registry.keys()))
+        ))
+    table_cls = models_registry[name]
+    formatter = BaseFormatter.get_formatter(opt_io_format)(
+        data_in, data_out, table_cls.fields_mapping().values()
+    )
+    converter = TextConverter(formatter)
+
+    gen = self._zk.sdk.set_device_data(table_cls.table_name)
+    gen.send(None)
+    for record in converter.read_records():
+        gen.send(record)
+
+    try:
+        gen.send(None)
+    except StopIteration:
+        pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyzkaccess" href="index.html">pyzkaccess</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.main" href="#pyzkaccess.cli.main">main</a></code></li>
+<li><code><a title="pyzkaccess.cli.parse_array_index" href="#pyzkaccess.cli.parse_array_index">parse_array_index</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyzkaccess.cli.ASCIITableFormatter" href="#pyzkaccess.cli.ASCIITableFormatter">ASCIITableFormatter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.ASCIITableFormatter.ASCIITableWriter" href="#pyzkaccess.cli.ASCIITableFormatter.ASCIITableWriter">ASCIITableWriter</a></code></li>
+<li><code><a title="pyzkaccess.cli.ASCIITableFormatter.get_reader" href="#pyzkaccess.cli.ASCIITableFormatter.get_reader">get_reader</a></code></li>
+<li><code><a title="pyzkaccess.cli.ASCIITableFormatter.get_writer" href="#pyzkaccess.cli.ASCIITableFormatter.get_writer">get_writer</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.AuxInputs" href="#pyzkaccess.cli.AuxInputs">AuxInputs</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.AuxInputs.events" href="#pyzkaccess.cli.AuxInputs.events">events</a></code></li>
+<li><code><a title="pyzkaccess.cli.AuxInputs.select" href="#pyzkaccess.cli.AuxInputs.select">select</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.BaseConverter" href="#pyzkaccess.cli.BaseConverter">BaseConverter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.BaseConverter.read_records" href="#pyzkaccess.cli.BaseConverter.read_records">read_records</a></code></li>
+<li><code><a title="pyzkaccess.cli.BaseConverter.write_records" href="#pyzkaccess.cli.BaseConverter.write_records">write_records</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.BaseFormatter" href="#pyzkaccess.cli.BaseFormatter">BaseFormatter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.BaseFormatter.WriterInterface" href="#pyzkaccess.cli.BaseFormatter.WriterInterface">WriterInterface</a></code></li>
+<li><code><a title="pyzkaccess.cli.BaseFormatter.get_formatter" href="#pyzkaccess.cli.BaseFormatter.get_formatter">get_formatter</a></code></li>
+<li><code><a title="pyzkaccess.cli.BaseFormatter.get_reader" href="#pyzkaccess.cli.BaseFormatter.get_reader">get_reader</a></code></li>
+<li><code><a title="pyzkaccess.cli.BaseFormatter.get_writer" href="#pyzkaccess.cli.BaseFormatter.get_writer">get_writer</a></code></li>
+<li><code><a title="pyzkaccess.cli.BaseFormatter.validate_headers" href="#pyzkaccess.cli.BaseFormatter.validate_headers">validate_headers</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.CLI" href="#pyzkaccess.cli.CLI">CLI</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.CLI.change_ip" href="#pyzkaccess.cli.CLI.change_ip">change_ip</a></code></li>
+<li><code><a title="pyzkaccess.cli.CLI.connect" href="#pyzkaccess.cli.CLI.connect">connect</a></code></li>
+<li><code><a title="pyzkaccess.cli.CLI.search_devices" href="#pyzkaccess.cli.CLI.search_devices">search_devices</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.CSVFormatter" href="#pyzkaccess.cli.CSVFormatter">CSVFormatter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.CSVFormatter.CSVWriter" href="#pyzkaccess.cli.CSVFormatter.CSVWriter">CSVWriter</a></code></li>
+<li><code><a title="pyzkaccess.cli.CSVFormatter.get_reader" href="#pyzkaccess.cli.CSVFormatter.get_reader">get_reader</a></code></li>
+<li><code><a title="pyzkaccess.cli.CSVFormatter.get_writer" href="#pyzkaccess.cli.CSVFormatter.get_writer">get_writer</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.Doors" href="#pyzkaccess.cli.Doors">Doors</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.cli.Doors.aux_inputs" href="#pyzkaccess.cli.Doors.aux_inputs">aux_inputs</a></code></li>
+<li><code><a title="pyzkaccess.cli.Doors.events" href="#pyzkaccess.cli.Doors.events">events</a></code></li>
+<li><code><a title="pyzkaccess.cli.Doors.parameters" href="#pyzkaccess.cli.Doors.parameters">parameters</a></code></li>
+<li><code><a title="pyzkaccess.cli.Doors.readers" href="#pyzkaccess.cli.Doors.readers">readers</a></code></li>
+<li><code><a title="pyzkaccess.cli.Doors.relays" href="#pyzkaccess.cli.Doors.relays">relays</a></code></li>
+<li><code><a title="pyzkaccess.cli.Doors.select" href="#pyzkaccess.cli.Doors.select">select</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.Events" href="#pyzkaccess.cli.Events">Events</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.Events.only" href="#pyzkaccess.cli.Events.only">only</a></code></li>
+<li><code><a title="pyzkaccess.cli.Events.poll" href="#pyzkaccess.cli.Events.poll">poll</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.EventsPollFormatter" href="#pyzkaccess.cli.EventsPollFormatter">EventsPollFormatter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.EventsPollFormatter.ASCIITableWriter" href="#pyzkaccess.cli.EventsPollFormatter.ASCIITableWriter">ASCIITableWriter</a></code></li>
+<li><code><a title="pyzkaccess.cli.EventsPollFormatter.get_writer" href="#pyzkaccess.cli.EventsPollFormatter.get_writer">get_writer</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.ModelConverter" href="#pyzkaccess.cli.ModelConverter">ModelConverter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.ModelConverter.TUPLE_SEPARATOR" href="#pyzkaccess.cli.ModelConverter.TUPLE_SEPARATOR">TUPLE_SEPARATOR</a></code></li>
+<li><code><a title="pyzkaccess.cli.ModelConverter.read_records" href="#pyzkaccess.cli.ModelConverter.read_records">read_records</a></code></li>
+<li><code><a title="pyzkaccess.cli.ModelConverter.to_record_dict" href="#pyzkaccess.cli.ModelConverter.to_record_dict">to_record_dict</a></code></li>
+<li><code><a title="pyzkaccess.cli.ModelConverter.to_string_dict" href="#pyzkaccess.cli.ModelConverter.to_string_dict">to_string_dict</a></code></li>
+<li><code><a title="pyzkaccess.cli.ModelConverter.write_records" href="#pyzkaccess.cli.ModelConverter.write_records">write_records</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.Parameters" href="#pyzkaccess.cli.Parameters">Parameters</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.Parameters.list" href="#pyzkaccess.cli.Parameters.list">list</a></code></li>
+<li><code><a title="pyzkaccess.cli.Parameters.set" href="#pyzkaccess.cli.Parameters.set">set</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.Query" href="#pyzkaccess.cli.Query">Query</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.cli.Query.count" href="#pyzkaccess.cli.Query.count">count</a></code></li>
+<li><code><a title="pyzkaccess.cli.Query.delete" href="#pyzkaccess.cli.Query.delete">delete</a></code></li>
+<li><code><a title="pyzkaccess.cli.Query.delete_all" href="#pyzkaccess.cli.Query.delete_all">delete_all</a></code></li>
+<li><code><a title="pyzkaccess.cli.Query.unread" href="#pyzkaccess.cli.Query.unread">unread</a></code></li>
+<li><code><a title="pyzkaccess.cli.Query.upsert" href="#pyzkaccess.cli.Query.upsert">upsert</a></code></li>
+<li><code><a title="pyzkaccess.cli.Query.where" href="#pyzkaccess.cli.Query.where">where</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.Readers" href="#pyzkaccess.cli.Readers">Readers</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.Readers.events" href="#pyzkaccess.cli.Readers.events">events</a></code></li>
+<li><code><a title="pyzkaccess.cli.Readers.select" href="#pyzkaccess.cli.Readers.select">select</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.Relays" href="#pyzkaccess.cli.Relays">Relays</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.Relays.select" href="#pyzkaccess.cli.Relays.select">select</a></code></li>
+<li><code><a title="pyzkaccess.cli.Relays.switch_on" href="#pyzkaccess.cli.Relays.switch_on">switch_on</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.TextConverter" href="#pyzkaccess.cli.TextConverter">TextConverter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.TextConverter.read_records" href="#pyzkaccess.cli.TextConverter.read_records">read_records</a></code></li>
+<li><code><a title="pyzkaccess.cli.TextConverter.write_records" href="#pyzkaccess.cli.TextConverter.write_records">write_records</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.TypedFieldConverter" href="#pyzkaccess.cli.TypedFieldConverter">TypedFieldConverter</a></code></h4>
+<ul class="">
+<li><code><a title="pyzkaccess.cli.TypedFieldConverter.TUPLE_SEPARATOR" href="#pyzkaccess.cli.TypedFieldConverter.TUPLE_SEPARATOR">TUPLE_SEPARATOR</a></code></li>
+<li><code><a title="pyzkaccess.cli.TypedFieldConverter.read_records" href="#pyzkaccess.cli.TypedFieldConverter.read_records">read_records</a></code></li>
+<li><code><a title="pyzkaccess.cli.TypedFieldConverter.to_record_dict" href="#pyzkaccess.cli.TypedFieldConverter.to_record_dict">to_record_dict</a></code></li>
+<li><code><a title="pyzkaccess.cli.TypedFieldConverter.to_string_dict" href="#pyzkaccess.cli.TypedFieldConverter.to_string_dict">to_string_dict</a></code></li>
+<li><code><a title="pyzkaccess.cli.TypedFieldConverter.write_records" href="#pyzkaccess.cli.TypedFieldConverter.write_records">write_records</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyzkaccess.cli.ZKCommand" href="#pyzkaccess.cli.ZKCommand">ZKCommand</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.cli.ZKCommand.aux_inputs" href="#pyzkaccess.cli.ZKCommand.aux_inputs">aux_inputs</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.cancel_alarm" href="#pyzkaccess.cli.ZKCommand.cancel_alarm">cancel_alarm</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.doors" href="#pyzkaccess.cli.ZKCommand.doors">doors</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.download_file" href="#pyzkaccess.cli.ZKCommand.download_file">download_file</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.events" href="#pyzkaccess.cli.ZKCommand.events">events</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.parameters" href="#pyzkaccess.cli.ZKCommand.parameters">parameters</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.read_raw" href="#pyzkaccess.cli.ZKCommand.read_raw">read_raw</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.readers" href="#pyzkaccess.cli.ZKCommand.readers">readers</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.relays" href="#pyzkaccess.cli.ZKCommand.relays">relays</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.restart" href="#pyzkaccess.cli.ZKCommand.restart">restart</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.table" href="#pyzkaccess.cli.ZKCommand.table">table</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.upload_file" href="#pyzkaccess.cli.ZKCommand.upload_file">upload_file</a></code></li>
+<li><code><a title="pyzkaccess.cli.ZKCommand.write_raw" href="#pyzkaccess.cli.ZKCommand.write_raw">write_raw</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

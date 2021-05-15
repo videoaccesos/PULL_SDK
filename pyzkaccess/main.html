@@ -1,0 +1,1674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>pyzkaccess.main API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}#lunr-search{width:100%;font-size:1em;padding:6px 9px 5px 9px;border:1px solid silver}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyzkaccess.main</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">__all__ = [
+    &#39;ZKAccess&#39;
+]
+
+import io
+import os
+import sys
+from typing import Optional, Sequence, Union, Type, BinaryIO
+
+import pyzkaccess.ctypes_ as ctypes
+import pyzkaccess.sdk
+from pyzkaccess.exceptions import ZKSDKError
+from .aux_input import AuxInput, AuxInputList
+from .device import ZKModel, ZK400, ZKDevice
+from .device_data.queryset import QuerySet
+from .device_data.model import Model, models_registry
+from .door import Door, DoorList
+from .enums import ControlOperation, ChangeIPProtocol
+from .event import EventLog
+from .param import DeviceParameters, DoorParameters
+from .reader import Reader, ReaderList
+from .relay import Relay, RelayList
+
+
+class ZKAccess:
+    &#34;&#34;&#34;Interface to a connected ZKAccess device&#34;&#34;&#34;
+
+    buffer_size = 4096
+    &#34;&#34;&#34;Size in bytes of c-string buffer which is used to accept
+    text data from PULL SDK functions
+    &#34;&#34;&#34;
+
+    query_buffer_size = None
+    &#34;&#34;&#34;Size in bytes of c-string buffer for result of query to
+    data tables. If None then size will be guessed automatically
+    &#34;&#34;&#34;
+
+    queryset_class = QuerySet
+
+    def __init__(self,
+                 connstr: Optional[str] = None,
+                 device: Optional[ZKDevice] = None,
+                 device_model: Type[ZKModel] = ZK400,
+                 dllpath: str = &#39;plcommpro.dll&#39;,
+                 log_capacity: Optional[int] = None):
+        &#34;&#34;&#34;
+        Args:
+            connstr (str, optional): Connection string. If given then
+                we try to connect automatically to a device. Ex:
+                &#39;protocol=TCP,ipaddress=192.168.1.201,port=4370,timeout=4000,passwd=&#39;
+            device (ZKDevice, optional): ZKDevice object to connect to.
+                If given then we try to connect automatically to a
+                device
+            device_model (Type[ZKModel], default=ZK400): Device model.
+            dllpath (str, default=plcommpro.dll): Full path to
+                plcommpro.dll
+            log_capacity (int, optional): Mixumum capacity of events
+                log. By default size is not limited
+
+        Raises:
+          ZKSDKError: On connection error
+
+        &#34;&#34;&#34;
+        self.connstr = connstr
+        self.device_model = device_model
+        self.sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+        self._device = device
+        self._event_log = EventLog(self.sdk, self.buffer_size, maxlen=log_capacity)
+
+        if device:
+            if not connstr:
+                self.connstr = \
+                    &#39;protocol=TCP,ipaddress={},port=4370,timeout=4000,passwd=&#39;.format(device.ip)
+            if not device_model:
+                self.device_model = device.model
+
+        if self.connstr:
+            self.connect(self.connstr)
+
+    def table(self, table: Union[Type[Model], str]) -&gt; QuerySet:
+        &#34;&#34;&#34;Return a QuerySet object for a given table
+
+        Args:
+            table (Union[Type[Model], str]): data table name or Model
+                object/class
+
+        Returns:
+            QuerySet: new empty QuerySet object binded with a given
+                table
+
+        &#34;&#34;&#34;
+        table = self._get_table(table)
+        return self.queryset_class(self.sdk, table, self.query_buffer_size)
+
+    def upload_file(self, remote_filename: str, data: BinaryIO) -&gt; None:
+        &#34;&#34;&#34;Upload a file with given name to a device
+
+        Args:
+            remote_filename (str): filename to upload
+            data (BinaryIO): file data binary stream
+        &#34;&#34;&#34;
+        pos = data.tell()
+        data.seek(0, os.SEEK_END)
+        size = data.tell() - pos
+        data.seek(pos)
+
+        self.sdk.set_device_file_data(remote_filename, data.read(), size)
+
+        data.seek(pos)
+
+    def download_file(self, remote_filename: str, buffer_size: Optional[int] = None) -&gt; BinaryIO:
+        &#34;&#34;&#34;Download file with given name from a device.
+
+        Args:
+            remote_filename (str): filename to download from a device
+            buffer_size (int, optional): size of buffer for downloading
+                file data. If omitted, then it will be guessed
+                automatically
+
+        Returns:
+            BinaryIO: file data binary stream
+        &#34;&#34;&#34;
+        estimated_size = buffer_size
+        if buffer_size is None:
+            estimated_size = 1 * 1024 * 1024  # Start from 4kb
+
+        data = self.sdk.get_device_file_data(remote_filename, estimated_size)
+        while buffer_size is None and len(data) &gt;= estimated_size:
+            # Read data size == buffer_size means in most cases
+            # that buffer got overflowed and it&#39;s needed to
+            # increase buffer size and read again
+            estimated_size *= 2
+            data = self.sdk.get_device_file_data(remote_filename, estimated_size)
+
+        res = io.BytesIO(data)
+        res.seek(0)
+        return res
+
+    def cancel_alarm(self):
+        &#34;&#34;&#34;Move a device from alarm state to a normal state&#34;&#34;&#34;
+        self.sdk.control_device(ControlOperation.cancel_alarm.value, 0, 0, 0, 0)
+
+    @property
+    def doors(self) -&gt; DoorList:
+        &#34;&#34;&#34;Door object list, depends on device model.
+        Door object incapsulates access to appropriate relays, reader,
+        aux input, and also its events and parameters
+
+        You can work with one object as with a slice. E.g. switch_on
+        all relays of a door::
+
+            zk.doors[0].relays.switch_on(5)
+
+        or a slice::
+
+            zk.doors[:2].relays.switch_on(5)
+
+        Returns:
+            DoorList: list of all doors
+        &#34;&#34;&#34;
+        mdl = self.device_model
+        readers = (Reader(self.sdk, self._event_log, x) for x in mdl.readers_def)
+        aux_inputs = (AuxInput(self.sdk, self._event_log, n) for n in mdl.aux_inputs_def)
+        relays = [Relay(self.sdk, g, n) for g, n in zip(mdl.groups_def, mdl.relays_def)]
+        door_relays = (
+            RelayList(self.sdk, relays=[x for x in relays if x.number == door])
+            for door in mdl.doors_def
+        )
+        params = (DoorParameters(self.sdk, device_model=mdl, door_number=door)
+                  for door in mdl.doors_def)
+
+        seq = zip(mdl.doors_def, door_relays, readers, aux_inputs, params)
+        doors = [Door(self.sdk, self._event_log, door, relays, reader, aux_input, params)
+                 for door, relays, reader, aux_input, params in seq]
+
+        return DoorList(self.sdk, event_log=self._event_log, doors=doors)
+
+    @property
+    def relays(self) -&gt; RelayList:
+        &#34;&#34;&#34;Relay object list, depends on device model
+
+        You can work with one object as with a slice. E.g. switch on
+        a single relay::
+
+            zk.relays[0].switch_on(5)
+
+        or a slice::
+
+            zk.relays[:2].switch_on(5)
+
+        Returns:
+            RelayList: list of all relays
+        &#34;&#34;&#34;
+        mdl = self.device_model
+        relays = [Relay(self.sdk, g, n) for g, n in zip(mdl.groups_def, mdl.relays_def)]
+        return RelayList(sdk=self.sdk, relays=relays)
+
+    @property
+    def readers(self) -&gt; ReaderList:
+        &#34;&#34;&#34;Reader object list, depends on device model
+
+        You can work with one object as with a slice. E.g. get events
+        of single reader::
+
+            zk.readers[0].events
+
+        or a slice::
+
+            zk.readers[:2].events
+
+        Returns:
+            ReaderList: list of all readers
+        &#34;&#34;&#34;
+        readers = [Reader(self.sdk, self._event_log, x) for x in self.device_model.readers_def]
+        return ReaderList(sdk=self.sdk, event_log=self._event_log, readers=readers)
+
+    @property
+    def aux_inputs(self) -&gt; AuxInputList:
+        &#34;&#34;&#34;Aux input object list, depends on device model
+
+        You can work with one object as with a slice. E.g. get events
+        of single input::
+
+            zk.aux_inputs[0].events
+
+        or a slice::
+
+            zk.aux_inputs[:2].events
+
+        Returns:
+            AuxInputList: list of all aux inputs
+        &#34;&#34;&#34;
+        mdl = self.device_model
+        aux_inputs = [AuxInput(self.sdk, self._event_log, n) for n in mdl.aux_inputs_def]
+        return AuxInputList(self.sdk, event_log=self._event_log, aux_inputs=aux_inputs)
+
+    @property
+    def events(self) -&gt; &#39;EventLog&#39;:
+        &#34;&#34;&#34;Device event log.
+
+        This property returns all records pulled from a device.
+        Keep in mind that log is not filled out automatically and
+        should be refreshed periodically by hand using `refresh()`
+        method. This is because working with ZKAccess has
+        request-response nature and cannot up a tunnel which may be
+        used to feed events.
+
+        But you can use `poll()` method which awaits new events from
+        a device and return them if any.
+
+        Doors, inputs, readers have their own `events` property. Those
+        properties just filters the same event log instance and
+        return entries related to requested object.
+
+        Returns:
+            EventLog: unfiltered event log object
+        &#34;&#34;&#34;
+        return self._event_log
+
+    @property
+    def parameters(self) -&gt; DeviceParameters:
+        &#34;&#34;&#34;Parameters related to the whole device such as datetime,
+        connection settings and so forth. Door-specific parameters are
+        accesible by `doors` property.
+
+        Returns:
+            DeviceParameters: parameters object
+        &#34;&#34;&#34;
+        return DeviceParameters(self.sdk, self.device_model)
+
+    @property
+    def device(self) -&gt; ZKDevice:
+        &#34;&#34;&#34;Current device object we connected with&#34;&#34;&#34;
+        if self._device:
+            return self._device
+
+        if not self.sdk.is_connected:
+            raise RuntimeError(&#39;Cannot create device while not connected&#39;)
+
+        return ZKDevice(mac=None,
+                        ip=self.parameters.ip_address,
+                        serial_number=self.parameters.serial_number,
+                        model=self.device_model,
+                        version=None)
+
+    @property
+    def dll_object(self) -&gt; ctypes.WinDLL:
+        &#34;&#34;&#34;DLL object (`ctypes.WinDLL`). Read only.&#34;&#34;&#34;
+        return self.sdk.dll
+
+    @property
+    def handle(self) -&gt; Optional[int]:
+        &#34;&#34;&#34;Device handle. `None` if there is no active connection.
+        Read only.
+        &#34;&#34;&#34;
+        return self.sdk.handle
+
+    @classmethod
+    def search_devices(cls,
+                       broadcast_address: str = &#39;255.255.255.255&#39;,
+                       dllpath: str = &#39;plcommpro.dll&#39;) -&gt; Sequence[ZKDevice]:
+        &#34;&#34;&#34;Classmethod which scans an Ethernet network with given
+        broadcast address and returns all found ZK devices.
+
+        Please keep in mind that process sends broadcast packets to
+        perform a search which are not passed through routers. So you&#39;ll
+        get results only for local network segment.
+
+        The default broadcast address may not work in some cases, so
+        it&#39;s better to specify your local network broadcast address.
+        For example, if your ip is `192.168.22.123` and netmask is
+        `255.255.255.0` or `/24` so address will be `192.168.22.255`.
+
+        Returned objects can be used as `device=` parameter in
+        constructor.
+
+        Args:
+            broadcast_address (str, default=255.255.255.255): your
+                local segment broadcast address as string
+            dllpath (str, default=plcommpro.dll): path to a PULL
+                SDK DLL
+
+        Returns:
+            Sequence[ZKDevice]: iterable with found devices
+
+        &#34;&#34;&#34;
+        sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+        try:
+            devices = sdk.search_device(broadcast_address, cls.buffer_size)
+        except ZKSDKError as e:
+            # If no devices found, the -2 error is raised by SDK
+            # Return just empty list in this case
+            if e.err == -2:
+                return ()
+            raise
+
+        return tuple(ZKDevice(line) for line in devices)
+
+    @classmethod
+    def change_ip(cls,
+                  mac_address: str,
+                  new_ip_address: str,
+                  broadcast_address: str = &#39;255.255.255.255&#39;,
+                  protocol: ChangeIPProtocol = ChangeIPProtocol.udp,
+                  dllpath: str = &#39;plcommpro.dll&#39;
+    ) -&gt; None:
+        &#34;&#34;&#34;
+        Classmethod that changes IP address on a device by sending
+        broadcast packets to the given broadcast address. For security
+        reasons, network settings can only be changed on devices with
+        no password.
+
+        The default broadcast address may not work in some cases, so
+        it&#39;s better to specify your local network broadcast address.
+        For example, if your ip is `192.168.22.123` and netmask is
+        `255.255.255.0` or `/24` so address will be `192.168.22.255`.
+
+        Args:
+            mac_address (str): MAC address of a device
+            new_ip_address (str): new IP address to be set on a device
+            broadcast_address (str, default=255.255.255.255): broadcast
+                network address
+            protocol (ChangeIPProtocol, default=ChangeIPProtocol.udp): a
+                protocol to use for sending broadcast packets
+            dllpath (str, default=plcommpro.dll): path to a PULL
+                SDK DLL
+
+        Returns:
+            bool: True if operation was successful
+        &#34;&#34;&#34;
+        sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+        sdk.modify_ip_address(mac_address, new_ip_address, broadcast_address, protocol.value)
+
+    def connect(self, connstr: str) -&gt; None:
+        &#34;&#34;&#34;Connect to a device using connection string, ex:
+        &#39;protocol=TCP,ipaddress=192.168.1.201,port=4370,timeout=4000,passwd=&#39;
+
+        Args:
+            connstr (str): device connection string
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.sdk.is_connected:
+            if connstr != self.connstr:
+                raise ValueError(&#39;Please disconnect before connecting with other connstr&#39;)
+            return
+
+        self.connstr = connstr
+        self.sdk.connect(connstr)
+
+    def disconnect(self) -&gt; None:
+        &#34;&#34;&#34;Disconnect from a device&#34;&#34;&#34;
+        self.sdk.disconnect()
+
+    def restart(self) -&gt; None:
+        &#34;&#34;&#34;Restart a device&#34;&#34;&#34;
+        self.sdk.control_device(ControlOperation.restart.value, 0, 0, 0, 0)
+
+    @staticmethod
+    def _get_table(table) -&gt; Type[Model]:
+        if isinstance(table, str):
+            table = models_registry[table]
+        elif isinstance(table, Model):
+            table = table.__class__
+        elif not (isinstance(table, type) and issubclass(table, Model)):
+            raise TypeError(&#39;Table must be either a data table object/class or a table name&#39;)
+
+        return table
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.sdk.is_connected:
+            self.disconnect()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyzkaccess.main.ZKAccess"><code class="flex name class">
+<span>class <span class="ident">ZKAccess</span></span>
+<span>(</span><span>connstr: Optional[str] = None, device: Optional[<a title="pyzkaccess.device.ZKDevice" href="device.html#pyzkaccess.device.ZKDevice">ZKDevice</a>] = None, device_model: Type[<a title="pyzkaccess.device.ZKModel" href="device.html#pyzkaccess.device.ZKModel">ZKModel</a>] = pyzkaccess.device.ZK400, dllpath: str = 'plcommpro.dll', log_capacity: Optional[int] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Interface to a connected ZKAccess device</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>connstr</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Connection string. If given then
+we try to connect automatically to a device. Ex:
+'protocol=TCP,ipaddress=192.168.1.201,port=4370,timeout=4000,passwd='</dd>
+<dt><strong><code>device</code></strong> :&ensp;<code>ZKDevice</code>, optional</dt>
+<dd>ZKDevice object to connect to.
+If given then we try to connect automatically to a
+device</dd>
+<dt><strong><code>device_model</code></strong> :&ensp;<code>Type[ZKModel]</code>, default=<code>ZK400</code></dt>
+<dd>Device model.</dd>
+<dt><strong><code>dllpath</code></strong> :&ensp;<code>str</code>, default=<code>plcommpro.dll</code></dt>
+<dd>Full path to
+plcommpro.dll</dd>
+<dt><strong><code>log_capacity</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Mixumum capacity of events
+log. By default size is not limited</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ZKSDKError</code></dt>
+<dd>On connection error</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ZKAccess:
+    &#34;&#34;&#34;Interface to a connected ZKAccess device&#34;&#34;&#34;
+
+    buffer_size = 4096
+    &#34;&#34;&#34;Size in bytes of c-string buffer which is used to accept
+    text data from PULL SDK functions
+    &#34;&#34;&#34;
+
+    query_buffer_size = None
+    &#34;&#34;&#34;Size in bytes of c-string buffer for result of query to
+    data tables. If None then size will be guessed automatically
+    &#34;&#34;&#34;
+
+    queryset_class = QuerySet
+
+    def __init__(self,
+                 connstr: Optional[str] = None,
+                 device: Optional[ZKDevice] = None,
+                 device_model: Type[ZKModel] = ZK400,
+                 dllpath: str = &#39;plcommpro.dll&#39;,
+                 log_capacity: Optional[int] = None):
+        &#34;&#34;&#34;
+        Args:
+            connstr (str, optional): Connection string. If given then
+                we try to connect automatically to a device. Ex:
+                &#39;protocol=TCP,ipaddress=192.168.1.201,port=4370,timeout=4000,passwd=&#39;
+            device (ZKDevice, optional): ZKDevice object to connect to.
+                If given then we try to connect automatically to a
+                device
+            device_model (Type[ZKModel], default=ZK400): Device model.
+            dllpath (str, default=plcommpro.dll): Full path to
+                plcommpro.dll
+            log_capacity (int, optional): Mixumum capacity of events
+                log. By default size is not limited
+
+        Raises:
+          ZKSDKError: On connection error
+
+        &#34;&#34;&#34;
+        self.connstr = connstr
+        self.device_model = device_model
+        self.sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+        self._device = device
+        self._event_log = EventLog(self.sdk, self.buffer_size, maxlen=log_capacity)
+
+        if device:
+            if not connstr:
+                self.connstr = \
+                    &#39;protocol=TCP,ipaddress={},port=4370,timeout=4000,passwd=&#39;.format(device.ip)
+            if not device_model:
+                self.device_model = device.model
+
+        if self.connstr:
+            self.connect(self.connstr)
+
+    def table(self, table: Union[Type[Model], str]) -&gt; QuerySet:
+        &#34;&#34;&#34;Return a QuerySet object for a given table
+
+        Args:
+            table (Union[Type[Model], str]): data table name or Model
+                object/class
+
+        Returns:
+            QuerySet: new empty QuerySet object binded with a given
+                table
+
+        &#34;&#34;&#34;
+        table = self._get_table(table)
+        return self.queryset_class(self.sdk, table, self.query_buffer_size)
+
+    def upload_file(self, remote_filename: str, data: BinaryIO) -&gt; None:
+        &#34;&#34;&#34;Upload a file with given name to a device
+
+        Args:
+            remote_filename (str): filename to upload
+            data (BinaryIO): file data binary stream
+        &#34;&#34;&#34;
+        pos = data.tell()
+        data.seek(0, os.SEEK_END)
+        size = data.tell() - pos
+        data.seek(pos)
+
+        self.sdk.set_device_file_data(remote_filename, data.read(), size)
+
+        data.seek(pos)
+
+    def download_file(self, remote_filename: str, buffer_size: Optional[int] = None) -&gt; BinaryIO:
+        &#34;&#34;&#34;Download file with given name from a device.
+
+        Args:
+            remote_filename (str): filename to download from a device
+            buffer_size (int, optional): size of buffer for downloading
+                file data. If omitted, then it will be guessed
+                automatically
+
+        Returns:
+            BinaryIO: file data binary stream
+        &#34;&#34;&#34;
+        estimated_size = buffer_size
+        if buffer_size is None:
+            estimated_size = 1 * 1024 * 1024  # Start from 4kb
+
+        data = self.sdk.get_device_file_data(remote_filename, estimated_size)
+        while buffer_size is None and len(data) &gt;= estimated_size:
+            # Read data size == buffer_size means in most cases
+            # that buffer got overflowed and it&#39;s needed to
+            # increase buffer size and read again
+            estimated_size *= 2
+            data = self.sdk.get_device_file_data(remote_filename, estimated_size)
+
+        res = io.BytesIO(data)
+        res.seek(0)
+        return res
+
+    def cancel_alarm(self):
+        &#34;&#34;&#34;Move a device from alarm state to a normal state&#34;&#34;&#34;
+        self.sdk.control_device(ControlOperation.cancel_alarm.value, 0, 0, 0, 0)
+
+    @property
+    def doors(self) -&gt; DoorList:
+        &#34;&#34;&#34;Door object list, depends on device model.
+        Door object incapsulates access to appropriate relays, reader,
+        aux input, and also its events and parameters
+
+        You can work with one object as with a slice. E.g. switch_on
+        all relays of a door::
+
+            zk.doors[0].relays.switch_on(5)
+
+        or a slice::
+
+            zk.doors[:2].relays.switch_on(5)
+
+        Returns:
+            DoorList: list of all doors
+        &#34;&#34;&#34;
+        mdl = self.device_model
+        readers = (Reader(self.sdk, self._event_log, x) for x in mdl.readers_def)
+        aux_inputs = (AuxInput(self.sdk, self._event_log, n) for n in mdl.aux_inputs_def)
+        relays = [Relay(self.sdk, g, n) for g, n in zip(mdl.groups_def, mdl.relays_def)]
+        door_relays = (
+            RelayList(self.sdk, relays=[x for x in relays if x.number == door])
+            for door in mdl.doors_def
+        )
+        params = (DoorParameters(self.sdk, device_model=mdl, door_number=door)
+                  for door in mdl.doors_def)
+
+        seq = zip(mdl.doors_def, door_relays, readers, aux_inputs, params)
+        doors = [Door(self.sdk, self._event_log, door, relays, reader, aux_input, params)
+                 for door, relays, reader, aux_input, params in seq]
+
+        return DoorList(self.sdk, event_log=self._event_log, doors=doors)
+
+    @property
+    def relays(self) -&gt; RelayList:
+        &#34;&#34;&#34;Relay object list, depends on device model
+
+        You can work with one object as with a slice. E.g. switch on
+        a single relay::
+
+            zk.relays[0].switch_on(5)
+
+        or a slice::
+
+            zk.relays[:2].switch_on(5)
+
+        Returns:
+            RelayList: list of all relays
+        &#34;&#34;&#34;
+        mdl = self.device_model
+        relays = [Relay(self.sdk, g, n) for g, n in zip(mdl.groups_def, mdl.relays_def)]
+        return RelayList(sdk=self.sdk, relays=relays)
+
+    @property
+    def readers(self) -&gt; ReaderList:
+        &#34;&#34;&#34;Reader object list, depends on device model
+
+        You can work with one object as with a slice. E.g. get events
+        of single reader::
+
+            zk.readers[0].events
+
+        or a slice::
+
+            zk.readers[:2].events
+
+        Returns:
+            ReaderList: list of all readers
+        &#34;&#34;&#34;
+        readers = [Reader(self.sdk, self._event_log, x) for x in self.device_model.readers_def]
+        return ReaderList(sdk=self.sdk, event_log=self._event_log, readers=readers)
+
+    @property
+    def aux_inputs(self) -&gt; AuxInputList:
+        &#34;&#34;&#34;Aux input object list, depends on device model
+
+        You can work with one object as with a slice. E.g. get events
+        of single input::
+
+            zk.aux_inputs[0].events
+
+        or a slice::
+
+            zk.aux_inputs[:2].events
+
+        Returns:
+            AuxInputList: list of all aux inputs
+        &#34;&#34;&#34;
+        mdl = self.device_model
+        aux_inputs = [AuxInput(self.sdk, self._event_log, n) for n in mdl.aux_inputs_def]
+        return AuxInputList(self.sdk, event_log=self._event_log, aux_inputs=aux_inputs)
+
+    @property
+    def events(self) -&gt; &#39;EventLog&#39;:
+        &#34;&#34;&#34;Device event log.
+
+        This property returns all records pulled from a device.
+        Keep in mind that log is not filled out automatically and
+        should be refreshed periodically by hand using `refresh()`
+        method. This is because working with ZKAccess has
+        request-response nature and cannot up a tunnel which may be
+        used to feed events.
+
+        But you can use `poll()` method which awaits new events from
+        a device and return them if any.
+
+        Doors, inputs, readers have their own `events` property. Those
+        properties just filters the same event log instance and
+        return entries related to requested object.
+
+        Returns:
+            EventLog: unfiltered event log object
+        &#34;&#34;&#34;
+        return self._event_log
+
+    @property
+    def parameters(self) -&gt; DeviceParameters:
+        &#34;&#34;&#34;Parameters related to the whole device such as datetime,
+        connection settings and so forth. Door-specific parameters are
+        accesible by `doors` property.
+
+        Returns:
+            DeviceParameters: parameters object
+        &#34;&#34;&#34;
+        return DeviceParameters(self.sdk, self.device_model)
+
+    @property
+    def device(self) -&gt; ZKDevice:
+        &#34;&#34;&#34;Current device object we connected with&#34;&#34;&#34;
+        if self._device:
+            return self._device
+
+        if not self.sdk.is_connected:
+            raise RuntimeError(&#39;Cannot create device while not connected&#39;)
+
+        return ZKDevice(mac=None,
+                        ip=self.parameters.ip_address,
+                        serial_number=self.parameters.serial_number,
+                        model=self.device_model,
+                        version=None)
+
+    @property
+    def dll_object(self) -&gt; ctypes.WinDLL:
+        &#34;&#34;&#34;DLL object (`ctypes.WinDLL`). Read only.&#34;&#34;&#34;
+        return self.sdk.dll
+
+    @property
+    def handle(self) -&gt; Optional[int]:
+        &#34;&#34;&#34;Device handle. `None` if there is no active connection.
+        Read only.
+        &#34;&#34;&#34;
+        return self.sdk.handle
+
+    @classmethod
+    def search_devices(cls,
+                       broadcast_address: str = &#39;255.255.255.255&#39;,
+                       dllpath: str = &#39;plcommpro.dll&#39;) -&gt; Sequence[ZKDevice]:
+        &#34;&#34;&#34;Classmethod which scans an Ethernet network with given
+        broadcast address and returns all found ZK devices.
+
+        Please keep in mind that process sends broadcast packets to
+        perform a search which are not passed through routers. So you&#39;ll
+        get results only for local network segment.
+
+        The default broadcast address may not work in some cases, so
+        it&#39;s better to specify your local network broadcast address.
+        For example, if your ip is `192.168.22.123` and netmask is
+        `255.255.255.0` or `/24` so address will be `192.168.22.255`.
+
+        Returned objects can be used as `device=` parameter in
+        constructor.
+
+        Args:
+            broadcast_address (str, default=255.255.255.255): your
+                local segment broadcast address as string
+            dllpath (str, default=plcommpro.dll): path to a PULL
+                SDK DLL
+
+        Returns:
+            Sequence[ZKDevice]: iterable with found devices
+
+        &#34;&#34;&#34;
+        sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+        try:
+            devices = sdk.search_device(broadcast_address, cls.buffer_size)
+        except ZKSDKError as e:
+            # If no devices found, the -2 error is raised by SDK
+            # Return just empty list in this case
+            if e.err == -2:
+                return ()
+            raise
+
+        return tuple(ZKDevice(line) for line in devices)
+
+    @classmethod
+    def change_ip(cls,
+                  mac_address: str,
+                  new_ip_address: str,
+                  broadcast_address: str = &#39;255.255.255.255&#39;,
+                  protocol: ChangeIPProtocol = ChangeIPProtocol.udp,
+                  dllpath: str = &#39;plcommpro.dll&#39;
+    ) -&gt; None:
+        &#34;&#34;&#34;
+        Classmethod that changes IP address on a device by sending
+        broadcast packets to the given broadcast address. For security
+        reasons, network settings can only be changed on devices with
+        no password.
+
+        The default broadcast address may not work in some cases, so
+        it&#39;s better to specify your local network broadcast address.
+        For example, if your ip is `192.168.22.123` and netmask is
+        `255.255.255.0` or `/24` so address will be `192.168.22.255`.
+
+        Args:
+            mac_address (str): MAC address of a device
+            new_ip_address (str): new IP address to be set on a device
+            broadcast_address (str, default=255.255.255.255): broadcast
+                network address
+            protocol (ChangeIPProtocol, default=ChangeIPProtocol.udp): a
+                protocol to use for sending broadcast packets
+            dllpath (str, default=plcommpro.dll): path to a PULL
+                SDK DLL
+
+        Returns:
+            bool: True if operation was successful
+        &#34;&#34;&#34;
+        sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+        sdk.modify_ip_address(mac_address, new_ip_address, broadcast_address, protocol.value)
+
+    def connect(self, connstr: str) -&gt; None:
+        &#34;&#34;&#34;Connect to a device using connection string, ex:
+        &#39;protocol=TCP,ipaddress=192.168.1.201,port=4370,timeout=4000,passwd=&#39;
+
+        Args:
+            connstr (str): device connection string
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.sdk.is_connected:
+            if connstr != self.connstr:
+                raise ValueError(&#39;Please disconnect before connecting with other connstr&#39;)
+            return
+
+        self.connstr = connstr
+        self.sdk.connect(connstr)
+
+    def disconnect(self) -&gt; None:
+        &#34;&#34;&#34;Disconnect from a device&#34;&#34;&#34;
+        self.sdk.disconnect()
+
+    def restart(self) -&gt; None:
+        &#34;&#34;&#34;Restart a device&#34;&#34;&#34;
+        self.sdk.control_device(ControlOperation.restart.value, 0, 0, 0, 0)
+
+    @staticmethod
+    def _get_table(table) -&gt; Type[Model]:
+        if isinstance(table, str):
+            table = models_registry[table]
+        elif isinstance(table, Model):
+            table = table.__class__
+        elif not (isinstance(table, type) and issubclass(table, Model)):
+            raise TypeError(&#39;Table must be either a data table object/class or a table name&#39;)
+
+        return table
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.sdk.is_connected:
+            self.disconnect()</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pyzkaccess.main.ZKAccess.buffer_size"><code class="name">var <span class="ident">buffer_size</span></code></dt>
+<dd>
+<div class="desc"><p>Size in bytes of c-string buffer which is used to accept
+text data from PULL SDK functions</p></div>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.query_buffer_size"><code class="name">var <span class="ident">query_buffer_size</span></code></dt>
+<dd>
+<div class="desc"><p>Size in bytes of c-string buffer for result of query to
+data tables. If None then size will be guessed automatically</p></div>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.queryset_class"><code class="name">var <span class="ident">queryset_class</span></code></dt>
+<dd>
+<div class="desc"><p>Interface to perform queries to data tables, iterate
+over results and insert/delete records in tables</p>
+<p>QuerySet using "fluent interface" in most of its methods. Many
+ORMs use this approach, so working with tables and records may look
+familiar.</p>
+<p>Example::</p>
+<pre><code>records = zk.table('User').where(card='123456').only_fields('card', 'password').unread()
+for record in records:
+    print(record.password)
+</code></pre>
+<p>For table and fields you can use either objects or their names.
+For example, the following code has the same meaning as the previous
+one::</p>
+<pre><code>from zkaccess.tables import User
+records = zk.table(User).where(card='123456').only_fields(User.card, User.password).unread()
+for record in records:
+    print(record.password)
+</code></pre>
+<p>Also QuerySet can do upsert/delete operations</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="pyzkaccess.main.ZKAccess.change_ip"><code class="name flex">
+<span>def <span class="ident">change_ip</span></span>(<span>mac_address: str, new_ip_address: str, broadcast_address: str = '255.255.255.255', protocol: <a title="pyzkaccess.enums.ChangeIPProtocol" href="enums.html#pyzkaccess.enums.ChangeIPProtocol">ChangeIPProtocol</a> = ChangeIPProtocol.udp, dllpath: str = 'plcommpro.dll') ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Classmethod that changes IP address on a device by sending
+broadcast packets to the given broadcast address. For security
+reasons, network settings can only be changed on devices with
+no password.</p>
+<p>The default broadcast address may not work in some cases, so
+it's better to specify your local network broadcast address.
+For example, if your ip is <code>192.168.22.123</code> and netmask is
+<code>255.255.255.0</code> or <code>/24</code> so address will be <code>192.168.22.255</code>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mac_address</code></strong> :&ensp;<code>str</code></dt>
+<dd>MAC address of a device</dd>
+<dt><strong><code>new_ip_address</code></strong> :&ensp;<code>str</code></dt>
+<dd>new IP address to be set on a device</dd>
+<dt><strong><code>broadcast_address</code></strong> :&ensp;<code>str</code>, default=<code>255.255.255.255</code></dt>
+<dd>broadcast
+network address</dd>
+<dt><strong><code>protocol</code></strong> :&ensp;<code>ChangeIPProtocol</code>, default=<code>ChangeIPProtocol.udp</code></dt>
+<dd>a
+protocol to use for sending broadcast packets</dd>
+<dt><strong><code>dllpath</code></strong> :&ensp;<code>str</code>, default=<code>plcommpro.dll</code></dt>
+<dd>path to a PULL
+SDK DLL</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if operation was successful</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def change_ip(cls,
+              mac_address: str,
+              new_ip_address: str,
+              broadcast_address: str = &#39;255.255.255.255&#39;,
+              protocol: ChangeIPProtocol = ChangeIPProtocol.udp,
+              dllpath: str = &#39;plcommpro.dll&#39;
+) -&gt; None:
+    &#34;&#34;&#34;
+    Classmethod that changes IP address on a device by sending
+    broadcast packets to the given broadcast address. For security
+    reasons, network settings can only be changed on devices with
+    no password.
+
+    The default broadcast address may not work in some cases, so
+    it&#39;s better to specify your local network broadcast address.
+    For example, if your ip is `192.168.22.123` and netmask is
+    `255.255.255.0` or `/24` so address will be `192.168.22.255`.
+
+    Args:
+        mac_address (str): MAC address of a device
+        new_ip_address (str): new IP address to be set on a device
+        broadcast_address (str, default=255.255.255.255): broadcast
+            network address
+        protocol (ChangeIPProtocol, default=ChangeIPProtocol.udp): a
+            protocol to use for sending broadcast packets
+        dllpath (str, default=plcommpro.dll): path to a PULL
+            SDK DLL
+
+    Returns:
+        bool: True if operation was successful
+    &#34;&#34;&#34;
+    sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+    sdk.modify_ip_address(mac_address, new_ip_address, broadcast_address, protocol.value)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.search_devices"><code class="name flex">
+<span>def <span class="ident">search_devices</span></span>(<span>broadcast_address: str = '255.255.255.255', dllpath: str = 'plcommpro.dll') ‑> Sequence[<a title="pyzkaccess.device.ZKDevice" href="device.html#pyzkaccess.device.ZKDevice">ZKDevice</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Classmethod which scans an Ethernet network with given
+broadcast address and returns all found ZK devices.</p>
+<p>Please keep in mind that process sends broadcast packets to
+perform a search which are not passed through routers. So you'll
+get results only for local network segment.</p>
+<p>The default broadcast address may not work in some cases, so
+it's better to specify your local network broadcast address.
+For example, if your ip is <code>192.168.22.123</code> and netmask is
+<code>255.255.255.0</code> or <code>/24</code> so address will be <code>192.168.22.255</code>.</p>
+<p>Returned objects can be used as <code>device=</code> parameter in
+constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>broadcast_address</code></strong> :&ensp;<code>str</code>, default=<code>255.255.255.255</code></dt>
+<dd>your
+local segment broadcast address as string</dd>
+<dt><strong><code>dllpath</code></strong> :&ensp;<code>str</code>, default=<code>plcommpro.dll</code></dt>
+<dd>path to a PULL
+SDK DLL</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Sequence[ZKDevice]</code></dt>
+<dd>iterable with found devices</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def search_devices(cls,
+                   broadcast_address: str = &#39;255.255.255.255&#39;,
+                   dllpath: str = &#39;plcommpro.dll&#39;) -&gt; Sequence[ZKDevice]:
+    &#34;&#34;&#34;Classmethod which scans an Ethernet network with given
+    broadcast address and returns all found ZK devices.
+
+    Please keep in mind that process sends broadcast packets to
+    perform a search which are not passed through routers. So you&#39;ll
+    get results only for local network segment.
+
+    The default broadcast address may not work in some cases, so
+    it&#39;s better to specify your local network broadcast address.
+    For example, if your ip is `192.168.22.123` and netmask is
+    `255.255.255.0` or `/24` so address will be `192.168.22.255`.
+
+    Returned objects can be used as `device=` parameter in
+    constructor.
+
+    Args:
+        broadcast_address (str, default=255.255.255.255): your
+            local segment broadcast address as string
+        dllpath (str, default=plcommpro.dll): path to a PULL
+            SDK DLL
+
+    Returns:
+        Sequence[ZKDevice]: iterable with found devices
+
+    &#34;&#34;&#34;
+    sdk = pyzkaccess.sdk.ZKSDK(dllpath)
+    try:
+        devices = sdk.search_device(broadcast_address, cls.buffer_size)
+    except ZKSDKError as e:
+        # If no devices found, the -2 error is raised by SDK
+        # Return just empty list in this case
+        if e.err == -2:
+            return ()
+        raise
+
+    return tuple(ZKDevice(line) for line in devices)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyzkaccess.main.ZKAccess.aux_inputs"><code class="name">var <span class="ident">aux_inputs</span> : <a title="pyzkaccess.aux_input.AuxInputList" href="aux_input.html#pyzkaccess.aux_input.AuxInputList">AuxInputList</a></code></dt>
+<dd>
+<div class="desc"><p>Aux input object list, depends on device model</p>
+<p>You can work with one object as with a slice. E.g. get events
+of single input::</p>
+<pre><code>zk.aux_inputs[0].events
+</code></pre>
+<p>or a slice::</p>
+<pre><code>zk.aux_inputs[:2].events
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>AuxInputList</code></dt>
+<dd>list of all aux inputs</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def aux_inputs(self) -&gt; AuxInputList:
+    &#34;&#34;&#34;Aux input object list, depends on device model
+
+    You can work with one object as with a slice. E.g. get events
+    of single input::
+
+        zk.aux_inputs[0].events
+
+    or a slice::
+
+        zk.aux_inputs[:2].events
+
+    Returns:
+        AuxInputList: list of all aux inputs
+    &#34;&#34;&#34;
+    mdl = self.device_model
+    aux_inputs = [AuxInput(self.sdk, self._event_log, n) for n in mdl.aux_inputs_def]
+    return AuxInputList(self.sdk, event_log=self._event_log, aux_inputs=aux_inputs)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.device"><code class="name">var <span class="ident">device</span> : <a title="pyzkaccess.device.ZKDevice" href="device.html#pyzkaccess.device.ZKDevice">ZKDevice</a></code></dt>
+<dd>
+<div class="desc"><p>Current device object we connected with</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def device(self) -&gt; ZKDevice:
+    &#34;&#34;&#34;Current device object we connected with&#34;&#34;&#34;
+    if self._device:
+        return self._device
+
+    if not self.sdk.is_connected:
+        raise RuntimeError(&#39;Cannot create device while not connected&#39;)
+
+    return ZKDevice(mac=None,
+                    ip=self.parameters.ip_address,
+                    serial_number=self.parameters.serial_number,
+                    model=self.device_model,
+                    version=None)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.dll_object"><code class="name">var <span class="ident">dll_object</span> : <Mock id='140508859194144'></code></dt>
+<dd>
+<div class="desc"><p>DLL object (<code>ctypes.WinDLL</code>). Read only.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dll_object(self) -&gt; ctypes.WinDLL:
+    &#34;&#34;&#34;DLL object (`ctypes.WinDLL`). Read only.&#34;&#34;&#34;
+    return self.sdk.dll</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.doors"><code class="name">var <span class="ident">doors</span> : <a title="pyzkaccess.door.DoorList" href="door.html#pyzkaccess.door.DoorList">DoorList</a></code></dt>
+<dd>
+<div class="desc"><p>Door object list, depends on device model.
+Door object incapsulates access to appropriate relays, reader,
+aux input, and also its events and parameters</p>
+<p>You can work with one object as with a slice. E.g. switch_on
+all relays of a door::</p>
+<pre><code>zk.doors[0].relays.switch_on(5)
+</code></pre>
+<p>or a slice::</p>
+<pre><code>zk.doors[:2].relays.switch_on(5)
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>DoorList</code></dt>
+<dd>list of all doors</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def doors(self) -&gt; DoorList:
+    &#34;&#34;&#34;Door object list, depends on device model.
+    Door object incapsulates access to appropriate relays, reader,
+    aux input, and also its events and parameters
+
+    You can work with one object as with a slice. E.g. switch_on
+    all relays of a door::
+
+        zk.doors[0].relays.switch_on(5)
+
+    or a slice::
+
+        zk.doors[:2].relays.switch_on(5)
+
+    Returns:
+        DoorList: list of all doors
+    &#34;&#34;&#34;
+    mdl = self.device_model
+    readers = (Reader(self.sdk, self._event_log, x) for x in mdl.readers_def)
+    aux_inputs = (AuxInput(self.sdk, self._event_log, n) for n in mdl.aux_inputs_def)
+    relays = [Relay(self.sdk, g, n) for g, n in zip(mdl.groups_def, mdl.relays_def)]
+    door_relays = (
+        RelayList(self.sdk, relays=[x for x in relays if x.number == door])
+        for door in mdl.doors_def
+    )
+    params = (DoorParameters(self.sdk, device_model=mdl, door_number=door)
+              for door in mdl.doors_def)
+
+    seq = zip(mdl.doors_def, door_relays, readers, aux_inputs, params)
+    doors = [Door(self.sdk, self._event_log, door, relays, reader, aux_input, params)
+             for door, relays, reader, aux_input, params in seq]
+
+    return DoorList(self.sdk, event_log=self._event_log, doors=doors)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.events"><code class="name">var <span class="ident">events</span> : <a title="pyzkaccess.event.EventLog" href="event.html#pyzkaccess.event.EventLog">EventLog</a></code></dt>
+<dd>
+<div class="desc"><p>Device event log.</p>
+<p>This property returns all records pulled from a device.
+Keep in mind that log is not filled out automatically and
+should be refreshed periodically by hand using <code>refresh()</code>
+method. This is because working with ZKAccess has
+request-response nature and cannot up a tunnel which may be
+used to feed events.</p>
+<p>But you can use <code>poll()</code> method which awaits new events from
+a device and return them if any.</p>
+<p>Doors, inputs, readers have their own <code>events</code> property. Those
+properties just filters the same event log instance and
+return entries related to requested object.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>EventLog</code></dt>
+<dd>unfiltered event log object</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def events(self) -&gt; &#39;EventLog&#39;:
+    &#34;&#34;&#34;Device event log.
+
+    This property returns all records pulled from a device.
+    Keep in mind that log is not filled out automatically and
+    should be refreshed periodically by hand using `refresh()`
+    method. This is because working with ZKAccess has
+    request-response nature and cannot up a tunnel which may be
+    used to feed events.
+
+    But you can use `poll()` method which awaits new events from
+    a device and return them if any.
+
+    Doors, inputs, readers have their own `events` property. Those
+    properties just filters the same event log instance and
+    return entries related to requested object.
+
+    Returns:
+        EventLog: unfiltered event log object
+    &#34;&#34;&#34;
+    return self._event_log</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.handle"><code class="name">var <span class="ident">handle</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"><p>Device handle. <code>None</code> if there is no active connection.
+Read only.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def handle(self) -&gt; Optional[int]:
+    &#34;&#34;&#34;Device handle. `None` if there is no active connection.
+    Read only.
+    &#34;&#34;&#34;
+    return self.sdk.handle</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.parameters"><code class="name">var <span class="ident">parameters</span> : <a title="pyzkaccess.param.DeviceParameters" href="param.html#pyzkaccess.param.DeviceParameters">DeviceParameters</a></code></dt>
+<dd>
+<div class="desc"><p>Parameters related to the whole device such as datetime,
+connection settings and so forth. Door-specific parameters are
+accesible by <code>doors</code> property.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>DeviceParameters</code></dt>
+<dd>parameters object</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameters(self) -&gt; DeviceParameters:
+    &#34;&#34;&#34;Parameters related to the whole device such as datetime,
+    connection settings and so forth. Door-specific parameters are
+    accesible by `doors` property.
+
+    Returns:
+        DeviceParameters: parameters object
+    &#34;&#34;&#34;
+    return DeviceParameters(self.sdk, self.device_model)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.readers"><code class="name">var <span class="ident">readers</span> : <a title="pyzkaccess.reader.ReaderList" href="reader.html#pyzkaccess.reader.ReaderList">ReaderList</a></code></dt>
+<dd>
+<div class="desc"><p>Reader object list, depends on device model</p>
+<p>You can work with one object as with a slice. E.g. get events
+of single reader::</p>
+<pre><code>zk.readers[0].events
+</code></pre>
+<p>or a slice::</p>
+<pre><code>zk.readers[:2].events
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ReaderList</code></dt>
+<dd>list of all readers</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def readers(self) -&gt; ReaderList:
+    &#34;&#34;&#34;Reader object list, depends on device model
+
+    You can work with one object as with a slice. E.g. get events
+    of single reader::
+
+        zk.readers[0].events
+
+    or a slice::
+
+        zk.readers[:2].events
+
+    Returns:
+        ReaderList: list of all readers
+    &#34;&#34;&#34;
+    readers = [Reader(self.sdk, self._event_log, x) for x in self.device_model.readers_def]
+    return ReaderList(sdk=self.sdk, event_log=self._event_log, readers=readers)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.relays"><code class="name">var <span class="ident">relays</span> : <a title="pyzkaccess.relay.RelayList" href="relay.html#pyzkaccess.relay.RelayList">RelayList</a></code></dt>
+<dd>
+<div class="desc"><p>Relay object list, depends on device model</p>
+<p>You can work with one object as with a slice. E.g. switch on
+a single relay::</p>
+<pre><code>zk.relays[0].switch_on(5)
+</code></pre>
+<p>or a slice::</p>
+<pre><code>zk.relays[:2].switch_on(5)
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>RelayList</code></dt>
+<dd>list of all relays</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def relays(self) -&gt; RelayList:
+    &#34;&#34;&#34;Relay object list, depends on device model
+
+    You can work with one object as with a slice. E.g. switch on
+    a single relay::
+
+        zk.relays[0].switch_on(5)
+
+    or a slice::
+
+        zk.relays[:2].switch_on(5)
+
+    Returns:
+        RelayList: list of all relays
+    &#34;&#34;&#34;
+    mdl = self.device_model
+    relays = [Relay(self.sdk, g, n) for g, n in zip(mdl.groups_def, mdl.relays_def)]
+    return RelayList(sdk=self.sdk, relays=relays)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pyzkaccess.main.ZKAccess.cancel_alarm"><code class="name flex">
+<span>def <span class="ident">cancel_alarm</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Move a device from alarm state to a normal state</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cancel_alarm(self):
+    &#34;&#34;&#34;Move a device from alarm state to a normal state&#34;&#34;&#34;
+    self.sdk.control_device(ControlOperation.cancel_alarm.value, 0, 0, 0, 0)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.connect"><code class="name flex">
+<span>def <span class="ident">connect</span></span>(<span>self, connstr: str) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connect to a device using connection string, ex:
+'protocol=TCP,ipaddress=192.168.1.201,port=4370,timeout=4000,passwd='</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>connstr</code></strong> :&ensp;<code>str</code></dt>
+<dd>device connection string</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def connect(self, connstr: str) -&gt; None:
+    &#34;&#34;&#34;Connect to a device using connection string, ex:
+    &#39;protocol=TCP,ipaddress=192.168.1.201,port=4370,timeout=4000,passwd=&#39;
+
+    Args:
+        connstr (str): device connection string
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    if self.sdk.is_connected:
+        if connstr != self.connstr:
+            raise ValueError(&#39;Please disconnect before connecting with other connstr&#39;)
+        return
+
+    self.connstr = connstr
+    self.sdk.connect(connstr)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.disconnect"><code class="name flex">
+<span>def <span class="ident">disconnect</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Disconnect from a device</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def disconnect(self) -&gt; None:
+    &#34;&#34;&#34;Disconnect from a device&#34;&#34;&#34;
+    self.sdk.disconnect()</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.download_file"><code class="name flex">
+<span>def <span class="ident">download_file</span></span>(<span>self, remote_filename: str, buffer_size: Optional[int] = None) ‑> <class 'BinaryIO'></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Download file with given name from a device.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>remote_filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>filename to download from a device</dd>
+<dt><strong><code>buffer_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>size of buffer for downloading
+file data. If omitted, then it will be guessed
+automatically</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>BinaryIO</code></dt>
+<dd>file data binary stream</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def download_file(self, remote_filename: str, buffer_size: Optional[int] = None) -&gt; BinaryIO:
+    &#34;&#34;&#34;Download file with given name from a device.
+
+    Args:
+        remote_filename (str): filename to download from a device
+        buffer_size (int, optional): size of buffer for downloading
+            file data. If omitted, then it will be guessed
+            automatically
+
+    Returns:
+        BinaryIO: file data binary stream
+    &#34;&#34;&#34;
+    estimated_size = buffer_size
+    if buffer_size is None:
+        estimated_size = 1 * 1024 * 1024  # Start from 4kb
+
+    data = self.sdk.get_device_file_data(remote_filename, estimated_size)
+    while buffer_size is None and len(data) &gt;= estimated_size:
+        # Read data size == buffer_size means in most cases
+        # that buffer got overflowed and it&#39;s needed to
+        # increase buffer size and read again
+        estimated_size *= 2
+        data = self.sdk.get_device_file_data(remote_filename, estimated_size)
+
+    res = io.BytesIO(data)
+    res.seek(0)
+    return res</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.restart"><code class="name flex">
+<span>def <span class="ident">restart</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Restart a device</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def restart(self) -&gt; None:
+    &#34;&#34;&#34;Restart a device&#34;&#34;&#34;
+    self.sdk.control_device(ControlOperation.restart.value, 0, 0, 0, 0)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.table"><code class="name flex">
+<span>def <span class="ident">table</span></span>(<span>self, table: Union[Type[<a title="pyzkaccess.device_data.model.Model" href="device_data/model.html#pyzkaccess.device_data.model.Model">Model</a>], str]) ‑> <a title="pyzkaccess.device_data.queryset.QuerySet" href="device_data/queryset.html#pyzkaccess.device_data.queryset.QuerySet">QuerySet</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a QuerySet object for a given table</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>table</code></strong> :&ensp;<code>Union[Type[Model], str]</code></dt>
+<dd>data table name or Model
+object/class</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>QuerySet</code></dt>
+<dd>new empty QuerySet object binded with a given
+table</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def table(self, table: Union[Type[Model], str]) -&gt; QuerySet:
+    &#34;&#34;&#34;Return a QuerySet object for a given table
+
+    Args:
+        table (Union[Type[Model], str]): data table name or Model
+            object/class
+
+    Returns:
+        QuerySet: new empty QuerySet object binded with a given
+            table
+
+    &#34;&#34;&#34;
+    table = self._get_table(table)
+    return self.queryset_class(self.sdk, table, self.query_buffer_size)</code></pre>
+</details>
+</dd>
+<dt id="pyzkaccess.main.ZKAccess.upload_file"><code class="name flex">
+<span>def <span class="ident">upload_file</span></span>(<span>self, remote_filename: str, data: <class 'BinaryIO'>) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Upload a file with given name to a device</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>remote_filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>filename to upload</dd>
+<dt><strong><code>data</code></strong> :&ensp;<code>BinaryIO</code></dt>
+<dd>file data binary stream</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def upload_file(self, remote_filename: str, data: BinaryIO) -&gt; None:
+    &#34;&#34;&#34;Upload a file with given name to a device
+
+    Args:
+        remote_filename (str): filename to upload
+        data (BinaryIO): file data binary stream
+    &#34;&#34;&#34;
+    pos = data.tell()
+    data.seek(0, os.SEEK_END)
+    size = data.tell() - pos
+    data.seek(pos)
+
+    self.sdk.set_device_file_data(remote_filename, data.read(), size)
+
+    data.seek(pos)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<form>
+<input id="lunr-search" name="q" placeholder="🔎 Search ..." aria-label="Search"
+disabled minlength="2">
+</form>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.css" integrity="sha512-j1u8eUJ4f23xPPxwOrLUPQaCD2dwzNqqmDDcWS4deWsMv2ohLqmXXuP3hU7g8TyzbMSakP/mMqoNBYWj8AEIFg==" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.15.3/tingle.min.js" integrity="sha512-plGUER9JkeEWPPqQBE4sdLqBoQug5Ap+BCGMc7bJ8BXkm+VVj6QzkpBz5Yv2yPkkq+cqg9IpkBaGCas6uDbW8g==" crossorigin></script>
+<style>
+.modal-dialog iframe {
+width: 100vw;
+height: calc(100vh - 80px);
+}
+@media screen and (min-width: 700px) {
+.modal-dialog iframe {
+width: 70vw;
+height: 80vh;
+}
+}
+.modal-dialog .tingle-modal-box {width: auto;}
+.modal-dialog .tingle-modal-box__content {padding: 0;}
+</style>
+<script>
+const input = document.getElementById('lunr-search');
+input.disabled = false;
+input.form.addEventListener('submit', (ev) => {
+ev.preventDefault();
+const url = new URL(window.location);
+url.searchParams.set('q', input.value);
+history.replaceState({}, null, url.toString());
+search(input.value);
+});
+const query = new URL(window.location).searchParams.get('q');
+if (query)
+search(query);
+function search(query) {
+const url = '../doc-search.html#' + encodeURIComponent(query);
+new tingle.modal({
+cssClass: ['modal-dialog'],
+onClose: () => {
+const url = new URL(window.location);
+url.searchParams.delete('q');
+history.replaceState({}, null, url.toString());
+setTimeout(() => input.focus(), 100);
+}
+}).setContent('<iframe src="' + url + '"></iframe>').open();
+}
+</script>
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyzkaccess" href="index.html">pyzkaccess</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyzkaccess.main.ZKAccess" href="#pyzkaccess.main.ZKAccess">ZKAccess</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pyzkaccess.main.ZKAccess.aux_inputs" href="#pyzkaccess.main.ZKAccess.aux_inputs">aux_inputs</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.buffer_size" href="#pyzkaccess.main.ZKAccess.buffer_size">buffer_size</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.cancel_alarm" href="#pyzkaccess.main.ZKAccess.cancel_alarm">cancel_alarm</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.change_ip" href="#pyzkaccess.main.ZKAccess.change_ip">change_ip</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.connect" href="#pyzkaccess.main.ZKAccess.connect">connect</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.device" href="#pyzkaccess.main.ZKAccess.device">device</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.disconnect" href="#pyzkaccess.main.ZKAccess.disconnect">disconnect</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.dll_object" href="#pyzkaccess.main.ZKAccess.dll_object">dll_object</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.doors" href="#pyzkaccess.main.ZKAccess.doors">doors</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.download_file" href="#pyzkaccess.main.ZKAccess.download_file">download_file</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.events" href="#pyzkaccess.main.ZKAccess.events">events</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.handle" href="#pyzkaccess.main.ZKAccess.handle">handle</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.parameters" href="#pyzkaccess.main.ZKAccess.parameters">parameters</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.query_buffer_size" href="#pyzkaccess.main.ZKAccess.query_buffer_size">query_buffer_size</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.queryset_class" href="#pyzkaccess.main.ZKAccess.queryset_class">queryset_class</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.readers" href="#pyzkaccess.main.ZKAccess.readers">readers</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.relays" href="#pyzkaccess.main.ZKAccess.relays">relays</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.restart" href="#pyzkaccess.main.ZKAccess.restart">restart</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.search_devices" href="#pyzkaccess.main.ZKAccess.search_devices">search_devices</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.table" href="#pyzkaccess.main.ZKAccess.table">table</a></code></li>
+<li><code><a title="pyzkaccess.main.ZKAccess.upload_file" href="#pyzkaccess.main.ZKAccess.upload_file">upload_file</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

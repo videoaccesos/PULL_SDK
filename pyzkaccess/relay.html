@@ -42,11 +42,14 @@ from .sdk import ZKSDK
 class RelayInterface(metaclass=ABCMeta):
     @abstractmethod
     def switch_on(self, timeout: int) -&gt; None:
-        &#34;&#34;&#34;
-        Switch on a relay for the given time. If a relay is already
+        &#34;&#34;&#34;Switch on a relay for the given time. If a relay is already
         switched on then its timeout will be refreshed
-        :param timeout: timeout in seconds, Number between 0 and 255
-        :return:
+
+        Args:
+            timeout (int): timeout in seconds, number between 0 and 255
+
+        Returns:
+            None
         &#34;&#34;&#34;
         pass
 
@@ -59,12 +62,15 @@ class Relay(RelayInterface):
         self._sdk = sdk
 
     def switch_on(self, timeout: int) -&gt; None:
-        &#34;&#34;&#34;
-        Switch on a relay for the given time. If a relay is already
+        &#34;&#34;&#34;Switch on a relay for the given time. If a relay is already
         switched on then its timeout will be refreshed
-        :param timeout: Timeout in seconds while relay will be enabled.
-         Number between 0 and 255
-        :return:
+
+        Args:
+            timeout (int): Timeout in seconds while relay will
+                be enabled. Number between 0 and 255
+
+        Returns:
+            None
         &#34;&#34;&#34;
         if timeout &lt; 0 or timeout &gt; 255:
             raise ValueError(&#34;Timeout must be in range 0..255, got {}&#34;.format(timeout))
@@ -103,11 +109,14 @@ class RelayList(RelayInterface, UserTuple):
         self._sdk = sdk
 
     def switch_on(self, timeout: int) -&gt; None:
-        &#34;&#34;&#34;
-        Switch on all relays in set for a given time
-        :param timeout: Timeout in seconds while relay will be enabled.
-         Number between 0 and 255
-        :return:
+        &#34;&#34;&#34;Switch on all relays in set for a given time
+
+        Args:
+            timeout (int): Timeout in seconds while relay will be
+                enabled. Number between 0 and 255
+
+        Returns:
+            None
         &#34;&#34;&#34;
         if timeout &lt; 0 or timeout &gt; 255:
             raise ValueError(&#34;Timeout must be in range 0..255, got {}&#34;.format(timeout))
@@ -139,8 +148,7 @@ class RelayList(RelayInterface, UserTuple):
             return relays
 
     def by_mask(self, mask: Iterable[Union[int, bool]]) -&gt; &#39;RelayList&#39;:
-        &#34;&#34;&#34;
-        Return only relays starting from 0 which are matched by given
+        &#34;&#34;&#34;Return only relays starting from 0 which are matched by given
         mask. E.g. for `mask=[1, 0, 0, 1, 0, 0, 1, 0]` the function
         returns the 1st, the 4th and the 7th of 8 relays.
 
@@ -152,8 +160,14 @@ class RelayList(RelayInterface, UserTuple):
         If mask is shorter than count of relays then the rest relays
         will be ignored:
         for 8 relays `mask=[1, 0, 0]` will return the 1st relay only.
-        :param mask: mask is a list of ints or bools
-        :return: new instance of RelayList contained needed relays
+
+        Args:
+            mask (Iterable[Union[int, bool]]): mask is a list of
+                ints or bools
+
+        Returns:
+          RelayList: new instance of RelayList contained needed relays
+
         &#34;&#34;&#34;
         relays = [x for x, m in zip(self, mask) if m]
         return self.__class__(sdk=self._sdk, relays=relays)</code></pre>
@@ -186,12 +200,15 @@ class RelayList(RelayInterface, UserTuple):
         self._sdk = sdk
 
     def switch_on(self, timeout: int) -&gt; None:
-        &#34;&#34;&#34;
-        Switch on a relay for the given time. If a relay is already
+        &#34;&#34;&#34;Switch on a relay for the given time. If a relay is already
         switched on then its timeout will be refreshed
-        :param timeout: Timeout in seconds while relay will be enabled.
-         Number between 0 and 255
-        :return:
+
+        Args:
+            timeout (int): Timeout in seconds while relay will
+                be enabled. Number between 0 and 255
+
+        Returns:
+            None
         &#34;&#34;&#34;
         if timeout &lt; 0 or timeout &gt; 255:
             raise ValueError(&#34;Timeout must be in range 0..255, got {}&#34;.format(timeout))
@@ -231,21 +248,29 @@ class RelayList(RelayInterface, UserTuple):
 </code></dt>
 <dd>
 <div class="desc"><p>Switch on a relay for the given time. If a relay is already
-switched on then its timeout will be refreshed
-:param timeout: Timeout in seconds while relay will be enabled.
-Number between 0 and 255
-:return:</p></div>
+switched on then its timeout will be refreshed</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong> :&ensp;<code>int</code></dt>
+<dd>Timeout in seconds while relay will
+be enabled. Number between 0 and 255</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def switch_on(self, timeout: int) -&gt; None:
-    &#34;&#34;&#34;
-    Switch on a relay for the given time. If a relay is already
+    &#34;&#34;&#34;Switch on a relay for the given time. If a relay is already
     switched on then its timeout will be refreshed
-    :param timeout: Timeout in seconds while relay will be enabled.
-     Number between 0 and 255
-    :return:
+
+    Args:
+        timeout (int): Timeout in seconds while relay will
+            be enabled. Number between 0 and 255
+
+    Returns:
+        None
     &#34;&#34;&#34;
     if timeout &lt; 0 or timeout &gt; 255:
         raise ValueError(&#34;Timeout must be in range 0..255, got {}&#34;.format(timeout))
@@ -281,11 +306,14 @@ operations over multiple relays</p></div>
         self._sdk = sdk
 
     def switch_on(self, timeout: int) -&gt; None:
-        &#34;&#34;&#34;
-        Switch on all relays in set for a given time
-        :param timeout: Timeout in seconds while relay will be enabled.
-         Number between 0 and 255
-        :return:
+        &#34;&#34;&#34;Switch on all relays in set for a given time
+
+        Args:
+            timeout (int): Timeout in seconds while relay will be
+                enabled. Number between 0 and 255
+
+        Returns:
+            None
         &#34;&#34;&#34;
         if timeout &lt; 0 or timeout &gt; 255:
             raise ValueError(&#34;Timeout must be in range 0..255, got {}&#34;.format(timeout))
@@ -317,8 +345,7 @@ operations over multiple relays</p></div>
             return relays
 
     def by_mask(self, mask: Iterable[Union[int, bool]]) -&gt; &#39;RelayList&#39;:
-        &#34;&#34;&#34;
-        Return only relays starting from 0 which are matched by given
+        &#34;&#34;&#34;Return only relays starting from 0 which are matched by given
         mask. E.g. for `mask=[1, 0, 0, 1, 0, 0, 1, 0]` the function
         returns the 1st, the 4th and the 7th of 8 relays.
 
@@ -330,8 +357,14 @@ operations over multiple relays</p></div>
         If mask is shorter than count of relays then the rest relays
         will be ignored:
         for 8 relays `mask=[1, 0, 0]` will return the 1st relay only.
-        :param mask: mask is a list of ints or bools
-        :return: new instance of RelayList contained needed relays
+
+        Args:
+            mask (Iterable[Union[int, bool]]): mask is a list of
+                ints or bools
+
+        Returns:
+          RelayList: new instance of RelayList contained needed relays
+
         &#34;&#34;&#34;
         relays = [x for x, m in zip(self, mask) if m]
         return self.__class__(sdk=self._sdk, relays=relays)</code></pre>
@@ -387,16 +420,24 @@ for 5 relays <code>mask=[1, 0, 0, 1, 0, 0, 1, 0]</code> will return
 the 1st and the 4th relays.</p>
 <p>If mask is shorter than count of relays then the rest relays
 will be ignored:
-for 8 relays <code>mask=[1, 0, 0]</code> will return the 1st relay only.
-:param mask: mask is a list of ints or bools
-:return: new instance of RelayList contained needed relays</p></div>
+for 8 relays <code>mask=[1, 0, 0]</code> will return the 1st relay only.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mask</code></strong> :&ensp;<code>Iterable[Union[int, bool]]</code></dt>
+<dd>mask is a list of
+ints or bools</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="pyzkaccess.relay.RelayList" href="#pyzkaccess.relay.RelayList">RelayList</a></code></dt>
+<dd>new instance of RelayList contained needed relays</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def by_mask(self, mask: Iterable[Union[int, bool]]) -&gt; &#39;RelayList&#39;:
-    &#34;&#34;&#34;
-    Return only relays starting from 0 which are matched by given
+    &#34;&#34;&#34;Return only relays starting from 0 which are matched by given
     mask. E.g. for `mask=[1, 0, 0, 1, 0, 0, 1, 0]` the function
     returns the 1st, the 4th and the 7th of 8 relays.
 
@@ -408,8 +449,14 @@ for 8 relays <code>mask=[1, 0, 0]</code> will return the 1st relay only.
     If mask is shorter than count of relays then the rest relays
     will be ignored:
     for 8 relays `mask=[1, 0, 0]` will return the 1st relay only.
-    :param mask: mask is a list of ints or bools
-    :return: new instance of RelayList contained needed relays
+
+    Args:
+        mask (Iterable[Union[int, bool]]): mask is a list of
+            ints or bools
+
+    Returns:
+      RelayList: new instance of RelayList contained needed relays
+
     &#34;&#34;&#34;
     relays = [x for x, m in zip(self, mask) if m]
     return self.__class__(sdk=self._sdk, relays=relays)</code></pre>
@@ -419,20 +466,28 @@ for 8 relays <code>mask=[1, 0, 0]</code> will return the 1st relay only.
 <span>def <span class="ident">switch_on</span></span>(<span>self, timeout: int) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Switch on all relays in set for a given time
-:param timeout: Timeout in seconds while relay will be enabled.
-Number between 0 and 255
-:return:</p></div>
+<div class="desc"><p>Switch on all relays in set for a given time</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>timeout</code></strong> :&ensp;<code>int</code></dt>
+<dd>Timeout in seconds while relay will be
+enabled. Number between 0 and 255</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def switch_on(self, timeout: int) -&gt; None:
-    &#34;&#34;&#34;
-    Switch on all relays in set for a given time
-    :param timeout: Timeout in seconds while relay will be enabled.
-     Number between 0 and 255
-    :return:
+    &#34;&#34;&#34;Switch on all relays in set for a given time
+
+    Args:
+        timeout (int): Timeout in seconds while relay will be
+            enabled. Number between 0 and 255
+
+    Returns:
+        None
     &#34;&#34;&#34;
     if timeout &lt; 0 or timeout &gt; 255:
         raise ValueError(&#34;Timeout must be in range 0..255, got {}&#34;.format(timeout))
