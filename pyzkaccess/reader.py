@@ -46,7 +46,7 @@ class Reader(ReaderInterface):
         return not self.__eq__(other)
 
     def __str__(self):
-        return "Reader[{}]".format(self.number)
+        return f"Reader[{self.number}]"
 
     def __repr__(self):
         return self.__str__()

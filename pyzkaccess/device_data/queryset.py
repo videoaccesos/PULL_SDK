@@ -88,14 +88,14 @@ class QuerySet:
         for field in fields:
             if isinstance(field, str):
                 if field not in fields_mapping.keys():
-                    raise ValueError('No such field {}.{}'.format(self._table_cls.__name__, field))
+                    raise ValueError(f'No such field {self._table_cls.__name__}.{field}')
                 field = getattr(self._table_cls, field)
 
             elif isinstance(field, Field):
                 reverse_mapping = {v: k for k, v in fields_mapping.items()}
                 field_name = reverse_mapping.get(field.raw_name)
                 if field_name is None or getattr(self._table_cls, field_name, None) is not field:
-                    raise ValueError('No such field {}.{}'.format(self._table_cls.__name__, field))
+                    raise ValueError(f'No such field {self._table_cls.__name__}.{field}')
 
             else:
                 raise TypeError('Field must be either a table field object or a field name')
@@ -132,7 +132,7 @@ class QuerySet:
         for key, fval in kwargs.items():
             field = getattr(self._table_cls, key, None)
             if field is None:
-                raise TypeError('No such field {}.{}', self._table_cls.__name__, key)
+                raise TypeError(f'No such field {self._table_cls.__name__}.{key}')
             filters[field.raw_name] = field.to_raw_value(fval)
 
         qs._filters.update(filters)

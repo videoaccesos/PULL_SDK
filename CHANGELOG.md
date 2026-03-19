@@ -5,6 +5,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Python Versioning](https://www.python.org/dev/peps/pep-0440/#public-version-identifiers).
 
+## [1.1]
+
+### Added
+- Add Python 3.10, 3.11, 3.12 support
+- Add GitHub Actions CI/CD workflow
+
+### Changed
+- Migrate from deprecated `distutils` to modern `setuptools` in setup.py
+- Modernize `pyproject.toml` with full PEP 621 project metadata
+- Modernize codebase to use f-strings instead of `.format()` across all modules
+- Update tox.ini for Python 3.8-3.12 test environments
+- Bump minimum Python version to 3.8 (dropping 3.5, 3.6, 3.7)
+- Update development status to `Production/Stable`
+
+### Fixed
+- Fix `interlock` setter checking `anti_passback_rules` instead of `interlock_rules`
+
+### Removed
+- Drop support for Python 3.5, 3.6, 3.7 (end of life)
+
 ## [1.0]
 
 ### Added

@@ -45,7 +45,7 @@ class Relay(RelayInterface):
             None
         """
         if timeout < 0 or timeout > 255:
-            raise ValueError("Timeout must be in range 0..255, got {}".format(timeout))
+            raise ValueError(f"Timeout must be in range 0..255, got {timeout}")
 
         self._sdk.control_device(
             ControlOperation.output.value,
@@ -66,10 +66,10 @@ class Relay(RelayInterface):
         return not self.__eq__(other)
 
     def __str__(self):
-        return "Relay.{}({})".format(self.group.name, self.number)
+        return f"Relay.{self.group.name}({self.number})"
 
     def __repr__(self):
-        return "Relay(RelayGroup.{}, {})".format(self.group.name, self.number)
+        return f"Relay(RelayGroup.{self.group.name}, {self.number})"
 
 
 class RelayList(RelayInterface, UserTuple):
@@ -91,7 +91,7 @@ class RelayList(RelayInterface, UserTuple):
             None
         """
         if timeout < 0 or timeout > 255:
-            raise ValueError("Timeout must be in range 0..255, got {}".format(timeout))
+            raise ValueError(f"Timeout must be in range 0..255, got {timeout}")
 
         for relay in self:
             self._sdk.control_device(ControlOperation.output.value,

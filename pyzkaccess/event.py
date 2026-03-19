@@ -47,10 +47,8 @@ class Event:
 
     @property
     def description(self) -> str:
-        msg = 'Event[{}]: "{}" at door "{}" for card "{}" -- {}'.format(
-            str(self.time), self.event_type.doc, self.door, self.card,
-            self.entry_exit.name.capitalize()
-        )
+        msg = (f'Event[{self.time}]: "{self.event_type.doc}" at door "{self.door}" '
+               f'for card "{self.card}" -- {self.entry_exit.name.capitalize()}')
         return msg
 
     @staticmethod
@@ -68,7 +66,7 @@ class Event:
 
         items = event_line.split(',')
         if len(items) != 7:
-            raise ValueError("Event string must have exactly 7 parts: {}".format(event_line))
+            raise ValueError(f"Event string must have exactly 7 parts: {event_line}")
 
         return items
 
@@ -81,9 +79,8 @@ class Event:
         return not self.__eq__(other)
 
     def __str__(self):
-        return 'Event(' \
-               + ', '.join('{}={}'.format(k, getattr(self, k)) for k in self.__slots__) \
-               + ')'
+        fields = ', '.join(f'{k}={getattr(self, k)}' for k in self.__slots__)
+        return f'Event({fields})'
 
     def __repr__(self):
         return self.__str__()
@@ -316,7 +313,7 @@ class EventLog:
 
     def __str__(self):
         items_str = ', \n'.join(str(x) for x in self)
-        return 'EventLog[{}](\n{}\n)'.format(len(self), items_str)
+        return f'EventLog[{len(self)}](\n{items_str}\n)'
 
     def __repr__(self):
         return self.__str__()

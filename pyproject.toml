@@ -1,3 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "pyzkaccess"
+version = "1.1"
+description = "Library and CLI tool for working with ZKTeco ZKAccess C3-100/200/400 controllers"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.8"
+authors = [
+    {name = "Igor Derkach", email = "gosha753951@gmail.com"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Telecommunications Industry",
+    "Intended Audience :: Customer Service",
+    "Topic :: System :: Hardware",
+]
+dependencies = [
+    "wrapt",
+    "fire",
+    "prettytable",
+]
+
+[project.urls]
+Homepage = "https://github.com/bdragon300/pyzkaccess"
+
+[project.scripts]
+pyzkaccess = "pyzkaccess.cli:main"
+
+[tool.setuptools.packages.find]
+exclude = ["tests", "docs"]
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "--cov=pyzkaccess --cov-report xml --cov-config=.coveragerc"
+
+[tool.coverage.run]
+omit = [
+    "pyzkaccess/cli.py",
+    "setup.py",
+]

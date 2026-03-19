@@ -42,7 +42,7 @@ class AuxInput(AuxInputInterface):
         return not self.__eq__(other)
 
     def __str__(self):
-        return "AuxInput[{}]".format(self.number)
+        return f"AuxInput[{self.number}]"
 
     def __repr__(self):
         return self.__str__()

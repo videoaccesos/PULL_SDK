@@ -170,13 +170,11 @@ class ZKDevice:
         for piece in pieces:
             tok, val = piece.split('=')
             if tok not in tokens_mapping:
-                raise ValueError("Unknown param '{}={}' found in device string '{}'".format(
-                    tok, val, device_line
-                ))
+                raise ValueError(f"Unknown param '{tok}={val}' found in device string '{device_line}'")
             res[tokens_mapping[tok]] = val  # {slot: value}
 
         if res.keys() != set(self.__slots__):
-            raise ValueError("Some keys was not found in device string '{}'".format(device_line))
+            raise ValueError(f"Some keys was not found in device string '{device_line}'")
 
         return res
 
@@ -188,7 +186,7 @@ class ZKDevice:
             if cls.name == model_name:
                 return cls
 
-        raise ValueError("Unknown device model '{}'".format(model_name))
+        raise ValueError(f"Unknown device model '{model_name}'")
 
     def __eq__(self, other):
         if isinstance(other, ZKDevice):
@@ -199,8 +197,8 @@ class ZKDevice:
         return not self.__eq__(other)
 
     def __str__(self):
-        params = ', '.join('{}={}'.format(k, getattr(self, k, '?')) for k in self.__slots__)
-        return 'Device[{}]({})'.format(self.model.name, params)
+        params = ', '.join(f'{k}={getattr(self, k, "?")}' for k in self.__slots__)
+        return f'Device[{self.model.name}]({params})'
 
     def __repr__(self):
         return self.__str__()

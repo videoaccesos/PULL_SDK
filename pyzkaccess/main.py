@@ -69,8 +69,7 @@ class ZKAccess:
 
         if device:
             if not connstr:
-                self.connstr = \
-                    'protocol=TCP,ipaddress={},port=4370,timeout=4000,passwd='.format(device.ip)
+                self.connstr = f'protocol=TCP,ipaddress={device.ip},port=4370,timeout=4000,passwd='
             if not device_model:
                 self.device_model = device.model
 
@@ -383,7 +382,7 @@ class ZKAccess:
         """
         if self.sdk.is_connected:
             if connstr != self.connstr:
-                raise ValueError('Please disconnect before connecting with other connstr')
+                raise ValueError("Please disconnect before connecting with other connstr")
             return
 
         self.connstr = connstr

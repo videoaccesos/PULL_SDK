@@ -103,11 +103,11 @@ class Field:
         """
         if not isinstance(value, self._field_datatype):
             raise TypeError(
-                'Bad value type {}, must be {}'.format(type(value), self._field_datatype)
+                f'Bad value type {type(value)}, must be {self._field_datatype}'
             )
 
         if not(self._validation_cb is None or self._validation_cb(value)):
-            raise ValueError('Value {} does not meet to field restrictions'.format(value))
+            raise ValueError(f'Value {value} does not meet to field restrictions')
 
         if isinstance(value, Enum):
             value = value.value
@@ -182,7 +182,7 @@ class ModelMeta(type):
                 attrs['_fields_mapping'][attr_name] = attr.raw_name
                 # Set field doc and annotations to correct render field
                 # in documentation
-                attrs[attr_name].__doc__ = '{}.{}'.format(name, attr_name)
+                attrs[attr_name].__doc__ = f'{name}.{attr_name}'
                 attrs['__annotations__'][attr_name] = attr.field_datatype
 
         klass = super(ModelMeta, mcs).__new__(mcs, name, bases, attrs)
@@ -213,7 +213,7 @@ class Model(metaclass=ModelMeta):
         if fields:
             unknown_fields = fields.keys() - fm.keys()
             if unknown_fields:
-                raise TypeError('Unknown fields: {}'.format(tuple(unknown_fields)))
+                raise TypeError(f'Unknown fields: {tuple(unknown_fields)}')
 
             self._raw_data = {
                 fm[field]: getattr(self.__class__, field).to_raw_value(fields.get(field))
@@ -295,7 +295,8 @@ class Model(metaclass=ModelMeta):
 
     def __repr__(self):
         data = ', '.join(
-            '{}={}'.format(f, self.raw_data.get(k))
+            f'{f}={self.raw_data.get(k)}'
             for f, k in sorted(self.fields_mapping().items())
         )
-        return '{}{}({})'.format('*' if self._dirty else '', self.__class__.__name__, data)
+        prefix = '*' if self._dirty else ''
+        return f'{prefix}{self.__class__.__name__}({data})'

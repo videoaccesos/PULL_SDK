@@ -47,7 +47,7 @@ class ZKSDK:
         if self.handle == 0:
             self.handle = None
             err = self.dll.PullLastError()
-            raise ZKSDKError("Unable to connect a device using connstr {}".format(connstr), err)
+            raise ZKSDKError(f"Unable to connect a device using connstr {connstr}", err)
 
     def disconnect(self) -> None:
         """Disconnect from a device
@@ -95,7 +95,7 @@ class ZKSDK:
             options_str
         )
         if err < 0:
-            raise ZKSDKError('ControlDevice failed for operation {}'.format(operation), err)
+            raise ZKSDKError(f'ControlDevice failed for operation {operation}', err)
 
         return err
 
@@ -186,7 +186,7 @@ class ZKSDK:
         parameters_copy = list(parameters)
         while parameters_copy:
             query_params = parameters_copy[:30]
-            query = ','.join(query_params).encode()
+            query = ",".join(query_params).encode()
             del parameters_copy[:30]
 
             err = self.dll.GetDeviceParam(self.handle, buf, buffer_size, query)
@@ -228,7 +228,7 @@ class ZKSDK:
         keys = list(sorted(parameters.keys()))
         while keys:
             query_keys = keys[:20]
-            query = ','.join('{}={}'.format(k, parameters[k]) for k in query_keys).encode()
+            query = ",".join(f"{k}={parameters[k]}" for k in query_keys).encode()
             del keys[:20]
 
             err = self.dll.SetDeviceParam(self.handle, query)
@@ -317,7 +317,7 @@ class ZKSDK:
         record = yield
         while record is not None:
             query_records.append(
-                '\t'.join('{}={}'.format(k, v) for k, v in record.items() if v is not None)
+                '\t'.join(f'{k}={v}' for k, v in record.items() if v is not None)
             )
             record = yield
 
@@ -388,7 +388,7 @@ class ZKSDK:
         record = yield
         while record is not None:
             query_records.append(
-                '\t'.join('{}={}'.format(k, v) for k, v in record.items() if v is not None)
+                '\t'.join(f'{k}={v}' for k, v in record.items() if v is not None)
             )
             record = yield
 
@@ -465,7 +465,7 @@ class ZKSDK:
             broadcast_address (str): network broadcast address
         """
         protocol = protocol.encode()
-        query_parameters = 'MAC={},IPAddress={}'.format(mac_address, new_ip_address).encode()
+        query_parameters = f'MAC={mac_address},IPAddress={new_ip_address}'.encode()
         broadcast_address = broadcast_address.encode()
 
         err = self.dll.ModifyIPAddress(protocol, broadcast_address, query_parameters)

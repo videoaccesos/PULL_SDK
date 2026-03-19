@@ -41,7 +41,7 @@ def _make_daylight_prop(query_name_spring, query_name_fall, minimum, maximum):
         res = self._sdk.get_device_param(parameters=(query,), buffer_size=self.buffer_size)
         res = int(res[query])
         if not(minimum <= res <= maximum):
-            raise ValueError('Value {} is not in range {}..{}'.format(res, minimum, maximum))
+            raise ValueError(f'Value {res} is not in range {minimum}..{maximum}')
 
         return res
 
@@ -50,7 +50,7 @@ def _make_daylight_prop(query_name_spring, query_name_fall, minimum, maximum):
         if not isinstance(value, int):
             raise TypeError('Bad value type, should be int')
         if not(minimum <= value <= maximum):
-            raise ValueError('Value {} is not in range {}..{}'.format(value, minimum, maximum))
+            raise ValueError(f'Value {value} is not in range {minimum}..{maximum}')
 
         self._sdk.set_device_param(parameters={query: str(value)})
 
@@ -75,8 +75,8 @@ class DaylightSavingMomentMode2:
 
     def __str__(self):
         pieces = 'month', 'week_of_month', 'day_of_week', 'hour', 'minute'
-        return '{}({})'.format(self.__class__.__name__,
-                               ', '.join('{}={}'.format(x, getattr(self, x)) for x in pieces))
+        fields = ', '.join(f'{x}={getattr(self, x)}' for x in pieces)
+        return f'{self.__class__.__name__}({fields})'
 
     def __repr__(self):
         return self.__str__()
@@ -100,8 +100,8 @@ def _make_prop(query_tpl: str,
             res = prop_type(res)
 
         if not(restriction_f is None or restriction_f(res)):
-            raise ValueError('Value {} does not meet to parameter restrictions, '
-                             'see property docstring and SDK documentation'.format(res))
+            raise ValueError(f'Value {res} does not meet to parameter restrictions, '
+                             'see property docstring and SDK documentation')
 
         return res
 
@@ -109,12 +109,12 @@ def _make_prop(query_tpl: str,
         # Check incoming value type. If prop_type is specified then
         # check against it, otherwise check against data_type
         if not isinstance(value, prop_type):
-            raise TypeError('Bad value type, should be {}'.format(prop_type))
+            raise TypeError(f'Bad value type, should be {prop_type}')
 
         # Pass original value to restriction function
         if not(restriction_f is None or restriction_f(value)):
-            raise ValueError('Value {} does not meet to parameter restrictions, '
-                             'see property docstring and SDK documentation'.format(value))
+            raise ValueError(f'Value {value} does not meet to parameter restrictions, '
+                             'see property docstring and SDK documentation')
 
         if issubclass(prop_type, Enum):
             value = value.value
@@ -132,7 +132,7 @@ def _make_prop(query_tpl: str,
         fget=read if readable else None,
         fset=write if writable else None,
         fdel=None,
-        doc='{} ({})'.format(doc, doc_readable_msg)
+        doc=f'{doc} ({doc_readable_msg})'
     )
 
 
@@ -226,18 +226,20 @@ class DeviceParameters(BaseParameters):
         res = self._sdk.get_device_param(parameters=('AntiPassback',), buffer_size=self.buffer_size)
         res = int(res['AntiPassback'])
         if res not in self.device_model.anti_passback_rules:
-            raise ValueError('Value {} not in possible values for {}: {}'.format(
-                res, self.device_model.name, self.device_model.anti_passback_rules.keys()
-            ))
+            raise ValueError(
+                f'Value {res} not in possible values for {self.device_model.name}: '
+                f'{self.device_model.anti_passback_rules.keys()}'
+            )
 
         return self.device_model.anti_passback_rules[res]
 
     @anti_passback_rule.setter
     def anti_passback_rule(self, value: int):
         if value not in self.device_model.anti_passback_rules:
-            raise ValueError('Value {} not in possible values for {}: {}'.format(
-                value, self.device_model.name, tuple(self.device_model.anti_passback_rules.keys())
-            ))
+            raise ValueError(
+                f'Value {value} not in possible values for {self.device_model.name}: '
+                f'{tuple(self.device_model.anti_passback_rules.keys())}'
+            )
         self._sdk.set_device_param(parameters={'AntiPassback': str(value)})
 
     @property
@@ -258,17 +260,19 @@ class DeviceParameters(BaseParameters):
 
         res = int(res['InterLock'])
         if res not in self.device_model.interlock_rules:
-            raise ValueError('Value {} not in possible values for {}: {}'.format(
-                res, self.device_model.name, self.device_model.interlock_rules.keys()
-            ))
+            raise ValueError(
+                f'Value {res} not in possible values for {self.device_model.name}: '
+                f'{self.device_model.interlock_rules.keys()}'
+            )
         return self.device_model.interlock_rules[res]
 
     @interlock.setter
     def interlock(self, value: int):
-        if value not in self.device_model.anti_passback_rules:
-            raise ValueError('Value {} not in possible values for {}: {}'.format(
-                value, self.device_model.name, self.device_model.anti_passback_rules.keys()
-            ))
+        if value not in self.device_model.interlock_rules:
+            raise ValueError(
+                f'Value {value} not in possible values for {self.device_model.name}: '
+                f'{tuple(self.device_model.interlock_rules.keys())}'
+            )
         self._sdk.set_device_param(parameters={'InterLock': str(value)})
 
     @property
