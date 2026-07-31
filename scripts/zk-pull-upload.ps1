@@ -22,6 +22,7 @@ $StatusMap = @{
 $SystemEvents = @(200,201,202,204,205,206,220,221,255)
 function Status([int]$e){ if($StatusMap.ContainsKey($e)){$StatusMap[$e]}else{'otro'} }
 
+if (-not ("Pull" -as [type])) {
 Add-Type @"
 using System;
 using System.Runtime.InteropServices;
@@ -33,6 +34,7 @@ public static class Pull {
   [DllImport("plcommpro.dll")] public static extern int PullLastError();
 }
 "@
+}
 
 function Read-Buf($b){ $i=[Array]::IndexOf($b,[byte]0); if($i -lt 0){$i=$b.Length}; [Text.Encoding]::UTF8.GetString($b,0,$i) }
 function ZKTime([long]$v){
