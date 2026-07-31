@@ -71,25 +71,39 @@ el **`Pin`**, no el `Cardno` crudo del evento.
 
 ---
 
-## Soporte ADMS / PUSH
+## Soporte ADMS / PUSH — DESCARTADO (probado empíricamente)
 
-- Los parámetros `WebServerIP`, `WebServerPort`, `EnableServerMode`, `ServerName`
-  **existen** en el firmware (respondieron vacíos, sin error) →
-  **este C3-400 soporta modo servidor / ADMS (PUSH)**, aunque no está configurado.
-- Implica que hay **dos arquitecturas viables** (ver abajo).
+- Los parámetros `WebServerIP`, `WebServerPort`, `EnableServerMode` **existen** en
+  el firmware (se pueden leer y escribir sin error), pero:
+- **Prueba real:** se configuró el panel para postear a un servidor público
+  (`50.62.182.131:8085`, alcanzable desde internet, verificado), y con
+  `EnableServerMode=1` + gateway válido (`192.168.1.254`) + **reinicio limpio**,
+  el panel **NUNCA conectó** al servidor (cero requests con `SN=CO2L223260020`).
+- `PushProtVer` y `ServerVer` quedaron **vacíos** → el stack de push no se activa.
+- **Conclusión: este C3-400 (firmware AC 18.1.1.0001) es PULL-only.** Los
+  parámetros ADMS son vestigiales; el push (iclock) no está implementado para
+  este panel de control de acceso.
+- El trabajo de PUSH (`iclock_catcher.py`) queda reutilizable **solo si** en el
+  futuro se agregan terminales biométricas standalone (esas sí hacen ADMS nativo).
+
+**Decisión de arquitectura: se adopta PULL.**
 
 ---
 
-## Decisión de arquitectura pendiente
+## Decisión de arquitectura: PULL (PUSH descartado)
 
-| | **PULL** (validado) | **PUSH / ADMS** (viable) |
+| | **PULL** (ADOPTADO) | **PUSH / ADMS** (descartado) |
 |---|---|---|
 | Inicia | La PC jala del panel (DLL 32-bit) | El dispositivo postea al servidor |
 | Tiempo real | No (botón/polling) | Sí (automático) |
 | PC local en LAN | Necesaria | No hace falta |
 | Invasividad | Read-only, convive con ZKAccess | Reconfigura el equipo (servidor ADMS) |
-| Lado servidor | Ya resuelto | videoaccesos debe implementar protocolo iclock/ADMS |
-| Estado | **Probado end-to-end** | Params presentes; falta prueba controlada |
+| Estado | **Probado end-to-end** | **Probado: el C3 no lo implementa** |
+
+### Cierre de la implementación PULL (pendiente)
+1. Payload de lecturas con **`Pin`** como identificador (no `Cardno`).
+2. Subida al servidor en **lotes** (endpoint + token de videoaccesos).
+3. Disparo del botón por **MQTT** (broker del CaptureAgent).
 
 ---
 
