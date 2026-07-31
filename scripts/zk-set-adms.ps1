@@ -5,8 +5,8 @@
 
 $sdk="C:\agente-zk"; $ip="192.168.1.151"
 $mode        = "on"              # "on" = apuntar al catcher | "off" = revertir
-$catcherIp   = "192.168.1.50"    # <-- IP de la PC que corre iclock-catcher (cambiar)
-$catcherPort = 8080
+$catcherIp   = "50.62.182.131"   # servidor Ubuntu publico de videoaccesos
+$catcherPort = 8085
 
 Add-Type @"
 using System; using System.Runtime.InteropServices;
