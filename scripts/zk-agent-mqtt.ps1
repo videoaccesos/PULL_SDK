@@ -3,7 +3,7 @@
 # Ejecutar en PowerShell de 32 bits. Debe quedarse corriendo (ventana o tarea).
 
 # ---------------- Config ----------------
-$sdk       = "$env:USERPROFILE\Downloads\ZKAccess_Overseas_3.5.3.14\NewSDK"
+$sdk       = "C:\agente-zk"
 $ip        = "192.168.1.151"
 $siteId    = "INTERLOMAS"
 $WindowSec = 300

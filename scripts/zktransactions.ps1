@@ -1,7 +1,7 @@
 # zktransactions.ps1 - baja la tabla 'transaction', decodifica el tiempo y
 # deduplica numeros de tarjeta por ventana. Ejecutar en PowerShell de 32 bits.
 
-$sdk = "$env:USERPROFILE\Downloads\ZKAccess_Overseas_3.5.3.14\NewSDK"
+$sdk = "C:\agente-zk"
 $ip  = "192.168.1.151"
 $WindowSec = 300   # ventana de dedup: misma tarjeta dentro de 5 min = 1 registro
 

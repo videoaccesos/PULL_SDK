@@ -2,7 +2,7 @@
 # Pensado para dispararse desde un boton. Ejecutar en PowerShell de 32 bits.
 
 # --- Config ---
-$sdk       = "$env:USERPROFILE\Downloads\ZKAccess_Overseas_3.5.3.14\NewSDK"
+$sdk       = "C:\agente-zk"
 $ip        = "192.168.1.151"
 $siteId    = "INTERLOMAS"
 $server    = ""   # p.ej. "https://api.videoaccesos.com/api/zk/lecturas"  (vacio = guarda a archivo)

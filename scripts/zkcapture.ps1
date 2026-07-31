@@ -1,7 +1,7 @@
 # zkcapture.ps1 - captura autonoma de lecturas y tarjetas de un panel ZKAccess C3
 # Ejecutar en PowerShell de 32 bits. Ajusta $sdk e $ip si cambian.
 
-$sdk = "$env:USERPROFILE\Downloads\ZKAccess_Overseas_3.5.3.14\NewSDK"
+$sdk = "C:\agente-zk"
 $ip  = "192.168.1.151"
 
 Add-Type @"
