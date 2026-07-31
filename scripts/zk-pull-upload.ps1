@@ -50,28 +50,31 @@ if ($rc -lt 0){ Write-Host "GetDeviceData error: $rc (si -106: tabla >4MB, hay q
 
 $lines = (Read-Buf $b) -split "`r`n" | Where-Object {$_}
 $headers = $lines[0] -split ","
-$iCard=[Array]::IndexOf($headers,"Cardno"); $iTime=[Array]::IndexOf($headers,"Time_second")
+$iCard=[Array]::IndexOf($headers,"Cardno"); $iPin=[Array]::IndexOf($headers,"Pin"); $iTime=[Array]::IndexOf($headers,"Time_second")
 $iEvt=[Array]::IndexOf($headers,"EventType"); $iDoor=[Array]::IndexOf($headers,"DoorID"); $iIO=[Array]::IndexOf($headers,"InOutState")
 
 # Solo NUEVOS (T > cursor)
 $rows = foreach($l in ($lines | Select-Object -Skip 1)){
   $c = $l -split ","; $t=[long]$c[$iTime]
-  if ($t -gt $cursor){ [pscustomobject]@{ Card=$c[$iCard]; T=$t; Evt=$c[$iEvt]; Door=$c[$iDoor]; IO=$c[$iIO] } }
+  if ($t -gt $cursor){ [pscustomobject]@{ Pin=$c[$iPin]; Card=$c[$iCard]; T=$t; Evt=$c[$iEvt]; Door=$c[$iDoor]; IO=$c[$iIO] } }
 }
 Write-Host "Lecturas nuevas: $($rows.Count)" -ForegroundColor Cyan
 if (-not $rows){ Write-Host "Nada nuevo que subir." -ForegroundColor Yellow; return }
 
-# Dedup: misma tarjeta dentro de la misma ventana = 1 (nos quedamos con la mas reciente)
-$clean = $rows | Group-Object { "{0}|{1}" -f $_.Card, [math]::Floor($_.T/$WindowSec) } |
+# Dedup: mismo residente (Pin) dentro de la misma ventana = 1 (la mas reciente).
+# Si Pin=0 (tarjeta no enrolada) se agrupa por Card para no mezclar distintas.
+$clean = $rows | Group-Object { $k = if($_.Pin -ne '0'){"p"+$_.Pin}else{"c"+$_.Card}; "{0}|{1}" -f $k, [math]::Floor($_.T/$WindowSec) } |
          ForEach-Object { $_.Group | Sort-Object T -Descending | Select-Object -First 1 }
 Write-Host "Tras dedup (ventana ${WindowSec}s): $($clean.Count)" -ForegroundColor Green
 
-# Payload
+# Payload - la LLAVE es Pin (identifica al residente via padron); card_raw solo referencia.
 $lecturas = $clean | Sort-Object T | ForEach-Object {
+  $idKey = if($_.Pin -ne '0'){$_.Pin}else{$_.Card}
   [pscustomobject]@{
-    event_key = "{0}|{1}|{2}" -f $ip, $_.Card, $_.T
+    event_key = "{0}|{1}|{2}" -f $siteId, $idKey, $_.T
     timestamp = ZKTime $_.T
-    card      = $_.Card
+    pin       = $_.Pin
+    card_raw  = $_.Card
     door      = [int]$_.Door
     event_type= [int]$_.Evt
     direction = @('entry','exit','none')[[int]$_.IO]
