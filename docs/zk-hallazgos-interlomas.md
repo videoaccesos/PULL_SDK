@@ -60,6 +60,13 @@ Hallazgo central (validado con 222 lecturas concedidas):
 (`user.Pin` → `CardNo`)**. El payload de lecturas hacia videoaccesos debe llevar
 el **`Pin`**, no el `Cardno` crudo del evento.
 
+**Confirmación adicional (§5.2 del contrato Guardian):** en el padrón,
+**`CardNo == Pin`** para los residentes verificados (16188447, 7516148,
+13406788). Es decir, el `pin` **ES el número de tarjeta enrolado** → cruza directo
+contra `tarjetas.lectura` de la plataforma. No se requiere enriquecer el payload
+con un tercer valor. `card_raw` queda solo como diagnóstico (el panel ya hizo el
+match y registró el `pin` autoritativo).
+
 ---
 
 ## Reloj del panel
