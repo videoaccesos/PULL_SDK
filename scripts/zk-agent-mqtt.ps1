@@ -22,7 +22,7 @@ $cursorFile = "$sdk\zk-cursor-$($ip.Replace('.','_')).txt"
 # MQTT
 $mqttHost   = "50.62.182.131"
 $mqttPort   = 1883
-$mqttUser   = "maestro"
+$mqttUser   = "admin"
 $clientId   = "zk-agent-$siteId-$PID"   # unico por proceso: evita colision de clientId
 $cmdTopic   = "zk/$siteId/cmd/pull"
 $statusTopic= "zk/$siteId/status"
