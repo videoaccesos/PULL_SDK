@@ -8,7 +8,10 @@ $sdk       = "C:\agente-zk"
 $ip        = "192.168.1.151"
 $siteId    = "INTERLOMAS"
 $server    = "https://accesoswhatsapp.info/api/zk/lecturas"   # URL de Guardian (HTTPS)
-$token     = ""     # X-Agent-Token del sitio (entregado fuera de banda). Vacio => 401.
+# Token: NUNCA en el script (esto se versiona). Se lee de variable de entorno
+# ZK_AGENT_TOKEN o de un archivo local C:\agente-zk\token.txt (fuera de git).
+$token = $env:ZK_AGENT_TOKEN
+if (-not $token -and (Test-Path "$sdk\token.txt")) { $token = (Get-Content "$sdk\token.txt" -Raw).Trim() }
 $WindowSec = 5      # relecturas de la misma tarjeta dentro de esta ventana = 1
 $BatchSize = 500    # lecturas por request (max 1000 en Guardian)
 $cursorFile = "$sdk\zk-cursor-$($ip.Replace('.','_')).txt"
@@ -42,6 +45,8 @@ function ZKTime([long]$v){
   $h=[math]::Floor($v/3600)%24; $mi=[math]::Floor($v/60)%60; $s=$v%60
   '{0:d4}-{1:d2}-{2:d2} {3:d2}:{4:d2}:{5:d2}' -f [int]$y,[int]$mo,[int]$d,[int]$h,[int]$mi,[int]$s
 }
+function NowZK { $d=[datetime]::Now; [long]((((($d.Year-2000)*12*31)+($d.Month-1)*31+($d.Day-1))*86400)+$d.Hour*3600+$d.Minute*60+$d.Second) }
+$GuardSec = 10   # no finalizar lecturas de los ultimos N seg (evita partir un cruce en 2 lotes)
 
 [Pull]::SetDllDirectory($sdk) | Out-Null
 $h = [Pull]::Connect("protocol=TCP,ipaddress=$ip,port=4370,timeout=4000,passwd=")
@@ -65,12 +70,14 @@ if (-not (Test-Path $cursorFile)) {
   return
 }
 $cursor = [long](Get-Content $cursorFile -Raw).Trim()
-Write-Host "Cursor previo: $cursor" -ForegroundColor DarkGray
+$allMax = ($lines | Select-Object -Skip 1 | ForEach-Object { [long](($_ -split ",")[$iTime]) } | Measure-Object -Maximum).Maximum
+$cap = [Math]::Max($allMax, (NowZK)) - $GuardSec   # no finalizar lecturas de los ultimos $GuardSec seg
+Write-Host "Cursor previo: $cursor (corte en $cap)" -ForegroundColor DarkGray
 
-# Nuevos (T > cursor), excluyendo eventos de sistema
+# Nuevos (cursor < T <= cap), excluyendo eventos de sistema
 $rows = foreach($l in ($lines | Select-Object -Skip 1)){
   $c = $l -split ","; $t=[long]$c[$iTime]; $e=[int]$c[$iEvt]
-  if ($t -gt $cursor -and $SystemEvents -notcontains $e){
+  if ($t -gt $cursor -and $t -le $cap -and $SystemEvents -notcontains $e){
     [pscustomobject]@{ Pin=$c[$iPin]; Card=$c[$iCard]; T=$t; Evt=$e; Door=$c[$iDoor]; IO=$c[$iIO] }
   }
 }
