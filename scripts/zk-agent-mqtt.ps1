@@ -132,7 +132,8 @@ function Connect-Mqtt {
   $c = New-Object uPLibrary.Networking.M2Mqtt.MqttClient($mqttHost, [int]$mqttPort, $false, $null, $null, [uPLibrary.Networking.M2Mqtt.MqttSslProtocols]::None)
   $willMsg = '{"agent":"' + $clientId + '","state":"offline"}'
   # keepAlive 30s (ping frecuente para no caer por idle de NAT/broker)
-  $c.Connect($clientId, $mqttUser, $mqttPass, $true, [byte]1, $true, $statusTopic, $willMsg, $true, 30) | Out-Null
+  $code = $c.Connect($clientId, $mqttUser, $mqttPass, $true, [byte]1, $true, $statusTopic, $willMsg, $true, 30)
+  if ($code -ne 0) { throw "CONNACK=$code (0=ok, 2=clientId rechazado, 4=usuario/pass invalido, 5=no autorizado)" }
   Register-ObjectEvent -InputObject $c -EventName MqttMsgPublishReceived -MessageData $sync -Action {
     $Event.MessageData.pending = $true
   } | Out-Null
@@ -147,7 +148,7 @@ while ($true) {
   if (-not $client.IsConnected) {
     Write-Host "$(Get-Date -Format s) MQTT desconectado; reintentando en 5s..." -ForegroundColor Yellow
     Start-Sleep 5
-    try { $client = Connect-Mqtt } catch { continue }
+    try { $client = Connect-Mqtt } catch { Write-Host "  Fallo conexion: $($_.Exception.Message)" -ForegroundColor Red; continue }
   }
   if ($sync.pending) {
     $sync.pending = $false
