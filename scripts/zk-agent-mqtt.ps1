@@ -131,7 +131,8 @@ $sync = [hashtable]::Synchronized(@{ pending=$false })
 function Connect-Mqtt {
   $c = New-Object uPLibrary.Networking.M2Mqtt.MqttClient($mqttHost, [int]$mqttPort, $false, $null, $null, [uPLibrary.Networking.M2Mqtt.MqttSslProtocols]::None)
   $willMsg = '{"agent":"' + $clientId + '","state":"offline"}'
-  $c.Connect($clientId, $mqttUser, $mqttPass, $true, [byte]1, $true, $statusTopic, $willMsg, $true, 60) | Out-Null
+  # keepAlive 30s (ping frecuente para no caer por idle de NAT/broker)
+  $c.Connect($clientId, $mqttUser, $mqttPass, $true, [byte]1, $true, $statusTopic, $willMsg, $true, 30) | Out-Null
   Register-ObjectEvent -InputObject $c -EventName MqttMsgPublishReceived -MessageData $sync -Action {
     $Event.MessageData.pending = $true
   } | Out-Null
