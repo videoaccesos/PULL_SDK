@@ -88,6 +88,21 @@ el **`Pin`**, no el `Cardno` crudo del evento.
 
 **Decisión de arquitectura: se adopta PULL.**
 
+## ✅ Validación end-to-end en producción (2026-07-31)
+
+Circuito completo probado con lecturas reales:
+`panel C3 → agente PowerShell (lee transaction) → limpieza 5s → clasificación por
+estatus → POST → receptor en Ubuntu (50.62.182.131:8085) → ACK`.
+
+- Una corrida real: **29 lecturas crudas → 6 tras limpieza** (relecturas del cruce
+  colapsadas con ventana deslizante de 5 s por tarjeta).
+- Cada lectura con `pin`, `estatus` (autorizada/desconocida/rechazada/...), `timestamp`.
+- Sin duplicados: cursor local (`Time_second`) + `event_key` idempotente en el server.
+- Llave `Pin` confirmada en vivo (ej. `card_raw 942749233` → `pin 16188447`).
+
+Pendiente para producción: receptor real en videoaccesos-app (mapeo
+`pin → residente → vehículo`), token por sitio, disparo (botón/cron) y multi-sitio.
+
 ---
 
 ## Decisión de arquitectura: PULL (PUSH descartado)
